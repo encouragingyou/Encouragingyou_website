@@ -1,0 +1,8 @@
+{
+  "name": "encouraging-you-launch-site",
+  "private": true,
+  "scripts": {
+    "build:images": "bash scripts/build-images.sh",
+    "serve": "python3 -m http.server 4173"
+  }
+}

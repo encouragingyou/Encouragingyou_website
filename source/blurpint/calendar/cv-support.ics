@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EncouragingYou//CV Support Session//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:EncouragingYou CV Support Session
+X-WR-TIMEZONE:Europe/London
+BEGIN:VEVENT
+UID:encouragingyou-cv-support@encouragingyou.co.uk
+DTSTAMP:20260422T120000Z
+DTSTART;TZID=Europe/London:20260425T164500
+DTEND;TZID=Europe/London:20260425T184500
+RRULE:FREQ=WEEKLY;BYDAY=SA
+SUMMARY:EncouragingYou CV Support Session
+DESCRIPTION:One-to-one help with CVs\, job applications\, and practical next steps in Rochdale.
+LOCATION:Rochdale
+END:VEVENT
+END:VCALENDAR
