@@ -2,14 +2,77 @@
 interface Props {
   name: string;
   tag: string;
+  showTag?: boolean;
 }
 
-const { tag } = Astro.props;
+const { tag, showTag = true } = Astro.props;
+
+const brandIconSizes = "62px";
+const brandWordmarkSizes = "180px";
+
+const brandIconPngSrcset = [
+  "/brand/encouragingyou-mark-64.png 64w",
+  "/brand/encouragingyou-mark-128.png 128w",
+  "/brand/encouragingyou-mark-192.png 192w"
+].join(", ");
+
+const brandIconWebpSrcset = [
+  "/brand/encouragingyou-mark-64.webp 64w",
+  "/brand/encouragingyou-mark-128.webp 128w",
+  "/brand/encouragingyou-mark-192.webp 192w"
+].join(", ");
+
+const brandWordmarkPngSrcset = [
+  "/brand/encouragingyou-wordmark-180.png 180w",
+  "/brand/encouragingyou-wordmark-360.png 360w",
+  "/brand/encouragingyou-wordmark-544.png 544w"
+].join(", ");
+
+const brandWordmarkWebpSrcset = [
+  "/brand/encouragingyou-wordmark-180.webp 180w",
+  "/brand/encouragingyou-wordmark-360.webp 360w",
+  "/brand/encouragingyou-wordmark-544.webp 544w"
+].join(", ");
 ---
 
 <span class="brand-mark">
-  <span class="brand-mark__name">
-    Encouraging<span>You</span>
+  <picture class="brand-mark__icon-frame">
+    <source
+      type="image/webp"
+      srcset={brandIconWebpSrcset}
+      sizes={brandIconSizes}
+    />
+    <img
+      class="brand-mark__icon"
+      src="/brand/encouragingyou-mark.png"
+      srcset={brandIconPngSrcset}
+      sizes={brandIconSizes}
+      alt=""
+      width="558"
+      height="456"
+      aria-hidden="true"
+      decoding="async"
+    />
+  </picture>
+  <span class="brand-mark__lockup">
+    <picture class="brand-mark__wordmark-frame">
+      <source
+        type="image/webp"
+        srcset={brandWordmarkWebpSrcset}
+        sizes={brandWordmarkSizes}
+      />
+      <img
+        class="brand-mark__wordmark"
+        src="/brand/encouragingyou-wordmark.png"
+        srcset={brandWordmarkPngSrcset}
+        sizes={brandWordmarkSizes}
+        alt=""
+        width="544"
+        height="78"
+        aria-hidden="true"
+        decoding="async"
+      />
+    </picture>
+    {showTag ? <span class="brand-mark__tag">{tag}</span> : null}
   </span>
-  <span class="brand-mark__tag">{tag}</span>
 </span>

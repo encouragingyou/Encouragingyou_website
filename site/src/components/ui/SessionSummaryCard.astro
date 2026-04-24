@@ -53,12 +53,12 @@ const actions = [
       <MediaIcon asset={icon} className="card-panel__icon session-card__icon" />
       <div class="session-card__title-wrap">
         <p class="eyebrow">Recurring session</p>
-        <h3>{title}</h3>
+        <h3 class="session-card__title">{title}</h3>
       </div>
     </div>
     <Badge label={timeLabel} tone="meta" className="meta-pill" />
   </div>
-  <p>{summary}</p>
+  <p class="session-card__summary">{summary}</p>
   {
     secondaryLine ? (
       <p class="session-card__next">

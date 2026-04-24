@@ -22,7 +22,7 @@ const { eyebrow, title, summary, items } = Astro.props;
 ---
 
 <div class="home-trust-strip" data-home-section="trust-strip">
-  <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+  <SectionHeading eyebrow={eyebrow} title={title} summary={summary} width="standalone" />
   <div class="home-trust-strip__grid trust-grid layout-grid layout-grid--cards">
     {
       items.map((item) => (

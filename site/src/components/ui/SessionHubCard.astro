@@ -66,7 +66,7 @@ const actions = [
       <MediaIcon asset={icon} className="card-panel__icon session-card__icon" />
       <div class="session-hub-card__heading-copy">
         <p class="eyebrow">Live session</p>
-        <h3>{title}</h3>
+        <h3 class="session-hub-card__title">{title}</h3>
       </div>
     </div>
     <a class="session-hub-card__programme" href={programmeAction.href}>
@@ -83,7 +83,7 @@ const actions = [
     ]}
   />
 
-  <p class="card-panel__summary">{summary}</p>
+  <p class="card-panel__summary session-hub-card__summary">{summary}</p>
 
   {
     bullets.length > 0 ? (

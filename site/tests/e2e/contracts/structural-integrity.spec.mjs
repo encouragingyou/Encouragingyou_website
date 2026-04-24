@@ -1,5 +1,7 @@
 import {
   assertLandmarkOrder,
+  assertImageLoaded,
+  assertNoHorizontalOverflow,
   assertShellLandmarks,
   assertSingleH1,
   gotoRoute
@@ -43,6 +45,17 @@ test("primary shell destinations resolve without 404s", async ({
     page.getByRole("contentinfo").getByRole("link", { name: "Privacy Notice" })
   ).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Utility" }).first()).toBeVisible();
+  await expect(page.locator(".site-header__brand .brand-mark__icon")).toHaveAttribute(
+    "src",
+    /\/brand\/encouragingyou-mark\.png$/u
+  );
+  await expect(page.locator(".site-footer__brand .brand-mark__icon")).toHaveAttribute(
+    "src",
+    /\/brand\/encouragingyou-mark\.png$/u
+  );
+  await assertImageLoaded(page.locator(".site-header__brand .brand-mark__icon"));
+  await assertImageLoaded(page.locator(".site-footer__brand .brand-mark__icon"));
+  await assertNoHorizontalOverflow(page);
 
   void pageIssues;
 });

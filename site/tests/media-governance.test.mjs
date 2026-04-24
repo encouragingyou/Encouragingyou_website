@@ -59,7 +59,7 @@ test("AI illustration notices expose prominent, compact, and sitewide variants",
   assert.equal(cardDisclosure?.variant, "compact");
   assert.equal(
     sitewideDisclosure,
-    "Illustrations on this launch site are AI-generated unless stated otherwise."
+    "Illustrations on this launch site are created artwork unless stated otherwise and do not depict real participants."
   );
 });
 

@@ -28,8 +28,8 @@ const { title, summary, href, media, disclosure, tags, ctaLabel } = Astro.props;
     {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
   </div>
   <div class="programme-card__body">
-    <h3>{title}</h3>
-    <p>{summary}</p>
+    <h3 class="programme-card__title">{title}</h3>
+    <p class="programme-card__summary">{summary}</p>
     <BadgeRow
       items={tags.map((tag) => ({
         label: tag,

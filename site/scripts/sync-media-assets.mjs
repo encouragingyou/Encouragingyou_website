@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 import mediaLibrary from "../src/content/mediaLibrary/default.json" with { type: "json" };
+import { optimizeBrandAssets } from "./lib/brand-assets.mjs";
 
 const siteRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const repoRoot = resolve(siteRoot, "..");
@@ -116,6 +117,14 @@ for (const asset of mediaLibrary.assets) {
   for (const render of renders) {
     console.log(`[media-sync] ${asset.id} -> ${render.targetPath}`);
   }
+}
+
+const brandRenders = await optimizeBrandAssets({ siteRoot });
+
+for (const render of brandRenders) {
+  console.log(
+    `[media-sync] ${render.id} ${render.width}w ${render.format} -> ${render.targetPath}`
+  );
 }
 
 await mkdir(dirname(buildReportPath), { recursive: true });

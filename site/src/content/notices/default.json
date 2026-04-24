@@ -2,12 +2,12 @@
   "notices": [
     {
       "id": "ai-illustration",
-      "title": "AI illustration disclosure",
+      "title": "Illustration disclosure",
       "text": "Launch illustration, not participant photography.",
       "variants": {
         "prominent": "Launch illustration, not participant photography.",
         "compact": "Launch illustration, not participant photography.",
-        "sitewide": "Illustrations on this launch site are AI-generated unless stated otherwise."
+        "sitewide": "Illustrations on this launch site are created artwork unless stated otherwise and do not depict real participants."
       },
       "appliesTo": ["illustration", "home", "about", "programmes", "get-involved"],
       "severity": "info"

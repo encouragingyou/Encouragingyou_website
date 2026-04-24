@@ -24,13 +24,26 @@ interface Props {
   note?: Note;
   summary?: string;
   title: string;
+  headingWidth?: "default" | "standalone";
 }
 
-const { eyebrow = "", items, note, summary, title } = Astro.props;
+const {
+  eyebrow = "",
+  items,
+  note,
+  summary,
+  title,
+  headingWidth = "default"
+} = Astro.props;
 ---
 
 <section class="involvement-info-section">
-  <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+  <SectionHeading
+    eyebrow={eyebrow}
+    title={title}
+    summary={summary}
+    width={headingWidth}
+  />
 
   <div class="layout-grid layout-grid--cards">
     {

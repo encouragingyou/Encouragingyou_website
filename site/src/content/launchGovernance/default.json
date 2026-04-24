@@ -80,8 +80,8 @@
     },
     {
       "id": "ai-art-disclosure",
-      "title": "AI illustration disclosure",
-      "description": "Illustration-led contexts must disclose that images are AI-generated and not participant photography.",
+      "title": "Illustration disclosure",
+      "description": "Illustration-led contexts must disclose that images are representative artwork and not participant photography.",
       "requiredByLaunch": true,
       "pageIds": ["home", "about", "programmes", "get-involved"],
       "blockerIfMissing": false

@@ -24,9 +24,14 @@ interface Props {
 const { eyebrow, notice, steps, summary, title } = Astro.props;
 ---
 
-<section class="involvement-process">
+<section class={`involvement-process${notice ? " involvement-process--with-aside" : ""}`}>
   <div class="involvement-process__body">
-    <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      summary={summary}
+      width={notice ? "default" : "standalone"}
+    />
 
     <ol class="involvement-process__list">
       {

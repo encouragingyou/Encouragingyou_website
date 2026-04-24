@@ -22,7 +22,12 @@ const { eyebrow, items, summary, title } = Astro.props;
 {
   items.length > 0 ? (
     <div class="editorial-related">
-      <SectionHeading eyebrow={eyebrow ?? ""} title={title} summary={summary} />
+      <SectionHeading
+        eyebrow={eyebrow ?? ""}
+        title={title}
+        summary={summary}
+        width="standalone"
+      />
       <div class="layout-grid layout-grid--cards detail-grid">
         {items.map((item) => (
           <CardPanel

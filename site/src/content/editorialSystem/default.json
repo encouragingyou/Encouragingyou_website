@@ -214,13 +214,13 @@
     {
       "id": "ai-disclosure",
       "context": "Illustration-led hero and feature sections",
-      "intent": "Disclose AI-generated visuals without derailing the route.",
+      "intent": "Disclose representative illustration-led visuals without derailing the route.",
       "structure": [
         "Keep the notice visible near the image-led section.",
         "State that real, consented photography is preferred for trust-critical future use.",
         "Avoid defensive or overlong explanation."
       ],
-      "approvedMoves": ["AI illustration disclosure"],
+      "approvedMoves": ["Illustration disclosure"],
       "avoid": [
         "Hiding the disclosure in unrelated copy.",
         "Pretending the media is documentary photography."

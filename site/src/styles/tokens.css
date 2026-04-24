@@ -111,6 +111,7 @@
     --measure-prose: 68ch;
     --measure-copy: 42rem;
     --measure-lede: 34rem;
+    --measure-section-intro-standalone: 68rem;
 
     --container: min(100% - 2rem, 74rem);
     --container-wide: min(100% - 2rem, 84rem);

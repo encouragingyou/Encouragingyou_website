@@ -57,9 +57,9 @@
     },
     {
       "id": "ai-disclosure",
-      "label": "AI illustration disclosure",
+      "label": "Illustration disclosure",
       "iconAssetId": "icon-contact",
-      "summary": "Illustration-heavy sections should disclose that AI artwork is being used for launch and is not participant photography.",
+      "summary": "Illustration-heavy sections should disclose that representative artwork is being used for launch and is not participant photography.",
       "verificationStatus": "implemented-in-prototype",
       "nonNegotiableForLaunch": true,
       "displayContexts": [
