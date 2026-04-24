@@ -48,9 +48,11 @@ function normalizeSurface(value) {
 export function resolveDeploymentChannel({
   deploymentChannel = globalThis.process?.env?.DEPLOYMENT_CHANNEL,
   isPullRequest = globalThis.process?.env?.IS_PULL_REQUEST,
-  isRender = globalThis.process?.env?.RENDER
+  isRender = globalThis.process?.env?.RENDER,
+  isVercel = globalThis.process?.env?.VERCEL,
+  vercelEnv = globalThis.process?.env?.VERCEL_ENV
 } = {}) {
-  if (isPullRequest === "true") {
+  if (isPullRequest === "true" || vercelEnv === "preview") {
     return "preview";
   }
 
@@ -60,7 +62,12 @@ export function resolveDeploymentChannel({
     return explicitChannel;
   }
 
-  if (isRender === "true") {
+  if (
+    isRender === "true" ||
+    vercelEnv === "production" ||
+    isVercel === "1" ||
+    isVercel === "true"
+  ) {
     return "production";
   }
 
@@ -70,7 +77,8 @@ export function resolveDeploymentChannel({
 export function resolveDeploymentSurface({
   deploymentSurface = globalThis.process?.env?.DEPLOYMENT_SURFACE,
   deploymentChannel = resolveDeploymentChannel(),
-  isRender = globalThis.process?.env?.RENDER
+  isRender = globalThis.process?.env?.RENDER,
+  isVercel = globalThis.process?.env?.VERCEL
 } = {}) {
   const explicitSurface = normalizeSurface(deploymentSurface);
 
@@ -82,7 +90,7 @@ export function resolveDeploymentSurface({
     return "shared";
   }
 
-  if (isRender === "true") {
+  if (isRender === "true" || isVercel === "1" || isVercel === "true") {
     return "public";
   }
 
@@ -91,11 +99,17 @@ export function resolveDeploymentSurface({
 
 export function resolvePublicSiteUrl({
   siteUrl = globalThis.process?.env?.SITE_URL,
-  renderExternalUrl = globalThis.process?.env?.RENDER_EXTERNAL_URL
+  renderExternalUrl = globalThis.process?.env?.RENDER_EXTERNAL_URL,
+  vercelProjectProductionUrl = globalThis.process?.env?.VERCEL_PROJECT_PRODUCTION_URL,
+  vercelUrl = globalThis.process?.env?.VERCEL_URL
 } = {}) {
   return (
     normalizeAbsoluteUrl(siteUrl) ??
     normalizeAbsoluteUrl(renderExternalUrl) ??
+    normalizeAbsoluteUrl(
+      vercelProjectProductionUrl ? `https://${vercelProjectProductionUrl}` : null
+    ) ??
+    normalizeAbsoluteUrl(vercelUrl ? `https://${vercelUrl}` : null) ??
     siteSettings.siteUrl
   );
 }

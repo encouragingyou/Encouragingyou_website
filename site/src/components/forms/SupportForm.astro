@@ -1,10 +1,12 @@
 ---
 import {
   ENQUIRY_ENDPOINT_PATH,
+  resolveEnquiryDeliveryMode,
   readEnquiryStatus
 } from "../../lib/forms/enquiry-contract.js";
 import { getEnquiryFeedbackMessage } from "../../lib/forms/enquiry-feedback.js";
 import Button from "../ui/Button.astro";
+import ButtonLink from "../ui/ButtonLink.astro";
 import CardPanel from "../ui/CardPanel.astro";
 import CheckboxField from "../ui/CheckboxField.astro";
 import FormField from "../ui/FormField.astro";
@@ -42,6 +44,7 @@ interface Props {
   contextId?: string | null;
   reasonFieldMode?: "select" | "hidden";
   showUpdatesOptIn?: boolean;
+  deliveryMode?: "secure" | "email";
 }
 
 const {
@@ -70,13 +73,17 @@ const {
   contextId = null,
   reasonFieldMode = "select",
   showUpdatesOptIn = true,
+  deliveryMode = resolveEnquiryDeliveryMode(),
   submitLabel = "Send message"
 } = Astro.props;
 const panelId = id ?? `${surfaceId}-form`;
 const serializedReasons = JSON.stringify(reasons);
 const renderedAt = new Date().toISOString();
 const useHiddenReasonField = reasonFieldMode === "hidden" && Boolean(defaultReasonId);
-void organizationName;
+const resolvedDeliveryMode = deliveryMode === "email" ? "email" : "secure";
+const emailHref = `mailto:${email}?subject=${encodeURIComponent(
+  `${organizationName} website enquiry`
+)}`;
 const initialStatus = readEnquiryStatus(Astro.url, surfaceId);
 const initialStatusTone = initialStatus?.status === "success" ? "success" : "error";
 const initialResilienceState = initialStatus
@@ -115,117 +122,138 @@ const submissionErrorMessage = getEnquiryFeedbackMessage("storage-error", succes
     }}
   />
 
-  <form
-    class="support-form"
-    action={ENQUIRY_ENDPOINT_PATH}
-    method="post"
-    data-support-form
-    data-delivery="secure"
-    data-reason-options={serializedReasons}
-    data-success-message={successMessage}
-    data-invalid-message={invalidStatusMessage}
-    data-submitting-message={submittingStatusMessage}
-    data-submission-error-message={submissionErrorMessage}
-    data-form-state={initialStatus?.status ?? "idle"}
-    data-surface-id={surfaceId}
-    data-motion="structural"
-  >
-    <input type="hidden" name="surfaceId" value={surfaceId} />
-    <input type="hidden" name="originPath" value={Astro.url.pathname} />
-    <input type="hidden" name="formId" value={panelId} />
-    <input type="hidden" name="renderedAt" value={renderedAt} />
-    {contextId ? <input type="hidden" name="contextId" value={contextId} /> : null}
+  {
+    resolvedDeliveryMode === "secure" ? (
+      <form
+        class="support-form"
+        action={ENQUIRY_ENDPOINT_PATH}
+        method="post"
+        data-support-form
+        data-delivery="secure"
+        data-reason-options={serializedReasons}
+        data-success-message={successMessage}
+        data-invalid-message={invalidStatusMessage}
+        data-submitting-message={submittingStatusMessage}
+        data-submission-error-message={submissionErrorMessage}
+        data-form-state={initialStatus?.status ?? "idle"}
+        data-surface-id={surfaceId}
+        data-motion="structural"
+      >
+        <input type="hidden" name="surfaceId" value={surfaceId} />
+        <input type="hidden" name="originPath" value={Astro.url.pathname} />
+        <input type="hidden" name="formId" value={panelId} />
+        <input type="hidden" name="renderedAt" value={renderedAt} />
+        {contextId ? <input type="hidden" name="contextId" value={contextId} /> : null}
 
-    <div class="u-visually-hidden" aria-hidden="true">
-      <label for={`${panelId}-website`}> Leave this field empty </label>
-      <input
-        id={`${panelId}-website`}
-        name="website"
-        type="text"
-        autocomplete="off"
-        tabindex="-1"
-      />
-    </div>
+        <div class="u-visually-hidden" aria-hidden="true">
+          <label for={`${panelId}-website`}> Leave this field empty </label>
+          <input
+            id={`${panelId}-website`}
+            name="website"
+            type="text"
+            autocomplete="off"
+            tabindex="-1"
+          />
+        </div>
 
-    <p
-      class="support-form__status"
-      aria-live="polite"
-      aria-atomic="true"
-      data-form-status
-      data-resilience-state={initialResilienceState}
-      data-motion="confirm"
-      data-visible={initialStatusMessage ? "true" : "false"}
-      data-tone={initialStatus ? initialStatusTone : undefined}
-      hidden={!initialStatusMessage}
-    >
-      {initialStatusMessage}
-    </p>
+        <p
+          class="support-form__status"
+          aria-live="polite"
+          aria-atomic="true"
+          data-form-status
+          data-resilience-state={initialResilienceState}
+          data-motion="confirm"
+          data-visible={initialStatusMessage ? "true" : "false"}
+          data-tone={initialStatus ? initialStatusTone : undefined}
+          hidden={!initialStatusMessage}
+        >
+          {initialStatusMessage}
+        </p>
 
-    <FormField
-      id="support-name"
-      name="name"
-      label="Your name"
-      type="text"
-      autocomplete="name"
-      minLength={2}
-      maxLength={120}
-      required={true}
-    />
-
-    <FormField
-      id="support-email"
-      name="email"
-      label="Email address"
-      type="email"
-      autocomplete="email"
-      required={true}
-    />
-
-    {
-      useHiddenReasonField ? (
-        <input type="hidden" name="reason" value={defaultReasonId} />
-      ) : (
         <FormField
-          id="support-reason"
-          name="reason"
-          label={reasonFieldLabel}
-          control="select"
-          options={reasons.map((reason) => ({
-            value: reason.id,
-            label: reason.label
-          }))}
-          selectPlaceholder={reasonSelectPlaceholder ?? undefined}
-          value={defaultReasonId}
+          id="support-name"
+          name="name"
+          label="Your name"
+          type="text"
+          autocomplete="name"
+          minLength={2}
+          maxLength={120}
           required={true}
         />
-      )
-    }
 
-    <FormField
-      id="support-message"
-      name="message"
-      label="Message"
-      control="textarea"
-      required={true}
-      minLength={16}
-      maxLength={2000}
-      helper={messageHelper}
-    />
+        <FormField
+          id="support-email"
+          name="email"
+          label="Email address"
+          type="email"
+          autocomplete="email"
+          required={true}
+        />
 
-    {
-      showUpdatesOptIn ? (
-        <CheckboxField id="support-updates" name="updates" label={updatesOptInLabel} />
-      ) : null
-    }
+        {useHiddenReasonField ? (
+          <input type="hidden" name="reason" value={defaultReasonId} />
+        ) : (
+          <FormField
+            id="support-reason"
+            name="reason"
+            label={reasonFieldLabel}
+            control="select"
+            options={reasons.map((reason) => ({
+              value: reason.id,
+              label: reason.label
+            }))}
+            selectPlaceholder={reasonSelectPlaceholder ?? undefined}
+            value={defaultReasonId}
+            required={true}
+          />
+        )}
 
-    <Button type="submit" variant="primary" data-form-submit> {submitLabel} </Button>
+        <FormField
+          id="support-message"
+          name="message"
+          label="Message"
+          control="textarea"
+          required={true}
+          minLength={16}
+          maxLength={2000}
+          helper={messageHelper}
+        />
 
-    <noscript>
-      <p class="support-form__noscript-note" data-resilience-surface="form-noscript">
-        {noScriptNote}
-      </p>
-    </noscript>
-  </form>
+        {showUpdatesOptIn ? (
+          <CheckboxField id="support-updates" name="updates" label={updatesOptInLabel} />
+        ) : null}
+
+        <Button type="submit" variant="primary" data-form-submit>
+          {" "}
+          {submitLabel}{" "}
+        </Button>
+
+        <noscript>
+          <p class="support-form__noscript-note" data-resilience-surface="form-noscript">
+            {noScriptNote}
+          </p>
+        </noscript>
+      </form>
+    ) : (
+      <div
+        class="support-form support-form--email"
+        data-delivery="email"
+        data-motion="structural"
+      >
+        <p class="support-form__status" data-visible="true" data-tone="neutral">
+          This public deployment opens your email app so your message goes straight to the
+          team without relying on server-side form storage.
+        </p>
+        <p class="support-form__noscript-note">
+          Include your name, the best email address for a reply, and a short summary of
+          what you need help with.
+        </p>
+        <ButtonLink href={emailHref} variant="primary">
+          Email the team
+        </ButtonLink>
+      </div>
+    )
+  }
 
   <p class="support-panel__hint">
     {emailFallbackPrefix}

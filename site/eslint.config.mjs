@@ -8,6 +8,7 @@ export default [
   {
     ignores: [
       ".astro/**",
+      ".vercel/**",
       "dist/**",
       "node_modules/**",
       "output/**",

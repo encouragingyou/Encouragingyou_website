@@ -10,6 +10,7 @@ import {
   resolveAdminStorageDir
 } from "../../lib/cms/admin-config.js";
 import { resolveDeploymentContext } from "../../lib/deployment/context.js";
+import { resolveEnquiryDeliveryMode } from "../../lib/forms/enquiry-contract.js";
 import { resolveEnquiryStorageDir } from "../../lib/server/enquiry-service.js";
 
 export const prerender = false;
@@ -27,19 +28,25 @@ export const GET: APIRoute = async ({ locals, request }) => {
   const deployment = locals.deployment ?? resolveDeploymentContext();
   const publicSurface = deployment.publicRoutesEnabled;
   const adminSurface = deployment.adminRoutesEnabled;
+  const analyticsMode = resolveAnalyticsMode();
+  const enquiryDeliveryMode = resolveEnquiryDeliveryMode();
   const enquiryReady = publicSurface
-    ? await ensureWritableDirectory(
-        resolveEnquiryStorageDir({
-          deploymentChannel: deployment.channel
-        })
-      )
+    ? enquiryDeliveryMode === "secure"
+      ? await ensureWritableDirectory(
+          resolveEnquiryStorageDir({
+            deploymentChannel: deployment.channel
+          })
+        )
+      : true
     : null;
   const analyticsReady = publicSurface
-    ? await ensureWritableDirectory(
-        resolveAnalyticsStorageDir({
-          deploymentChannel: deployment.channel
-        })
-      )
+    ? analyticsMode === "off"
+      ? true
+      : await ensureWritableDirectory(
+          resolveAnalyticsStorageDir({
+            deploymentChannel: deployment.channel
+          })
+        )
     : null;
   const adminReady = adminSurface
     ? await ensureWritableDirectory(
@@ -88,7 +95,10 @@ export const GET: APIRoute = async ({ locals, request }) => {
           adminRoutesEnabled: deployment.adminRoutesEnabled
         },
         analytics: {
-          mode: resolveAnalyticsMode()
+          mode: analyticsMode
+        },
+        enquiry: {
+          deliveryMode: enquiryDeliveryMode
         },
         admin: {
           portalEnabled: adminPortalEnabled,

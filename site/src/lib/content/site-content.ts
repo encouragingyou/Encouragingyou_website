@@ -47,7 +47,10 @@ import {
   buildWebPageStructuredData,
   buildWebsiteStructuredData
 } from "./structured-data.js";
-import { buildSessionEnquiryHref } from "../forms/enquiry-contract.js";
+import {
+  buildSessionEnquiryHref,
+  resolveEnquiryDeliveryMode
+} from "../forms/enquiry-contract.js";
 import { buildMediaDisclosure } from "./media-disclosure.ts";
 import {
   getAccessibilityStatementContent,
@@ -1143,6 +1146,7 @@ function buildSessionLocationNote(
 function buildSupportFormModel(surfaceId: string) {
   const surface = requireFormSurface(surfaceId);
   const microcopy = getSupportFormMicrocopy();
+  const deliveryMode = resolveEnquiryDeliveryMode();
   const allowedReasonIds =
     surface.allowedReasonIds ?? contactInfo.reasonOptions.map((reason) => reason.id);
   const reasons = contactInfo.reasonOptions.filter((reason) =>
@@ -1192,6 +1196,7 @@ function buildSupportFormModel(surfaceId: string) {
     invalidStatusMessage: getResilienceSurfaceText("form-validation-error"),
     submittingStatusMessage: getResilienceSurfaceText("form-submitting"),
     email: contactInfo.publicEmail,
+    deliveryMode,
     reasons,
     successMessage: surface.successMessage,
     defaultReasonId,
@@ -3565,7 +3570,7 @@ export function getContactPageModel() {
       phone: contactRouteState.phone.state,
       social: contactRouteState.social.state,
       map: contactRouteState.location.mapState,
-      formTransport: "secure" as const
+      formTransport: supportForm.deliveryMode
     },
     launchContactSurfaceId: contactLaunchSurfaceId,
     launchContactNote,

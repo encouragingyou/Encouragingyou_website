@@ -20,6 +20,7 @@ interface ImportMetaEnv {
   readonly ANALYTICS_STORAGE_DIR?: string;
   readonly DEPLOYMENT_CHANNEL?: "local" | "ci" | "preview" | "production";
   readonly DEPLOYMENT_SURFACE?: "shared" | "public" | "admin";
+  readonly ENQUIRY_DELIVERY_MODE?: "secure" | "email";
   readonly ENQUIRY_STORAGE_DIR?: string;
   readonly RELEASE_CREATED_AT?: string;
   readonly RELEASE_ID?: string;

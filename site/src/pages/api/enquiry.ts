@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 
+import { resolveEnquiryDeliveryMode } from "../../lib/forms/enquiry-contract.js";
 import {
   processEnquirySubmission,
   wantsJsonResponse
@@ -23,6 +24,33 @@ function buildRedirectResponse(location: string) {
   });
 }
 
+function buildEmailOnlyResponse(request: Request) {
+  const body = {
+    ok: false,
+    state: "error",
+    code: "delivery-disabled",
+    tone: "error",
+    message:
+      "This deployment accepts new enquiries by email only. Use the email link on the page."
+  };
+
+  if (!wantsJsonResponse(request)) {
+    return new Response(body.message, {
+      status: 503,
+      headers: {
+        "Cache-Control": "no-store"
+      }
+    });
+  }
+
+  return Response.json(body, {
+    status: 503,
+    headers: {
+      "Cache-Control": "no-store"
+    }
+  });
+}
+
 export const POST: APIRoute = async ({ request }) => {
   if (!hasAllowedContentType(request.headers, allowedRequestContentTypes.enquiry)) {
     return new Response("Unsupported media type", {
@@ -31,6 +59,10 @@ export const POST: APIRoute = async ({ request }) => {
         "Cache-Control": "no-store"
       }
     });
+  }
+
+  if (resolveEnquiryDeliveryMode() !== "secure") {
+    return buildEmailOnlyResponse(request);
   }
 
   if (!isBodySizeWithinLimit(request.headers, requestBodyLimits.enquiry)) {

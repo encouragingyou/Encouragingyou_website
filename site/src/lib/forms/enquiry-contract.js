@@ -11,6 +11,7 @@ export const ENQUIRY_REFERENCE_PARAM = "enquiryRef";
 export const ENQUIRY_CONTEXT_PARAM = "context";
 export const ENQUIRY_FORM_ID_PARAM = "form";
 export const ENQUIRY_HONEYPOT_FIELD = "website";
+export const enquiryDeliveryModes = ["secure", "email"];
 
 const sessionReasonOverrides = new Map([["cv-support", "cv-support"]]);
 const sessionContextIndex = new Map(
@@ -145,6 +146,12 @@ export function buildEnquiryStatusHref(
   }
 
   return `${href.pathname}${href.search}${href.hash}`;
+}
+
+export function resolveEnquiryDeliveryMode(
+  value = globalThis.process?.env?.ENQUIRY_DELIVERY_MODE
+) {
+  return enquiryDeliveryModes.includes(value) ? value : "secure";
 }
 
 export function readEnquiryStatus(urlOrSearchParams, surfaceId) {
