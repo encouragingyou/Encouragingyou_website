@@ -7,7 +7,6 @@ services:
     startCommand: cd site && node ./dist/server/entry.mjs
     autoDeployTrigger: off
     healthCheckPath: /api/health/
-    maxShutdownDelaySeconds: 45
     previews:
       generation: manual
       numInstances: 1
@@ -49,7 +48,6 @@ services:
     startCommand: cd site && node ./dist/server/entry.mjs
     autoDeployTrigger: off
     healthCheckPath: /api/health/
-    maxShutdownDelaySeconds: 45
     previews:
       generation: manual
       numInstances: 1
