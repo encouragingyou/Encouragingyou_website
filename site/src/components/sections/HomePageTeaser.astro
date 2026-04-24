@@ -1,0 +1,61 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import MediaPicture from "../ui/MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  badges?: string[];
+  action?: ActionLink;
+  media?: MediaAsset;
+  disclosure?: MediaDisclosure | string | null;
+  className?: string;
+  sectionId?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  badges = [],
+  action,
+  media,
+  disclosure = null,
+  className = "",
+  sectionId = "page-teaser"
+} = Astro.props;
+---
+
+<section class:list={["home-page-teaser", className]} data-home-section={sectionId}>
+  <div class="home-page-teaser__body">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+    <p class="home-page-teaser__summary">{summary}</p>
+    {
+      badges.length > 0 ? (
+        <BadgeRow
+          items={badges.map((badge) => ({
+            label: badge,
+            tone: "soft" as const
+          }))}
+          className="home-page-teaser__badges"
+        />
+      ) : null
+    }
+    {action ? <ActionCluster actions={[action]} /> : null}
+    <slot />
+  </div>
+
+  {
+    media ? (
+      <div class="home-page-teaser__media">
+        <MediaPicture asset={media} sizes="(min-width: 64rem) 36vw, 100vw" />
+        {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+      </div>
+    ) : null
+  }
+</section>

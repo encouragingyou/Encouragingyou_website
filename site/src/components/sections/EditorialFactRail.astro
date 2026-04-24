@@ -1,0 +1,29 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+interface FactItem {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary?: string;
+  items: FactItem[];
+}
+
+const { eyebrow, title, summary, items } = Astro.props;
+---
+
+<div class="editorial-fact-rail">
+  <SectionHeading eyebrow={eyebrow ?? ""} title={title} summary={summary} />
+  <div class="layout-grid layout-grid--cards editorial-fact-rail__grid">
+    {
+      items.map((item) => (
+        <CardPanel heading={item.title} summary={item.body} tone="soft" />
+      ))
+    }
+  </div>
+</div>

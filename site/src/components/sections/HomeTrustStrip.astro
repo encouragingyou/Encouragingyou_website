@@ -1,0 +1,46 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface TrustItem {
+  title: string;
+  summary: string;
+  href: string;
+  actionLabel: string;
+  icon: MediaAsset;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary?: string;
+  items: TrustItem[];
+}
+
+const { eyebrow, title, summary, items } = Astro.props;
+---
+
+<div class="home-trust-strip" data-home-section="trust-strip">
+  <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+  <div class="home-trust-strip__grid trust-grid layout-grid layout-grid--cards">
+    {
+      items.map((item) => (
+        <CardPanel
+          className="trust-card"
+          heading={item.title}
+          headingLevel={3}
+          icon={item.icon}
+          summary={item.summary}
+          actions={[
+            {
+              label: item.actionLabel,
+              href: item.href,
+              variant: "text"
+            }
+          ]}
+        />
+      ))
+    }
+  </div>
+</div>

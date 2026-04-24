@@ -1,0 +1,208 @@
+---
+import AdminAccessState from "../../../components/admin/AdminAccessState.astro";
+import AdminFieldControl from "../../../components/admin/AdminFieldControl.astro";
+import AdminPanel from "../../../components/admin/AdminPanel.astro";
+import AdminRepeatableGroup from "../../../components/admin/AdminRepeatableGroup.astro";
+import AdminWorkflowActionBar from "../../../components/admin/AdminWorkflowActionBar.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import { buildAdminDocumentEditorModel } from "../../../lib/cms/admin-portal.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const documentSlug = Astro.params.documentSlug ?? "";
+const editor = buildAdminDocumentEditorModel({
+  documentSlug,
+  roleId: adminSession?.roleId ?? "publisher"
+});
+const pageTitle = editor?.title ?? "Document not found";
+const documentTypeTitle = editor?.documentTypeTitle ?? "CMS document";
+
+if (!editor) {
+  Astro.response.status = 404;
+}
+---
+
+<AdminLayout title={pageTitle} adminPageId="content" adminSession={adminSession}>
+  {
+    editor ? (
+      <div
+        class="admin-stack"
+        data-admin-editor
+        data-document-id={editor.documentId}
+        data-document-title={editor.title}
+        data-document-slug={editor.documentSlug}
+        data-editor-path={`/admin/documents/${editor.documentSlug}/`}
+        data-preview-route={editor.previewRoute ?? ""}
+        data-csrf-token={adminSession.csrfToken ?? ""}
+        data-role-id={adminSession.roleId}
+      >
+        <AdminPanel
+          title={pageTitle}
+          eyebrow={documentTypeTitle}
+          description={`Source collection: ${editor.sourceCollection}`}
+          actionsSlot={true}
+        >
+          <Fragment slot="actions">
+            {editor.previewRoute ? (
+              <a
+                class="admin-link-button admin-link-button--ghost"
+                href={editor.previewRoute}
+              >
+                Published route
+              </a>
+            ) : null}
+          </Fragment>
+          <div class="admin-two-column-list">
+            <div class="admin-review-card">
+              <strong>Published baseline</strong>
+              <p class="admin-muted">
+                Revision {editor.currentPublishedVersion} is the current public snapshot.
+                Drafts stay isolated until a publisher publishes from the admin side.
+              </p>
+              <p class="admin-status-note">{editor.baselineSummary}</p>
+            </div>
+            <div class="admin-review-card">
+              <strong>Linked workstreams</strong>
+              <ul class="admin-inline-list">
+                {editor.linkedWorkstreams.map((workstream) => (
+                  <li>
+                    <a href={`/admin/content/${workstream.id}/`}>{workstream.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </AdminPanel>
+
+        <div class="admin-grid admin-grid--editor">
+          <div class="admin-stack">
+            <AdminWorkflowActionBar adminSession={adminSession} />
+
+            {editor.sections.map((section) => (
+              <AdminPanel
+                title={section.label}
+                eyebrow="Editable fields"
+                description="Text controls are grouped by section. Fixed-template repeatables stay structured and bounded."
+              >
+                <div class="admin-field-stack">
+                  {section.fields.map(
+                    (field: {
+                      id: string;
+                      path: string;
+                      label: string;
+                      value: string;
+                      initialValue: string;
+                      controlType: string;
+                      helperText: string;
+                      maxLength: number;
+                      editable: boolean;
+                      lockReason: string | null;
+                      required: boolean;
+                      options?: { value: string; label: string }[];
+                    }) => (
+                      <AdminFieldControl field={field} />
+                    )
+                  )}
+                  {section.repeatableGroups.map((group) => (
+                    <AdminRepeatableGroup group={group} />
+                  ))}
+                </div>
+              </AdminPanel>
+            ))}
+          </div>
+
+          <div class="admin-stack">
+            <AdminPanel
+              title="Route impact preview"
+              eyebrow="Preview"
+              description="This is an isolated editorial preview. It shows how the changed copy reads inside the fixed public presentation language without exposing layout controls."
+            >
+              <div class="admin-preview-panel">
+                <div class="admin-preview-list" data-preview-list>
+                  <div class="admin-preview-item">
+                    <strong>Preview is ready</strong>
+                    <p class="admin-muted">
+                      Change a field to see the strongest public-copy impacts collected
+                      here.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AdminPanel>
+
+            <AdminPanel
+              title="Changed fields"
+              eyebrow="Diff"
+              description="Approvers read the delta, not the whole document again."
+            >
+              <div class="admin-diff-panel">
+                <div class="admin-diff-list" data-diff-list>
+                  <div class="admin-diff-item">
+                    <strong>No changes yet</strong>
+                    <p class="admin-muted">
+                      The diff fills as soon as draft values move away from the published
+                      baseline.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AdminPanel>
+
+            <AdminPanel
+              title="Locked surfaces"
+              eyebrow="Boundary"
+              description="These page areas remain out of bounds even when the document is open in the editor."
+            >
+              <div class="admin-stack">
+                {editor.linkedWorkstreams.flatMap(
+                  (workstream) => workstream.lockedSurfaces
+                ).length > 0 ? (
+                  editor.linkedWorkstreams
+                    .flatMap((workstream) => workstream.lockedSurfaces)
+                    .map((surface) => (
+                      <div class="admin-review-card">
+                        <strong>{surface.label}</strong>
+                        <p class="admin-muted">{surface.description}</p>
+                      </div>
+                    ))
+                ) : (
+                  <div class="admin-review-card">
+                    <strong>No route-specific locked surface notes</strong>
+                    <p class="admin-muted">
+                      This record is mostly content-led, but layout and rendering logic
+                      still stay developer-owned.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </AdminPanel>
+
+            <AdminPanel
+              title="Revision history"
+              eyebrow="Audit trail"
+              description="The seed import event is fixed. Server-audited workflow actions append beneath it when review or publish controls are used."
+            >
+              <div class="admin-history-panel">
+                <div class="admin-history-list" data-history-list>
+                  <div class="admin-history-item">
+                    <strong>{editor.currentPublishedRevisionId}</strong>
+                    <p class="admin-muted">
+                      Imported into the CMS write model as the published baseline.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AdminPanel>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <AdminAccessState
+        statusCode={404}
+        title="Document not found"
+        message="That CMS record is not present in the generated write-model seed."
+      />
+    )
+  }
+</AdminLayout>

@@ -1,0 +1,146 @@
+---
+import PolicyContents from "../../components/legal/PolicyContents.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSitePolicyPageModel } from "../../lib/content/site-content.ts";
+
+const model = getSitePolicyPageModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/terms/"
+  pageId="terms"
+  breadcrumbs={model.breadcrumbs}
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      actions={model.actions}
+    />
+
+    <NoticeBlock
+      title={model.statusNote.title}
+      body={model.statusNote.body}
+      tone={model.statusNote.tone}
+      action={model.statusNote.action}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-grid layout-grid--sidebar policy-summary-layout">
+      <div class="policy-summary-grid">
+        {
+          model.summaryCards.map((card, index) => (
+            <CardPanel
+              heading={card.title}
+              summary={card.body}
+              headingLevel={index === 0 ? 2 : 3}
+            >
+              {card.bullets?.length ? (
+                <ul class="check-list">
+                  {card.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </CardPanel>
+          ))
+        }
+      </div>
+
+      <PolicyContents items={model.contents} />
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <div class="policy-section-stack">
+      {
+        model.sections.map((section, index) => (
+          <article
+            id={section.id}
+            class="policy-section layout-stack layout-stack--roomy"
+          >
+            <div class="section-heading">
+              <p class="eyebrow">{index === 0 ? "Site policy detail" : model.eyebrow}</p>
+              <h2>{section.title}</h2>
+              {section.summary ? (
+                <p class="section-heading__summary">{section.summary}</p>
+              ) : null}
+            </div>
+
+            <div class="policy-section__body">
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+
+              {section.bullets.length ? (
+                <ul class="check-list">
+                  {section.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+
+            {section.cards.length ? (
+              <div class="policy-registry-grid">
+                {section.cards.map((card) => (
+                  <CardPanel heading={card.title} summary={card.body} tone={card.tone} />
+                ))}
+              </div>
+            ) : null}
+
+            {section.id === "about-this-site" ? (
+              <div class="policy-registry-grid">
+                <CardPanel
+                  heading="Site operator"
+                  summary={model.policyState.operator}
+                  tone="soft"
+                />
+                <CardPanel
+                  heading={model.policyState.cookieEntryPoint.title}
+                  summary={model.policyState.cookieEntryPoint.body}
+                  tone="soft"
+                />
+                <CardPanel
+                  heading="Calendar files"
+                  summary={
+                    model.policyState.calendarDownloadsAvailable
+                      ? "Calendar downloads are available on the current live session routes."
+                      : "Calendar downloads are not currently published on the live session routes."
+                  }
+                  tone="soft"
+                />
+                <CardPanel
+                  heading="Public directions link"
+                  summary={
+                    model.policyState.publicDirectionsLink
+                      ? "A public directions link is currently live and should be treated as an external service."
+                      : "No public directions link is live at launch."
+                  }
+                  tone="soft"
+                />
+              </div>
+            ) : null}
+
+            {section.note ? (
+              <NoticeBlock
+                title={section.note.title}
+                body={section.note.body}
+                tone={section.note.tone}
+                action={section.note.action}
+              />
+            ) : null}
+          </article>
+        ))
+      }
+    </div>
+  </PageSection>
+</BaseLayout>

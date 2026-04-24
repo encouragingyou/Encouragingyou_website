@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProgrammeDetailTemplate from "../../components/sections/ProgrammeDetailTemplate.astro";
+import {
+  getProgrammeDetailModel,
+  getProgrammeDetailStaticPaths
+} from "../../lib/content/site-content.ts";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getProgrammeDetailStaticPaths();
+}
+
+const model = getProgrammeDetailModel(Astro.params.slug as string);
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath={model.meta.canonicalPath}
+  pageId={`programme-${Astro.params.slug}`}
+  structuredData={model.structuredData}
+>
+  <ProgrammeDetailTemplate
+    hero={model.hero}
+    atAGlanceSection={model.atAGlanceSection}
+    atAGlance={model.atAGlance}
+    experienceSection={model.experienceSection}
+    audienceRoutesSection={model.audienceRoutesSection}
+    contentSection={model.contentSection}
+    sections={model.sections}
+    relatedSessionsSection={model.relatedSessionsSection}
+    relatedSessions={model.relatedSessions}
+    trustSection={model.trustSection}
+    faqSection={model.faqSection}
+    faqGroupId={model.faqGroupId}
+    faqs={model.faqs}
+    evidenceNotice={model.evidenceNotice}
+    ctaBand={model.ctaBand}
+    notice={model.notice}
+  />
+</BaseLayout>

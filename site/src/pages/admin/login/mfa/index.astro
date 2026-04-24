@@ -1,0 +1,68 @@
+---
+import AdminAuthLayout from "../../../../layouts/AdminAuthLayout.astro";
+import { getAdminPendingMfaChallenge } from "../../../../lib/cms/admin-auth.js";
+import { resolveSafeAdminReturnTo } from "../../../../lib/cms/admin-session.js";
+
+export const prerender = false;
+
+const returnTo = resolveSafeAdminReturnTo(Astro.url.searchParams.get("returnTo"));
+const challenge = await getAdminPendingMfaChallenge({
+  requestUrl: Astro.request.url,
+  headers: Astro.request.headers,
+  cookies: Astro.cookies
+});
+
+if (!challenge) {
+  const loginHref = new URL("/admin/login/", Astro.url);
+
+  loginHref.searchParams.set("returnTo", returnTo);
+
+  return Astro.redirect(`${loginHref.pathname}${loginHref.search}`);
+}
+
+const status = `${Astro.url.searchParams.get("state") ?? ""}`.trim();
+const statusMessage =
+  status === "invalid-mfa"
+    ? "The authenticator code or recovery code was not accepted."
+    : null;
+---
+
+<AdminAuthLayout
+  title="Multi-factor check"
+  eyebrow="MFA"
+  description="Enter a six-digit authenticator code or a one-time recovery code to complete sign-in."
+>
+  <div class="admin-stack">
+    {
+      statusMessage ? (
+        <p class="admin-status-note admin-status-note--error">{statusMessage}</p>
+      ) : null
+    }
+
+    <div class="admin-review-card">
+      <strong>{challenge.email}</strong>
+      <p class="admin-muted">
+        This challenge expires at {new Date(challenge.expiresAt).toLocaleString("en-GB")}.
+      </p>
+    </div>
+
+    <form class="admin-auth-form" method="post" action="/api/admin/login-mfa/">
+      <input type="hidden" name="returnTo" value={returnTo} />
+      <label class="admin-field-label" for="admin-code"
+        >Authenticator or recovery code</label
+      >
+      <input
+        class="admin-auth-input"
+        id="admin-code"
+        name="code"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        required
+      />
+
+      <button class="admin-button admin-button--primary" type="submit">
+        Finish sign in
+      </button>
+    </form>
+  </div>
+</AdminAuthLayout>

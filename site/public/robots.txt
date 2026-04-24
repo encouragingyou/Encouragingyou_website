@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /system/
+
+Sitemap: https://www.encouragingyou.co.uk/sitemap.xml

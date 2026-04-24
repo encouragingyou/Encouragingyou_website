@@ -1,0 +1,82 @@
+name: Admin Quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: admin-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  blocking:
+    name: Blocking Admin Quality Gates
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DEPLOYMENT_SURFACE: admin
+      PLAYWRIGHT_DEPLOYMENT_SURFACE: admin
+      ADMIN_PORTAL_ENABLED: "true"
+      ADMIN_ENABLE_DEV_BOOTSTRAP: "true"
+      ADMIN_ORIGIN_URL: http://127.0.0.1:4173
+      ANALYTICS_MODE: off
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: site/.nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run isolated admin quality pipeline
+        run: npm run ci:admin
+
+      - name: Upload admin Playwright artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-playwright-artifacts
+          path: site/output/playwright
+          retention-days: 14
+
+  advisory:
+    name: Advisory Dependency Audit
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: site/.nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run advisory audit
+        run: npm run audit:policy

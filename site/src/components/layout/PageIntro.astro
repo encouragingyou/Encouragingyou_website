@@ -1,0 +1,76 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  actions?: ActionLink[];
+  badges?: string[];
+  headingLevel?: 1 | 2;
+  className?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  actions = [],
+  badges = [],
+  headingLevel = 1,
+  className = ""
+} = Astro.props;
+
+const hasMedia = Astro.slots.has("media");
+const wrapperClass = `page-intro${className ? ` ${className}` : ""}`;
+---
+
+<div class={wrapperClass}>
+  <div class="page-intro__grid" data-layout-has-media={hasMedia ? "true" : "false"}>
+    <div class="page-intro__body">
+      <p class="eyebrow motion-order-0" data-motion="reveal">{eyebrow}</p>
+      {
+        headingLevel === 1 ? (
+          <h1 class="motion-order-1" data-motion="reveal">
+            {title}
+          </h1>
+        ) : (
+          <h2 class="motion-order-1" data-motion="reveal">
+            {title}
+          </h2>
+        )
+      }
+      <p class="page-intro__summary motion-order-2" data-motion="reveal">
+        {summary}
+      </p>
+
+      {
+        badges.length > 0 ? (
+          <div class="page-intro__badges motion-order-3" data-motion="reveal">
+            <BadgeRow items={badges} />
+          </div>
+        ) : null
+      }
+
+      {
+        actions.length > 0 ? (
+          <div class="page-intro__actions motion-order-4" data-motion="reveal">
+            <ActionCluster actions={actions} />
+          </div>
+        ) : null
+      }
+
+      <slot />
+    </div>
+
+    {
+      hasMedia ? (
+        <div class="page-intro__media motion-order-1" data-motion="reveal">
+          <slot name="media" />
+        </div>
+      ) : null
+    }
+  </div>
+</div>

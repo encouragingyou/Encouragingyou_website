@@ -1,0 +1,35 @@
+---
+interface Props {
+  id?: string;
+  tone?: "default" | "band" | "tint";
+  width?: "default" | "wide" | "narrow";
+  className?: string;
+  shellClass?: string;
+}
+
+const {
+  id,
+  tone = "default",
+  width = "default",
+  className = "",
+  shellClass = ""
+} = Astro.props;
+
+const sectionClass = `section${tone !== "default" ? ` section--${tone}` : ""}${
+  className ? ` ${className}` : ""
+}`;
+
+const shellClassName = `layout-shell${
+  width === "wide"
+    ? " layout-shell--wide"
+    : width === "narrow"
+      ? " layout-shell--narrow"
+      : ""
+}${shellClass ? ` ${shellClass}` : ""}`;
+---
+
+<section id={id} class={sectionClass}>
+  <div class={shellClassName}>
+    <slot />
+  </div>
+</section>

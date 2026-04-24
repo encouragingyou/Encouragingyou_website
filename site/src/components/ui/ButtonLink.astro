@@ -1,0 +1,52 @@
+---
+import { buildButtonClassName, type ButtonVariant } from "../../lib/ui/button.ts";
+
+interface Props {
+  className?: string;
+  current?: boolean;
+  disabled?: boolean;
+  external?: boolean;
+  href: string;
+  rel?: string;
+  target?: "_blank" | "_self";
+  variant?: "primary" | "secondary" | "surface" | "text";
+  fullWidth?: boolean;
+}
+
+const {
+  className = "",
+  current = false,
+  disabled = false,
+  external = false,
+  href,
+  fullWidth = false,
+  rel,
+  target,
+  variant = "primary",
+  ...attributes
+} = Astro.props;
+
+const finalTarget = external ? "_blank" : target;
+const finalRel = external ? "noreferrer" : rel;
+---
+
+<a
+  href={disabled ? undefined : href}
+  class={buildButtonClassName({
+    className,
+    current,
+    fullWidth,
+    state: disabled ? "disabled" : "default",
+    variant: variant as ButtonVariant
+  })}
+  target={finalTarget}
+  rel={finalRel}
+  aria-current={current ? "page" : undefined}
+  aria-disabled={disabled ? "true" : undefined}
+  tabindex={disabled ? -1 : undefined}
+  data-button-state={disabled ? "disabled" : "default"}
+  data-motion="emphasis"
+  {...attributes}
+>
+  <slot />
+</a>

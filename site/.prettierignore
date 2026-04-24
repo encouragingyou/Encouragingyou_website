@@ -1,0 +1,7 @@
+.astro/
+.playwright-cli/
+dist/
+node_modules/
+output/
+public/
+src/data/generated/

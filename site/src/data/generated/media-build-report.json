@@ -1,0 +1,356 @@
+{
+  "version": 2,
+  "generatedAt": "2026-04-24T11:01:45.256Z",
+  "assets": [
+    {
+      "id": "hero-home",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/1) Homepage hero illustration.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/hero-home.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/hero-800.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-800.avif"
+        },
+        {
+          "publicPath": "/images/hero-800.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-800.webp"
+        },
+        {
+          "publicPath": "/images/hero-1200.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-1200.avif"
+        },
+        {
+          "publicPath": "/images/hero-1200.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-1200.webp"
+        },
+        {
+          "publicPath": "/images/hero-1600.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-1600.avif"
+        },
+        {
+          "publicPath": "/images/hero-1600.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/hero-1600.webp"
+        }
+      ]
+    },
+    {
+      "id": "about-leadership",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/2) About page : youth-led leadership illustration.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/about-leadership.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/about-640.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-640.avif"
+        },
+        {
+          "publicPath": "/images/about-640.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-640.webp"
+        },
+        {
+          "publicPath": "/images/about-960.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-960.avif"
+        },
+        {
+          "publicPath": "/images/about-960.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-960.webp"
+        },
+        {
+          "publicPath": "/images/about-1280.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-1280.avif"
+        },
+        {
+          "publicPath": "/images/about-1280.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/about-1280.webp"
+        }
+      ]
+    },
+    {
+      "id": "programme-community-friendship",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/3) Programme card series Community  Friendship.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/programme-community-friendship.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/community-friendship-480.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-480.avif"
+        },
+        {
+          "publicPath": "/images/community-friendship-480.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-480.webp"
+        },
+        {
+          "publicPath": "/images/community-friendship-720.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-720.avif"
+        },
+        {
+          "publicPath": "/images/community-friendship-720.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-720.webp"
+        },
+        {
+          "publicPath": "/images/community-friendship-960.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-960.avif"
+        },
+        {
+          "publicPath": "/images/community-friendship-960.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/community-friendship-960.webp"
+        }
+      ]
+    },
+    {
+      "id": "programme-personal-growth",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/4) Programme card series Personal Growth.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/programme-personal-growth.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/personal-growth-480.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-480.avif"
+        },
+        {
+          "publicPath": "/images/personal-growth-480.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-480.webp"
+        },
+        {
+          "publicPath": "/images/personal-growth-720.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-720.avif"
+        },
+        {
+          "publicPath": "/images/personal-growth-720.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-720.webp"
+        },
+        {
+          "publicPath": "/images/personal-growth-960.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-960.avif"
+        },
+        {
+          "publicPath": "/images/personal-growth-960.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/personal-growth-960.webp"
+        }
+      ]
+    },
+    {
+      "id": "programme-career-support",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/5) Programme card series Career Support.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/programme-career-support.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/career-support-480.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-480.avif"
+        },
+        {
+          "publicPath": "/images/career-support-480.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-480.webp"
+        },
+        {
+          "publicPath": "/images/career-support-720.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-720.avif"
+        },
+        {
+          "publicPath": "/images/career-support-720.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-720.webp"
+        },
+        {
+          "publicPath": "/images/career-support-960.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-960.avif"
+        },
+        {
+          "publicPath": "/images/career-support-960.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/career-support-960.webp"
+        }
+      ]
+    },
+    {
+      "id": "community-support-intergenerational",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/6) Intergenerational community support illustration.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/community-support-intergenerational.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/intergenerational-800.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-800.avif"
+        },
+        {
+          "publicPath": "/images/intergenerational-800.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-800.webp"
+        },
+        {
+          "publicPath": "/images/intergenerational-1200.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-1200.avif"
+        },
+        {
+          "publicPath": "/images/intergenerational-1200.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-1200.webp"
+        },
+        {
+          "publicPath": "/images/intergenerational-1600.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-1600.avif"
+        },
+        {
+          "publicPath": "/images/intergenerational-1600.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/intergenerational-1600.webp"
+        }
+      ]
+    },
+    {
+      "id": "volunteer-partner-cta",
+      "kind": "illustration",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/7) Volunteer : partner call-to-action illustration.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/illustrations/volunteer-partner-cta.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/images/volunteer-partner-800.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-800.avif"
+        },
+        {
+          "publicPath": "/images/volunteer-partner-800.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-800.webp"
+        },
+        {
+          "publicPath": "/images/volunteer-partner-1200.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-1200.avif"
+        },
+        {
+          "publicPath": "/images/volunteer-partner-1200.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-1200.webp"
+        },
+        {
+          "publicPath": "/images/volunteer-partner-1600.avif",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-1600.avif"
+        },
+        {
+          "publicPath": "/images/volunteer-partner-1600.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/images/volunteer-partner-1600.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-safe-space",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/8) Custom icon set for UX and wayfinding.png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/safe-space.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/safe-space.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/safe-space.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-mentoring",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (2).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/mentoring.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/mentoring.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/mentoring.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-cv-support",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (3).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/cv-support.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/cv-support.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/cv-support.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-youth-activities",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (4).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/youth-activities.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/youth-activities.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/youth-activities.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-growth",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (5).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/growth.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/growth.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/growth.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-community-event",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (6).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/community-event.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/community-event.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/community-event.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-intergenerational-connection",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_28 AM (7).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/intergenerational-connection.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/intergenerational-connection.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/intergenerational-connection.webp"
+        }
+      ]
+    },
+    {
+      "id": "icon-contact",
+      "kind": "icon",
+      "master": {
+        "sourcePath": "/Users/test/Code/new_website/source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_28 AM (8).png",
+        "targetPath": "/Users/test/Code/new_website/site/src/assets/media/icon-masters/contact.png"
+      },
+      "compatibilityRenders": [
+        {
+          "publicPath": "/icons/contact.webp",
+          "targetPath": "/Users/test/Code/new_website/site/public/icons/contact.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary?: string;
+  center?: boolean;
+  headingLevel?: 1 | 2;
+}
+
+const { eyebrow, title, summary, center = false, headingLevel = 2 } = Astro.props;
+---
+
+<div class={`section-heading${center ? " section-heading--center" : ""}`}>
+  <p class="eyebrow">{eyebrow}</p>
+  {headingLevel === 1 ? <h1>{title}</h1> : <h2>{title}</h2>}
+  {summary ? <p class="section-heading__summary">{summary}</p> : null}
+</div>

@@ -1,0 +1,193 @@
+---
+import NoticeBlock from "../components/ui/NoticeBlock.astro";
+import ShellWayfinding from "../components/site/ShellWayfinding.astro";
+import SiteFooter from "../components/site/SiteFooter.astro";
+import SiteHeader from "../components/site/SiteHeader.astro";
+import SiteSkipLinks from "../components/site/SiteSkipLinks.astro";
+import { resolveAnalyticsPreferenceState } from "../lib/analytics/preferences.js";
+import { buildSeoMetadata } from "../lib/content/site-seo";
+import { getGlobalShellModel } from "../lib/content/site-shell";
+import { serializeJsonForScript } from "../lib/security/policy.js";
+import type { BreadcrumbItem, SeoMetadata, ShellLink } from "../lib/types/site-ui";
+import "../styles/site.css";
+
+interface Props {
+  meta?: SeoMetadata | null;
+  title?: string;
+  description?: string;
+  currentPath?: string;
+  pageId?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  backLink?: ShellLink | null;
+  robots?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[] | null;
+}
+
+const {
+  meta = null,
+  title,
+  description,
+  currentPath = "/",
+  pageId = "generic",
+  breadcrumbs,
+  backLink,
+  robots,
+  structuredData = null
+} = Astro.props;
+const shell = getGlobalShellModel(pageId);
+if (!meta && (!title || !description)) {
+  throw new Error(
+    "BaseLayout requires either a meta object or both title and description."
+  );
+}
+const resolvedMeta =
+  meta ??
+  buildSeoMetadata({
+    pageId,
+    path: currentPath,
+    title: title as string,
+    description: description as string,
+    robots
+  });
+const resolvedBreadcrumbs = breadcrumbs ?? shell.breadcrumbs;
+const resolvedBackLink = backLink ?? shell.backLink;
+const deployment = Astro.locals.deployment;
+const structuredDataItems = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+const analyticsState = resolveAnalyticsPreferenceState({
+  cookies: Astro.isPrerendered ? null : (Astro.locals.requestCookies ?? null),
+  headers: Astro.isPrerendered ? null : (Astro.locals.requestHeaders ?? null),
+  pageId,
+  pathname: currentPath
+});
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-analytics-mode={analyticsState.mode}
+  data-analytics-page-id={analyticsState.pageId}
+  data-analytics-route-family={analyticsState.routeFamily}
+  data-analytics-collection={analyticsState.collectionAllowed ? "true" : "false"}
+  data-analytics-state={analyticsState.state}
+  data-deployment-channel={deployment?.channel}
+  data-deployment-surface={deployment?.surface}
+  data-release-id={deployment?.releaseId}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{resolvedMeta.title}</title>
+    <meta name="description" content={resolvedMeta.description} />
+    <meta name="robots" content={resolvedMeta.robots} />
+    <link rel="canonical" href={resolvedMeta.canonicalUrl} />
+    <meta property="og:site_name" content={resolvedMeta.openGraph.siteName} />
+    <meta property="og:locale" content={resolvedMeta.openGraph.locale} />
+    <meta property="og:type" content={resolvedMeta.openGraph.type} />
+    <meta property="og:title" content={resolvedMeta.openGraph.title} />
+    <meta property="og:description" content={resolvedMeta.openGraph.description} />
+    <meta property="og:url" content={resolvedMeta.openGraph.url} />
+    <meta name="twitter:card" content={resolvedMeta.twitter.card} />
+    <meta name="twitter:title" content={resolvedMeta.twitter.title} />
+    <meta name="twitter:description" content={resolvedMeta.twitter.description} />
+    {
+      resolvedMeta.openGraph.image ? (
+        <>
+          <meta property="og:image" content={resolvedMeta.openGraph.image.url} />
+          {resolvedMeta.openGraph.image.alt ? (
+            <meta property="og:image:alt" content={resolvedMeta.openGraph.image.alt} />
+          ) : null}
+          {resolvedMeta.openGraph.image.width ? (
+            <meta
+              property="og:image:width"
+              content={String(resolvedMeta.openGraph.image.width)}
+            />
+          ) : null}
+          {resolvedMeta.openGraph.image.height ? (
+            <meta
+              property="og:image:height"
+              content={String(resolvedMeta.openGraph.image.height)}
+            />
+          ) : null}
+          <meta name="twitter:image" content={resolvedMeta.openGraph.image.url} />
+          {resolvedMeta.openGraph.image.alt ? (
+            <meta name="twitter:image:alt" content={resolvedMeta.openGraph.image.alt} />
+          ) : null}
+        </>
+      ) : null
+    }
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {
+      structuredDataItems.map((item) => (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={serializeJsonForScript(item)}
+        />
+      ))
+    }
+    <script is:inline>
+      document.documentElement.dataset.js = "enabled";
+      document.documentElement.dataset.motion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+        ? "reduced"
+        : "full";
+    </script>
+  </head>
+  <body class={`page page--${pageId}`}>
+    <SiteSkipLinks items={shell.skipLinks} />
+    <SiteHeader
+      brand={shell.brand}
+      utilityItems={shell.utilityItems}
+      items={shell.primaryItems}
+      cta={shell.headerCta}
+      currentPath={currentPath}
+    />
+    <main id="main" class="site-main" tabindex="-1">
+      {
+        deployment?.showDeploymentBanner ? (
+          <div class="container container--wide">
+            <NoticeBlock
+              eyebrow={deployment.label}
+              title={`Release ${deployment.releaseId}`}
+              body={`This environment is for review only. Search indexing is blocked here, and any non-production integrations must stay isolated from live operations.${deployment.shortSha ? ` Commit ${deployment.shortSha}.` : ""}`}
+              tone="important"
+              role="note"
+            />
+          </div>
+        ) : null
+      }
+      <ShellWayfinding
+        breadcrumbs={resolvedBreadcrumbs}
+        backLink={resolvedBackLink}
+        notices={shell.notices}
+        relatedLinkGroup={shell.relatedLinkGroup}
+      />
+      <slot />
+    </main>
+    <SiteFooter
+      brand={shell.brand}
+      groups={shell.footerGroups}
+      support={shell.footerSupport}
+      email={shell.publicEmail}
+      serviceAreaLabel={shell.serviceAreaLabel}
+      aiDisclosure={shell.aiDisclosure}
+    />
+    <script>
+      import { bootSiteBehavior } from "../lib/client/site-behavior.js";
+
+      bootSiteBehavior(document);
+    </script>
+  </body>
+</html>

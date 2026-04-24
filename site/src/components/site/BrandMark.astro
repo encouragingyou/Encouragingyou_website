@@ -1,0 +1,15 @@
+---
+interface Props {
+  name: string;
+  tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<span class="brand-mark">
+  <span class="brand-mark__name">
+    Encouraging<span>You</span>
+  </span>
+  <span class="brand-mark__tag">{tag}</span>
+</span>

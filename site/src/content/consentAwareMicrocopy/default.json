@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "cookiePreferenceEntryPoint": "cookie-notice-route",
+    "accessibilityFeedbackSurfaceId": "accessibility-feedback",
+    "updatesOptInStrategy": "surface-controlled",
+    "javascriptFormConfirmationMode": "reload-confirmation",
+    "generalExternalLinkWarningMode": "omit-by-default",
+    "socialLinkWarningMode": "show-contextually",
+    "mapLinkWarningMode": "show-when-enabled",
+    "calendarDownloadNoticeMode": "show-on-session-detail"
+  },
+  "labels": {
+    "privacyNoticeActionLabel": "Read the Privacy Notice",
+    "cookieNoticeActionLabel": "Read the Cookie Notice",
+    "accessibilityStatementActionLabel": "Read the Accessibility Statement",
+    "sitePolicyActionLabel": "Read the Terms / Site Policy"
+  },
+  "forms": {
+    "privacyNoticeTitle": "Privacy reminder",
+    "messageHelper": "Share enough detail for the team to reply clearly. You do not need to include anything you are not comfortable sending by email.",
+    "updatesOptInLabel": "I would like occasional updates about future sessions and events.",
+    "emailFallbackPrefix": "If you prefer email, contact ",
+    "noscriptNote": "JavaScript is off, so this page will reload with a confirmation message after you send the form.",
+    "submittingStatusMessage": "Sending your message...",
+    "invalidStatusMessage": "Check the highlighted fields before sending your message."
+  },
+  "notices": {
+    "cookieEntryPoint": {
+      "title": "Cookie choices",
+      "whenNoBanner": "This site does not show a cookie banner at launch. The Cookie Notice explains the live first-party aggregate analytics model, the objection control on that route, and the storage that stays absent.",
+      "whenBannerPresent": "Cookie choices are managed through the current consent controls and explained in the Cookie Notice."
+    },
+    "accessibilityFeedback": {
+      "title": "Need help using the site?",
+      "body": "Use the dedicated accessibility feedback form if something on the site is difficult to use or if you need information in another format.",
+      "actionLabel": "Report an accessibility problem"
+    },
+    "calendarDownload": {
+      "title": "Calendar download",
+      "availableBody": "Calendar files download as .ics and then open in your own calendar app, which has its own accessibility and privacy settings.",
+      "unavailableBody": "Calendar download is not available right now. Use the session page or contact route if you need the next date confirmed."
+    },
+    "socialExternalLink": {
+      "title": "External platform",
+      "body": "Instagram is outside the main website and has its own accessibility, privacy, and account settings."
+    },
+    "mapExternalLink": {
+      "title": "Directions link",
+      "body": "Directions links open an external map service with its own accessibility and privacy settings."
+    }
+  }
+}

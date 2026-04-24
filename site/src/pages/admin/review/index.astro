@@ -1,0 +1,60 @@
+---
+import AdminAccessState from "../../../components/admin/AdminAccessState.astro";
+import AdminPanel from "../../../components/admin/AdminPanel.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import { getAdminReviewPermissions } from "../../../lib/cms/admin-portal.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const permissions = getAdminReviewPermissions(adminSession?.roleId ?? "publisher");
+const canAccessReview =
+  permissions.canApprove || permissions.canPublish || permissions.canRevert;
+
+if (!canAccessReview) {
+  Astro.response.status = 403;
+}
+---
+
+<AdminLayout title="Review queue" adminPageId="review" adminSession={adminSession}>
+  {
+    canAccessReview ? (
+      <div class="admin-stack">
+        <AdminPanel
+          title="Ready for review"
+          eyebrow="Approval workflow"
+          description="Client editors can send drafts here once validation clears. This queue is populated from the isolated admin workspace, never the public site."
+        >
+          <div class="admin-review-list" data-admin-review-queue>
+            <div class="admin-review-card">
+              <strong>No review items in this browser yet.</strong>
+              <p class="admin-muted">
+                Open a document, change copy, and use <em>Request review</em> to stage an
+                approval handoff.
+              </p>
+            </div>
+          </div>
+        </AdminPanel>
+
+        <AdminPanel
+          title="Reviewer checklist"
+          eyebrow="Before publish"
+          description="The UI keeps the approval task constrained: read the diff, confirm locked surfaces did not change, then publish or return to draft."
+        >
+          <ul class="admin-tag-list">
+            <li>Check validation and character limits</li>
+            <li>Read the route-impact preview</li>
+            <li>Scan changed fields only</li>
+            <li>Confirm links stay on the allowlist</li>
+            <li>Publish or send back with a review note</li>
+          </ul>
+        </AdminPanel>
+      </div>
+    ) : (
+      <AdminAccessState
+        title="Publisher access required"
+        message="The review queue is restricted to roles that can approve, publish, or revert content."
+      />
+    )
+  }
+</AdminLayout>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  checked?: boolean;
+  className?: string;
+  disabled?: boolean;
+  hint?: string;
+  id: string;
+  label: string;
+  name: string;
+  value?: string;
+}
+
+const {
+  checked = false,
+  className = "",
+  disabled = false,
+  hint,
+  id,
+  label,
+  name,
+  value = "yes"
+} = Astro.props;
+---
+
+<div class={`checkbox-field-wrap${className ? ` ${className}` : ""}`}>
+  <label class="checkbox-field" for={id}>
+    <input
+      id={id}
+      name={name}
+      type="checkbox"
+      value={value}
+      checked={checked}
+      disabled={disabled}
+    />
+    <span>{label}</span>
+  </label>
+  {hint ? <p class="checkbox-field__hint">{hint}</p> : null}
+</div>

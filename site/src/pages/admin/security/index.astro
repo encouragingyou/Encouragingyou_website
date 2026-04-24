@@ -1,0 +1,204 @@
+---
+import AdminPanel from "../../../components/admin/AdminPanel.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import { listAdminSecurityOverview } from "../../../lib/cms/admin-auth.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const overview = await listAdminSecurityOverview(adminSession);
+---
+
+<AdminLayout
+  title="Security and access"
+  adminPageId="security"
+  adminSession={adminSession}
+>
+  <div class="admin-stack" data-admin-security-root>
+    <AdminPanel
+      title="Current sessions"
+      eyebrow="Session visibility"
+      description="Each session is host-scoped, HttpOnly, and can be revoked without touching the public site."
+    >
+      <div class="admin-grid">
+        {
+          overview.sessions.length > 0 ? (
+            overview.sessions.map((session: { id: string; lastSeenAt: string }) => (
+              <article class="admin-review-card">
+                <strong>
+                  {session.id === adminSession.sessionId
+                    ? "This browser"
+                    : "Active session"}
+                </strong>
+                <p class="admin-muted">
+                  Last seen {new Date(session.lastSeenAt).toLocaleString("en-GB")}
+                </p>
+                <button
+                  class="admin-button admin-button--ghost"
+                  type="button"
+                  data-admin-access-action="revoke-session"
+                  data-session-id={session.id}
+                  disabled={session.id === adminSession.sessionId}
+                >
+                  {session.id === adminSession.sessionId ? "Current session" : "Revoke"}
+                </button>
+              </article>
+            ))
+          ) : (
+            <article class="admin-review-card">
+              <strong>No active sessions recorded.</strong>
+            </article>
+          )
+        }
+      </div>
+    </AdminPanel>
+
+    {
+      adminSession.capabilities.includes("manage-editor-access") ? (
+        <AdminPanel
+          title="Issue invitations and reset links"
+          eyebrow="Maintainer actions"
+          description="These actions require a fresh MFA code and are returned as one-time links for out-of-band delivery."
+        >
+          <form class="admin-auth-form" data-admin-access-form>
+            <input type="hidden" name="action" value="issue-invitation" />
+            <label class="admin-field-label" for="invite-email">
+              Invite email
+            </label>
+            <input
+              class="admin-auth-input"
+              id="invite-email"
+              name="email"
+              type="email"
+              required
+            />
+
+            <label class="admin-field-label" for="invite-name">
+              Display name
+            </label>
+            <input
+              class="admin-auth-input"
+              id="invite-name"
+              name="displayName"
+              type="text"
+              required
+            />
+
+            <label class="admin-field-label" for="invite-role">
+              Role
+            </label>
+            <select class="admin-auth-input" id="invite-role" name="roleId">
+              <option value="client-editor">Client editor</option>
+              <option value="publisher">Publisher</option>
+              <option value="technical-maintainer">Technical maintainer</option>
+            </select>
+
+            <label class="admin-field-label" for="step-up-code">
+              Fresh authenticator code
+            </label>
+            <input
+              class="admin-auth-input"
+              id="step-up-code"
+              name="stepUpCode"
+              inputmode="numeric"
+              required
+            />
+
+            <button class="admin-button admin-button--primary" type="submit">
+              Issue invitation
+            </button>
+          </form>
+
+          <div class="admin-review-card" data-admin-access-result hidden>
+            <strong data-admin-access-result-title>Invitation created</strong>
+            <p class="admin-muted" data-admin-access-result-message>
+              Share the activation path out of band.
+            </p>
+            <code class="admin-inline-code" data-admin-access-link />
+          </div>
+        </AdminPanel>
+      ) : null
+    }
+
+    {
+      adminSession.capabilities.includes("manage-editor-access") ? (
+        <AdminPanel
+          title="Accounts"
+          eyebrow="Lifecycle controls"
+          description="Suspension revokes active sessions immediately. Password resets issue a new one-time activation link."
+        >
+          <div class="admin-grid">
+            {overview.accounts.map(
+              (account: {
+                id: string;
+                displayName: string;
+                email: string;
+                roleId: string;
+                state: string;
+              }) => (
+                <article class="admin-review-card">
+                  <strong>{account.displayName}</strong>
+                  <p class="admin-muted">
+                    {account.email} · {account.roleId} · {account.state}
+                  </p>
+                  <div class="admin-action-bar__controls">
+                    <button
+                      class="admin-button admin-button--ghost"
+                      type="button"
+                      data-admin-access-action={
+                        account.state === "active" ? "suspend-account" : "resume-account"
+                      }
+                      data-account-id={account.id}
+                    >
+                      {account.state === "active" ? "Suspend" : "Resume"}
+                    </button>
+                    <button
+                      class="admin-button admin-button--ghost"
+                      type="button"
+                      data-admin-access-action="issue-reset-link"
+                      data-account-id={account.id}
+                    >
+                      Password reset
+                    </button>
+                  </div>
+                </article>
+              )
+            )}
+          </div>
+        </AdminPanel>
+      ) : null
+    }
+
+    {
+      adminSession.capabilities.includes("view-audit-log") ? (
+        <AdminPanel
+          title="Audit trail"
+          eyebrow="Tamper-evident events"
+          description="Security-sensitive actions are chained on the server, not inferred from client UI."
+        >
+          <div class="admin-stack">
+            {overview.auditEvents
+              .slice(0, 12)
+              .map(
+                (event: {
+                  type: string;
+                  createdAt: string;
+                  actorRoleId: string | null;
+                  hash: string;
+                }) => (
+                  <article class="admin-review-card">
+                    <strong>{event.type}</strong>
+                    <p class="admin-muted">
+                      {new Date(event.createdAt).toLocaleString("en-GB")} ·{" "}
+                      {event.actorRoleId ?? "system"}
+                    </p>
+                    <p class="admin-muted">Hash: {event.hash.slice(0, 16)}…</p>
+                  </article>
+                )
+              )}
+          </div>
+        </AdminPanel>
+      ) : null
+    }
+  </div>
+</AdminLayout>

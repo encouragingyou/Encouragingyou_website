@@ -1,0 +1,41 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+interface RelatedItem {
+  href: string;
+  metaLabel: string;
+  summary: string;
+  title: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  items: RelatedItem[];
+  summary?: string;
+  title: string;
+}
+
+const { eyebrow, items, summary, title } = Astro.props;
+---
+
+{
+  items.length > 0 ? (
+    <div class="editorial-related">
+      <SectionHeading eyebrow={eyebrow ?? ""} title={title} summary={summary} />
+      <div class="layout-grid layout-grid--cards detail-grid">
+        {items.map((item) => (
+          <CardPanel
+            heading={item.title}
+            headingLevel={3}
+            href={item.href}
+            interactive={true}
+            summary={item.summary}
+            eyebrow={item.metaLabel}
+            tone="muted"
+          />
+        ))}
+      </div>
+    </div>
+  ) : null
+}

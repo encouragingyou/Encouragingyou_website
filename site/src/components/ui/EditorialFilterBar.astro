@@ -1,0 +1,44 @@
+---
+interface CategoryItem {
+  count: number;
+  hasItems: boolean;
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: CategoryItem[];
+  label: string;
+}
+
+const { items, label } = Astro.props;
+---
+
+<div class="editorial-filter-bar" data-editorial-filter-shell>
+  <p class="editorial-filter-bar__label">{label}</p>
+  <div class="editorial-filter-bar__items" role="list">
+    {
+      items.map((item, index) => (
+        <div role="listitem">
+          <button
+            type="button"
+            class:list={[
+              "editorial-filter-chip",
+              index === 0 && "is-current",
+              !item.hasItems && "is-disabled"
+            ]}
+            data-editorial-filter-control={item.id}
+            aria-pressed={index === 0 ? "true" : "false"}
+            disabled={!item.hasItems}
+          >
+            <span>{item.label}</span>
+            <span class="editorial-filter-chip__count">{item.count}</span>
+          </button>
+        </div>
+      ))
+    }
+  </div>
+  <p class="editorial-filter-bar__status" data-editorial-filter-status aria-live="polite">
+    Showing all public items.
+  </p>
+</div>

@@ -1,0 +1,34 @@
+---
+interface Props {
+  document: {
+    slug: string;
+    title: string;
+    sourceCollection: string;
+    ownership: string;
+    documentTypeId?: string;
+  };
+}
+
+const { document } = Astro.props;
+---
+
+<article class="admin-document-card">
+  <div class="admin-document-card__header">
+    <div>
+      <h3 class="admin-document-card__title">
+        <a href={`/admin/documents/${document.slug}/`}>{document.title}</a>
+      </h3>
+      <p class="admin-muted">{document.sourceCollection}</p>
+    </div>
+    <span class:list={["admin-chip", `admin-chip--${document.ownership}`]}>
+      {
+        document.ownership === "client-editable"
+          ? "Client-editable"
+          : document.ownership === "operator-controlled"
+            ? "Publisher-held"
+            : "Mixed"
+      }
+    </span>
+  </div>
+  <a class="admin-link-button" href={`/admin/documents/${document.slug}/`}> Edit copy </a>
+</article>

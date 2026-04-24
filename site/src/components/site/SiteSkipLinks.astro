@@ -1,0 +1,22 @@
+---
+interface SkipLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: SkipLink[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="skip-links">
+  {
+    items.map((item) => (
+      <a class="skip-link" href={item.href}>
+        {item.label}
+      </a>
+    ))
+  }
+</div>

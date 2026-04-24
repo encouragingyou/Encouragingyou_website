@@ -1,0 +1,52 @@
+---
+import ResiliencePanel from "./ResiliencePanel.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  actions?: ActionLink[];
+  body?: string;
+  bullets?: string[];
+  className?: string;
+  eyebrow: string;
+  headingLevel?: 1 | 2 | 3;
+  stateId?: string;
+  tone?: "default" | "error" | "info" | "important" | "success";
+  title: string;
+  summary: string;
+  primaryAction: ActionLink;
+  secondaryAction?: ActionLink;
+}
+
+const {
+  actions,
+  body,
+  bullets = [],
+  className = "empty-state",
+  eyebrow,
+  headingLevel = 1,
+  stateId = "empty-valid",
+  tone = "default",
+  title,
+  summary,
+  primaryAction,
+  secondaryAction
+} = Astro.props;
+const resolvedActions = actions ?? [
+  primaryAction,
+  ...(secondaryAction ? [secondaryAction] : [])
+];
+---
+
+<ResiliencePanel
+  className={className}
+  presentation="panel"
+  stateId={stateId}
+  tone={tone}
+  eyebrow={eyebrow}
+  headingLevel={headingLevel}
+  title={title}
+  summary={summary}
+  body={body}
+  bullets={bullets}
+  actions={resolvedActions}
+/>

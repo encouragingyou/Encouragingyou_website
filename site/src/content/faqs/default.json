@@ -1,0 +1,306 @@
+{
+  "groups": [
+    {
+      "id": "home-support",
+      "title": "Home page support FAQ",
+      "pageContexts": ["home", "contact"],
+      "items": [
+        {
+          "question": "What happens at the CV sessions?",
+          "answer": "Visitors can get one-to-one help with their CV, job applications, and planning their next step before youth club starts.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        },
+        {
+          "question": "Is it okay if it is my first time?",
+          "answer": "Yes. You can come as you are, ask first if you need to, and use the public guidance to understand the next step before you arrive.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Is safeguarding in place?",
+          "answer": "Yes. Child and adult safeguarding are treated separately, and the site keeps a dedicated route for concerns easy to find.",
+          "audienceTags": ["parents-carers", "referrers", "young-people"]
+        }
+      ]
+    },
+    {
+      "id": "join-session",
+      "title": "Joining a session",
+      "pageContexts": ["sessions", "session-cv-support"],
+      "items": [
+        {
+          "question": "Do I need to bring anything to CV support?",
+          "answer": "A draft CV, a blank document, or just some questions is enough. The current source copy does not require people to arrive prepared.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Do I need to know anyone before I come to youth club?",
+          "answer": "No. The youth club offer is described as a low-pressure space where people can settle in at their own pace.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Where does the session take place?",
+          "answer": "The confirmed public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact route",
+      "pageContexts": ["contact"],
+      "items": [
+        {
+          "question": "When should I use Contact instead of Sessions, Volunteer, or Partner?",
+          "answer": "Use Contact when you are not sure which route fits, when you are asking on someone else's behalf, or when your question is broader than one specific published page. If the route is already clear, the dedicated page usually gives you better context first.",
+          "audienceTags": ["young-people", "parents-carers", "referrers", "partners"]
+        },
+        {
+          "question": "Can a parent, carer, school, or referrer ask first?",
+          "answer": "Yes. The contact route is designed to work for people asking on behalf of someone else, especially when they need to explain the situation briefly before choosing a programme or session.",
+          "audienceTags": ["parents-carers", "referrers", "partners"]
+        },
+        {
+          "question": "Why is there no public phone number or full venue address here?",
+          "answer": "Those details have not been confirmed for blanket public publication. The site keeps launch contact details honest by using Rochdale as the public location anchor and sharing more specific venue or follow-up detail on enquiry where appropriate.",
+          "audienceTags": [
+            "young-people",
+            "parents-carers",
+            "referrers",
+            "community-members"
+          ]
+        },
+        {
+          "question": "What if my question is urgent or about safety?",
+          "answer": "Immediate danger should go to emergency services. Safeguarding concerns use the dedicated safeguarding route rather than the general contact queue so the response path stays clear.",
+          "audienceTags": ["young-people", "parents-carers", "referrers", "partners"]
+        }
+      ]
+    },
+    {
+      "id": "session-youth-club",
+      "title": "Youth club session",
+      "pageContexts": ["session-youth-club"],
+      "items": [
+        {
+          "question": "Do I need to know anyone before I come?",
+          "answer": "No. The public route describes youth club as a low-pressure space where someone can arrive without already knowing people and take time to settle in.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "What might the session include?",
+          "answer": "The confirmed public description is games, activities, conversation, and chill time. Exact week-to-week plans are not published as a fixed timetable.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "What if I feel quiet or unsure on a first visit?",
+          "answer": "That is okay. You can join in quickly or take time to look around, listen, and settle before taking part.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Can a parent or carer ask first?",
+          "answer": "Yes. A parent or carer can use the contact route to ask about fit, atmosphere, or practical detail before travelling, and exact venue information can be shared on enquiry.",
+          "audienceTags": ["parents-carers", "young-people"]
+        }
+      ]
+    },
+    {
+      "id": "programme-community-friendship",
+      "title": "Community & Friendship programme",
+      "pageContexts": ["programme-community-friendship"],
+      "items": [
+        {
+          "question": "Do I need to know anyone before I come?",
+          "answer": "No. The Community & Friendship route is built around welcome, low pressure, and giving people room to settle in at their own pace.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Is this only for people who already feel confident?",
+          "answer": "No. The public source material supports the opposite: this route exists so people can connect, relax, and feel part of something before they are fully confident.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Will the exact venue be listed publicly?",
+          "answer": "Rochdale is the confirmed public location anchor. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "What if I am not ready to join the youth club session yet?",
+          "answer": "Use the contact route. The programme page explains the belonging-first offer, and you can ask questions before deciding whether youth club is the right next step.",
+          "audienceTags": ["young-people", "parents-carers"]
+        }
+      ]
+    },
+    {
+      "id": "programme-personal-growth-life-skills",
+      "title": "Personal Growth & Life Skills programme",
+      "pageContexts": ["programme-personal-growth-life-skills"],
+      "items": [
+        {
+          "question": "Is this only for people who already feel confident?",
+          "answer": "No. This route exists precisely because some people need encouragement, guidance, and room to build confidence before bigger opportunities feel realistic.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Are workshop dates listed publicly?",
+          "answer": "Not yet. The launch page keeps the programme promise public without inventing dates or formats that have not been confirmed for publication, so the clearest next step is to ask through the contact route.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        },
+        {
+          "question": "Is this mentoring, workshops, or one-to-one support?",
+          "answer": "Support can include confidence-building, life-skills workshops, mentoring, and practical guidance. The exact format depends on what is currently running, so the best next step is to ask through the contact route and have the current format confirmed on enquiry.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        },
+        {
+          "question": "Can a parent, carer, or referrer ask first?",
+          "answer": "Yes. Young people, parents, carers, and referrers can all use the route to ask what kind of support is the right fit before anyone commits to a next step.",
+          "audienceTags": ["parents-carers", "referrers"]
+        }
+      ]
+    },
+    {
+      "id": "programme-career-support-cv-help",
+      "title": "Career Support & CV Help programme",
+      "pageContexts": ["programme-career-support-cv-help"],
+      "items": [
+        {
+          "question": "Do you actually help with CVs?",
+          "answer": "Yes. Public information confirms practical help with CV writing, applications, and next steps, and the live Saturday CV support session is the clearest route into that help.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        },
+        {
+          "question": "Is this only for people who are already job-ready?",
+          "answer": "No. This route is for people who need practical support, clearer next steps, or more confidence before work, college, or application decisions feel manageable.",
+          "audienceTags": ["young-people", "parents-carers"]
+        },
+        {
+          "question": "Is the Saturday CV session the only way in?",
+          "answer": "It is the clearest live route right now, but it is not the only useful next step. The programme page explains the broader support promise, and the contact route stays available if someone wants to ask questions first.",
+          "audienceTags": ["young-people", "parents-carers", "referrers"]
+        },
+        {
+          "question": "What should I bring if I use the live session?",
+          "answer": "Bring what you already have, even if that is just a draft CV, a blank document, or some questions. The session page keeps the most practical attendance detail, while this programme page explains the wider fit of the support.",
+          "audienceTags": ["young-people", "parents-carers"]
+        }
+      ]
+    },
+    {
+      "id": "programme-community-support-intergenerational-connection",
+      "title": "Community Support / Intergenerational Connection programme",
+      "pageContexts": ["programme-community-support-intergenerational-connection"],
+      "items": [
+        {
+          "question": "Is this only for young people?",
+          "answer": "No. EncouragingYou remains youth-led, but the public offer also makes room for wider community support, including older or isolated people who may need connection, guidance, or practical help.",
+          "audienceTags": ["community-members", "older-people", "parents-carers"]
+        },
+        {
+          "question": "Are community events listed on a regular timetable?",
+          "answer": "Not always. The launch page keeps community events and intergenerational activities honest by treating them as occasional public opportunities rather than pretending there is a standing calendar when that has not been confirmed.",
+          "audienceTags": [
+            "community-members",
+            "older-people",
+            "parents-carers",
+            "referrers"
+          ]
+        },
+        {
+          "question": "Can a family member, carer, or referrer ask first?",
+          "answer": "Yes. Family members, carers, and referrers can start with a short message if they need to explain the situation before anything is arranged in person.",
+          "audienceTags": ["parents-carers", "referrers", "community-members"]
+        },
+        {
+          "question": "Does this mean formal elderly care or home support?",
+          "answer": "No. Public information supports community connection, wider support, community events, and practical guidance. It does not support claims about regulated care, home visits, or specialist services beyond that public scope.",
+          "audienceTags": [
+            "older-people",
+            "parents-carers",
+            "referrers",
+            "community-members"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "get-involved",
+      "title": "Get involved",
+      "pageContexts": ["get-involved", "volunteer", "partner"],
+      "items": [
+        {
+          "question": "Can I ask about volunteering before applying?",
+          "answer": "Yes. The route stays practical and transparent, with clear expectations before anyone is asked for a long-form application.",
+          "audienceTags": ["volunteers", "community-members"]
+        },
+        {
+          "question": "Do partnership enquiries have to be formal?",
+          "answer": "No. The site supports low-friction first contact for referrals, collaboration ideas, and local partnership conversations.",
+          "audienceTags": ["partners", "referrers", "funders"]
+        },
+        {
+          "question": "Can I ask on behalf of someone else?",
+          "answer": "Yes. Parents, carers, schools, and community partners can use the referral-friendly routes and explain that they are asking on someone else's behalf.",
+          "audienceTags": ["parents-carers", "referrers", "partners"]
+        },
+        {
+          "question": "What if I can help but I do not fit one named route yet?",
+          "answer": "That is okay. Use the contact-led supporter path and explain what kind of practical help, introduction, space, or local support you have in mind.",
+          "audienceTags": ["community-members", "partners", "funders", "volunteers"]
+        }
+      ]
+    },
+    {
+      "id": "volunteer",
+      "title": "Volunteer with us",
+      "pageContexts": ["volunteer"],
+      "items": [
+        {
+          "question": "Can I ask questions before I commit to anything?",
+          "answer": "Yes. The first step is a short enquiry and a fair conversation about fit, support, and next steps. There is no pressure to promise more than you can offer.",
+          "audienceTags": ["volunteers", "community-members"]
+        },
+        {
+          "question": "Do I need formal experience to ask about volunteering?",
+          "answer": "Not always. The public route supports practical help, encouragement, and community-minded involvement. The right fit depends on the role, the current need, and the support required.",
+          "audienceTags": ["volunteers", "community-members", "young-people"]
+        },
+        {
+          "question": "Will every volunteer role involve the same checks?",
+          "answer": "No. Safeguarding conversations and checks depend on the level of responsibility involved. If anything is needed for a role, it is explained clearly before anything starts.",
+          "audienceTags": ["volunteers", "community-members", "parents-carers"]
+        },
+        {
+          "question": "What if I can only help occasionally?",
+          "answer": "Say that in your first message. One-off or lighter-touch help can still be useful, and it is better to be honest about your availability than to over-commit.",
+          "audienceTags": ["volunteers", "community-members"]
+        }
+      ]
+    },
+    {
+      "id": "partner",
+      "title": "Partner with us",
+      "pageContexts": ["partner"],
+      "items": [
+        {
+          "question": "Do partnership enquiries need to be formal from the start?",
+          "answer": "No. The first step can stay simple. A short outline of the organisation, local need, collaboration idea, or practical offer is enough to start the right conversation.",
+          "audienceTags": ["partners", "funders", "referrers"]
+        },
+        {
+          "question": "Can a school or organisation ask on behalf of a young person or family?",
+          "answer": "Yes. If the conversation is really about someone needing support, say that clearly so the team can route it as a referral or support enquiry rather than a general partnership discussion.",
+          "audienceTags": ["partners", "referrers", "parents-carers"]
+        },
+        {
+          "question": "Do you already publish partner logos, packages, or case studies?",
+          "answer": "Not yet. The route stays clear without publishing unapproved logos, case studies, or testimonials.",
+          "audienceTags": ["partners", "funders", "community-members"]
+        },
+        {
+          "question": "Is this route only for funding or sponsorship conversations?",
+          "answer": "No. It is also for referrals, joint delivery ideas, venue support, in-kind help, community collaboration, and other practical local partnerships.",
+          "audienceTags": ["partners", "funders", "referrers", "community-members"]
+        }
+      ]
+    }
+  ]
+}

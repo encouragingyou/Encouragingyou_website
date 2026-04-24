@@ -1,0 +1,264 @@
+{
+  "taxonomy": [
+    {
+      "id": "idle",
+      "label": "Idle",
+      "description": "The route or control is ready and nothing has gone wrong.",
+      "guidance": "Use this as the calm baseline. Do not add theatrical placeholders when static content can render immediately."
+    },
+    {
+      "id": "loading",
+      "label": "Loading",
+      "description": "A user-triggered action is in progress and the site is waiting for a result.",
+      "guidance": "Use only for real client-side work such as a secure form submission. Static routes should render complete content instead of fake loading states."
+    },
+    {
+      "id": "success",
+      "label": "Success",
+      "description": "A user action completed and the next step is clear.",
+      "guidance": "Confirm what happened, keep the tone calm, and preserve a clear path forward."
+    },
+    {
+      "id": "validation-error",
+      "label": "Validation error",
+      "description": "The user can fix one or more fields locally before trying again.",
+      "guidance": "Point to the exact fields that need attention and avoid generic blame."
+    },
+    {
+      "id": "submission-error",
+      "label": "Submission error",
+      "description": "A real send attempt failed and the user needs a truthful fallback.",
+      "guidance": "Offer a retry and a safe alternative such as email so the user is not left at a dead end."
+    },
+    {
+      "id": "empty-valid",
+      "label": "Empty but valid",
+      "description": "A route is intentionally empty right now, but the system is healthy.",
+      "guidance": "Explain why the surface is empty, avoid pretending content is late-loading, and route people to the nearest live next step."
+    },
+    {
+      "id": "partial-content",
+      "label": "Partial content",
+      "description": "Some public detail is intentionally withheld, provisional, or not yet published.",
+      "guidance": "Be explicit about what is still available, what stays limited, and how to ask for the next detail safely."
+    },
+    {
+      "id": "unavailable-enhancement",
+      "label": "Unavailable optional enhancement",
+      "description": "A non-essential enhancement such as JavaScript filtering, analytics, or an interactive map is absent or disabled.",
+      "guidance": "Keep the core route usable without the enhancement and describe the limitation plainly."
+    },
+    {
+      "id": "missing-route",
+      "label": "Missing route",
+      "description": "The user landed on a URL that no longer exists or was never valid.",
+      "guidance": "Recover them into high-value routes without masking the fact that the current page is missing."
+    },
+    {
+      "id": "archived-content",
+      "label": "Expired or archived",
+      "description": "The page remains accessible for context but should not read like current guidance.",
+      "guidance": "Keep the record available, reduce urgency, and hand people to the current route when one exists."
+    },
+    {
+      "id": "system-fallback",
+      "label": "System fallback",
+      "description": "A non-critical supporting asset or configuration is unavailable, so a safe fallback is shown.",
+      "guidance": "Protect access to the main content, avoid leaking technical details, and flag the issue for validation rather than the user."
+    }
+  ],
+  "surfaces": [
+    {
+      "id": "route-missing-recovery",
+      "stateId": "missing-route",
+      "presentation": "panel",
+      "eyebrow": "Page not found",
+      "title": "That page is missing, but the main routes into support are still here.",
+      "summary": "If you were looking for a session, support route, update, or safeguarding information, use one of the routes below rather than starting again from scratch.",
+      "actions": [
+        {
+          "label": "Go to the homepage",
+          "href": "/",
+          "variant": "primary"
+        },
+        {
+          "label": "Join a session",
+          "routeId": "sessions",
+          "variant": "secondary"
+        },
+        {
+          "label": "Explore programmes",
+          "routeId": "programmes",
+          "variant": "surface"
+        },
+        {
+          "label": "Get involved",
+          "routeId": "get-involved",
+          "variant": "surface"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "text"
+        },
+        {
+          "label": "Read safeguarding",
+          "routeId": "safeguarding",
+          "variant": "text"
+        }
+      ]
+    },
+    {
+      "id": "events-feed-empty",
+      "stateId": "empty-valid",
+      "presentation": "panel",
+      "eyebrow": "Nothing published yet",
+      "title": "No public items are live right now.",
+      "summary": "Use Sessions for recurring Saturday support and Contact for broader questions while this editorial space waits for confirmed public dates, updates, or opportunities.",
+      "primaryAction": {
+        "label": "Join a session",
+        "routeId": "sessions",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Contact the team",
+        "routeId": "contact",
+        "variant": "surface"
+      }
+    },
+    {
+      "id": "events-filter-empty",
+      "stateId": "empty-valid",
+      "presentation": "panel",
+      "eyebrow": "No matches",
+      "title": "No items match this filter right now.",
+      "summary": "Try another filter, or use the Sessions and Get Involved routes for the clearest live next steps.",
+      "primaryAction": {
+        "label": "Browse sessions",
+        "routeId": "sessions",
+        "variant": "secondary"
+      },
+      "secondaryAction": {
+        "label": "Explore involvement routes",
+        "routeId": "get-involved",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "sessions-calendar-partial",
+      "stateId": "partial-content",
+      "presentation": "notice",
+      "tone": "info",
+      "title": "Some calendar downloads are unavailable",
+      "body": "The live cards still show the next date and time. If a calendar file is missing, use the detail page or Contact for confirmation."
+    },
+    {
+      "id": "sessions-calendar-unavailable",
+      "stateId": "partial-content",
+      "presentation": "notice",
+      "tone": "info",
+      "title": "Calendar downloads are unavailable right now",
+      "body": "The live cards still show the current schedule. Use the detail pages or Contact if you need a date confirmed before travelling."
+    },
+    {
+      "id": "contact-launch-partial",
+      "stateId": "partial-content",
+      "presentation": "notice",
+      "tone": "info",
+      "title": "Current launch contact state",
+      "body": "Email and the short form are the confirmed public routes for launch. Rochdale stays as the public location anchor, while phone and precise venue details are shared carefully on enquiry when they matter."
+    },
+    {
+      "id": "contact-launch-ready",
+      "stateId": "idle",
+      "presentation": "notice",
+      "tone": "success",
+      "title": "Public contact routes are ready",
+      "body": "The main public contact routes are live, and more specific venue or meeting details can still be shared on enquiry where needed."
+    },
+    {
+      "id": "contact-location-withheld",
+      "stateId": "partial-content",
+      "presentation": "panel",
+      "eyebrow": "Location detail",
+      "title": "Public location detail stays intentionally limited.",
+      "summary": "The site keeps Rochdale visible, but exact venue and map detail are only shared when they are relevant to a confirmed session, referral, or support next step.",
+      "primaryAction": {
+        "label": "Send a short message",
+        "href": "#contact-form",
+        "variant": "secondary"
+      },
+      "secondaryAction": {
+        "label": "Browse sessions",
+        "routeId": "sessions",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "form-submitting",
+      "stateId": "loading",
+      "presentation": "status",
+      "title": "Sending your message...",
+      "summary": "Sending your message..."
+    },
+    {
+      "id": "form-validation-error",
+      "stateId": "validation-error",
+      "presentation": "status",
+      "title": "Check the highlighted fields before sending your message.",
+      "summary": "Check the highlighted fields before sending your message."
+    },
+    {
+      "id": "form-reload-required",
+      "stateId": "submission-error",
+      "presentation": "status",
+      "title": "This form needs to be reloaded before you try again.",
+      "summary": "Reload the page and try again. If the problem continues, use the email link below so you can still reach the team."
+    },
+    {
+      "id": "form-context-expired",
+      "stateId": "submission-error",
+      "presentation": "status",
+      "title": "That prefilled route is no longer available.",
+      "summary": "Start again from the page you were using, or use the email link below if you still need help."
+    },
+    {
+      "id": "form-submission-error",
+      "stateId": "submission-error",
+      "presentation": "status",
+      "title": "We could not send your message right now.",
+      "summary": "Please try again or use the email link below so you are not left at a dead end."
+    },
+    {
+      "id": "form-rate-limited",
+      "stateId": "submission-error",
+      "presentation": "status",
+      "title": "Too many messages were sent from this connection in a short time.",
+      "summary": "Wait a few minutes and try again, or use the email link below if the message cannot wait."
+    },
+    {
+      "id": "form-noscript",
+      "stateId": "unavailable-enhancement",
+      "presentation": "notice",
+      "tone": "info",
+      "title": "JavaScript is off",
+      "body": "This page will reload with a confirmation message after you send the form."
+    },
+    {
+      "id": "analytics-disabled",
+      "stateId": "unavailable-enhancement",
+      "presentation": "notice",
+      "tone": "info",
+      "title": "Anonymous measurement is off",
+      "body": "If analytics is unavailable or objected to, the site still works normally and no extra action is required."
+    },
+    {
+      "id": "media-fallback",
+      "stateId": "system-fallback",
+      "presentation": "panel",
+      "eyebrow": "Media unavailable",
+      "title": "The supporting image is unavailable, but the route content is still here.",
+      "summary": "Missing imagery should never block access to support, guidance, or the next clear action."
+    }
+  ]
+}

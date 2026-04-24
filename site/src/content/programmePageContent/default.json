@@ -1,0 +1,539 @@
+{
+  "defaults": {
+    "heroEyebrow": "Programme",
+    "overviewCardPrimaryLabel": "Explore programme",
+    "overviewCardSecondaryLabelWithSession": "See live route",
+    "overviewCardSecondaryLabelWithoutSession": "Get support",
+    "primaryActionLabelWithSession": "See live route",
+    "primaryActionLabelWithoutSession": "Contact the team",
+    "secondaryActionLabel": "Back to all programmes",
+    "deliveryModeLabels": {
+      "liveSession": {
+        "label": "Live Saturday route",
+        "summary": "A recurring session already sits inside this support pillar, so the programme page can explain the theme while the session page handles timings and joining details.",
+        "tone": "success"
+      },
+      "sessionLimited": {
+        "label": "Session details vary",
+        "summary": "This support pillar already maps to live delivery, but the clearest next date may need confirming through the related session route or contact.",
+        "tone": "accent"
+      },
+      "overviewOnly": {
+        "label": "Programme overview",
+        "summary": "This support area is part of the launch offer now, even where the delivery format is still described best through the programme overview and support conversation.",
+        "tone": "soft"
+      },
+      "enquiryOnly": {
+        "label": "Enquiry-led route",
+        "summary": "This support direction is public now, but current access starts with a conversation rather than a published recurring timetable.",
+        "tone": "accent"
+      }
+    },
+    "atAGlanceSection": {
+      "eyebrow": "At a glance",
+      "title": "The essentials are visible before anyone has to decode the route.",
+      "summary": "Each programme page explains who it is for, how it currently shows up, and what kind of next step makes sense.",
+      "audienceLabel": "Best for",
+      "stateLabel": "Current access",
+      "deliveryLabel": "How it shows up now",
+      "trustLabel": "Trust cues"
+    },
+    "contentSection": {
+      "eyebrow": "What this route covers",
+      "title": "What this programme focuses on right now."
+    },
+    "relatedSessionsSection": {
+      "eyebrow": "Taking the next step",
+      "title": "Use the clearest route available right now.",
+      "summary": "Some programmes point to a live recurring session. Others start with a lighter enquiry route until more delivery detail is ready to publish."
+    },
+    "trustSection": {
+      "eyebrow": "Trust and reassurance",
+      "title": "Trust cues stay close to the programme, not buried in general site copy.",
+      "summary": "Each programme page carries its own reassurance about welcome, privacy, safeguarding, or credibility boundaries where relevant."
+    },
+    "ctaBand": {
+      "eyebrow": "Choose the next step",
+      "title": "Move from the programme overview into a real route.",
+      "summary": "If a live session exists, use it for timings and first-visit detail. If not, use the contact route and the team can help you work out the right next step.",
+      "badges": ["Programmes", "Sessions", "Contact"],
+      "primaryActionLabelWithSession": "See live route",
+      "primaryActionLabelWithoutSession": "Get support",
+      "browseSessionsActionLabel": "See current sessions",
+      "supportActionLabel": "Contact the team",
+      "secondaryActionLabel": "Back to programmes"
+    },
+    "migrationNotice": {
+      "title": "Launch note",
+      "body": "Some programme pages still need fuller examples, logistics, and trust detail. Keep the copy practical and avoid filling those gaps with assumptions.",
+      "tone": "info"
+    }
+  },
+  "pages": [
+    {
+      "pageId": "programme-community-friendship",
+      "programmeSlug": "community-friendship",
+      "hero": {
+        "title": "A welcoming space to connect, relax, and feel part of something.",
+        "summary": "Community & Friendship is the part of EncouragingYou that puts belonging first: a calm route into conversation, activities, and regular connection without expecting someone to arrive already confident.",
+        "badges": ["Belonging first", "Low-pressure first step"],
+        "supportingNote": "Based in Rochdale. The linked youth club session is the clearest live route into this programme, and venue details can be shared when someone enquires."
+      },
+      "experienceSection": {
+        "eyebrow": "What participation can feel like",
+        "title": "The first experience should feel welcoming, not intimidating.",
+        "summary": "This route is designed to lower the pressure: people can settle in, join activities, talk, or simply get used to the room before they feel fully involved.",
+        "items": [
+          {
+            "title": "Welcome without pressure",
+            "summary": "No one needs to prove themselves before they are greeted warmly or allowed time to settle in.",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Activities with room to settle in",
+            "summary": "Games, conversation, and chill time create more than one way to take part, so the route does not depend on instant confidence.",
+            "iconAssetId": "icon-youth-activities"
+          },
+          {
+            "title": "Friendship that builds over time",
+            "summary": "The goal is regular connection and familiarity, not a one-off activity that leaves people on the outside again.",
+            "iconAssetId": "icon-community-event"
+          }
+        ]
+      },
+      "relatedSessionsSection": {
+        "eyebrow": "Live route right now",
+        "title": "Youth club is the clearest live expression of this programme.",
+        "summary": "The programme page explains the belonging-first offer. The youth club session page carries timings, calendar access, and first-visit logistics.",
+        "panels": [
+          {
+            "title": "Why this page still matters",
+            "body": "This route explains the wider promise of safe space, belonging, and repeat connection so visitors do not have to infer it from a timetable alone.",
+            "tone": "soft",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Venue details and first contact",
+            "body": "Rochdale stays the public location anchor. Specific venue details can be shared on enquiry so first-time visitors can ask questions before attending.",
+            "tone": "callout",
+            "iconAssetId": "icon-contact"
+          }
+        ],
+        "activeNotice": {
+          "title": "Youth club is currently the live route",
+          "body": "If someone is ready for the practical next step, use the youth club session page for timings and calendar details. This programme page still matters because it explains the wider belonging-first promise behind that session.",
+          "tone": "info"
+        },
+        "fallbackNotice": {
+          "title": "Need the next youth club date confirmed?",
+          "body": "If the live session timing changes, use the contact route to confirm the next date or ask whether this programme is still the right fit.",
+          "tone": "important"
+        }
+      },
+      "faqSection": {
+        "eyebrow": "Questions before someone comes",
+        "title": "Answer the first belonging and safety questions before anyone arrives.",
+        "groupId": "programme-community-friendship"
+      },
+      "evidenceNotice": {
+        "title": "Public-proof boundary",
+        "body": "This page keeps to the public essentials. Named participant stories, venue photography, and team-profile proof stay out until they are approved for publication.",
+        "tone": "info"
+      }
+    },
+    {
+      "pageId": "programme-personal-growth-life-skills",
+      "programmeSlug": "personal-growth-life-skills",
+      "hero": {
+        "title": "Build confidence, resilience, and skills for everyday life.",
+        "summary": "Personal Growth & Life Skills is the route for confidence-building, practical development, and supportive guidance when someone needs encouragement as much as information.",
+        "badges": ["Confidence-building", "Practical next-step support"],
+        "supportingNote": "This offer is live at programme level now. Specific workshop formats, dates, or mentor arrangements are not all published yet, so the clearest next step is a short contact message."
+      },
+      "experienceSection": {
+        "eyebrow": "What support here can feel like",
+        "title": "Growth support that feels practical, encouraging, and possible to step into.",
+        "summary": "The page helps someone picture the support without pretending every detail is already a public timetable.",
+        "items": [
+          {
+            "title": "Confidence without pressure",
+            "summary": "Someone can ask for help, build confidence, and take part without feeling judged for not having everything sorted out yet.",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Practical life-skills development",
+            "summary": "The public promise covers practical development, resilience, and skills that help someone handle everyday challenges and future opportunities.",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Guidance toward the next step",
+            "summary": "This route can include mentoring-style encouragement, workshop learning, or practical guidance, while the exact current format is confirmed honestly on enquiry.",
+            "iconAssetId": "icon-mentoring"
+          }
+        ]
+      },
+      "relatedSessionsSection": {
+        "eyebrow": "Current delivery path",
+        "title": "Start with the programme overview and a short conversation.",
+        "summary": "This route is public because the support direction is real. Dates, workshop rhythms, or named formats should only appear once they are confirmed for publication.",
+        "panels": [
+          {
+            "title": "What this support can include",
+            "body": "Support can include confidence-building, life-skills development, mentoring, motivation, and practical guidance. The public promise stays broad enough to stay truthful while still helping someone recognise the fit.",
+            "tone": "soft",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Why contact comes first",
+            "body": "The right next step may depend on what support someone needs now. A short enquiry lets the team explain whether the best fit is a conversation, a workshop-style opportunity, or another live route already on the site.",
+            "tone": "callout",
+            "iconAssetId": "icon-contact"
+          },
+          {
+            "title": "Need something scheduled today?",
+            "body": "If someone wants an immediate practical or community route, the live Sessions area stays the clearest public place to start while this programme keeps its schedule detail intentionally light.",
+            "tone": "muted",
+            "iconAssetId": "icon-youth-activities"
+          }
+        ],
+        "overviewNotice": {
+          "title": "Programme live, public timing still intentionally light",
+          "body": "This page explains what the support is for. Use contact if you want to ask whether confidence-building support, workshop-style learning, or another current route is the best fit right now.",
+          "tone": "info",
+          "action": {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "secondary"
+          }
+        },
+        "emptyState": {
+          "eyebrow": "No standalone session page yet",
+          "title": "Use a short enquiry to work out the right next step.",
+          "summary": "The offer is real, but the launch site does not yet publish a separate recurring timetable for this programme. Contact the team and they can guide you toward the right conversation, activity, or live session.",
+          "primaryAction": {
+            "label": "Get support",
+            "routeId": "contact",
+            "variant": "primary"
+          },
+          "secondaryAction": {
+            "label": "See current sessions",
+            "routeId": "sessions",
+            "variant": "surface"
+          }
+        }
+      },
+      "faqSection": {
+        "eyebrow": "Questions before someone asks for help",
+        "title": "The page should answer the first practical questions before anyone has to explain themselves.",
+        "groupId": "programme-personal-growth-life-skills"
+      },
+      "evidenceNotice": {
+        "title": "Public-proof boundary",
+        "body": "This page stays focused on the public essentials: confidence-building, life skills, mentoring, and practical guidance. Public dates, mentor profiles, outcome claims, or workshop photography stay out until they are approved for publication.",
+        "tone": "info"
+      }
+    },
+    {
+      "pageId": "programme-career-support-cv-help",
+      "programmeSlug": "career-support-cv-help",
+      "hero": {
+        "title": "Practical support with CVs, applications, and next steps.",
+        "summary": "Career Support & CV Help is the wider practical-support route for people who need help getting started, strengthening applications, or feeling more ready for work, college, and the next opportunity.",
+        "badges": ["Practical first step", "Live Saturday route"],
+        "supportingNote": "The Saturday CV support session is the clearest live route into this programme. Use that page for exact timing, calendar access, and what to bring; use this page to understand the wider support promise.",
+        "primaryAction": {
+          "label": "See CV support",
+          "routeId": "session-cv-support",
+          "variant": "primary"
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        }
+      },
+      "experienceSection": {
+        "eyebrow": "What practical support can feel like",
+        "title": "The route should feel useful straight away, not intimidating.",
+        "summary": "Someone can recognise the fit of the support before they have a polished CV or a perfect plan.",
+        "items": [
+          {
+            "title": "Bring what you already have",
+            "summary": "A draft CV, an unfinished application, or just a question is enough to start. The programme leaves room for unfinished work and first questions.",
+            "iconAssetId": "icon-cv-support"
+          },
+          {
+            "title": "Practical help that turns into action",
+            "summary": "The public promise is about usable progress: wording, structure, next steps, and guidance someone can apply after the session rather than vague motivation alone.",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Confidence grows through clarity",
+            "summary": "Career support here is not just about documents. It helps people feel more ready to ask questions, apply, and take the next step with support around them.",
+            "iconAssetId": "icon-mentoring"
+          }
+        ]
+      },
+      "relatedSessionsSection": {
+        "eyebrow": "Live route right now",
+        "title": "CV support is the clearest live expression of this programme.",
+        "summary": "This page explains the wider practical-support route. The CV support session page carries the exact Saturday timing, calendar access, and first-visit detail.",
+        "panels": [
+          {
+            "title": "Why this page still matters",
+            "body": "This route helps someone recognise that CV help, applications support, and practical next-step guidance fit them before they have to decode a timetable or assume the session is only about one document.",
+            "tone": "soft",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "What the session page owns",
+            "body": "The linked CV support session carries the exact recurrence, add-to-calendar access, and attendance expectations like what to bring. That keeps the programme page from duplicating live logistics.",
+            "tone": "muted",
+            "iconAssetId": "icon-cv-support"
+          },
+          {
+            "title": "Not sure whether to attend yet?",
+            "body": "Use contact if someone needs to ask whether the live session is right for them, wants to check the next date, or needs broader guidance before attending in person.",
+            "tone": "callout",
+            "iconAssetId": "icon-contact"
+          }
+        ],
+        "activeNotice": {
+          "title": "CV support is the live route right now",
+          "body": "If someone wants direct practical help, use the CV support session page for the exact Saturday timing, calendar file, and first-visit detail. This programme page still matters because it frames the wider career-support offer around that session.",
+          "tone": "info",
+          "action": {
+            "label": "See CV support",
+            "routeId": "session-cv-support",
+            "variant": "secondary"
+          }
+        },
+        "fallbackNotice": {
+          "title": "Need the next CV support date confirmed?",
+          "body": "If the live session timing changes or pauses, use contact to check the next date or ask whether the wider career-support route is still the right fit.",
+          "tone": "important",
+          "action": {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "secondary"
+          }
+        }
+      },
+      "faqSection": {
+        "eyebrow": "Questions before someone gets started",
+        "title": "Answer the first practical questions before anyone has to arrive with everything sorted.",
+        "groupId": "programme-career-support-cv-help"
+      },
+      "ctaBand": {
+        "eyebrow": "Choose the next practical step",
+        "title": "Use the route that matches what someone needs right now.",
+        "summary": "Go straight to the live CV support session if you want practical help on Saturday. Use contact if you want to ask first or need help deciding whether the live session is the right fit.",
+        "badges": ["CV help", "Applications", "Next steps"],
+        "actions": [
+          {
+            "label": "See CV support",
+            "routeId": "session-cv-support",
+            "variant": "primary"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "secondary"
+          },
+          {
+            "label": "See all sessions",
+            "routeId": "sessions",
+            "variant": "surface"
+          }
+        ]
+      },
+      "evidenceNotice": {
+        "title": "Public-proof boundary",
+        "body": "This page stays focused on the public essentials: CV help, applications support, job readiness, and next-step guidance. Employment placements, guaranteed outcomes, named advisers, or wider coaching models stay out until they are approved for publication.",
+        "tone": "info"
+      }
+    },
+    {
+      "pageId": "programme-community-support-intergenerational-connection",
+      "programmeSlug": "community-support-intergenerational-connection",
+      "hero": {
+        "title": "Bringing people together across generations through support and connection.",
+        "summary": "Community Support / Intergenerational Connection is the wider welcome route for people who may need company, gentle practical help, or a clearer first conversation about what support, community activity, or next step might fit.",
+        "badges": ["Cross-age welcome", "Contact-led next step"],
+        "supportingNote": "EncouragingYou remains youth-led, but the welcome is wider than youth-only support. Public access currently starts with a short enquiry rather than a standing open timetable, and Rochdale stays the public location anchor.",
+        "primaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "primary"
+        },
+        "secondaryAction": {
+          "label": "See current sessions",
+          "routeId": "sessions",
+          "variant": "surface"
+        }
+      },
+      "experienceSection": {
+        "eyebrow": "What support here can feel like",
+        "title": "A welcoming, practical route that starts with conversation.",
+        "summary": "The page needs enough shape to feel trustworthy even while event timing and venue detail stay enquiry-led.",
+        "items": [
+          {
+            "title": "Connection without pressure",
+            "summary": "People can ask about social connection, shared activities, or a first conversation without feeling they are committing to something they do not yet understand.",
+            "iconAssetId": "icon-intergenerational-connection"
+          },
+          {
+            "title": "Community-rooted support",
+            "summary": "The public promise covers community events, social gatherings, and practical help that bring people together locally rather than treating support as a distant service.",
+            "iconAssetId": "icon-community-event"
+          },
+          {
+            "title": "A calm first conversation",
+            "summary": "Family members, carers, or referrers can ask first, explain what is needed briefly, and be guided toward the right next step.",
+            "iconAssetId": "icon-contact"
+          }
+        ]
+      },
+      "audienceRoutesSection": {
+        "eyebrow": "Find the right route",
+        "title": "Different visitors need different next steps.",
+        "summary": "This page broadens the welcome while still helping people choose the clearest path instead of collapsing everything into one community label.",
+        "items": [
+          {
+            "title": "Looking for connection or wider community support",
+            "summary": "Use contact if someone wants to ask about community events, intergenerational connection, or support that might reduce isolation.",
+            "iconAssetId": "icon-intergenerational-connection",
+            "action": {
+              "label": "Contact the team",
+              "routeId": "contact",
+              "variant": "secondary"
+            }
+          },
+          {
+            "title": "Asking on behalf of a parent, relative, or someone who feels isolated",
+            "summary": "A short message is the safest first step when a carer, family member, or referrer wants to explain what support might help before anyone attends.",
+            "iconAssetId": "icon-contact",
+            "action": {
+              "label": "Ask for support",
+              "routeId": "contact",
+              "variant": "secondary"
+            }
+          },
+          {
+            "title": "Looking for a published live activity right now",
+            "summary": "If you want the clearest public timetable today, the Sessions hub is a better starting point than this enquiry-led route.",
+            "iconAssetId": "icon-youth-activities",
+            "action": {
+              "label": "See current sessions",
+              "routeId": "sessions",
+              "variant": "secondary"
+            }
+          },
+          {
+            "title": "Want to help shape or support the wider offer",
+            "summary": "Use Get involved if you are here to volunteer, partner, or explore community collaboration rather than ask for support yourself.",
+            "iconAssetId": "icon-mentoring",
+            "action": {
+              "label": "Get involved",
+              "routeId": "get-involved",
+              "variant": "secondary"
+            }
+          }
+        ]
+      },
+      "relatedSessionsSection": {
+        "eyebrow": "Current public access",
+        "title": "Start with contact, then use the clearest live route if needed.",
+        "summary": "This programme is public now, but it is not presented as a standing events portal. The team can explain whether the right next step is a conversation, a community event, or another route already live on the site.",
+        "panels": [
+          {
+            "title": "What this page owns",
+            "body": "It explains the wider promise: cross-age connection, community-rooted support, and a welcome that includes older or isolated people without losing the youth-led identity of the organisation.",
+            "tone": "soft",
+            "iconAssetId": "icon-intergenerational-connection"
+          },
+          {
+            "title": "How community events are shared",
+            "body": "Occasional community events or gatherings can be published as updates when ready, but the launch site does not pretend there is always a live open timetable on this route.",
+            "tone": "callout",
+            "iconAssetId": "icon-community-event"
+          },
+          {
+            "title": "What this route is not",
+            "body": "This page does not describe regulated care, home visits, or formal elderly-services provision. It is a community-support and connection route that starts with conversation and fit.",
+            "tone": "muted",
+            "iconAssetId": "icon-safe-space"
+          }
+        ],
+        "enquiryNotice": {
+          "title": "Start with a short support conversation",
+          "body": "Use contact if you want to ask whether this route fits, whether a community event is coming up, or whether another current page on the site is the better first step. Specific venue or access detail can be shared on enquiry.",
+          "tone": "info",
+          "action": {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "secondary"
+          }
+        },
+        "emptyState": {
+          "eyebrow": "No standing session page here",
+          "title": "Use contact to understand the right next step.",
+          "summary": "This route is intentionally broader than one recurring session. The team can explain whether the next step is a conversation, an occasional community event, a live session, or another support path on the site.",
+          "primaryAction": {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "primary"
+          },
+          "secondaryAction": {
+            "label": "See current sessions",
+            "routeId": "sessions",
+            "variant": "surface"
+          }
+        }
+      },
+      "faqSection": {
+        "eyebrow": "Questions before someone asks",
+        "title": "Answer the first fit and trust questions before anyone has to explain themselves in detail.",
+        "groupId": "programme-community-support-intergenerational-connection"
+      },
+      "ctaBand": {
+        "eyebrow": "Choose the clearest next step",
+        "title": "Move into the right conversation, live route, or support pathway.",
+        "summary": "Use contact if you want to ask about wider community support or intergenerational connection. Use live sessions if you need a published timetable today, and use Get involved if you want to support the work.",
+        "badges": ["Connection", "Contact-led", "Rochdale"],
+        "actions": [
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "primary"
+          },
+          {
+            "label": "See current sessions",
+            "routeId": "sessions",
+            "variant": "secondary"
+          },
+          {
+            "label": "Get involved",
+            "routeId": "get-involved",
+            "variant": "surface"
+          }
+        ],
+        "note": {
+          "title": "Need to raise a concern?",
+          "body": "If your message is about safety or wellbeing rather than a general support enquiry, use the safeguarding route so the concern reaches the right place.",
+          "tone": "important",
+          "action": {
+            "label": "See safeguarding",
+            "routeId": "safeguarding",
+            "variant": "text"
+          }
+        }
+      },
+      "evidenceNotice": {
+        "title": "Public-proof boundary",
+        "body": "This page stays focused on the public essentials: wider community support, community events, and support for older or isolated people who may need connection. Regulated care claims, transport or home-visit promises, named partner referrals, or real-participant photography stay out until they are approved for publication.",
+        "tone": "info"
+      }
+    }
+  ]
+}

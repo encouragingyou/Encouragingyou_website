@@ -1,0 +1,146 @@
+{
+  "launchAudiencePriorities": [
+    "young-people",
+    "parents-carers",
+    "referrers",
+    "community-members",
+    "volunteers",
+    "partners"
+  ],
+  "launchPageIds": [
+    "home",
+    "about",
+    "programmes",
+    "programme-community-friendship",
+    "programme-personal-growth-life-skills",
+    "programme-career-support-cv-help",
+    "programme-community-support-intergenerational-connection",
+    "sessions",
+    "session-cv-support",
+    "session-youth-club",
+    "events-updates",
+    "get-involved",
+    "volunteer",
+    "partner",
+    "contact",
+    "safeguarding",
+    "privacy",
+    "cookies",
+    "accessibility",
+    "terms",
+    "not-found"
+  ],
+  "phaseTwoPageIds": ["gallery", "impact-stories", "team"],
+  "nonNegotiableTrustRequirements": [
+    {
+      "id": "visible-safeguarding-route",
+      "title": "Visible safeguarding pathway",
+      "description": "Safeguarding must be easy to find from the main navigation, contact routes, and any page where a young person or carer may need reassurance.",
+      "requiredByLaunch": true,
+      "pageIds": [
+        "home",
+        "sessions",
+        "session-cv-support",
+        "session-youth-club",
+        "contact",
+        "safeguarding"
+      ],
+      "blockerIfMissing": true
+    },
+    {
+      "id": "privacy-at-point-of-capture",
+      "title": "Privacy clarity at every enquiry point",
+      "description": "Forms and contact routes must explain what information is used for and link to the production privacy notice.",
+      "requiredByLaunch": true,
+      "pageIds": ["home", "get-involved", "volunteer", "partner", "contact", "privacy"],
+      "blockerIfMissing": true
+    },
+    {
+      "id": "secure-form-handling",
+      "title": "Secure server-side enquiry handling",
+      "description": "Launch-critical enquiries cannot depend on a visitor having a local email app configured.",
+      "requiredByLaunch": true,
+      "pageIds": ["home", "get-involved", "volunteer", "partner", "contact"],
+      "blockerIfMissing": true
+    },
+    {
+      "id": "real-fact-only-copy",
+      "title": "No invented operational facts",
+      "description": "Unknown facts such as phone number, named safeguarding lead, venue address policy, and access criteria must stay explicit placeholders until confirmed.",
+      "requiredByLaunch": true,
+      "pageIds": [
+        "contact",
+        "safeguarding",
+        "privacy",
+        "cookies",
+        "volunteer",
+        "partner"
+      ],
+      "blockerIfMissing": true
+    },
+    {
+      "id": "ai-art-disclosure",
+      "title": "AI illustration disclosure",
+      "description": "Illustration-led contexts must disclose that images are AI-generated and not participant photography.",
+      "requiredByLaunch": true,
+      "pageIds": ["home", "about", "programmes", "get-involved"],
+      "blockerIfMissing": false
+    },
+    {
+      "id": "accessible-core-journeys",
+      "title": "Accessible core journeys",
+      "description": "Join-session, support enquiry, and safeguarding journeys must be readable, keyboard-friendly, and low-friction on mobile.",
+      "requiredByLaunch": true,
+      "pageIds": ["home", "sessions", "contact", "safeguarding"],
+      "blockerIfMissing": true
+    }
+  ],
+  "launchBlockers": [
+    {
+      "id": "phone-number-missing",
+      "summary": "Public phone number is missing from the source materials.",
+      "currentStatus": "placeholder",
+      "ownerDomain": "contact"
+    },
+    {
+      "id": "named-safeguarding-lead-missing",
+      "summary": "A named safeguarding contact or confirmed alternate route has not been supplied.",
+      "currentStatus": "placeholder",
+      "ownerDomain": "safeguarding"
+    },
+    {
+      "id": "privacy-change-control-required",
+      "summary": "The production privacy notice is now seeded, but any future analytics, cookies, processors, or retention-schedule changes must update the canonical privacy content before release.",
+      "currentStatus": "confirmed",
+      "ownerDomain": "privacy"
+    },
+    {
+      "id": "session-access-rules-unconfirmed",
+      "summary": "The source materials do not confirm whether sessions are free, open access, or referral-based.",
+      "currentStatus": "placeholder",
+      "ownerDomain": "sessions"
+    }
+  ],
+  "phaseTwoBacklog": [
+    {
+      "id": "gallery",
+      "title": "Consented real-photo gallery",
+      "reasonDeferred": "The brief explicitly says photography will be provided later; launch should not imply real participant imagery exists yet."
+    },
+    {
+      "id": "impact-stories",
+      "title": "Impact and stories section",
+      "reasonDeferred": "The organisation needs real stories, permissions, and proof content before publishing an impact-led section."
+    },
+    {
+      "id": "team",
+      "title": "Team page with approved bios and headshots",
+      "reasonDeferred": "The current brief does not include approved headshots or biography content."
+    },
+    {
+      "id": "partner-proof-assets",
+      "title": "Approved partner logos, funder marks, and collaboration proof",
+      "reasonDeferred": "The current source set does not include approved partner or funder assets, case studies, or permission-cleared proof items for public use."
+    }
+  ]
+}

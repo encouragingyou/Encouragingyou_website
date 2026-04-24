@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import EditorialCard from "../../components/ui/EditorialCard.astro";
+import EditorialFilterBar from "../../components/ui/EditorialFilterBar.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import ResiliencePanel from "../../components/ui/ResiliencePanel.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { getEventsUpdatesIndexModel } from "../../lib/content/site-content.ts";
+
+const model = getEventsUpdatesIndexModel();
+type EventsUpdatesItem = (typeof model.items)[number];
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/events-updates/"
+  pageId="events-updates"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+    </PageIntro>
+  </PageSection>
+
+  <PageSection tone="band">
+    <div class="updates-overview">
+      <div class="updates-overview__header">
+        <SectionHeading
+          eyebrow="How to use this page"
+          title="Keep editorial useful without confusing it with live support."
+          summary="This route should guide people toward the right kind of information before they commit to a click."
+        />
+        <NoticeBlock
+          title={model.notice.title}
+          body={model.notice.body}
+          tone={model.notice.tone}
+        />
+      </div>
+
+      <div class="layout-grid layout-grid--cards">
+        {
+          model.overviewPanels.map((panel, index) => (
+            <CardPanel
+              heading={panel.title}
+              summary={"body" in panel ? panel.body : undefined}
+              tone={index === 1 ? "accent" : "soft"}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <div class="updates-index" data-editorial-feed id="updates-feed">
+      <div class="layout-stack layout-stack--roomy">
+        {
+          model.hasPublicItems ? (
+            <>
+              <SectionHeading
+                eyebrow={model.feedSection.eyebrow}
+                title={model.feedSection.title}
+                summary={model.feedSection.summary}
+              />
+
+              <EditorialFilterBar items={model.categories} label={model.filterLabel} />
+
+              {model.featuredItem ? (
+                <div class="updates-index__featured">
+                  <SectionHeading
+                    eyebrow={model.featuredSection.eyebrow}
+                    title={model.featuredSection.title}
+                    summary={model.featuredSection.summary}
+                  />
+                  <EditorialCard
+                    action={{
+                      label: model.featuredItem.actionLabel,
+                      href: model.featuredItem.href,
+                      variant: "primary"
+                    }}
+                    disclosure={model.featuredItem.disclosure}
+                    featured={true}
+                    icon={model.featuredItem.icon}
+                    media={model.featuredItem.media}
+                    metaLabel={model.featuredItem.metaLabel}
+                    metaRows={model.featuredItem.metaRows}
+                    summary={model.featuredItem.summary}
+                    title={model.featuredItem.title}
+                    typeLabel={model.featuredItem.typeLabel}
+                    updateType={model.featuredItem.updateType}
+                  />
+                </div>
+              ) : null}
+
+              {model.items.length > 0 ? (
+                <div class="updates-index__grid">
+                  {model.items.map((item: EventsUpdatesItem) => (
+                    <EditorialCard
+                      action={{
+                        label: item.actionLabel,
+                        href: item.href,
+                        variant: "surface"
+                      }}
+                      disclosure={item.disclosure}
+                      icon={item.icon}
+                      media={item.media}
+                      metaLabel={item.metaLabel}
+                      metaRows={item.metaRows}
+                      summary={item.summary}
+                      title={item.title}
+                      typeLabel={item.typeLabel}
+                      updateType={item.updateType}
+                    />
+                  ))}
+                </div>
+              ) : null}
+
+              <div class="updates-index__filter-empty" data-editorial-filter-empty hidden>
+                <ResiliencePanel
+                  className="updates-index__filter-empty-panel"
+                  stateId={model.filterEmptyState.stateId}
+                  tone={model.filterEmptyState.tone}
+                  presentation="panel"
+                  eyebrow={model.filterEmptyState.eyebrow}
+                  headingLevel={2}
+                  title={model.filterEmptyState.title}
+                  summary={model.filterEmptyState.summary}
+                  body={model.filterEmptyState.body}
+                  bullets={model.filterEmptyState.bullets}
+                  actions={model.filterEmptyState.actions}
+                />
+              </div>
+
+              {model.archiveNotice ? (
+                <NoticeBlock
+                  title={model.archiveNotice.title}
+                  body={model.archiveNotice.body}
+                  tone={model.archiveNotice.tone}
+                />
+              ) : null}
+            </>
+          ) : (
+            <ResiliencePanel
+              className="updates-index__empty"
+              stateId={model.emptyState.stateId}
+              tone={model.emptyState.tone}
+              presentation="panel"
+              eyebrow={model.emptyState.eyebrow}
+              headingLevel={2}
+              title={model.emptyState.title}
+              summary={model.emptyState.summary}
+              body={model.emptyState.body}
+              bullets={model.emptyState.bullets}
+              actions={model.emptyState.actions}
+            />
+          )
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <CtaBand
+      eyebrow={model.ctaBand.eyebrow}
+      title={model.ctaBand.title}
+      summary={model.ctaBand.summary}
+      badges={model.ctaBand.badges}
+      actions={model.ctaBand.actions}
+      note={model.ctaBand.note}
+    />
+  </PageSection>
+</BaseLayout>

@@ -1,0 +1,322 @@
+---
+import PageSection from "../layout/PageSection.astro";
+import CtaBand from "./CtaBand.astro";
+import FeatureSplit from "./FeatureSplit.astro";
+import CardPanel from "../ui/CardPanel.astro";
+import FaqGroup from "../ui/FaqGroup.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import ProgrammeCard from "../ui/ProgrammeCard.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface SessionPanelItem {
+  title: string;
+  body: string;
+  tone: "accent" | "callout" | "default" | "muted" | "soft";
+  icon?: MediaAsset;
+}
+
+interface Props {
+  model: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    supportingNote: string | null;
+    badges: string[];
+    actions: ActionLink[];
+    media: MediaAsset;
+    disclosure: MediaDisclosure | string | null;
+    scheduleNotice: {
+      title: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+    } | null;
+    downloadNotice: {
+      title: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+    } | null;
+    atAGlanceSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+      items: Array<{
+        title: string;
+        body: string;
+      }>;
+    };
+    expectationSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+      items: SessionPanelItem[];
+      checklistTitle?: string;
+      checklistItems: string[];
+    };
+    supportSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+      items: SessionPanelItem[];
+      checklistTitle?: string;
+      checklistItems: string[];
+      note?: {
+        title?: string;
+        body: string;
+        tone: "error" | "important" | "info" | "success";
+        action?: ActionLink;
+      };
+    };
+    faqSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+    };
+    faqGroupId: string;
+    faqs: Array<{
+      question: string;
+      answer: string;
+      audienceTags: string[];
+    }>;
+    relatedProgrammeSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+    } | null;
+    relatedProgramme: {
+      title: string;
+      summary: string;
+      href: string;
+      media: MediaAsset;
+      disclosure?: MediaDisclosure | string | null;
+      tags: string[];
+      ctaLabel: string;
+    } | null;
+    fallbackNotice: {
+      title?: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+      action?: ActionLink;
+    };
+    urgentNotice: {
+      title: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+    };
+    ctaBand: {
+      eyebrow: string;
+      title: string;
+      summary?: string;
+      badges: string[];
+      actions: ActionLink[];
+      note?: {
+        title?: string;
+        body: string;
+        tone: "error" | "important" | "info" | "success";
+        action?: ActionLink;
+      };
+    };
+  };
+}
+
+const { model } = Astro.props;
+const [primaryAction, secondaryAction] = model.actions;
+---
+
+<PageSection className="session-detail session-detail--hero">
+  <FeatureSplit
+    eyebrow={model.eyebrow}
+    title={model.title}
+    summary={model.summary}
+    bodyFirst={true}
+    media={model.media}
+    disclosure={model.disclosure}
+    primaryAction={primaryAction}
+    secondaryAction={secondaryAction}
+    badges={model.badges}
+    supportingNote={model.supportingNote ?? undefined}
+    headingLevel={1}
+  />
+</PageSection>
+
+{
+  model.scheduleNotice ? (
+    <PageSection className="session-detail__schedule">
+      <NoticeBlock
+        title={model.scheduleNotice.title}
+        body={model.scheduleNotice.body}
+        tone={model.scheduleNotice.tone}
+      />
+    </PageSection>
+  ) : null
+}
+
+{
+  model.downloadNotice ? (
+    <PageSection className="session-detail__schedule">
+      <NoticeBlock
+        title={model.downloadNotice.title}
+        body={model.downloadNotice.body}
+        tone={model.downloadNotice.tone}
+      />
+    </PageSection>
+  ) : null
+}
+
+<PageSection tone="band" className="session-detail__overview">
+  <div class="layout-stack layout-stack--roomy" data-session-detail-section="overview">
+    <SectionHeading
+      eyebrow={model.atAGlanceSection.eyebrow ?? "At a glance"}
+      title={model.atAGlanceSection.title}
+      summary={model.atAGlanceSection.summary}
+    />
+    <div class="layout-grid layout-grid--cards session-detail__fact-grid">
+      {
+        model.atAGlanceSection.items.map((item) => (
+          <CardPanel heading={item.title} summary={item.body} tone="soft" />
+        ))
+      }
+    </div>
+  </div>
+</PageSection>
+
+<PageSection className="session-detail__content">
+  <div class="layout-stack layout-stack--roomy">
+    <div
+      class="layout-stack layout-stack--roomy"
+      data-session-detail-section="expectations"
+    >
+      <SectionHeading
+        eyebrow={model.expectationSection.eyebrow ?? "What to expect"}
+        title={model.expectationSection.title}
+        summary={model.expectationSection.summary}
+      />
+      <div class="layout-grid layout-grid--cards-wide">
+        {
+          model.expectationSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone={item.tone}
+              icon={item.icon}
+            />
+          ))
+        }
+        {
+          model.expectationSection.checklistTitle &&
+          model.expectationSection.checklistItems.length > 0 ? (
+            <CardPanel
+              heading={model.expectationSection.checklistTitle}
+              tone="default"
+              className="session-detail__checklist-card"
+            >
+              <ul class="check-list">
+                {model.expectationSection.checklistItems.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </CardPanel>
+          ) : null
+        }
+      </div>
+    </div>
+
+    <div class="layout-stack layout-stack--roomy" data-session-detail-section="support">
+      <SectionHeading
+        eyebrow={model.supportSection.eyebrow ?? "Support"}
+        title={model.supportSection.title}
+        summary={model.supportSection.summary}
+      />
+      <div class="layout-grid layout-grid--cards-wide">
+        {
+          model.supportSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone={item.tone}
+              icon={item.icon}
+            />
+          ))
+        }
+        {
+          model.supportSection.checklistTitle &&
+          model.supportSection.checklistItems.length > 0 ? (
+            <CardPanel
+              heading={model.supportSection.checklistTitle}
+              tone="soft"
+              className="session-detail__checklist-card"
+            >
+              <ul class="check-list">
+                {model.supportSection.checklistItems.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </CardPanel>
+          ) : null
+        }
+      </div>
+      {
+        model.supportSection.note ? (
+          <NoticeBlock
+            title={model.supportSection.note.title}
+            body={model.supportSection.note.body}
+            tone={model.supportSection.note.tone}
+            action={model.supportSection.note.action}
+          />
+        ) : null
+      }
+    </div>
+  </div>
+</PageSection>
+
+<PageSection className="session-detail__faq">
+  <div class="layout-grid layout-grid--sidebar">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.faqSection.eyebrow ?? "Questions before you come"}
+        title={model.faqSection.title}
+        summary={model.faqSection.summary}
+      />
+      <FaqGroup groupId={model.faqGroupId} items={model.faqs} />
+    </div>
+
+    <aside class="layout-stack layout-stack--roomy session-detail__sidebar">
+      <NoticeBlock
+        title={model.urgentNotice.title}
+        body={model.urgentNotice.body}
+        tone={model.urgentNotice.tone}
+      />
+
+      {
+        model.relatedProgrammeSection && model.relatedProgramme ? (
+          <div class="layout-stack layout-stack--tight">
+            <SectionHeading
+              eyebrow={model.relatedProgrammeSection.eyebrow ?? "Wider route"}
+              title={model.relatedProgrammeSection.title}
+              summary={model.relatedProgrammeSection.summary}
+            />
+            <ProgrammeCard {...model.relatedProgramme} />
+          </div>
+        ) : null
+      }
+
+      <NoticeBlock
+        title={model.fallbackNotice.title}
+        body={model.fallbackNotice.body}
+        tone={model.fallbackNotice.tone}
+        action={model.fallbackNotice.action}
+      />
+    </aside>
+  </div>
+</PageSection>
+
+<PageSection tone="tint" className="session-detail__cta">
+  <CtaBand
+    eyebrow={model.ctaBand.eyebrow}
+    title={model.ctaBand.title}
+    summary={model.ctaBand.summary}
+    badges={model.ctaBand.badges}
+    actions={model.ctaBand.actions}
+    note={model.ctaBand.note}
+  />
+</PageSection>

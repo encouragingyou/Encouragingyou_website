@@ -1,0 +1,76 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import MediaPicture from "../ui/MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  eyebrow: string;
+  headline: string;
+  summary: string;
+  badges: string[];
+  primaryAction: ActionLink;
+  secondaryAction: ActionLink;
+  media: MediaAsset;
+  disclosure?: MediaDisclosure | string | null;
+}
+
+const {
+  eyebrow,
+  headline,
+  summary,
+  badges,
+  primaryAction,
+  secondaryAction,
+  media,
+  disclosure
+} = Astro.props;
+
+const hasAside = Astro.slots.has("aside");
+const hasSupport = Astro.slots.has("support");
+---
+
+<section class="home-hero">
+  <div class="home-hero__media">
+    <MediaPicture asset={media} eager={true} sizes="100vw" />
+  </div>
+  <div class="home-hero__overlay"></div>
+  <div class="container container--wide home-hero__inner">
+    <div class="home-hero__copy">
+      <p class="eyebrow eyebrow--light motion-order-0" data-motion="reveal">
+        {eyebrow}
+      </p>
+      <h1 class="motion-order-1" data-motion="reveal">{headline}</h1>
+      <p class="home-hero__summary motion-order-2" data-motion="reveal">
+        {summary}
+      </p>
+      <div class="home-hero__actions motion-order-3" data-motion="reveal">
+        <ActionCluster actions={[primaryAction, secondaryAction]} />
+      </div>
+      {
+        hasSupport ? (
+          <div class="home-hero__support motion-order-4" data-motion="reveal">
+            <slot name="support" />
+          </div>
+        ) : null
+      }
+      <ul class="home-hero__badges motion-order-5" data-motion="reveal">
+        {badges.map((badge) => <li>{badge}</li>)}
+      </ul>
+    </div>
+    {
+      hasAside ? (
+        <div class="home-hero__aside motion-order-6" data-motion="reveal">
+          <slot name="aside" />
+        </div>
+      ) : null
+    }
+    {
+      disclosure ? (
+        <div class="home-hero__disclosure motion-order-7" data-motion="reveal">
+          <DisclosureNote disclosure={disclosure} />
+        </div>
+      ) : null
+    }
+  </div>
+</section>

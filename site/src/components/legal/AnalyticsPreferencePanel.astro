@@ -1,0 +1,123 @@
+---
+import Button from "../ui/Button.astro";
+import CardPanel from "../ui/CardPanel.astro";
+import { ANALYTICS_PREFERENCE_ENDPOINT_PATH } from "../../lib/analytics/contract.js";
+
+interface PreferenceCopy {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  mode: "off" | "statistical" | "consent";
+  state: string;
+  stateCopy: PreferenceCopy;
+  note: string;
+  objectLabel: string;
+  resumeLabel: string;
+  acceptLabel?: string;
+  rejectLabel?: string;
+  withdrawLabel?: string;
+  returnTo?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  mode,
+  state,
+  stateCopy,
+  note,
+  objectLabel,
+  resumeLabel,
+  acceptLabel = "Accept analytics",
+  rejectLabel = "Reject analytics",
+  withdrawLabel = "Withdraw analytics choice",
+  returnTo = "/cookies/#analytics-preferences"
+} = Astro.props;
+---
+
+<CardPanel
+  as="section"
+  className="analytics-preference-panel"
+  tone="soft"
+  eyebrow={eyebrow}
+  heading={title}
+  headingLevel={2}
+  summary={summary}
+  data-analytics-surface="legal-control"
+>
+  <div class="analytics-preference-panel__body">
+    <p class="analytics-preference-panel__state" data-state={state}>
+      {stateCopy.title}
+    </p>
+    <p>{stateCopy.body}</p>
+    <p class="analytics-preference-panel__note">{note}</p>
+  </div>
+
+  {
+    mode === "statistical" && state === "active" ? (
+      <form
+        class="analytics-preference-panel__actions"
+        action={ANALYTICS_PREFERENCE_ENDPOINT_PATH}
+        method="post"
+      >
+        <input type="hidden" name="action" value="object" />
+        <input type="hidden" name="returnTo" value={returnTo} />
+        <Button type="submit" variant="surface">
+          {objectLabel}
+        </Button>
+      </form>
+    ) : null
+  }
+
+  {
+    mode === "statistical" && state === "objected" ? (
+      <form
+        class="analytics-preference-panel__actions"
+        action={ANALYTICS_PREFERENCE_ENDPOINT_PATH}
+        method="post"
+      >
+        <input type="hidden" name="action" value="resume" />
+        <input type="hidden" name="returnTo" value={returnTo} />
+        <Button type="submit" variant="surface">
+          {resumeLabel}
+        </Button>
+      </form>
+    ) : null
+  }
+
+  {
+    mode === "consent" ? (
+      <div class="analytics-preference-panel__actions">
+        <form action={ANALYTICS_PREFERENCE_ENDPOINT_PATH} method="post">
+          <input type="hidden" name="action" value="accept" />
+          <input type="hidden" name="returnTo" value={returnTo} />
+          <Button type="submit" variant="primary">
+            {acceptLabel}
+          </Button>
+        </form>
+        <form action={ANALYTICS_PREFERENCE_ENDPOINT_PATH} method="post">
+          <input type="hidden" name="action" value="reject" />
+          <input type="hidden" name="returnTo" value={returnTo} />
+          <Button type="submit" variant="surface">
+            {rejectLabel}
+          </Button>
+        </form>
+        {state === "accepted" || state === "rejected" ? (
+          <form action={ANALYTICS_PREFERENCE_ENDPOINT_PATH} method="post">
+            <input type="hidden" name="action" value="withdraw" />
+            <input type="hidden" name="returnTo" value={returnTo} />
+            <Button type="submit" variant="text">
+              {withdrawLabel}
+            </Button>
+          </form>
+        ) : null}
+      </div>
+    ) : null
+  }
+</CardPanel>

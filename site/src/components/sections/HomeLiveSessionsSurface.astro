@@ -1,0 +1,96 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import SessionSummaryCard from "../ui/SessionSummaryCard.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+interface SessionItem {
+  title: string;
+  summary: string;
+  href: string;
+  calendarHref?: string | null;
+  timeLabel: string;
+  nextLabel?: string | null;
+  statusLabel?: string | null;
+  statusMessage?: string | null;
+  icon: MediaAsset;
+}
+
+interface StateCopy {
+  title: string;
+  summary: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary?: string;
+  state: "available" | "paused" | "unavailable";
+  items: SessionItem[];
+  primaryAction?: ActionLink;
+  secondaryAction?: ActionLink;
+  emptyState?: StateCopy;
+  pausedState?: StateCopy;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  state,
+  items,
+  primaryAction,
+  secondaryAction,
+  emptyState,
+  pausedState
+} = Astro.props;
+
+const notice =
+  state === "paused" && pausedState
+    ? {
+        title: pausedState.title,
+        body: pausedState.summary,
+        tone: "important" as const
+      }
+    : state === "unavailable" && emptyState
+      ? {
+          title: emptyState.title,
+          body: emptyState.summary,
+          tone: "info" as const
+        }
+      : null;
+---
+
+<div class="home-live-sessions sessions-strip" data-home-section="live-sessions">
+  <div class="home-live-sessions__header">
+    <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+    {
+      primaryAction || secondaryAction ? (
+        <ActionCluster
+          actions={[
+            ...(primaryAction ? [primaryAction] : []),
+            ...(secondaryAction ? [secondaryAction] : [])
+          ]}
+          className="home-live-sessions__actions"
+        />
+      ) : null
+    }
+  </div>
+
+  {
+    notice ? (
+      <NoticeBlock title={notice.title} body={notice.body} tone={notice.tone} />
+    ) : null
+  }
+
+  {
+    items.length > 0 ? (
+      <div class="home-live-sessions__grid sessions-strip__grid layout-grid layout-grid--summary">
+        {items.map((item) => (
+          <SessionSummaryCard {...item} />
+        ))}
+      </div>
+    ) : null
+  }
+</div>

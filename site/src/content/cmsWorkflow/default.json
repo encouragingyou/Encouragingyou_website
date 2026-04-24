@@ -1,0 +1,174 @@
+{
+  "version": "2026-04-24",
+  "states": [
+    {
+      "id": "draft",
+      "label": "Draft",
+      "publicVisible": false,
+      "terminal": false,
+      "description": "Working copy that can be edited by an invited editor, publisher, or technical maintainer."
+    },
+    {
+      "id": "under-review",
+      "label": "Under review",
+      "publicVisible": false,
+      "terminal": false,
+      "description": "Awaiting publisher or maintainer review. Changes are frozen pending approval or revision request."
+    },
+    {
+      "id": "approved",
+      "label": "Approved for publish",
+      "publicVisible": false,
+      "terminal": false,
+      "description": "Editorially approved and ready either for immediate publication or scheduling."
+    },
+    {
+      "id": "scheduled",
+      "label": "Scheduled",
+      "publicVisible": false,
+      "terminal": false,
+      "description": "Approved content waiting for an explicit publish-at timestamp on the isolated admin side."
+    },
+    {
+      "id": "published",
+      "label": "Published",
+      "publicVisible": true,
+      "terminal": false,
+      "description": "The revision currently eligible for export into the public read model."
+    },
+    {
+      "id": "superseded",
+      "label": "Superseded",
+      "publicVisible": false,
+      "terminal": false,
+      "description": "A previously published revision retained for traceability after a newer revision replaces it."
+    },
+    {
+      "id": "archived",
+      "label": "Archived",
+      "publicVisible": false,
+      "terminal": true,
+      "description": "A retired record or revision that must not appear in the public read model."
+    }
+  ],
+  "transitions": [
+    {
+      "id": "draft-to-under-review",
+      "from": "draft",
+      "to": "under-review",
+      "roles": ["client-editor", "publisher", "technical-maintainer"],
+      "requires": ["changeSummary"]
+    },
+    {
+      "id": "under-review-to-draft",
+      "from": "under-review",
+      "to": "draft",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["reviewDecisionNote"]
+    },
+    {
+      "id": "under-review-to-approved",
+      "from": "under-review",
+      "to": "approved",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["approvalNote"]
+    },
+    {
+      "id": "approved-to-scheduled",
+      "from": "approved",
+      "to": "scheduled",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["publishAt", "publishNote"]
+    },
+    {
+      "id": "approved-to-published",
+      "from": "approved",
+      "to": "published",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["publishNote"]
+    },
+    {
+      "id": "scheduled-to-published",
+      "from": "scheduled",
+      "to": "published",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["publishNote"]
+    },
+    {
+      "id": "scheduled-to-draft",
+      "from": "scheduled",
+      "to": "draft",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["reviewDecisionNote"]
+    },
+    {
+      "id": "published-to-superseded",
+      "from": "published",
+      "to": "superseded",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["supersededByRevisionId", "publishNote"]
+    },
+    {
+      "id": "published-to-archived",
+      "from": "published",
+      "to": "archived",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["archiveNote"]
+    },
+    {
+      "id": "superseded-to-published",
+      "from": "superseded",
+      "to": "published",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["rollbackFromRevisionId", "publishNote"]
+    },
+    {
+      "id": "draft-to-archived",
+      "from": "draft",
+      "to": "archived",
+      "roles": ["publisher", "technical-maintainer"],
+      "requires": ["archiveNote"]
+    }
+  ],
+  "revisionModel": {
+    "documentIdFormat": "{documentTypeId}:{recordKey}",
+    "revisionIdFormat": "{documentId}@v{version}",
+    "versionField": "version",
+    "contentHashField": "contentHash",
+    "diffStrategy": "json-structural-diff",
+    "rollbackStrategy": "create-new-published-revision-from-previous-published-snapshot",
+    "scheduledPublishField": "publishAt",
+    "publishedAtField": "publishedAt",
+    "supersededByField": "supersededByRevisionId",
+    "rollbackFromField": "rollbackFromRevisionId",
+    "authorFields": ["createdBy", "approvedBy", "publishedBy"],
+    "noteFields": [
+      "changeSummary",
+      "reviewDecisionNote",
+      "approvalNote",
+      "publishNote",
+      "archiveNote"
+    ]
+  },
+  "publicationRules": {
+    "publicReadModelState": "published",
+    "allowDraftInPublicReadModel": false,
+    "allowReviewStateInPublicReadModel": false,
+    "allowScheduledInPublicReadModel": false,
+    "previewMode": "isolated-admin-preview-only",
+    "publishStrategy": "build-time-export",
+    "regenerationTrigger": "admin-publication-event-or-approved-build-step",
+    "rollbackMode": "publish-prior-snapshot-as-new-revision"
+  },
+  "auditLogRequirements": [
+    "documentId",
+    "revisionId",
+    "actorRole",
+    "actorId",
+    "event",
+    "fromState",
+    "toState",
+    "createdAt",
+    "note"
+  ]
+}

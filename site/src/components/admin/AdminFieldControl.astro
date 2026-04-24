@@ -1,0 +1,95 @@
+---
+interface FieldOption {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  field: {
+    id: string;
+    path: string;
+    label: string;
+    value: string;
+    initialValue: string;
+    controlType: string;
+    helperText: string;
+    maxLength: number;
+    editable: boolean;
+    lockReason: string | null;
+    required: boolean;
+    options?: FieldOption[];
+  };
+}
+
+const { field } = Astro.props;
+---
+
+<div class="admin-field" data-admin-field-wrapper data-field-id={field.id}>
+  <div class="admin-field__header">
+    <label class="admin-field__label" for={field.id}>
+      {field.label}
+    </label>
+    <span class="admin-field__count" data-field-count>
+      {String(field.value).length}/{field.maxLength}
+    </span>
+  </div>
+  {
+    field.controlType === "textarea" ? (
+      <textarea
+        class="admin-field__control admin-field__control--textarea"
+        id={field.id}
+        name={field.path}
+        data-admin-field
+        data-field-label={field.label}
+        data-initial-value={field.initialValue}
+        data-control-type={field.controlType}
+        data-max-length={field.maxLength}
+        data-required={field.required ? "true" : "false"}
+        rows={5}
+        maxlength={field.maxLength}
+        disabled={!field.editable}
+      >
+        {field.value}
+      </textarea>
+    ) : field.controlType === "internal-route" ||
+      field.controlType === "external-link" ? (
+      <select
+        class="admin-field__control"
+        id={field.id}
+        name={field.path}
+        data-admin-field
+        data-field-label={field.label}
+        data-initial-value={field.initialValue}
+        data-control-type={field.controlType}
+        data-max-length={field.maxLength}
+        data-required={field.required ? "true" : "false"}
+        disabled={!field.editable}
+      >
+        {field.options?.map((option) => (
+          <option value={option.value} selected={option.value === field.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    ) : (
+      <input
+        class="admin-field__control"
+        id={field.id}
+        name={field.path}
+        data-admin-field
+        data-field-label={field.label}
+        data-initial-value={field.initialValue}
+        data-control-type={field.controlType}
+        data-max-length={field.maxLength}
+        data-required={field.required ? "true" : "false"}
+        type={field.controlType === "email" ? "email" : "text"}
+        value={field.value}
+        maxlength={field.maxLength}
+        disabled={!field.editable}
+      />
+    )
+  }
+  <p class="admin-field__helper">{field.helperText}</p>
+  <p class="admin-field__error" data-field-error hidden></p>
+  {field.lockReason ? <p class="admin-lock-note">{field.lockReason}</p> : null}
+</div>

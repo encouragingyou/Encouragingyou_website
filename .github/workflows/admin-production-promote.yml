@@ -1,0 +1,85 @@
+name: Admin Production Promote
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Commit SHA that already passed Admin Quality and has a packaged admin release candidate.
+        required: true
+        type: string
+      release_id:
+        description: Optional release identifier override. Leave blank to use the first 12 characters of the SHA.
+        required: false
+        type: string
+
+concurrency:
+  group: admin-production
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    name: Promote Admin Production Release
+    runs-on: ubuntu-latest
+    environment: admin-production
+    env:
+      DEPLOYMENT_SURFACE: admin
+      ADMIN_PORTAL_ENABLED: "true"
+      ANALYTICS_MODE: off
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Check out admin release candidate commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: site/.nvmrc
+
+      - name: Resolve release metadata
+        run: |
+          RELEASE_SHA_INPUT="${{ inputs.release_sha }}"
+          RELEASE_ID_INPUT="${{ inputs.release_id }}"
+
+          if [ -n "$RELEASE_ID_INPUT" ]; then
+            RELEASE_ID_VALUE="$RELEASE_ID_INPUT"
+          else
+            RELEASE_ID_VALUE="${RELEASE_SHA_INPUT:0:12}"
+          fi
+
+          echo "RELEASE_SHA=$RELEASE_SHA_INPUT" >> "$GITHUB_ENV"
+          echo "RELEASE_ID=$RELEASE_ID_VALUE" >> "$GITHUB_ENV"
+
+      - name: Assert admin deployment configuration
+        env:
+          ADMIN_ORIGIN_URL: ${{ vars.ADMIN_ORIGIN_URL }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.ADMIN_RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          test -n "$ADMIN_ORIGIN_URL"
+          test -n "$RENDER_DEPLOY_HOOK_URL"
+
+      - name: Trigger Render deploy for the approved admin commit
+        env:
+          RELEASE_SHA: ${{ env.RELEASE_SHA }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.ADMIN_RENDER_DEPLOY_HOOK_URL }}
+        run: node ./scripts/trigger-render-deploy.mjs
+
+      - name: Verify the live admin release
+        env:
+          RELEASE_ID: ${{ env.RELEASE_ID }}
+          RELEASE_SHA: ${{ env.RELEASE_SHA }}
+          ADMIN_ORIGIN_URL: ${{ vars.ADMIN_ORIGIN_URL }}
+        run: >
+          node ./scripts/verify-deployment.mjs
+          --base-url "$ADMIN_ORIGIN_URL"
+          --channel production
+          --surface admin
+          --expectReleaseId "$RELEASE_ID"
+          --expectReleaseSha "$RELEASE_SHA"
+          --attempts 60
+          --waitMs 10000

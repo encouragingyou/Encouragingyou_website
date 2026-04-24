@@ -1,0 +1,402 @@
+{
+  "page": {
+    "eyebrow": "Privacy notice",
+    "title": "How this site handles the personal information people share with us.",
+    "summary": "This notice covers the live EncouragingYou website routes where someone can send a message, ask for support, enquire about volunteering or partnership, or raise a non-emergency safeguarding concern.",
+    "statusNote": {
+      "title": "Current build scope",
+      "body": "This notice is tied to the launch build that is live in the repo now. It covers the secure enquiry routes, the same-site form storage, and the live first-party aggregate analytics layer described in the Cookie Notice.",
+      "tone": "important"
+    },
+    "primaryAction": {
+      "label": "Use the contact route",
+      "variant": "primary",
+      "routeId": "contact"
+    },
+    "secondaryAction": {
+      "label": "Email privacy questions",
+      "variant": "secondary",
+      "href": "mailto:admin@encouragingyou.co.uk?subject=Privacy%20question"
+    },
+    "summaryCards": [
+      {
+        "title": "What the site collects now",
+        "body": "The live forms ask only for the details needed to read a message and reply properly.",
+        "bullets": [
+          "Name",
+          "Email address",
+          "Reason for contact",
+          "Message content",
+          "Optional updates choice where that box is shown"
+        ]
+      },
+      {
+        "title": "What the site does not do at launch",
+        "body": "The current build does not wire these routes into extra tracking or marketing systems.",
+        "bullets": [
+          "No advertising or cross-site analytics cookies on the live routes",
+          "No third-party analytics platform or tag manager on the live routes",
+          "No CRM or case-management platform declared in the repo",
+          "No separate newsletter platform connected to the updates opt-in",
+          "No interactive map on the contact page by default"
+        ]
+      },
+      {
+        "title": "Where privacy is shown",
+        "body": "The site repeats a short privacy note where people actually enter details, not only in the footer.",
+        "bullets": [
+          "Home and Contact forms",
+          "Get Involved, Volunteer, and Partner forms",
+          "Accessibility feedback form",
+          "Safeguarding secure concern form",
+          "Footer and legal navigation for the full notice"
+        ]
+      }
+    ],
+    "contents": [
+      {
+        "id": "who-we-are",
+        "label": "Who we are and how to contact us"
+      },
+      {
+        "id": "what-we-collect",
+        "label": "What information the site collects now"
+      },
+      {
+        "id": "collection-points",
+        "label": "The live forms and enquiry routes"
+      },
+      {
+        "id": "sharing-and-systems",
+        "label": "Where messages go and what systems are connected"
+      },
+      {
+        "id": "retention",
+        "label": "How long information is kept"
+      },
+      {
+        "id": "cookies-and-analytics",
+        "label": "Cookies, analytics, maps, and embeds"
+      },
+      {
+        "id": "rights",
+        "label": "Your choices and rights"
+      },
+      {
+        "id": "changes",
+        "label": "When this notice must change"
+      }
+    ],
+    "collectionPointSection": {
+      "eyebrow": "Point of collection",
+      "title": "The live forms and enquiry routes on the current build.",
+      "summary": "Each route uses the same short-form contact pattern unless the form makes the difference explicit. Safeguarding is handled separately because it may involve more sensitive information."
+    },
+    "collectionPoints": [
+      {
+        "id": "support-general",
+        "title": "General contact and session follow-up",
+        "surfaceId": "support-general",
+        "routeIds": ["home", "contact", "session-cv-support", "session-youth-club"],
+        "dataTypes": [
+          "Name",
+          "Email address",
+          "Reason for contact",
+          "Message",
+          "Optional updates choice"
+        ],
+        "purpose": "To reply, route the next step, and keep any session context attached when someone arrives from a session journey.",
+        "workingBasis": "Someone has asked us to reply or help with a next step.",
+        "sharing": "Handled by the EncouragingYou team through the site's enquiry storage. No separate CRM or marketing platform is configured for this route at launch.",
+        "retention": "Reviewed manually and deleted when the conversation is complete unless we need to keep a limited record for an active service, safeguarding issue, or legal reason.",
+        "note": "The optional updates box is separate from the main support message."
+      },
+      {
+        "id": "involvement-general",
+        "title": "Get Involved hub messages",
+        "surfaceId": "involvement-general",
+        "routeIds": ["get-involved"],
+        "dataTypes": [
+          "Name",
+          "Email address",
+          "Reason for contact",
+          "Message",
+          "Optional updates choice"
+        ],
+        "purpose": "To route a message into the right volunteer, partner, referral, or general involvement conversation.",
+        "workingBasis": "Someone has asked us to route them into the right involvement pathway.",
+        "sharing": "Handled internally by the team responsible for the first response. The updates choice is stored with the enquiry rather than sent to a separate newsletter tool.",
+        "retention": "Reviewed manually and deleted when the involvement conversation is complete unless a clear operational reason remains.",
+        "note": "This route should not be used for urgent safeguarding concerns."
+      },
+      {
+        "id": "volunteer-enquiry",
+        "title": "Volunteer enquiries",
+        "surfaceId": "volunteer-enquiry",
+        "routeIds": ["volunteer"],
+        "dataTypes": [
+          "Name",
+          "Email address",
+          "Volunteer enquiry reason",
+          "Message",
+          "Optional updates choice"
+        ],
+        "purpose": "To understand how someone would like to help and decide the fairest next volunteer conversation to offer.",
+        "workingBasis": "Someone has asked us to respond to a volunteering enquiry.",
+        "sharing": "Handled by the team reviewing volunteer interest. No volunteer CRM, rota platform, or external recruitment tool is declared in the repo at launch.",
+        "retention": "Reviewed manually and deleted when the volunteer conversation is closed unless we need to retain a limited record for safeguarding, screening, or legal reasons."
+      },
+      {
+        "id": "partner-enquiry",
+        "title": "Partner, referral, and collaboration enquiries",
+        "surfaceId": "partner-enquiry",
+        "routeIds": ["partner"],
+        "dataTypes": [
+          "Name",
+          "Email address",
+          "Partner or referral reason",
+          "Message",
+          "Optional updates choice"
+        ],
+        "purpose": "To understand a collaboration, referral, sponsorship, or community offer and route it to the right follow-up.",
+        "workingBasis": "Someone has asked us to continue a partnership or referral conversation.",
+        "sharing": "Handled internally by the team reviewing partnership and referral messages. No separate partner-management tool is declared in the launch repo.",
+        "retention": "Reviewed manually and deleted when the conversation is complete unless a live partnership, referral, safeguarding matter, or legal duty means we need to keep a limited record."
+      },
+      {
+        "id": "safeguarding-concern",
+        "title": "Safeguarding concern form",
+        "surfaceId": "safeguarding-concern",
+        "routeIds": ["safeguarding", "safeguarding-child", "safeguarding-adult"],
+        "dataTypes": ["Name", "Email address", "Safeguarding concern reason", "Message"],
+        "purpose": "To review and route a non-emergency safeguarding concern and contact the sender back if that is needed.",
+        "workingBasis": "We may need to protect someone, assess a concern responsibly, and keep a record of the action taken.",
+        "sharing": "Shared only as needed with the people responsible for reviewing or escalating the concern. If safety requires it, information may be passed to the appropriate safeguarding, referral, or emergency service.",
+        "retention": "Kept for as long as needed to manage the concern, any follow-up, and any safeguarding or legal record-keeping duty. We do not publish a fixed deletion window for safeguarding records.",
+        "note": "This form does not include the optional updates box."
+      },
+      {
+        "id": "accessibility-feedback",
+        "title": "Accessibility feedback form",
+        "surfaceId": "accessibility-feedback",
+        "routeIds": ["accessibility"],
+        "dataTypes": [
+          "Name",
+          "Email address",
+          "Accessibility feedback reason",
+          "Message"
+        ],
+        "purpose": "To understand an accessibility barrier, reply, and offer a practical fix or alternative format where possible.",
+        "workingBasis": "Someone has asked us for accessibility help or reported a barrier on the site.",
+        "sharing": "Handled internally by the team reviewing the website and public enquiries. No separate ticketing, CRM, or accessibility platform is declared in the launch repo.",
+        "retention": "Reviewed manually and deleted when the accessibility issue is resolved unless a longer record is needed to evidence a live issue, safeguarding concern, or legal reason.",
+        "note": "This form does not include the optional updates box."
+      }
+    ],
+    "sections": [
+      {
+        "id": "who-we-are",
+        "title": "Who we are and how to contact us",
+        "paragraphs": [
+          "EncouragingYou uses this notice for the public website routes where people can contact the team, ask about support, enquire about volunteering or partnership, or raise a non-emergency safeguarding concern.",
+          "The quickest privacy contact published on the site today is admin@encouragingyou.co.uk. People can also use the Contact route if they would rather start with the form.",
+          "If your message is really about someone's immediate safety, do not rely on an ordinary contact route or wait for a reply. Use the safeguarding route or call 999 in an emergency."
+        ],
+        "note": {
+          "title": "Privacy contact",
+          "body": "Use the Contact route for ordinary privacy questions, or email the published address if that is easier.",
+          "tone": "info",
+          "action": {
+            "label": "Go to Contact",
+            "variant": "text",
+            "routeId": "contact"
+          }
+        }
+      },
+      {
+        "id": "what-we-collect",
+        "title": "What information the site collects now",
+        "summary": "The public forms stay deliberately short. The site also records limited technical details to protect the form against abuse.",
+        "paragraphs": [
+          "When someone uses a live form, the site stores the details they typed into the form together with the route they used and, where relevant, the session context that sent them into Contact.",
+          "To protect the form from spam and misuse, the site also checks the route where the form was loaded, the form render time, and a hidden honeypot field. The stored enquiry record keeps a hashed version of the requester IP where available, along with user-agent, origin, and referer information.",
+          "The site does not ask for postal address, date of birth, payment information, or account credentials on these public routes."
+        ],
+        "bullets": [
+          "Direct form fields: name, email, reason, message, and optional updates preference where shown",
+          "Technical anti-abuse data: origin path, render time, hashed IP where available, user-agent, origin, and referer",
+          "Session context handoff for the Contact route when someone comes from CV Support or Youth Club"
+        ]
+      },
+      {
+        "id": "sharing-and-systems",
+        "title": "Where messages go and what systems are connected",
+        "paragraphs": [
+          "Messages sent through the live forms are processed by the site's server-side enquiry endpoint and written into the site's enquiry storage for manual handling by the team.",
+          "Every form also offers a public email fallback. If someone chooses email instead of the form, their message is handled in email rather than through the site form flow.",
+          "At launch, the repo does not declare a separate CRM, newsletter platform, partner-management tool, volunteer platform, map embed, or privacy-impacting analytics integration for these collection routes."
+        ],
+        "bullets": [
+          "Internal review by the EncouragingYou team",
+          "Separate escalation only where a safeguarding concern needs it",
+          "No sale of personal information",
+          "No automated decision-making or profiling declared in the launch build"
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "How long information is kept",
+        "paragraphs": [
+          "The launch build uses a manual review approach rather than an automated deletion schedule. That means messages should not be kept longer than needed for the purpose they were collected for.",
+          "General support, involvement, volunteer, and partner messages should be reviewed and deleted once the conversation is complete unless there is a continuing service, safeguarding, screening, referral, or legal reason to retain a limited record.",
+          "Safeguarding records may need a different and longer approach because people may need to evidence what was reported, how it was handled, and whether any follow-up was required."
+        ],
+        "note": {
+          "title": "Why there is no single public number of days here",
+          "body": "The repo does not yet enforce an approved fixed retention schedule. This notice therefore describes the real launch approach: review records regularly and do not keep them just in case.",
+          "tone": "important"
+        }
+      },
+      {
+        "id": "cookies-and-analytics",
+        "title": "Cookies, analytics, maps, and embeds",
+        "paragraphs": [
+          "The live collection routes do not declare non-essential analytics, advertising tags, or social-feed embeds in the repo at launch.",
+          "The site does run a first-party aggregate analytics layer for service-improvement questions such as route progression, successful form completion, and calendar-download interest. That layer does not receive names, email addresses, phone numbers, free-text messages, or safeguarding detail.",
+          "The contact route does not load an interactive map on arrival, and the site keeps Rochdale as the public location anchor instead of publishing an exact blanket venue address.",
+          "The Cookie Notice explains the current storage and access position in more detail, including why no banner is shown at launch.",
+          "If non-essential cookies, profiling analytics, or external processors are added later, this notice and the Cookie Notice must be updated before that change is switched on."
+        ],
+        "bullets": [
+          "Non-essential cookies: absent at launch",
+          "Analytics platform: first-party and aggregate only",
+          "Interactive map on contact route: absent at launch",
+          "Social-feed embed on core collection routes: absent at launch",
+          "Cookie banner / preference centre: not shown at launch"
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "Your choices and rights",
+        "paragraphs": [
+          "You can ask what personal information we still hold about you, ask us to correct it, ask us to delete it when we no longer need it, ask us to restrict how it is used in some situations, or object to optional direct updates.",
+          "Some requests may need a careful response rather than an automatic yes. For example, we may need to keep or limit disclosure of information where a safeguarding matter, legal duty, or live case-handling need still applies.",
+          "If you are not happy with how your information has been handled, you can raise it with us first and you can also complain to the Information Commissioner's Office."
+        ],
+        "note": {
+          "title": "Updates opt-in",
+          "body": "The optional updates tick box is separate from the main message. If you do not tick it, your enquiry can still be handled normally.",
+          "tone": "info"
+        }
+      },
+      {
+        "id": "changes",
+        "title": "When this notice must change",
+        "paragraphs": [
+          "This notice must be reviewed whenever the site starts collecting a new field, connects a new processor, expands the analytics event scope, adds non-essential cookies or profiling analytics, changes its safeguarding handling, or agrees a fixed retention schedule.",
+          "The aim is to keep the privacy notice tied to the real build, not to future plans."
+        ]
+      }
+    ],
+    "systemsSection": {
+      "eyebrow": "Current build status",
+      "title": "What systems are and are not connected at launch.",
+      "summary": "These states are intentionally explicit so Prompt 36 and later prompts cannot silently introduce a mismatch."
+    },
+    "systems": [
+      {
+        "id": "site-enquiry-storage",
+        "label": "Secure form endpoint and enquiry storage",
+        "status": "active",
+        "detail": "Form submissions are handled by the site's server-side enquiry endpoint and written into enquiry storage configured for the site environment."
+      },
+      {
+        "id": "email-fallback",
+        "label": "Public email fallback",
+        "status": "manual-review",
+        "detail": "Every form also shows the public email address. Messages sent there are handled in email rather than through the site form flow."
+      },
+      {
+        "id": "newsletter-platform",
+        "label": "Newsletter or marketing platform",
+        "status": "not-configured",
+        "detail": "The updates opt-in is stored with the enquiry record only. It does not add someone to a separate newsletter tool at launch."
+      },
+      {
+        "id": "crm",
+        "label": "CRM or case-management platform",
+        "status": "not-configured",
+        "detail": "The repo does not declare a separate CRM or case-management integration for contact, volunteer, partner, or safeguarding messages at launch."
+      },
+      {
+        "id": "analytics",
+        "label": "Analytics and tracking",
+        "status": "active",
+        "detail": "The live build uses a first-party aggregate analytics layer for service-improvement reporting only. It does not send direct identifiers, free-text form content, or safeguarding detail into analytics events."
+      },
+      {
+        "id": "maps-and-embeds",
+        "label": "Interactive maps and social embeds on collection routes",
+        "status": "absent",
+        "detail": "The contact route does not load an interactive map on arrival, and the core collection routes do not rely on social-feed embeds."
+      }
+    ],
+    "rightsSection": {
+      "eyebrow": "Rights and choices",
+      "title": "Simple routes to ask questions, correct information, or challenge how it is used.",
+      "summary": "This notice uses plain language, but these requests still matter and should be handled seriously."
+    },
+    "rightsCards": [
+      {
+        "title": "Access and explanation",
+        "body": "Ask us what information we still hold about you and why we are using it."
+      },
+      {
+        "title": "Correction and restriction",
+        "body": "Tell us if something is wrong or ask us to pause use in situations where that is appropriate."
+      },
+      {
+        "title": "Deletion and objections",
+        "body": "Ask us to delete information we no longer need, or object to optional updates and similar non-essential uses."
+      },
+      {
+        "title": "Complaint route",
+        "body": "Raise it with EncouragingYou first if you can, and you can also complain to the ICO."
+      }
+    ],
+    "reviewSection": {
+      "eyebrow": "Change control",
+      "title": "Future work that must update this notice before release.",
+      "summary": "These triggers keep the privacy notice accurate as the build evolves."
+    },
+    "reviewTriggers": [
+      "Add any non-essential analytics or cookie-setting technology",
+      "Change the cookie or storage-access inventory, or introduce consent record storage",
+      "Connect a CRM, case-management platform, newsletter tool, or other external processor",
+      "Change what the public forms collect or what anti-abuse data is stored",
+      "Publish a fixed retention schedule or new contact identity details",
+      "Change the safeguarding intake or escalation workflow"
+    ]
+  },
+  "settings": {
+    "privacyEmail": "admin@encouragingyou.co.uk",
+    "complaintUrl": "https://ico.org.uk/make-a-complaint/",
+    "enquiryStorageMode": "server-side-files",
+    "analyticsStatus": "configured",
+    "nonEssentialCookiesStatus": "absent",
+    "mapEmbedStatus": "absent",
+    "socialEmbedStatus": "absent",
+    "newsletterProcessorStatus": "not-configured",
+    "crmProcessorStatus": "not-configured",
+    "retentionMode": "manual-review",
+    "safeguardingWorkflow": "separate-intake",
+    "reviewTriggers": [
+      "Add non-essential cookies, profiling analytics, or a third-party analytics processor",
+      "Change the cookie or storage-access inventory, or introduce consent record storage",
+      "Connect a CRM, newsletter tool, or any other external processor",
+      "Change the public form fields or stored request metadata",
+      "Approve a fixed retention schedule",
+      "Change the safeguarding concern workflow"
+    ]
+  }
+}

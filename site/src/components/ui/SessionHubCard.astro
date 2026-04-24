@@ -1,0 +1,107 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import BadgeRow from "./BadgeRow.astro";
+import CardPanel from "./CardPanel.astro";
+import MediaIcon from "./MediaIcon.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+
+interface Props {
+  bullets?: string[];
+  calendarAction?: ActionLink;
+  calendarNote?: string | null;
+  detailAction: ActionLink;
+  icon: MediaAsset;
+  nextDateTimeLabel?: string | null;
+  programmeAction: ActionLink;
+  programmeTitle: string;
+  reassurance?: string | null;
+  recurrenceLabel: string;
+  state: string;
+  statusLabel?: string | null;
+  statusMessage?: string | null;
+  summary: string;
+  timeLabel: string;
+  title: string;
+}
+
+const {
+  bullets = [],
+  calendarAction,
+  calendarNote = null,
+  detailAction,
+  icon,
+  nextDateTimeLabel = null,
+  programmeAction,
+  programmeTitle,
+  reassurance = null,
+  recurrenceLabel,
+  state,
+  statusLabel = null,
+  statusMessage = null,
+  summary,
+  timeLabel,
+  title
+} = Astro.props;
+
+const scheduleTone: BadgeTone = state === "scheduled" ? "success" : "accent";
+const scheduleBadge = nextDateTimeLabel ?? statusLabel ?? "Ask before attending";
+const noteLine = calendarNote ?? statusMessage ?? reassurance;
+const actions = [
+  detailAction,
+  ...(calendarAction ? [calendarAction] : []),
+  programmeAction
+];
+---
+
+<CardPanel
+  as="article"
+  className="session-card session-hub-card"
+  tone="muted"
+  data-session-state={state}
+>
+  <div class="session-hub-card__header">
+    <div class="session-hub-card__title-group">
+      <MediaIcon asset={icon} className="card-panel__icon session-card__icon" />
+      <div class="session-hub-card__heading-copy">
+        <p class="eyebrow">Live session</p>
+        <h3>{title}</h3>
+      </div>
+    </div>
+    <a class="session-hub-card__programme" href={programmeAction.href}>
+      Inside {programmeTitle}
+    </a>
+  </div>
+
+  <BadgeRow
+    className="session-hub-card__badges"
+    items={[
+      { label: recurrenceLabel, tone: "soft" as const },
+      { label: timeLabel, tone: "meta" as const },
+      { label: scheduleBadge, tone: scheduleTone }
+    ]}
+  />
+
+  <p class="card-panel__summary">{summary}</p>
+
+  {
+    bullets.length > 0 ? (
+      <ul class="check-list session-hub-card__list">
+        {bullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  {
+    noteLine ? (
+      <p class="session-hub-card__note">
+        <strong>{noteLine}</strong>
+      </p>
+    ) : null
+  }
+
+  <ActionCluster actions={actions} className="session-hub-card__actions" />
+</CardPanel>

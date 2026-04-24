@@ -1,0 +1,140 @@
+---
+interface SelectOption {
+  disabled?: boolean;
+  label: string;
+  value: string;
+}
+
+interface Props {
+  autocomplete?: string;
+  className?: string;
+  control?: "input" | "select" | "textarea";
+  disabled?: boolean;
+  error?: string;
+  helper?: string;
+  id: string;
+  label: string;
+  maxLength?: number;
+  minLength?: number;
+  name: string;
+  options?: SelectOption[];
+  placeholder?: string;
+  required?: boolean;
+  rows?: number;
+  selectPlaceholder?: string;
+  type?: "email" | "text";
+  value?: string;
+}
+
+const {
+  autocomplete,
+  className = "",
+  control = "input",
+  disabled = false,
+  error = "",
+  helper,
+  id,
+  label,
+  maxLength,
+  minLength,
+  name,
+  options = [],
+  placeholder,
+  required = false,
+  rows = 5,
+  selectPlaceholder,
+  type = "text",
+  value = ""
+} = Astro.props;
+
+const errorId = `${id}-error`;
+const helperId = `${id}-help`;
+const describedBy = [helper ? helperId : "", error ? errorId : ""]
+  .filter(Boolean)
+  .join(" ");
+const fieldState = error ? "invalid" : disabled ? "disabled" : "default";
+---
+
+<div
+  class={`form-field${className ? ` ${className}` : ""}`}
+  data-field-state={fieldState}
+>
+  <label for={id}>{label}</label>
+
+  {
+    control === "textarea" ? (
+      <textarea
+        id={id}
+        name={name}
+        rows={rows}
+        autocomplete={autocomplete}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+        minlength={minLength}
+        maxlength={maxLength}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={describedBy || undefined}
+        data-motion="feedback"
+      >
+        {value}
+      </textarea>
+    ) : null
+  }
+
+  {
+    control === "select" ? (
+      <select
+        id={id}
+        name={name}
+        required={required}
+        disabled={disabled}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={describedBy || undefined}
+        data-motion="feedback"
+      >
+        {selectPlaceholder ? <option value="">{selectPlaceholder}</option> : null}
+        {options.map((option) => (
+          <option
+            value={option.value}
+            selected={value === option.value}
+            disabled={option.disabled}
+          >
+            {option.label}
+          </option>
+        ))}
+      </select>
+    ) : null
+  }
+
+  {
+    control === "input" ? (
+      <input
+        id={id}
+        name={name}
+        type={type}
+        value={value}
+        autocomplete={autocomplete}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+        minlength={minLength}
+        maxlength={maxLength}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={describedBy || undefined}
+        data-motion="feedback"
+      />
+    ) : null
+  }
+
+  {
+    helper ? (
+      <p class="form-field__help" id={helperId}>
+        {helper}
+      </p>
+    ) : null
+  }
+  <p class="form-field__error" id={errorId} data-field-error={name} hidden={!error}>
+    {error}
+  </p>
+</div>

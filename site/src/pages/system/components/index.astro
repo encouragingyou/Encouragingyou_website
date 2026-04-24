@@ -1,0 +1,237 @@
+---
+import PageIntro from "../../../components/layout/PageIntro.astro";
+import PageSection from "../../../components/layout/PageSection.astro";
+import CtaBand from "../../../components/sections/CtaBand.astro";
+import AccordionGroup from "../../../components/ui/AccordionGroup.astro";
+import ActionCard from "../../../components/ui/ActionCard.astro";
+import Badge from "../../../components/ui/Badge.astro";
+import BadgeRow from "../../../components/ui/BadgeRow.astro";
+import Button from "../../../components/ui/Button.astro";
+import ButtonLink from "../../../components/ui/ButtonLink.astro";
+import CardPanel from "../../../components/ui/CardPanel.astro";
+import CheckboxField from "../../../components/ui/CheckboxField.astro";
+import FormField from "../../../components/ui/FormField.astro";
+import NoticeBlock from "../../../components/ui/NoticeBlock.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getMediaAsset } from "../../../lib/media/catalog.ts";
+
+const contactIcon = getMediaAsset("icon-contact");
+const mentoringIcon = getMediaAsset("icon-mentoring");
+const eventIcon = getMediaAsset("icon-community-event");
+---
+
+<BaseLayout
+  title="Component Preview | EncouragingYou"
+  description="Internal component harness for prompt 12."
+  currentPath="/system/components/"
+  pageId="component-preview"
+  robots="noindex,nofollow"
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow="Internal preview"
+      title="Reusable component states rendered in one stable route."
+      summary="This page is intentionally small and explicit so automated checks can validate buttons, cards, notices, disclosures, and form-field states without relying only on editorial pages."
+      badges={["Noindex harness", "Prompt 12 validation", "Shared primitives only"]}
+      actions={[
+        {
+          label: "Back to homepage",
+          href: "/",
+          variant: "surface"
+        },
+        {
+          label: "Open contact route",
+          href: "/contact/",
+          variant: "text"
+        }
+      ]}
+    />
+  </PageSection>
+
+  <PageSection tone="band">
+    <div
+      class="layout-grid layout-grid--cards-wide"
+      data-component-preview-section="buttons"
+    >
+      <CardPanel
+        heading="Buttons and CTA treatments"
+        summary="Primary, surface, current, loading, and disabled states stay visually related."
+      >
+        <div class="action-cluster action-cluster--start">
+          <ButtonLink href="/sessions/" variant="primary">Join a session</ButtonLink>
+          <ButtonLink href="/contact/" variant="surface" current={true}>
+            Current CTA
+          </ButtonLink>
+          <Button variant="secondary" state="loading">Opening message flow</Button>
+          <Button variant="surface" disabled={true}>Disabled action</Button>
+        </div>
+      </CardPanel>
+
+      <CardPanel
+        heading="Badges and meta pills"
+        summary="Small labels use the same token family whether they describe trust, state, or timing."
+      >
+        <BadgeRow
+          items={[
+            { label: "Low-pressure first step", tone: "default" },
+            { label: "Current route", tone: "accent", current: true },
+            { label: "Available now", tone: "success" }
+          ]}
+        />
+        <div class="action-cluster action-cluster--start">
+          <Badge label="12:00 to 14:00" tone="meta" />
+          <Badge label="Reply in order received" tone="soft" />
+        </div>
+      </CardPanel>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <div
+      class="layout-grid layout-grid--cards-wide"
+      data-component-preview-section="cards"
+    >
+      <ActionCard
+        title="Get support"
+        summary="Interactive action cards now sit on the same card surface system as other route panels."
+        href="/contact/"
+        icon={contactIcon}
+      />
+
+      <CardPanel
+        heading="Selected route panel"
+        summary="Selected and default states share structure, then diverge only in emphasis."
+        icon={mentoringIcon}
+        selected={true}
+      >
+        <p>
+          This is the selected variation used when a route or state needs stronger
+          emphasis.
+        </p>
+      </CardPanel>
+
+      <CardPanel heading="Flexible content panel" icon={eventIcon}>
+        <p>
+          Panels can hold stacked copy, lists, or action clusters without inventing
+          route-specific wrappers.
+        </p>
+        <ul class="check-list">
+          <li>Shared padding and border contract</li>
+          <li>Optional icon and eyebrow</li>
+          <li>Reusable on policy, session, and trust routes</li>
+        </ul>
+      </CardPanel>
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint">
+    <div class="layout-grid layout-grid--sidebar" data-component-preview-section="states">
+      <div class="layout-stack layout-stack--roomy">
+        <CardPanel
+          heading="Accordion contract"
+          summary="Native details/summary keeps disclosure behavior accessible while giving Playwright a stable state target."
+        >
+          <AccordionGroup
+            groupId="component-preview-accordion"
+            items={[
+              {
+                question: "How do expanded states render?",
+                answer:
+                  "The open item uses the same surface system and a visible marker state.",
+                open: true
+              },
+              {
+                question: "How do collapsed states render?",
+                answer: "Collapsed items keep the same footprint and summary affordance."
+              }
+            ]}
+          />
+        </CardPanel>
+
+        <div class="layout-grid layout-grid--cards">
+          <NoticeBlock
+            title="Success notice"
+            body="Positive confirmation surfaces use the same alert component instead of a one-off success block."
+            tone="success"
+          />
+          <NoticeBlock
+            title="Error notice"
+            body="Error treatments stay explicit and readable when a flow fails."
+            tone="error"
+            role="alert"
+          />
+        </div>
+      </div>
+
+      <CardPanel
+        as="aside"
+        className="support-panel"
+        eyebrow="Field states"
+        heading="Static form-field variants"
+        summary="The contact flow still owns live validation, but the field component can also render helper, invalid, and disabled states directly."
+      >
+        <form class="support-form" action="#" method="post">
+          <FormField
+            id="preview-name"
+            name="previewName"
+            label="Name"
+            helper="Helper text stays attached to the control."
+            value="Alex"
+          />
+          <FormField
+            id="preview-email"
+            name="previewEmail"
+            label="Email address"
+            type="email"
+            error="Enter a complete email address."
+            value="alex@"
+          />
+          <FormField
+            id="preview-reason"
+            name="previewReason"
+            label="Reason"
+            control="select"
+            selectPlaceholder="Select one"
+            options={[
+              { label: "Join a session", value: "session" },
+              { label: "Volunteer", value: "volunteer" }
+            ]}
+            disabled={true}
+          />
+          <CheckboxField
+            id="preview-updates"
+            name="previewUpdates"
+            label="Send occasional updates."
+            hint="Checkbox copy can carry an extra line without collapsing the label."
+          />
+        </form>
+      </CardPanel>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <CtaBand
+      eyebrow="CTA band"
+      title="Section-level calls to action now have a shared shell."
+      summary="This pattern is used when a route needs a stronger closing conversion moment than a plain text link or inline notice."
+      badges={["Shared heading", "Shared action cluster", "Optional note"]}
+      actions={[
+        {
+          label: "Go to Get Involved",
+          href: "/get-involved/",
+          variant: "primary"
+        },
+        {
+          label: "Read safeguarding",
+          href: "/safeguarding/",
+          variant: "surface"
+        }
+      ]}
+      note={{
+        title: "Why it exists",
+        body: "The CTA band keeps major conversion blocks from turning into one-off footer or page-specific wrappers.",
+        tone: "info"
+      }}
+    />
+  </PageSection>
+</BaseLayout>

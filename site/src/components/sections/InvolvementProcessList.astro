@@ -1,0 +1,56 @@
+---
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Step {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  eyebrow: string;
+  notice?: {
+    action?: ActionLink;
+    body: string;
+    title?: string;
+    tone?: "error" | "important" | "info" | "success";
+  };
+  steps: Step[];
+  summary?: string;
+  title: string;
+}
+
+const { eyebrow, notice, steps, summary, title } = Astro.props;
+---
+
+<section class="involvement-process">
+  <div class="involvement-process__body">
+    <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+
+    <ol class="involvement-process__list">
+      {
+        steps.map((step, index) => (
+          <li class="involvement-process__item">
+            <p class="involvement-process__count">Step {index + 1}</p>
+            <h3 class="involvement-process__title">{step.title}</h3>
+            {step.body ? <p class="involvement-process__body-copy">{step.body}</p> : null}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  {
+    notice ? (
+      <div class="involvement-process__aside">
+        <NoticeBlock
+          title={notice.title}
+          body={notice.body}
+          tone={notice.tone ?? "info"}
+          action={notice.action}
+        />
+      </div>
+    ) : null
+  }
+</section>

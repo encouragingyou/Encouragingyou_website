@@ -1,0 +1,12 @@
+.astro/
+dist/
+output/
+coverage/
+.env
+.env.local
+.env.preview
+.env.preview.local
+.env.production
+.env.production.local
+.env.test
+.env.test.local

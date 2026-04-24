@@ -1,0 +1,415 @@
+{
+  "skipLinks": [
+    {
+      "label": "Skip to content",
+      "href": "#main"
+    },
+    {
+      "label": "Skip to primary navigation",
+      "href": "#primary-navigation"
+    },
+    {
+      "label": "Skip to footer",
+      "href": "#site-footer"
+    }
+  ],
+  "utilityItems": [
+    {
+      "label": "Email the team",
+      "href": "mailto:admin@encouragingyou.co.uk"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/encouragingyou1/",
+      "external": true
+    },
+    {
+      "label": "Privacy Notice",
+      "routeId": "privacy"
+    },
+    {
+      "label": "Safeguarding",
+      "routeId": "safeguarding"
+    }
+  ],
+  "headerCtas": [
+    {
+      "id": "join-session",
+      "label": "Join a session",
+      "routeId": "sessions"
+    },
+    {
+      "id": "get-support",
+      "label": "Get support",
+      "routeId": "contact"
+    },
+    {
+      "id": "contact-team",
+      "label": "Contact the team",
+      "routeId": "contact"
+    },
+    {
+      "id": "raise-concern",
+      "label": "Raise a concern",
+      "href": "/safeguarding/#safeguarding-concern"
+    }
+  ],
+  "pageHeaderCtas": [
+    {
+      "ctaId": "join-session",
+      "pageIds": [
+        "home",
+        "about",
+        "programmes",
+        "programme-community-friendship",
+        "programme-personal-growth-life-skills",
+        "programme-career-support-cv-help",
+        "programme-community-support-intergenerational-connection",
+        "events-updates",
+        "privacy",
+        "cookies",
+        "accessibility",
+        "terms",
+        "not-found"
+      ]
+    },
+    {
+      "ctaId": "get-support",
+      "pageIds": ["sessions", "session-cv-support", "session-youth-club", "contact"]
+    },
+    {
+      "ctaId": "contact-team",
+      "pageIds": ["get-involved", "volunteer", "partner"]
+    },
+    {
+      "ctaId": "raise-concern",
+      "pageIds": ["safeguarding", "safeguarding-child", "safeguarding-adult"]
+    }
+  ],
+  "breadcrumbHiddenPageIds": ["home", "not-found"],
+  "breadcrumbParents": [
+    {
+      "pageId": "programme-community-friendship",
+      "parentPageId": "programmes"
+    },
+    {
+      "pageId": "programme-personal-growth-life-skills",
+      "parentPageId": "programmes"
+    },
+    {
+      "pageId": "programme-career-support-cv-help",
+      "parentPageId": "programmes"
+    },
+    {
+      "pageId": "programme-community-support-intergenerational-connection",
+      "parentPageId": "programmes"
+    },
+    {
+      "pageId": "session-cv-support",
+      "parentPageId": "sessions"
+    },
+    {
+      "pageId": "session-youth-club",
+      "parentPageId": "sessions"
+    },
+    {
+      "pageId": "volunteer",
+      "parentPageId": "get-involved"
+    },
+    {
+      "pageId": "partner",
+      "parentPageId": "get-involved"
+    },
+    {
+      "pageId": "safeguarding-child",
+      "parentPageId": "safeguarding"
+    },
+    {
+      "pageId": "safeguarding-adult",
+      "parentPageId": "safeguarding"
+    }
+  ],
+  "noticePlacements": [
+    {
+      "noticeId": "service-area-venue",
+      "placement": "before-content",
+      "pageIds": ["sessions", "contact"],
+      "action": {
+        "label": "Contact the team",
+        "routeId": "contact"
+      }
+    }
+  ],
+  "relatedRouteGroups": [
+    {
+      "title": "Related routes",
+      "pageIds": ["about"],
+      "links": [
+        {
+          "label": "Explore support programmes",
+          "routeId": "programmes"
+        },
+        {
+          "label": "See Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": [
+        "programmes",
+        "programme-community-friendship",
+        "programme-personal-growth-life-skills",
+        "programme-community-support-intergenerational-connection"
+      ],
+      "links": [
+        {
+          "label": "See live Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        },
+        {
+          "label": "Get involved with EncouragingYou",
+          "routeId": "get-involved"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["programme-career-support-cv-help"],
+      "links": [
+        {
+          "label": "Join the CV support session",
+          "routeId": "session-cv-support"
+        },
+        {
+          "label": "Compare all support programmes",
+          "routeId": "programmes"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["sessions"],
+      "links": [
+        {
+          "label": "Compare all support programmes",
+          "routeId": "programmes"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        },
+        {
+          "label": "See how to get involved",
+          "routeId": "get-involved"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["session-cv-support"],
+      "links": [
+        {
+          "label": "See the wider career support route",
+          "routeId": "programme-career-support-cv-help"
+        },
+        {
+          "label": "View all Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["session-youth-club"],
+      "links": [
+        {
+          "label": "See the wider community and friendship route",
+          "routeId": "programme-community-friendship"
+        },
+        {
+          "label": "View all Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["events-updates"],
+      "links": [
+        {
+          "label": "See live Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "See how to get involved",
+          "routeId": "get-involved"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["get-involved"],
+      "links": [
+        {
+          "label": "Volunteer with EncouragingYou",
+          "routeId": "volunteer"
+        },
+        {
+          "label": "Partner with EncouragingYou",
+          "routeId": "partner"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["volunteer"],
+      "links": [
+        {
+          "label": "See the Get Involved overview",
+          "routeId": "get-involved"
+        },
+        {
+          "label": "Partner with EncouragingYou",
+          "routeId": "partner"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["partner"],
+      "links": [
+        {
+          "label": "See the Get Involved overview",
+          "routeId": "get-involved"
+        },
+        {
+          "label": "Volunteer with EncouragingYou",
+          "routeId": "volunteer"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["contact"],
+      "links": [
+        {
+          "label": "See live Saturday sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Explore support programmes",
+          "routeId": "programmes"
+        },
+        {
+          "label": "Visit safeguarding guidance",
+          "routeId": "safeguarding"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["safeguarding"],
+      "links": [
+        {
+          "label": "Raise a child safeguarding concern",
+          "routeId": "safeguarding-child"
+        },
+        {
+          "label": "Raise an adult safeguarding concern",
+          "routeId": "safeguarding-adult"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["safeguarding-child", "safeguarding-adult"],
+      "links": [
+        {
+          "label": "Return to safeguarding overview",
+          "routeId": "safeguarding"
+        },
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        },
+        {
+          "label": "Read the privacy notice",
+          "routeId": "privacy"
+        }
+      ]
+    },
+    {
+      "title": "Related routes",
+      "pageIds": ["privacy", "cookies", "accessibility", "terms"],
+      "links": [
+        {
+          "label": "Contact the team",
+          "routeId": "contact"
+        },
+        {
+          "label": "Visit safeguarding guidance",
+          "routeId": "safeguarding"
+        },
+        {
+          "label": "Return to the homepage",
+          "routeId": "home"
+        }
+      ]
+    }
+  ],
+  "footerSupport": {
+    "eyebrow": "Need a next step?",
+    "title": "The support route should stay visible from every page.",
+    "summary": "Use the contact route for questions, referrals, volunteering, or anything that does not fit neatly into one page or session.",
+    "primaryAction": {
+      "label": "Get support",
+      "routeId": "contact"
+    },
+    "secondaryAction": {
+      "label": "View sessions",
+      "routeId": "sessions"
+    }
+  }
+}

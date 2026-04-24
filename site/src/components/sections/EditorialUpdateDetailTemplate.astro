@@ -1,0 +1,167 @@
+---
+import CtaBand from "./CtaBand.astro";
+import EditorialDetailHero from "./EditorialDetailHero.astro";
+import EditorialFactRail from "./EditorialFactRail.astro";
+import EditorialRelatedSection from "./EditorialRelatedSection.astro";
+import NarrativeSection from "./NarrativeSection.astro";
+import PageSection from "../layout/PageSection.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  model: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    supportingText: string | null;
+    badges: string[];
+    actions: ActionLink[];
+    media?: MediaAsset;
+    disclosure?: MediaDisclosure | string | null;
+    metaLabel: string;
+    lifecycleNotice?: {
+      title: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+    };
+    proofNotice?: {
+      title?: string;
+      body: string;
+      tone: "error" | "important" | "info" | "success";
+      action?: ActionLink;
+    };
+    factSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+    };
+    factItems: Array<{
+      title: string;
+      body: string;
+    }>;
+    sections: Array<{
+      id: string;
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+      paragraphs: string[];
+      bullets?: string[];
+      badges?: string[];
+      quote?: {
+        attribution?: string;
+        text: string;
+      };
+      media?: MediaAsset;
+      disclosure?: MediaDisclosure | string | null;
+      note?: {
+        action?: ActionLink;
+        body: string;
+        title?: string;
+        tone: "error" | "important" | "info" | "success";
+      };
+      actions?: ActionLink[];
+      reversed?: boolean;
+    }>;
+    relatedSection: {
+      eyebrow?: string;
+      title: string;
+      summary?: string;
+    } | null;
+    relatedItems: Array<{
+      href: string;
+      metaLabel: string;
+      summary: string;
+      title: string;
+    }>;
+    ctaBand: {
+      eyebrow: string;
+      title: string;
+      summary?: string;
+      badges: string[];
+      actions: ActionLink[];
+      note?: {
+        title?: string;
+        body: string;
+        tone: "error" | "important" | "info" | "success";
+        action?: ActionLink;
+      };
+    };
+  };
+}
+
+const { model } = Astro.props;
+---
+
+<PageSection className="editorial-detail editorial-detail--update">
+  <EditorialDetailHero
+    actions={model.actions}
+    badges={model.badges}
+    disclosure={model.disclosure}
+    eyebrow={model.eyebrow}
+    media={model.media}
+    metaLabel={model.metaLabel}
+    supportingText={model.supportingText}
+    summary={model.summary}
+    title={model.title}
+  />
+</PageSection>
+
+<PageSection className="editorial-detail editorial-detail--update-content">
+  <div class="editorial-detail__content-grid">
+    <div class="layout-stack layout-stack--roomy">
+      {
+        model.lifecycleNotice ? (
+          <NoticeBlock
+            title={model.lifecycleNotice.title}
+            body={model.lifecycleNotice.body}
+            tone={model.lifecycleNotice.tone}
+          />
+        ) : null
+      }
+      {
+        model.proofNotice ? (
+          <NoticeBlock
+            title={model.proofNotice.title}
+            body={model.proofNotice.body}
+            tone={model.proofNotice.tone}
+            action={model.proofNotice.action}
+          />
+        ) : null
+      }
+      {model.sections.map((section) => <NarrativeSection {...section} />)}
+    </div>
+
+    <aside class="editorial-detail__aside">
+      <EditorialFactRail
+        eyebrow={model.factSection.eyebrow}
+        title={model.factSection.title}
+        summary={model.factSection.summary}
+        items={model.factItems}
+      />
+    </aside>
+  </div>
+</PageSection>
+
+{
+  model.relatedSection && model.relatedItems.length > 0 ? (
+    <PageSection tone="tint" className="editorial-detail__related">
+      <EditorialRelatedSection
+        eyebrow={model.relatedSection.eyebrow}
+        title={model.relatedSection.title}
+        summary={model.relatedSection.summary}
+        items={model.relatedItems}
+      />
+    </PageSection>
+  ) : null
+}
+
+<PageSection tone="tint" width="wide" className="editorial-detail__cta">
+  <CtaBand
+    eyebrow={model.ctaBand.eyebrow}
+    title={model.ctaBand.title}
+    summary={model.ctaBand.summary}
+    badges={model.ctaBand.badges}
+    actions={model.ctaBand.actions}
+    note={model.ctaBand.note}
+  />
+</PageSection>

@@ -1,0 +1,124 @@
+---
+import BrandMark from "./BrandMark.astro";
+import ButtonLink from "../ui/ButtonLink.astro";
+import { isActivePath } from "../../lib/state/route-state.js";
+import type { ShellLink } from "../../lib/types/site-ui";
+
+interface Props {
+  brand: {
+    name: string;
+    tag: string;
+    summary: string;
+  };
+  utilityItems: ShellLink[];
+  items: ShellLink[];
+  cta: ShellLink;
+  currentPath: string;
+}
+
+const { brand, utilityItems, items, cta, currentPath } = Astro.props;
+---
+
+<header
+  class="site-header"
+  data-nav-shell
+  data-nav-state="closed"
+  data-header-scrolled="false"
+  data-motion="structural"
+>
+  <div class="site-header__utility">
+    <div class="container container--wide site-header__utility-inner">
+      <p class="site-header__utility-copy">{brand.tag}</p>
+
+      <nav class="site-utility-nav" aria-label="Utility">
+        <ul class="site-utility-nav__list">
+          {
+            utilityItems.map((item) => (
+              <li>
+                <a
+                  class="site-utility-nav__link"
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container container--wide site-header__inner">
+    <a class="site-header__brand" href="/" aria-label={`${brand.name} home`}>
+      <BrandMark name={brand.name} tag={brand.tag} />
+    </a>
+
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation-panel"
+      data-nav-toggle
+      data-motion="emphasis"
+    >
+      Menu
+    </button>
+
+    <div
+      class="site-header__panel"
+      id="primary-navigation-panel"
+      data-nav-panel
+      data-motion="structural"
+    >
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary" tabindex="-1">
+        <ul class="site-nav__list">
+          {
+            items.map((item) => (
+              <li>
+                <a
+                  class={`site-nav__link${isActivePath(currentPath, item.href) ? " is-current" : ""}`}
+                  href={item.href}
+                  aria-current={isActivePath(currentPath, item.href) ? "page" : undefined}
+                  data-motion="feedback"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="site-header__cta">
+        <ButtonLink href={cta.href} variant="primary">
+          {cta.label}
+        </ButtonLink>
+      </div>
+
+      <div class="site-header__panel-meta">
+        <p>{brand.summary}</p>
+        <nav class="site-utility-nav site-utility-nav--panel" aria-label="Utility">
+          <ul class="site-utility-nav__list">
+            {
+              utilityItems.map((item) => (
+                <li>
+                  <a
+                    class="site-utility-nav__link"
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noreferrer" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

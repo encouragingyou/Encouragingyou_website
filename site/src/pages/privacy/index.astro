@@ -1,0 +1,204 @@
+---
+import PolicyContents from "../../components/legal/PolicyContents.astro";
+import PrivacyCollectionPointCard from "../../components/legal/PrivacyCollectionPointCard.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPrivacyPageModel } from "../../lib/content/site-content.ts";
+
+const model = getPrivacyPageModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/privacy/"
+  pageId="privacy"
+  breadcrumbs={model.breadcrumbs}
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      actions={model.actions}
+    />
+
+    <NoticeBlock
+      title={model.statusNote.title}
+      body={model.statusNote.body}
+      tone={model.statusNote.tone}
+      action={model.statusNote.action}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-grid layout-grid--sidebar privacy-summary-layout">
+      <div class="privacy-summary-grid">
+        {
+          model.summaryCards.map((card, index) => (
+            <CardPanel
+              heading={card.title}
+              summary={card.body}
+              headingLevel={index === 0 ? 2 : 3}
+            >
+              {card.bullets?.length ? (
+                <ul class="check-list">
+                  {card.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </CardPanel>
+          ))
+        }
+      </div>
+
+      <PolicyContents items={model.contents} />
+    </div>
+  </PageSection>
+
+  <PageSection id="collection-points" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <div class="section-heading">
+        <p class="eyebrow">{model.collectionPointSection.eyebrow}</p>
+        <h2>{model.collectionPointSection.title}</h2>
+        <p class="section-heading__summary">{model.collectionPointSection.summary}</p>
+      </div>
+
+      <div class="privacy-collection-grid">
+        {
+          model.collectionPoints.map((item, index) => (
+            <PrivacyCollectionPointCard
+              title={item.title}
+              routes={item.routes}
+              dataTypes={item.dataTypes}
+              purpose={item.purpose}
+              workingBasis={item.workingBasis}
+              sharing={item.sharing}
+              retention={item.retention}
+              note={item.note}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <div class="privacy-section-stack">
+      {
+        model.sections.map((section, index) => (
+          <article
+            id={section.id}
+            class="privacy-section layout-stack layout-stack--roomy"
+          >
+            <div class="section-heading">
+              <p class="eyebrow">{index === 0 ? "Privacy detail" : model.eyebrow}</p>
+              <h2>{section.title}</h2>
+              {section.summary ? (
+                <p class="section-heading__summary">{section.summary}</p>
+              ) : null}
+            </div>
+
+            <div class="privacy-section__body">
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+
+              {section.bullets.length ? (
+                <ul class="check-list">
+                  {section.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+
+            {section.note ? (
+              <NoticeBlock
+                title={section.note.title}
+                body={section.note.body}
+                tone={section.note.tone}
+                action={section.note.action}
+              />
+            ) : null}
+
+            {section.id === "sharing-and-systems" ? (
+              <div class="layout-stack layout-stack--roomy">
+                <div class="privacy-section__body">
+                  <p class="eyebrow">{model.systemsSection.eyebrow}</p>
+                  <h3>{model.systemsSection.title}</h3>
+                  <p>{model.systemsSection.summary}</p>
+                </div>
+
+                <div class="privacy-system-grid">
+                  {model.systems.map((system) => (
+                    <CardPanel
+                      heading={system.label}
+                      summary={system.detail}
+                      tone="soft"
+                      className="privacy-system-card"
+                    >
+                      <p class="privacy-system-card__status" data-status={system.status}>
+                        {system.statusLabel}
+                      </p>
+                    </CardPanel>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {section.id === "rights" ? (
+              <div class="layout-stack layout-stack--roomy">
+                <div class="privacy-section__body">
+                  <p class="eyebrow">{model.rightsSection.eyebrow}</p>
+                  <h3>{model.rightsSection.title}</h3>
+                  <p>{model.rightsSection.summary}</p>
+                </div>
+
+                <div class="privacy-rights-grid">
+                  {model.rightsCards.map((card) => (
+                    <CardPanel heading={card.title} summary={card.body} tone="soft" />
+                  ))}
+                </div>
+
+                <NoticeBlock
+                  title="Complaint route"
+                  body="If you are not happy with how your personal information has been handled, you can also complain to the Information Commissioner's Office."
+                  tone="info"
+                  action={{
+                    label: "Go to the ICO",
+                    href: model.complaintUrl,
+                    variant: "text"
+                  }}
+                />
+              </div>
+            ) : null}
+
+            {section.id === "changes" ? (
+              <div class="layout-stack layout-stack--roomy">
+                <div class="privacy-section__body">
+                  <p class="eyebrow">{model.reviewSection.eyebrow}</p>
+                  <h3>{model.reviewSection.title}</h3>
+                  <p>{model.reviewSection.summary}</p>
+                </div>
+
+                <CardPanel heading="Review triggers" tone="soft">
+                  <ul class="check-list">
+                    {model.reviewTriggers.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </CardPanel>
+              </div>
+            ) : null}
+          </article>
+        ))
+      }
+    </div>
+  </PageSection>
+</BaseLayout>

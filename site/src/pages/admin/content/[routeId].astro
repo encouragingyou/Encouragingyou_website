@@ -1,0 +1,99 @@
+---
+import AdminAccessState from "../../../components/admin/AdminAccessState.astro";
+import AdminDocumentCard from "../../../components/admin/AdminDocumentCard.astro";
+import AdminPanel from "../../../components/admin/AdminPanel.astro";
+import AdminSurfaceCard from "../../../components/admin/AdminSurfaceCard.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import { getAdminWorkstream } from "../../../lib/cms/admin-portal.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const routeId = Astro.params.routeId ?? "";
+const workstream = getAdminWorkstream(routeId);
+
+if (!workstream) {
+  Astro.response.status = 404;
+}
+---
+
+<AdminLayout
+  title={workstream ? workstream.label : "Workstream not found"}
+  adminPageId="content"
+  adminSession={adminSession}
+>
+  {
+    workstream ? (
+      <div class="admin-stack">
+        <AdminPanel
+          title={workstream.label}
+          eyebrow={workstream.family}
+          description={`Published route pattern: ${workstream.routePattern}`}
+        >
+          <div class="admin-two-column-list">
+            <div class="admin-review-card">
+              <strong>Preview route</strong>
+              <p class="admin-muted">
+                {workstream.previewRoute
+                  ? `Published preview lives on ${workstream.previewRoute}`
+                  : "This workstream affects a global surface rather than one route."}
+              </p>
+              {workstream.previewRoute ? (
+                <a
+                  class="admin-link-button admin-link-button--ghost"
+                  href={workstream.previewRoute}
+                >
+                  Open published route
+                </a>
+              ) : null}
+            </div>
+            <div class="admin-review-card">
+              <strong>Boundary summary</strong>
+              <p class="admin-muted">
+                {workstream.editableSurfaceCount} editable surfaces,{" "}
+                {workstream.operatorSurfaceCount} publisher-held surfaces, and{" "}
+                {workstream.lockedSurfaceCount} locked runtime or layout surfaces.
+              </p>
+            </div>
+          </div>
+        </AdminPanel>
+
+        <AdminPanel
+          title="Editable and locked surfaces"
+          eyebrow="Surface policy"
+          description="Each surface makes the boundary explicit so editors can see what is text-only and what remains fixed by design."
+        >
+          <div class="admin-grid">
+            {workstream.editableSurfaces.map((surface) => (
+              <AdminSurfaceCard surface={surface} />
+            ))}
+            {workstream.operatorSurfaces.map((surface) => (
+              <AdminSurfaceCard surface={surface} />
+            ))}
+            {workstream.lockedSurfaces.map((surface) => (
+              <AdminSurfaceCard surface={surface} />
+            ))}
+          </div>
+        </AdminPanel>
+
+        <AdminPanel
+          title="Linked documents"
+          eyebrow="Editor entry points"
+          description="These are the underlying CMS records that feed the workstream's fixed public template."
+        >
+          <div class="admin-grid">
+            {workstream.documents.map((document) => (
+              <AdminDocumentCard document={document} />
+            ))}
+          </div>
+        </AdminPanel>
+      </div>
+    ) : (
+      <AdminAccessState
+        statusCode={404}
+        title="Workstream not found"
+        message="That content group does not exist in the current CMS route map."
+      />
+    )
+  }
+</AdminLayout>

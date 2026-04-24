@@ -1,0 +1,157 @@
+---
+import SupportForm from "../../components/forms/SupportForm.astro";
+import InvolvementOpportunitySurface from "../../components/sections/InvolvementOpportunitySurface.astro";
+import InvolvementProcessList from "../../components/sections/InvolvementProcessList.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import InvolvementPathwayCard from "../../components/ui/InvolvementPathwayCard.astro";
+import DisclosureNote from "../../components/ui/DisclosureNote.astro";
+import FaqGroup from "../../components/ui/FaqGroup.astro";
+import MediaPicture from "../../components/ui/MediaPicture.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getGetInvolvedPageModel } from "../../lib/content/site-content.ts";
+
+const model = getGetInvolvedPageModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/get-involved/"
+  pageId="get-involved"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+
+      <Fragment slot="media">
+        <MediaPicture
+          asset={model.media}
+          eager={true}
+          sizes="(min-width: 64rem) 50vw, 100vw"
+        />
+        {model.disclosure ? <DisclosureNote disclosure={model.disclosure} /> : null}
+      </Fragment>
+    </PageIntro>
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.routesSection.eyebrow}
+        title={model.routesSection.title}
+        summary={model.routesSection.summary}
+      />
+
+      <InvolvementPathwayCard
+        title={model.featuredPathway.title}
+        summary={model.featuredPathway.summary}
+        statusLabel={model.featuredPathway.statusLabel}
+        supportingText={model.featuredPathway.supportingText}
+        trustNote={model.featuredPathway.trustNote}
+        supportPoints={model.featuredPathway.supportPoints}
+        actions={model.featuredPathway.actions}
+        icon={model.featuredPathway.icon}
+        tone={model.featuredPathway.tone}
+        featured={true}
+        headingLevel={2}
+      />
+
+      <div class="involvement-pathway-grid">
+        {
+          model.pathwayCards.map((card) => (
+            <InvolvementPathwayCard
+              title={card.title}
+              summary={card.summary}
+              statusLabel={card.statusLabel}
+              supportingText={card.supportingText}
+              trustNote={card.trustNote}
+              supportPoints={card.supportPoints}
+              actions={card.actions}
+              icon={card.icon}
+              tone={card.tone}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <InvolvementProcessList
+      eyebrow={model.processSection.eyebrow}
+      title={model.processSection.title}
+      summary={model.processSection.summary}
+      steps={model.processSection.steps}
+      notice={model.launchNotice}
+    />
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <InvolvementOpportunitySurface
+      eyebrow={model.spotlightSection.eyebrow}
+      title={model.spotlightSection.title}
+      summary={model.spotlightSection.summary}
+      state={model.spotlightSection.state}
+      item={model.spotlightSection.item}
+      emptyState={model.spotlightSection.emptyState}
+      supportPanel={model.spotlightSection.supportPanel}
+    />
+  </PageSection>
+
+  <PageSection>
+    <div class="layout-grid layout-grid--sidebar">
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.faqSection.eyebrow}
+          title={model.faqSection.title}
+          summary={model.faqSection.summary}
+        />
+        <FaqGroup groupId={model.faqGroupId} items={model.faqs} />
+      </div>
+
+      <SupportForm
+        surfaceId={model.surfaceId}
+        heading={model.formHeading}
+        intro={model.formIntro}
+        organizationName={model.organizationName}
+        privacyNote={model.privacyNote}
+        privacyHighlights={model.privacyHighlights}
+        privacyNoticeTitle={model.privacyNoticeTitle}
+        privacyNoticeActionLabel={model.privacyNoticeActionLabel}
+        messageHelper={model.messageHelper}
+        updatesOptInLabel={model.updatesOptInLabel}
+        emailFallbackPrefix={model.emailFallbackPrefix}
+        noScriptNote={model.noScriptNote}
+        invalidStatusMessage={model.invalidStatusMessage}
+        submittingStatusMessage={model.submittingStatusMessage}
+        reasons={model.reasons}
+        email={model.email}
+        successMessage={model.successMessage}
+      />
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <CtaBand
+      eyebrow={model.ctaBand.eyebrow}
+      title={model.ctaBand.title}
+      summary={model.ctaBand.summary}
+      badges={model.ctaBand.badges}
+      actions={model.ctaBand.actions}
+      note={model.ctaBand.note}
+    />
+  </PageSection>
+</BaseLayout>

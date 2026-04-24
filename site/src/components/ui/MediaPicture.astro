@@ -1,0 +1,78 @@
+---
+import {
+  getMediaDimensions,
+  getMediaFallbackRender,
+  getMediaPictureSources
+} from "../../lib/media/delivery.js";
+import MediaFallback from "./MediaFallback.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  asset: MediaAsset;
+  sizes?: string;
+  eager?: boolean;
+  className?: string;
+  altOverride?: string;
+}
+
+type PictureSource = {
+  mimeType: string;
+  srcset: string;
+};
+
+const {
+  asset,
+  sizes = "100vw",
+  eager = false,
+  className = "",
+  altOverride
+} = Astro.props;
+
+const alt = asset.decorative ? "" : (altOverride ?? asset.alt);
+const imageClassName = `media-picture ${className}`.trim();
+const pictureSources: PictureSource[] =
+  asset.kind === "illustration" && asset.astroDelivery.responsiveWidths !== null
+    ? getMediaPictureSources(asset)
+    : [];
+const fallbackRender = getMediaFallbackRender(asset);
+const dimensions = getMediaDimensions(asset);
+---
+
+{
+  !fallbackRender ? (
+    <MediaFallback
+      alt={alt}
+      assetLabel={asset.label}
+      className={imageClassName}
+      decorative={asset.decorative}
+      kind="illustration"
+    />
+  ) : pictureSources.length > 0 ? (
+    <picture class={imageClassName}>
+      {pictureSources.map((source) => (
+        <source srcset={source.srcset} sizes={sizes} type={source.mimeType} />
+      ))}
+      <img
+        src={fallbackRender.publicPath}
+        width={dimensions.width}
+        height={dimensions.height}
+        class={imageClassName}
+        loading={eager ? "eager" : "lazy"}
+        fetchpriority={eager ? "high" : "auto"}
+        decoding="async"
+        alt={alt}
+      />
+    </picture>
+  ) : (
+    <img
+      src={fallbackRender.publicPath}
+      width={dimensions.width}
+      height={dimensions.height}
+      class={imageClassName}
+      loading={eager ? "eager" : "lazy"}
+      fetchpriority={eager ? "high" : "auto"}
+      decoding="async"
+      alt={alt}
+    />
+  )
+}

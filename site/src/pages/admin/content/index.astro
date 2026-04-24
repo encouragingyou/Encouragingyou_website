@@ -1,0 +1,43 @@
+---
+import AdminPanel from "../../../components/admin/AdminPanel.astro";
+import AdminWorkstreamCard from "../../../components/admin/AdminWorkstreamCard.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+import {
+  listAdminWorkstreamFamilies,
+  listAdminWorkstreams
+} from "../../../lib/cms/admin-portal.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const families = listAdminWorkstreamFamilies();
+const workstreams = listAdminWorkstreams();
+---
+
+<AdminLayout title="Content groups" adminPageId="content" adminSession={adminSession}>
+  <AdminPanel
+    title="Route-led editorial map"
+    eyebrow="Information architecture"
+    description="Each group mirrors a public route family. Editors see the page or content area they recognize, then drill into the linked CMS documents underneath."
+  >
+    <div class="admin-stack">
+      {
+        families.map((family) => (
+          <section class="admin-stack">
+            <div>
+              <p class="admin-eyebrow">{family}</p>
+              <h2 class="admin-panel-title">{family}</h2>
+            </div>
+            <div class="admin-grid">
+              {workstreams
+                .filter((workstream) => workstream.family === family)
+                .map((workstream) => (
+                  <AdminWorkstreamCard workstream={workstream} />
+                ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </AdminPanel>
+</AdminLayout>

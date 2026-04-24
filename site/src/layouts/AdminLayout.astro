@@ -1,0 +1,131 @@
+---
+import adminPortalClientUrl from "../lib/client/admin-portal.js?url";
+import "../styles/admin.css";
+
+interface Props {
+  title: string;
+  adminPageId: "dashboard" | "content" | "review" | "security";
+  adminSession: {
+    authenticated: boolean;
+    email: string | null;
+    displayName: string | null;
+    roleId: string;
+    roleTitle: string;
+    roleDescription: string;
+    capabilities: string[];
+    restrictions: string[];
+    boundaryMode: string;
+    authReadiness: string;
+    csrfToken: string | null;
+    mfaRequired: boolean;
+  };
+}
+
+const { title, adminPageId, adminSession } = Astro.props;
+const deployment = Astro.locals.deployment;
+
+const navigation = [
+  { id: "dashboard", label: "Dashboard", href: "/admin/" },
+  { id: "content", label: "Content groups", href: "/admin/content/" },
+  { id: "review", label: "Review queue", href: "/admin/review/" },
+  { id: "security", label: "Security", href: "/admin/security/" }
+];
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-deployment-channel={deployment?.channel}
+  data-deployment-surface={deployment?.surface}
+  data-release-id={deployment?.releaseId}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    {
+      adminSession.csrfToken ? (
+        <meta name="admin-csrf-token" content={adminSession.csrfToken} />
+      ) : null
+    }
+    <title>{title}</title>
+  </head>
+  <body class="admin-layout-body">
+    <div class="admin-shell">
+      <aside class="admin-shell__sidebar">
+        <a class="admin-brand" href="/admin/">
+          <span class="admin-brand__mark">EY</span>
+          <span>
+            <strong>EncouragingYou CMS</strong>
+            <small>Constrained editorial portal</small>
+          </span>
+        </a>
+        <nav aria-label="Admin">
+          <ul class="admin-nav">
+            {
+              navigation.map((item) => (
+                <li>
+                  <a
+                    class:list={[
+                      "admin-nav__link",
+                      { "admin-nav__link--current": item.id === adminPageId }
+                    ]}
+                    href={item.href}
+                    aria-current={item.id === adminPageId ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <section class="admin-sidebar-card">
+          <p class="admin-eyebrow">Signed in as</p>
+          <p class="admin-panel-title">
+            {adminSession.displayName ?? adminSession.email ?? "Admin user"}
+          </p>
+          {adminSession.email ? <p class="admin-muted">{adminSession.email}</p> : null}
+          <p class="admin-eyebrow">Current role</p>
+          <h2>{adminSession.roleTitle}</h2>
+          <p class="admin-muted">{adminSession.roleDescription}</p>
+          <ul class="admin-tag-list">
+            {
+              adminSession.capabilities
+                .slice(0, 5)
+                .map((capability) => <li>{capability}</li>)
+            }
+          </ul>
+        </section>
+      </aside>
+      <main class="admin-shell__main">
+        <header class="admin-topbar">
+          <div>
+            <p class="admin-eyebrow">Separate admin origin required</p>
+            <h1>{title}</h1>
+          </div>
+          <div class="admin-topbar__meta">
+            <span class="admin-chip">Authenticated session</span>
+            <span class="admin-chip admin-chip--operator">
+              {adminSession.mfaRequired ? "MFA protected" : "Password protected"}
+            </span>
+            <form method="post" action="/api/admin/logout/">
+              <input type="hidden" name="_csrf" value={adminSession.csrfToken ?? ""} />
+              <button class="admin-button admin-button--ghost" type="submit">
+                Sign out
+              </button>
+            </form>
+          </div>
+        </header>
+        <section class="admin-boundary-banner">
+          <p>
+            This portal is invitation-only and edits text and metadata only. Layout,
+            styling, routing, and runtime behavior remain locked and developer-owned.
+          </p>
+        </section>
+        <slot />
+      </main>
+    </div>
+    <script type="module" src={adminPortalClientUrl} is:inline></script>
+  </body>
+</html>

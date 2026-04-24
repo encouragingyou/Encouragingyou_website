@@ -1,0 +1,53 @@
+---
+interface Props {
+  surface: {
+    id: string;
+    label: string;
+    ownershipClass: string;
+    mutationPrimitiveId: string;
+    linkPolicyId: string;
+    description: string;
+    fields: string[];
+  };
+}
+
+const { surface } = Astro.props;
+
+const surfaceLabel =
+  surface.ownershipClass === "client-editable"
+    ? "Editable text"
+    : surface.ownershipClass === "operator-controlled"
+      ? "Publisher-held"
+      : "Locked";
+---
+
+<article class="admin-surface-card">
+  <div class="admin-surface-card__header">
+    <h3 class="admin-surface-card__title">{surface.label}</h3>
+    <span class:list={["admin-chip", `admin-chip--${surface.ownershipClass}`]}
+      >{surfaceLabel}</span
+    >
+  </div>
+  <p class="admin-muted">{surface.description}</p>
+  <dl class="admin-surface-meta">
+    <div>
+      <dt>Editing pattern</dt>
+      <dd>{surface.mutationPrimitiveId}</dd>
+    </div>
+    <div>
+      <dt>Link policy</dt>
+      <dd>{surface.linkPolicyId}</dd>
+    </div>
+  </dl>
+  {
+    surface.fields.length > 0 ? (
+      <ul class="admin-tag-list">
+        {surface.fields.map((field) => (
+          <li>{field}</li>
+        ))}
+      </ul>
+    ) : (
+      <p class="admin-muted">No mutable fields are exposed here.</p>
+    )
+  }
+</article>

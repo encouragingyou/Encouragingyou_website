@@ -1,0 +1,232 @@
+---
+import SupportForm from "../forms/SupportForm.astro";
+import PageIntro from "../layout/PageIntro.astro";
+import PageSection from "../layout/PageSection.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import ProofBoundaryPanel from "../ui/ProofBoundaryPanel.astro";
+import SafeguardingEscalationGuide from "./SafeguardingEscalationGuide.astro";
+import TrustStatusPanel from "../ui/TrustStatusPanel.astro";
+
+interface Model {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  supportingText?: string;
+  badges: string[];
+  actions: Array<{
+    label: string;
+    href: string;
+    variant: "primary" | "secondary" | "surface" | "text";
+  }>;
+  emergencyNotice: {
+    title: string;
+    body: string;
+    tone: "important" | "info" | "success" | "error";
+  };
+  branchPanel: {
+    title: string;
+    summary: string;
+    detail?: string;
+    statusLabel: string;
+    statusTone?: "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+    bullets?: string[];
+    actions?: Array<{
+      label: string;
+      href: string;
+      variant: "primary" | "secondary" | "surface" | "text";
+    }>;
+  };
+  guide: {
+    title: string;
+    summary?: string;
+    steps: Array<{ title: string; body: string }>;
+    preparationTitle: string;
+    preparationItems: string[];
+    limitationsTitle: string;
+    limitations: string[];
+    noteTitle: string;
+    noteBody: string;
+    noteAction: {
+      label: string;
+      href: string;
+      variant?: "primary" | "secondary" | "surface" | "text";
+    };
+  };
+  sidebarPanels: Array<{
+    title: string;
+    summary: string;
+    detail?: string;
+    statusLabel: string;
+    statusTone?: "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+    bullets?: string[];
+    actions?: Array<{
+      label: string;
+      href: string;
+      variant: "primary" | "secondary" | "surface" | "text";
+    }>;
+  }>;
+  footerPanels: Array<{
+    title: string;
+    summary: string;
+    detail?: string;
+    statusLabel: string;
+    statusTone?: "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+    bullets?: string[];
+    actions?: Array<{
+      label: string;
+      href: string;
+      variant: "primary" | "secondary" | "surface" | "text";
+    }>;
+  }>;
+  proofBoundary: {
+    eyebrow?: string;
+    title: string;
+    summary?: string;
+    publishNow: string[];
+    awaitingConfirmation: string[];
+    withheldUntilVerified: string[];
+  };
+  formId: string;
+  surfaceId: string;
+  formEyebrow: string;
+  formHeading: string;
+  formIntro: string;
+  organizationName: string;
+  privacyNote: string;
+  privacyHighlights: string[];
+  privacyNoticeTitle: string;
+  privacyNoticeActionLabel: string;
+  messageHelper: string;
+  updatesOptInLabel: string;
+  showUpdatesOptIn: boolean;
+  emailFallbackPrefix: string;
+  noScriptNote: string;
+  invalidStatusMessage: string;
+  submittingStatusMessage: string;
+  email: string;
+  reasons: Array<{ id: string; label: string }>;
+  successMessage: string;
+  defaultReasonId?: string;
+  reasonFieldLabel: string;
+  reasonSelectPlaceholder?: string | null;
+  reasonFieldMode?: "select" | "hidden";
+  submitLabel: string;
+}
+
+const { model } = Astro.props as { model: Model };
+---
+
+<PageSection className="page-section--intro">
+  <PageIntro
+    eyebrow={model.eyebrow}
+    title={model.title}
+    summary={model.summary}
+    badges={model.badges}
+    actions={model.actions}
+  >
+    {model.supportingText ? <p class="page-intro__meta">{model.supportingText}</p> : null}
+  </PageIntro>
+
+  <NoticeBlock
+    title={model.emergencyNotice.title}
+    body={model.emergencyNotice.body}
+    tone={model.emergencyNotice.tone}
+  />
+</PageSection>
+
+<PageSection width="wide">
+  <div class="safeguarding-overview-grid">
+    <div class="layout-stack layout-stack--roomy">
+      <TrustStatusPanel
+        title={model.branchPanel.title}
+        summary={model.branchPanel.summary}
+        detail={model.branchPanel.detail}
+        statusLabel={model.branchPanel.statusLabel}
+        statusTone={model.branchPanel.statusTone}
+        bullets={model.branchPanel.bullets}
+        actions={model.branchPanel.actions}
+      />
+
+      <SafeguardingEscalationGuide
+        title={model.guide.title}
+        summary={model.guide.summary}
+        steps={model.guide.steps}
+        preparationTitle={model.guide.preparationTitle}
+        preparationItems={model.guide.preparationItems}
+        limitationsTitle={model.guide.limitationsTitle}
+        limitations={model.guide.limitations}
+        noteTitle={model.guide.noteTitle}
+        noteBody={model.guide.noteBody}
+        noteAction={model.guide.noteAction}
+      />
+    </div>
+
+    <div class="layout-stack layout-stack--roomy">
+      {
+        model.sidebarPanels.map((panel, index) => (
+          <TrustStatusPanel
+            title={panel.title}
+            summary={panel.summary}
+            detail={panel.detail}
+            statusLabel={panel.statusLabel}
+            statusTone={panel.statusTone}
+            bullets={panel.bullets}
+            actions={panel.actions}
+            headingLevel={index === 0 ? 2 : 3}
+            tone={index === 0 ? "soft" : "default"}
+          />
+        ))
+      }
+
+      <SupportForm
+        id={model.formId}
+        surfaceId={model.surfaceId}
+        eyebrow={model.formEyebrow}
+        heading={model.formHeading}
+        intro={model.formIntro}
+        organizationName={model.organizationName}
+        privacyNote={model.privacyNote}
+        privacyHighlights={model.privacyHighlights}
+        privacyNoticeTitle={model.privacyNoticeTitle}
+        privacyNoticeActionLabel={model.privacyNoticeActionLabel}
+        messageHelper={model.messageHelper}
+        updatesOptInLabel={model.updatesOptInLabel}
+        showUpdatesOptIn={model.showUpdatesOptIn}
+        emailFallbackPrefix={model.emailFallbackPrefix}
+        noScriptNote={model.noScriptNote}
+        invalidStatusMessage={model.invalidStatusMessage}
+        submittingStatusMessage={model.submittingStatusMessage}
+        reasons={model.reasons}
+        defaultReasonId={model.defaultReasonId}
+        reasonFieldLabel={model.reasonFieldLabel}
+        reasonSelectPlaceholder={model.reasonSelectPlaceholder}
+        reasonFieldMode={model.reasonFieldMode}
+        successMessage={model.successMessage}
+        submitLabel={model.submitLabel}
+        email={model.email}
+      />
+    </div>
+  </div>
+</PageSection>
+
+<PageSection tone="band" width="wide">
+  <div class="safeguarding-state-grid">
+    {
+      model.footerPanels.map((panel, index) => (
+        <TrustStatusPanel
+          title={panel.title}
+          summary={panel.summary}
+          detail={panel.detail}
+          statusLabel={panel.statusLabel}
+          statusTone={panel.statusTone}
+          bullets={panel.bullets}
+          actions={panel.actions}
+          headingLevel={index === 0 ? 2 : 3}
+          tone="soft"
+        />
+      ))
+    }
+
+    <ProofBoundaryPanel {...model.proofBoundary} />
+  </div>
+</PageSection>

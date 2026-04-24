@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NoticeBlock from "../components/ui/NoticeBlock.astro";
+import ResiliencePanel from "../components/ui/ResiliencePanel.astro";
+import { getNotFoundModel } from "../lib/content/site-content";
+
+const model = getNotFoundModel();
+---
+
+<BaseLayout meta={model.meta} currentPath="/404/" pageId="not-found">
+  <section class="section">
+    <div class="container">
+      <ResiliencePanel
+        className="empty-state"
+        stateId="missing-route"
+        tone="default"
+        presentation="panel"
+        eyebrow={model.eyebrow}
+        headingLevel={1}
+        title={model.title}
+        summary={model.summary}
+        body={model.body}
+        bullets={model.bullets}
+        actions={model.actions}
+      />
+      {
+        model.notice ? (
+          <NoticeBlock
+            title={model.notice.title}
+            body={model.notice.body}
+            tone={model.notice.tone}
+          />
+        ) : null
+      }
+    </div>
+  </section>
+</BaseLayout>

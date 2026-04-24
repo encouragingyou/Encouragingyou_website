@@ -1,0 +1,98 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import EmptyState from "../ui/EmptyState.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import PageSection from "../layout/PageSection.astro";
+
+interface Action {
+  label: string;
+  href: string;
+  variant: "primary" | "secondary" | "surface" | "text";
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  primaryAction: Action;
+  secondaryAction?: Action;
+  editorialStatus?: {
+    title: string;
+    summary: string;
+    publishNowLabel: string;
+    publishNow: string[];
+    awaitingLabel: string;
+    awaiting: string[];
+    hiddenLabel: string;
+    hidden: string[];
+  } | null;
+  notice?: {
+    title?: string;
+    body: string;
+    tone?: "error" | "info" | "important" | "success";
+  };
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  primaryAction,
+  secondaryAction,
+  editorialStatus,
+  notice
+} = Astro.props;
+---
+
+<PageSection>
+  <EmptyState
+    eyebrow={eyebrow}
+    title={title}
+    summary={summary}
+    primaryAction={primaryAction}
+    secondaryAction={secondaryAction}
+  />
+  {
+    editorialStatus ? (
+      <CardPanel
+        tone="soft"
+        heading={editorialStatus.title}
+        summary={editorialStatus.summary}
+      >
+        <div class="layout-stack layout-stack--tight">
+          <div>
+            <p class="eyebrow">{editorialStatus.publishNowLabel}</p>
+            <ul class="check-list">
+              {editorialStatus.publishNow.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="eyebrow">{editorialStatus.awaitingLabel}</p>
+            <ul class="check-list">
+              {editorialStatus.awaiting.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="eyebrow">{editorialStatus.hiddenLabel}</p>
+            <ul class="check-list">
+              {editorialStatus.hidden.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </CardPanel>
+    ) : null
+  }
+  {
+    notice ? (
+      <NoticeBlock title={notice.title} body={notice.body} tone={notice.tone ?? "info"} />
+    ) : null
+  }
+</PageSection>

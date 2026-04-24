@@ -1,0 +1,40 @@
+{
+  "pages": [
+    {
+      "id": "privacy",
+      "route": "/privacy/",
+      "title": "Privacy Notice",
+      "launchStatus": "launch",
+      "summary": "A production privacy notice grounded in the live enquiry, involvement, and safeguarding routes in the current build.",
+      "contentState": "seeded",
+      "blockingFacts": []
+    },
+    {
+      "id": "cookies",
+      "route": "/cookies/",
+      "title": "Cookie Notice",
+      "launchStatus": "launch",
+      "summary": "A production cookie and storage-access notice grounded in the live build, including the first-party aggregate analytics model, the no-banner decision, and change-control rules for future technologies.",
+      "contentState": "seeded",
+      "blockingFacts": []
+    },
+    {
+      "id": "accessibility",
+      "route": "/accessibility/",
+      "title": "Accessibility Statement",
+      "launchStatus": "launch",
+      "summary": "A practical statement covering accessibility commitment, known limitations, and a route to request help.",
+      "contentState": "seeded",
+      "blockingFacts": []
+    },
+    {
+      "id": "terms",
+      "route": "/terms/",
+      "title": "Terms / Site Policy",
+      "launchStatus": "launch",
+      "summary": "A concise site policy covering acceptable use, intellectual property, and basic liability boundaries.",
+      "contentState": "seeded",
+      "blockingFacts": []
+    }
+  ]
+}

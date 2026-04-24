@@ -1,0 +1,91 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import MediaIcon from "./MediaIcon.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  actions?: ActionLink[];
+  as?: "article" | "aside" | "div" | "section";
+  className?: string;
+  external?: boolean;
+  heading?: string;
+  headingLevel?: 2 | 3;
+  href?: string;
+  id?: string;
+  icon?: MediaAsset;
+  interactive?: boolean;
+  selected?: boolean;
+  summary?: string;
+  tone?: "accent" | "callout" | "default" | "muted" | "soft";
+  eyebrow?: string;
+}
+
+const {
+  actions = [],
+  as = "article",
+  className = "",
+  external = false,
+  heading,
+  headingLevel = 2,
+  href,
+  id,
+  icon,
+  interactive = false,
+  selected = false,
+  summary,
+  tone = "default",
+  eyebrow,
+  ...rest
+} = Astro.props as Props & Record<string, unknown>;
+
+const isLink = Boolean(href);
+const isInteractive = interactive || isLink;
+const Tag = (isLink ? "a" : as) as "a" | "article" | "aside" | "div" | "section";
+const cardClass = [
+  "card-panel",
+  `card-panel--${tone}`,
+  isInteractive ? "card-panel--interactive" : "",
+  selected ? "is-selected" : "",
+  className
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag
+  class={cardClass}
+  href={isLink ? href : undefined}
+  target={isLink && external ? "_blank" : undefined}
+  rel={isLink && external ? "noreferrer" : undefined}
+  aria-current={selected && isLink ? "page" : undefined}
+  data-card-state={selected ? "selected" : "default"}
+  data-motion={isInteractive ? "reveal emphasis" : "reveal structural"}
+  id={id}
+  {...rest}
+>
+  {
+    icon || eyebrow || heading ? (
+      <div class="card-panel__header">
+        {icon ? <MediaIcon asset={icon} className="card-panel__icon" /> : null}
+        <div class="card-panel__heading-group">
+          {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
+          {heading ? (
+            headingLevel === 3 ? (
+              <h3 class="card-panel__heading">{heading}</h3>
+            ) : (
+              <h2 class="card-panel__heading">{heading}</h2>
+            )
+          ) : null}
+        </div>
+      </div>
+    ) : null
+  }
+
+  {summary ? <p class="card-panel__summary">{summary}</p> : null}
+  <slot />
+  {
+    actions.length > 0 ? (
+      <ActionCluster actions={actions} className="card-panel__actions" />
+    ) : null
+  }
+</Tag>

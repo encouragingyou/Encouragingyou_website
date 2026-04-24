@@ -1,0 +1,75 @@
+{
+  "slug": "personal-growth-life-skills",
+  "route": "/programmes/personal-growth-life-skills/",
+  "title": "Personal Growth & Life Skills",
+  "shortTitle": "Personal Growth",
+  "launchStatus": "launch",
+  "summary": "Confidence-building, practical life-skills, and supportive guidance that help young people move forward.",
+  "promise": "Create space for confidence, resilience, practical skills, and mentoring-style guidance that helps people take their next step.",
+  "audiences": ["young-people", "parents-carers", "referrers"],
+  "audienceSummary": "Best for young people who need confidence-building, practical guidance, or room to grow into leadership and everyday independence.",
+  "audienceHighlights": [
+    "Young people who need confidence before bigger opportunities feel possible",
+    "Parents, carers, or referrers looking for practical growth support beyond one-off advice",
+    "People who may benefit from guidance, mentoring, or workshop-style development as their next step becomes clearer"
+  ],
+  "existingDeliveryMode": "launch-overview-only",
+  "relatedSessionIds": [],
+  "featuredMediaId": "programme-personal-growth",
+  "featuredIconId": "icon-growth",
+  "deliverySummary": "This pillar is live as part of the launch offer, but the public next step currently starts with an enquiry and programme overview rather than a dedicated recurring session page.",
+  "trustSignalIds": ["youth-led", "privacy-clarity", "visible-safeguarding"],
+  "trustNotes": [
+    "Keep the public promise practical: confidence, life skills, guidance, and motivation are evidenced, but exact workshop formats and dates are not.",
+    "Contact stays short and supportive so someone can ask what kind of help fits without needing the full plan first.",
+    "Safeguarding and privacy need to stay visible because this route may begin with a conversation before a public timetable."
+  ],
+  "outcomeBullets": [
+    "Confidence and resilience in everyday situations",
+    "Practical life skills and motivation",
+    "Guidance toward participation, opportunity, or the next step"
+  ],
+  "bodySections": [
+    {
+      "id": "what-this-route-can-cover",
+      "heading": "What this route can cover",
+      "body": [
+        "Public descriptions of this route cover confidence-building, life-skills workshops, mentoring, and practical support that help young people move forward.",
+        "This programme gives those strands a clear public home without pretending every delivery format already has its own published timetable."
+      ],
+      "bullets": [
+        "Confidence-building",
+        "Life skills",
+        "Guidance and mentoring-style support"
+      ]
+    },
+    {
+      "id": "how-support-can-feel",
+      "heading": "How support here can feel",
+      "body": [
+        "This route feels encouraging and structured, not like someone is expected to sort everything out alone before asking for help.",
+        "Support may include practical conversations, workshop-style learning, or help building motivation and resilience over time."
+      ],
+      "bullets": [
+        "Practical and encouraging",
+        "Room to grow at your own pace",
+        "Focused on the next realistic step"
+      ]
+    },
+    {
+      "id": "how-the-next-step-works",
+      "heading": "How the next step works right now",
+      "body": [
+        "The launch site explains the direction of support now while staying honest about what is not yet published.",
+        "If someone is interested, the clearest next step is to contact the team so they can point them toward the right conversation, programme activity, or live session when available."
+      ],
+      "bullets": [
+        "Enquiry-led first step",
+        "No invented workshop timetable",
+        "Use contact for the right next route"
+      ]
+    }
+  ],
+  "primaryCtaId": "get-support",
+  "seoDescription": "Explore EncouragingYou's personal growth and life-skills support for confidence, leadership, and practical development in Rochdale."
+}

@@ -1,0 +1,34 @@
+---
+interface Props {
+  alt?: string;
+  assetLabel?: string;
+  className?: string;
+  decorative?: boolean;
+  kind?: "icon" | "illustration";
+}
+
+const {
+  alt,
+  assetLabel = "Media unavailable",
+  className = "",
+  decorative = false,
+  kind = "illustration"
+} = Astro.props;
+
+const label = kind === "icon" ? "Icon unavailable" : "Illustration unavailable";
+const fallbackClassName = ["media-fallback", `media-fallback--${kind}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div
+  class={fallbackClassName}
+  data-media-state="fallback"
+  aria-hidden={decorative ? "true" : undefined}
+  role={decorative ? undefined : "img"}
+  aria-label={decorative ? undefined : (alt ?? label)}
+>
+  <span class="media-fallback__label" aria-hidden="true">{label}</span>
+  <span class="media-fallback__meta" aria-hidden="true">{assetLabel}</span>
+  {decorative ? null : <span class="u-visually-hidden">{alt ?? label}</span>}
+</div>

@@ -1,0 +1,166 @@
+@layer foundation, theme, base, utilities, components;
+
+@layer foundation {
+  @font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src:
+      local("Atkinson Hyperlegible Next"),
+      url("/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+  }
+
+  :root {
+    color-scheme: light;
+
+    --ref-color-teal-950: #002635;
+    --ref-color-teal-900: #00405c;
+    --ref-color-teal-800: #1b5567;
+    --ref-color-slate-900: #1f2224;
+    --ref-color-slate-700: #35525c;
+    --ref-color-slate-600: #4d6770;
+    --ref-color-slate-500: #6f8288;
+    --ref-color-coral-500: #fc8c6c;
+    --ref-color-coral-600: #d56f53;
+    --ref-color-coral-700: #b95740;
+    --ref-color-coral-800: #a24b38;
+    --ref-color-sage-500: #90b4a0;
+    --ref-color-sage-600: #6d917b;
+    --ref-color-cream-200: #f8e8d0;
+    --ref-color-sand-300: #e6d0b0;
+    --ref-color-chalk-100: #f5f3ef;
+    --ref-color-mist-050: #fffdf8;
+    --ref-color-warm-050: #fff7ec;
+    --ref-color-white: #ffffff;
+
+    --ref-rgb-teal-950: 0 38 53;
+    --ref-rgb-teal-900: 0 64 92;
+    --ref-rgb-slate-900: 31 34 36;
+    --ref-rgb-slate-700: 53 82 92;
+    --ref-rgb-slate-600: 77 103 112;
+    --ref-rgb-slate-500: 111 130 136;
+    --ref-rgb-coral-500: 252 140 108;
+    --ref-rgb-coral-600: 213 111 83;
+    --ref-rgb-coral-700: 185 87 64;
+    --ref-rgb-coral-800: 162 75 56;
+    --ref-rgb-sage-500: 144 180 160;
+    --ref-rgb-sage-600: 109 145 123;
+    --ref-rgb-cream-200: 248 232 208;
+    --ref-rgb-sand-300: 230 208 176;
+    --ref-rgb-chalk-100: 245 243 239;
+    --ref-rgb-white: 255 255 255;
+
+    --font-family-body:
+      "Atkinson Hyperlegible Next", "Inter", "Segoe UI", system-ui, sans-serif;
+    --font-family-display:
+      "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+    --font-family-mono:
+      ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-display: 700;
+
+    --font-size--1: 0.8125rem;
+    --font-size-00: 0.875rem;
+    --font-size-0: 1rem;
+    --font-size-1: clamp(1.0625rem, 2vw, 1.1875rem);
+    --font-size-2: clamp(1.25rem, 2vw, 1.625rem);
+    --font-size-3: clamp(1.875rem, 4vw, 3rem);
+    --font-size-4: clamp(2.25rem, 5vw, 4rem);
+    --font-size-5: clamp(2.65rem, 6vw, 4.8rem);
+
+    --line-height-tight: 1.05;
+    --line-height-heading: 1.1;
+    --line-height-snug: 1.3;
+    --line-height-body: 1.65;
+    --line-height-dense: 1.45;
+
+    --letter-spacing-display: -0.045em;
+    --letter-spacing-heading: -0.035em;
+    --letter-spacing-label: 0.08em;
+
+    --space-3xs: 0.375rem;
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4.5rem;
+    --space-3xl: 6rem;
+
+    --radius-sm: 0.75rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-pill: 999px;
+    --radius-round: 999px;
+
+    --border-width-thin: 1px;
+    --border-width-accent: 4px;
+
+    --shadow-soft: 0 18px 60px rgb(var(--ref-rgb-teal-900) / 0.08);
+    --shadow-lifted: 0 34px 110px rgb(var(--ref-rgb-teal-900) / 0.14);
+    --shadow-focus: 0 0 0 1px rgb(var(--ref-rgb-coral-600) / 0.16);
+    --focus-ring-width: 3px;
+
+    --measure-prose: 68ch;
+    --measure-copy: 42rem;
+    --measure-lede: 34rem;
+
+    --container: min(100% - 2rem, 74rem);
+    --container-wide: min(100% - 2rem, 84rem);
+    --container-narrow: min(100% - 2rem, 60rem);
+
+    --section-space: clamp(3.75rem, 7vw, 6.5rem);
+    --layout-shell-gap: clamp(1.25rem, 3vw, 2rem);
+    --layout-stack-gap: var(--space-sm);
+    --layout-cluster-gap: 0.75rem;
+    --layout-grid-gap: 1rem;
+    --layout-card-grid-min: 16rem;
+    --layout-card-grid-min-wide: 18rem;
+    --layout-sidebar-rail-min: 20rem;
+    --layout-sidebar-rail-max: 26rem;
+    --layout-header-block-size: 5rem;
+    --layout-section-heading-space: clamp(1.6rem, 4vw, 2.5rem);
+    --layout-hero-min-height: clamp(40rem, 90svh, 52rem);
+    --layout-hero-padding-top: clamp(7rem, 10vw, 9rem);
+    --layout-hero-padding-bottom: clamp(2rem, 7vw, 4rem);
+    --layout-hero-disclosure-space: clamp(2rem, 8vw, 5rem);
+    --layout-card-padding: clamp(1.25rem, 3vw, 1.75rem);
+    --layout-panel-padding: clamp(2rem, 5vw, 3rem);
+    --layout-split-gap: clamp(1.5rem, 5vw, 3rem);
+    --layout-support-gap: clamp(1.5rem, 4vw, 3rem);
+    --layout-page-intro-gap: clamp(1.5rem, 4vw, 2.75rem);
+    --layout-page-intro-summary-measure: 44rem;
+    --layout-badge-gap: 0.6rem;
+    --layout-skip-target-offset: calc(
+      var(--layout-header-block-size) + var(--space-xl) + var(--space-xs) +
+        env(safe-area-inset-top, 0px)
+    );
+
+    --control-height: 2.9rem;
+    --backdrop-blur-md: 16px;
+    --backdrop-blur-lg: 20px;
+
+    --motion-duration-instant: 120ms;
+    --motion-duration-fast: 180ms;
+    --motion-duration-base: 260ms;
+    --motion-duration-slow: 420ms;
+    --motion-duration-slower: 560ms;
+    --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-ease-entry: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --motion-ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --motion-lift-distance: -2px;
+    --motion-press-distance: 1px;
+    --motion-reveal-distance: 0.85rem;
+    --motion-drawer-distance: 1rem;
+    --motion-stagger-step: 45ms;
+    --motion-opacity-soft: 0.96;
+  }
+}

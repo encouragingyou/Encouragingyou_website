@@ -1,0 +1,70 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  actions: ActionLink[];
+  badges?: string[];
+  className?: string;
+  eyebrow: string;
+  headingLevel?: 1 | 2;
+  note?: {
+    action?: {
+      href: string;
+      label: string;
+      variant?: "primary" | "secondary" | "surface" | "text";
+    };
+    body: string;
+    title?: string;
+    tone?: "error" | "important" | "info" | "success";
+  };
+  summary?: string;
+  title: string;
+}
+
+const {
+  actions,
+  badges = [],
+  className = "",
+  eyebrow,
+  headingLevel = 2,
+  note,
+  summary,
+  title
+} = Astro.props;
+
+const hasAside = Boolean(note) || Astro.slots.has("aside");
+---
+
+<section class={`cta-band${className ? ` ${className}` : ""}`}>
+  <div class="cta-band__body">
+    <SectionHeading
+      eyebrow={eyebrow}
+      title={title}
+      summary={summary}
+      headingLevel={headingLevel}
+    />
+    <BadgeRow items={badges.map((badge) => ({ label: badge, tone: "soft" as const }))} />
+    <ActionCluster actions={actions} className="cta-band__actions" />
+    <slot />
+  </div>
+
+  {
+    hasAside ? (
+      <div class="cta-band__aside">
+        {note ? (
+          <NoticeBlock
+            title={note.title}
+            body={note.body}
+            tone={note.tone ?? "info"}
+            action={note.action}
+          />
+        ) : null}
+        <slot name="aside" />
+      </div>
+    ) : null
+  }
+</section>

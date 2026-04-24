@@ -1,0 +1,20 @@
+---
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+
+interface Props {
+  className?: string;
+  current?: boolean;
+  label?: string;
+  tone?: BadgeTone;
+}
+
+const { className = "", current = false, label, tone = "default" } = Astro.props;
+
+const badgeClass = ["badge", `badge--${tone}`, current ? "is-current" : "", className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<span class={badgeClass} data-badge-state={current ? "selected" : "default"}>
+  <slot>{label}</slot>
+</span>

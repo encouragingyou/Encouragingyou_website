@@ -1,0 +1,99 @@
+---
+import EditorialCard from "../ui/EditorialCard.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface EditorialMetaRow {
+  kind: "date" | "location" | "status" | "time";
+  label: string;
+}
+
+interface SpotlightItem {
+  action: ActionLink;
+  disclosure?: MediaDisclosure | string | null;
+  featured?: boolean;
+  icon: MediaAsset;
+  media?: MediaAsset;
+  metaLabel: string;
+  metaRows: EditorialMetaRow[];
+  summary: string;
+  title: string;
+  typeLabel: string;
+  updateType: "event" | "opportunity" | "update";
+}
+
+interface Props {
+  emptyState?: {
+    action: ActionLink;
+    summary: string;
+    title: string;
+  };
+  eyebrow?: string;
+  item?: SpotlightItem;
+  state: "absent" | "present";
+  summary?: string;
+  supportPanel: {
+    action: ActionLink;
+    body: string;
+    bullets: string[];
+    eyebrow?: string;
+    title: string;
+  };
+  title: string;
+}
+
+const { emptyState, eyebrow, item, state, summary, supportPanel, title } = Astro.props;
+---
+
+<section class="involvement-spotlight" data-spotlight-state={state}>
+  <SectionHeading eyebrow={eyebrow ?? ""} title={title} summary={summary} />
+
+  <div class="involvement-spotlight__grid">
+    <div class="involvement-spotlight__primary">
+      {
+        state === "present" && item ? (
+          <EditorialCard
+            title={item.title}
+            summary={item.summary}
+            action={item.action}
+            icon={item.icon}
+            media={item.media}
+            disclosure={item.disclosure}
+            metaLabel={item.metaLabel}
+            metaRows={item.metaRows}
+            typeLabel={item.typeLabel}
+            updateType={item.updateType}
+          />
+        ) : emptyState ? (
+          <NoticeBlock
+            title={emptyState.title}
+            body={emptyState.summary}
+            tone="info"
+            action={emptyState.action}
+          />
+        ) : null
+      }
+    </div>
+
+    <aside class="involvement-spotlight__aside">
+      <NoticeBlock
+        eyebrow={supportPanel.eyebrow}
+        title={supportPanel.title}
+        body={supportPanel.body}
+        tone="info"
+        action={supportPanel.action}
+      />
+
+      {
+        supportPanel.bullets.length > 0 ? (
+          <ul class="check-list involvement-spotlight__list">
+            {supportPanel.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        ) : null
+      }
+    </aside>
+  </div>
+</section>

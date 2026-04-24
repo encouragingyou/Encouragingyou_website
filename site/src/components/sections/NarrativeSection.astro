@@ -1,0 +1,119 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import MediaPicture from "../ui/MediaPicture.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  actions?: ActionLink[];
+  badges?: string[];
+  disclosure?: MediaDisclosure | string | null;
+  eyebrow?: string;
+  headingLevel?: 2 | 3;
+  media?: MediaAsset;
+  note?: {
+    action?: ActionLink;
+    body: string;
+    title?: string;
+    tone?: "error" | "important" | "info" | "success";
+  };
+  paragraphs: string[];
+  quote?: {
+    attribution?: string;
+    text: string;
+  };
+  reversed?: boolean;
+  summary?: string;
+  title: string;
+  bullets?: string[];
+}
+
+const {
+  actions = [],
+  badges = [],
+  disclosure = null,
+  eyebrow,
+  headingLevel = 2,
+  media,
+  note,
+  paragraphs,
+  quote,
+  reversed = false,
+  summary,
+  title,
+  bullets = []
+} = Astro.props;
+
+const sectionClass = [
+  "narrative-section",
+  media || quote || note ? "narrative-section--with-aside" : "",
+  reversed ? "narrative-section--reversed" : ""
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={sectionClass}>
+  <div class="narrative-section__body">
+    {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
+    {headingLevel === 3 ? <h3>{title}</h3> : <h2>{title}</h2>}
+    {summary ? <p class="narrative-section__summary">{summary}</p> : null}
+
+    <div class="narrative-section__prose">
+      {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+
+    {
+      bullets.length > 0 ? (
+        <ul class="check-list">
+          {bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      ) : null
+    }
+
+    {
+      badges.length > 0 ? (
+        <BadgeRow
+          items={badges.map((badge) => ({ label: badge, tone: "soft" as const }))}
+        />
+      ) : null
+    }
+
+    {actions.length > 0 ? <ActionCluster actions={actions} /> : null}
+  </div>
+
+  {
+    media || quote || note ? (
+      <div class="narrative-section__aside">
+        {quote ? (
+          <blockquote class="narrative-section__quote">
+            <p>{quote.text}</p>
+            {quote.attribution ? (
+              <p class="narrative-section__quote-attribution">{quote.attribution}</p>
+            ) : null}
+          </blockquote>
+        ) : null}
+
+        {media ? (
+          <div class="narrative-section__media">
+            <MediaPicture asset={media} sizes="(min-width: 64rem) 42vw, 100vw" />
+            {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+          </div>
+        ) : null}
+
+        {note ? (
+          <NoticeBlock
+            title={note.title}
+            body={note.body}
+            tone={note.tone ?? "info"}
+            action={note.action}
+          />
+        ) : null}
+      </div>
+    ) : null
+  }
+</div>

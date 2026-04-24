@@ -1,0 +1,211 @@
+---
+import NarrativeSection from "../../components/sections/NarrativeSection.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import DisclosureNote from "../../components/ui/DisclosureNote.astro";
+import MediaPicture from "../../components/ui/MediaPicture.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import ProofBoundaryPanel from "../../components/ui/ProofBoundaryPanel.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import ValuesList from "../../components/ui/ValuesList.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAboutPageModel } from "../../lib/content/site-content.ts";
+
+const model = getAboutPageModel();
+const sectionIndex = new Map(model.storySections.map((section) => [section.id, section]));
+const originSection = sectionIndex.get("origin");
+const leadershipSection = sectionIndex.get("leadership");
+const approachSection = sectionIndex.get("approach");
+const communitySection = sectionIndex.get("wider-community");
+
+if (!originSection || !leadershipSection || !approachSection || !communitySection) {
+  throw new Error("About page is missing one or more required narrative sections.");
+}
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/about/"
+  pageId="about"
+  structuredData={model.structuredData}
+>
+  <PageSection id="about-hero" className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      <p class="page-intro__meta about-page__hero-note">
+        The story stays personal, but the credibility boundaries stay explicit: only
+        details approved for public use appear on this page.
+      </p>
+
+      <Fragment slot="media">
+        <MediaPicture
+          asset={model.media}
+          eager={true}
+          sizes="(min-width: 64rem) 50vw, 100vw"
+        />
+        {model.disclosure ? <DisclosureNote disclosure={model.disclosure} /> : null}
+      </Fragment>
+    </PageIntro>
+  </PageSection>
+
+  <PageSection id="about-origin" width="narrow">
+    <NarrativeSection
+      eyebrow={originSection.eyebrow}
+      title={originSection.title}
+      summary={originSection.summary}
+      paragraphs={originSection.paragraphs}
+      bullets={originSection.bullets}
+      badges={originSection.badges}
+      actions={originSection.actions}
+      note={originSection.note}
+      quote={originSection.quote}
+    />
+  </PageSection>
+
+  <PageSection id="about-purpose" tone="band">
+    <div class="about-purpose">
+      <SectionHeading
+        eyebrow={model.purposeSection.eyebrow ?? ""}
+        title={model.purposeSection.title}
+        summary={model.purposeSection.summary}
+      />
+
+      <div class="about-purpose__grid">
+        <CardPanel
+          heading={model.purposeSection.missionLabel}
+          summary={model.purposeSection.missionSummary}
+          tone="soft"
+        />
+        <CardPanel
+          heading={model.purposeSection.visionLabel}
+          summary={model.purposeSection.visionSummary}
+          tone="soft"
+        />
+
+        <article class="about-purpose__drive">
+          <h3>{model.purposeSection.driveLabel}</h3>
+          <p>{model.purposeSection.driveSummary}</p>
+          <ul class="check-list">
+            {model.purposeSection.driveBullets.map((bullet) => <li>{bullet}</li>)}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="about-leadership">
+    <NarrativeSection
+      eyebrow={leadershipSection.eyebrow}
+      title={leadershipSection.title}
+      summary={leadershipSection.summary}
+      paragraphs={leadershipSection.paragraphs}
+      bullets={leadershipSection.bullets}
+      badges={leadershipSection.badges}
+      actions={leadershipSection.actions}
+      note={leadershipSection.note}
+      quote={leadershipSection.quote}
+    />
+  </PageSection>
+
+  <PageSection id="about-approach" tone="tint">
+    <NarrativeSection
+      eyebrow={approachSection.eyebrow}
+      title={approachSection.title}
+      summary={approachSection.summary}
+      paragraphs={approachSection.paragraphs}
+      bullets={approachSection.bullets}
+      badges={approachSection.badges}
+      actions={approachSection.actions}
+      note={approachSection.note}
+      quote={approachSection.quote}
+    />
+  </PageSection>
+
+  <PageSection id="about-values">
+    <SectionHeading
+      eyebrow={model.valuesSection.eyebrow ?? ""}
+      title={model.valuesSection.title}
+      summary={model.valuesSection.summary}
+    />
+    <ValuesList items={model.valuesSection.items} />
+  </PageSection>
+
+  <PageSection id="about-audience" tone="band">
+    <div class="about-audience">
+      <SectionHeading
+        eyebrow={model.audienceSection.eyebrow ?? ""}
+        title={model.audienceSection.title}
+        summary={model.audienceSection.summary}
+      />
+
+      <div class="detail-grid">
+        {
+          model.audienceSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.summary}
+              tone="soft"
+              actions={item.action ? [item.action] : []}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="about-community">
+    <NarrativeSection
+      eyebrow={communitySection.eyebrow}
+      title={communitySection.title}
+      summary={communitySection.summary}
+      paragraphs={communitySection.paragraphs}
+      bullets={communitySection.bullets}
+      badges={communitySection.badges}
+      actions={communitySection.actions}
+      note={communitySection.note}
+      quote={communitySection.quote}
+      media={communitySection.media}
+      disclosure={communitySection.disclosure}
+      reversed={communitySection.reversed}
+    />
+  </PageSection>
+
+  <PageSection id="about-trust" tone="band" width="wide">
+    <div class="about-trust">
+      <SectionHeading
+        eyebrow={model.trustSection.eyebrow}
+        title={model.trustSection.title}
+        summary={model.trustSection.summary}
+      />
+
+      <div class="about-trust__layout">
+        <div class="layout-grid layout-grid--cards">
+          {
+            model.trustSection.cards.map((card) => (
+              <CardPanel heading={card.title} icon={card.icon} summary={card.summary} />
+            ))
+          }
+        </div>
+
+        <ProofBoundaryPanel {...model.proofBoundary} />
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="about-next-step">
+    <CtaBand
+      eyebrow={model.ctaBand.eyebrow ?? ""}
+      title={model.ctaBand.title}
+      summary={model.ctaBand.summary}
+      badges={model.ctaBand.badges}
+      actions={model.ctaBand.actions}
+      note={model.ctaBand.note}
+    />
+  </PageSection>
+</BaseLayout>

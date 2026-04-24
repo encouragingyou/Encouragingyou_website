@@ -1,0 +1,60 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  action?:
+    | ActionLink
+    | {
+        label: string;
+        href: string;
+        variant?: "primary" | "secondary" | "surface" | "text";
+      };
+  actions?: ActionLink[];
+  title?: string;
+  body: string;
+  eyebrow?: string;
+  role?: "alert" | "note" | "status";
+  surfaceId?: string;
+  tone?: "error" | "info" | "important" | "success";
+}
+
+const {
+  action,
+  actions = [],
+  body,
+  eyebrow,
+  role,
+  surfaceId,
+  title,
+  tone = "info"
+} = Astro.props;
+const normalizedActions =
+  action || actions.length > 0
+    ? [
+        ...(action
+          ? [
+              {
+                href: action.href,
+                label: action.label,
+                variant: action.variant ?? "text"
+              }
+            ]
+          : []),
+        ...actions
+      ]
+    : [];
+---
+
+<div
+  class={`notice-block notice-block--${tone}`}
+  data-tone={tone}
+  data-motion="feedback"
+  data-resilience-surface={surfaceId}
+  role={role}
+>
+  {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
+  {title ? <p class="notice-block__title">{title}</p> : null}
+  <p>{body}</p>
+  <ActionCluster actions={normalizedActions} className="notice-block__actions" />
+</div>

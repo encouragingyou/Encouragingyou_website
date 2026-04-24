@@ -1,0 +1,127 @@
+---
+import CardPanel from "../../components/ui/CardPanel.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import FaqGroup from "../../components/ui/FaqGroup.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import SessionHubCard from "../../components/ui/SessionHubCard.astro";
+import SessionsLiveRail from "../../components/sections/SessionsLiveRail.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSessionsIndexModel } from "../../lib/content/site-content.ts";
+
+const model = getSessionsIndexModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/sessions/"
+  pageId="sessions"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+
+      <SessionsLiveRail
+        slot="media"
+        title={model.state.title}
+        summary={model.state.summary}
+        tone={model.state.tone}
+        items={model.liveRailItems}
+      />
+    </PageIntro>
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="sessions-hub">
+      <SectionHeading
+        eyebrow={model.scheduleSection.eyebrow}
+        title={model.scheduleSection.title}
+        summary={model.scheduleSection.summary}
+      />
+      {
+        model.calendarNotice ? (
+          <NoticeBlock
+            surfaceId={
+              model.state.calendarAvailability === "partial"
+                ? "sessions-calendar-partial"
+                : "sessions-calendar-unavailable"
+            }
+            title={model.calendarNotice.title}
+            body={model.calendarNotice.body}
+            tone={model.calendarNotice.tone}
+          />
+        ) : null
+      }
+      <div class="sessions-hub__grid layout-grid layout-grid--summary">
+        {model.items.map((item) => <SessionHubCard {...item} />)}
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <div class="sessions-practical">
+      {
+        model.guidanceSection ? (
+          <SectionHeading
+            eyebrow={model.guidanceSection.eyebrow}
+            title={model.guidanceSection.title}
+            summary={model.guidanceSection.summary}
+          />
+        ) : null
+      }
+      <div class="layout-grid layout-grid--cards">
+        {
+          model.guidancePanels.map((panel) => (
+            <CardPanel heading={panel.title} summary={panel.body} />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <div class="layout-grid layout-grid--sidebar">
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.faqSection.eyebrow}
+          title={model.faqSection.title}
+        />
+        <FaqGroup groupId={model.faqGroupId} items={model.faqs} />
+      </div>
+
+      <NoticeBlock
+        title={model.sidebarNotice.title}
+        body={model.sidebarNotice.body}
+        tone={model.sidebarNotice.tone}
+      />
+    </div>
+  </PageSection>
+
+  {
+    model.ctaBand ? (
+      <PageSection tone="tint" width="wide">
+        <CtaBand
+          eyebrow={model.ctaBand.eyebrow}
+          title={model.ctaBand.title}
+          summary={model.ctaBand.summary}
+          badges={model.ctaBand.badges}
+          actions={model.ctaBand.actions}
+          note={model.ctaBand.note}
+        />
+      </PageSection>
+    ) : null
+  }
+</BaseLayout>

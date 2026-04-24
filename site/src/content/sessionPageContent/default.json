@@ -1,0 +1,298 @@
+{
+  "pages": [
+    {
+      "pageId": "session-cv-support",
+      "sessionSlug": "cv-support",
+      "intro": {
+        "eyebrow": "Saturday session",
+        "title": "CV support that is practical, calm, and one-to-one.",
+        "locationNotePrefix": "Based in",
+        "locationNoteSuffix": "Exact venue details are shared on enquiry.",
+        "supportingNote": "You can ask about the session before attending, including on someone else's behalf."
+      },
+      "actions": {
+        "joinLabel": "Ask to join",
+        "calendarLabel": "Add to calendar"
+      },
+      "atAGlanceSection": {
+        "eyebrow": "At a glance",
+        "title": "Know the shape of the session before you travel.",
+        "summary": "Timing, venue handling, who it suits, and what to bring are visible without making the route feel formal.",
+        "timingLabel": "When it runs",
+        "locationLabel": "Where it happens",
+        "audienceLabel": "Who can use it",
+        "audienceSummary": "Young people can come for direct help, and parents, carers, or referrers can ask first if they need to check the fit.",
+        "bringLabel": "What to bring",
+        "bringSummary": "A draft CV, a blank document, screenshots, notes, or just the question you need help with."
+      },
+      "expectationSection": {
+        "eyebrow": "What to expect",
+        "title": "Practical support focused on the next useful step.",
+        "summary": "The session feels like guided progress, not a test.",
+        "checklistTitle": "The core session promise",
+        "items": [
+          {
+            "title": "Start from where you are",
+            "body": "Bring a CV draft, an application, or nothing at all. The session begins with what you already have and what feels stuck.",
+            "tone": "soft",
+            "iconAssetId": "icon-cv-support"
+          },
+          {
+            "title": "Work on real wording and next steps",
+            "body": "Support can cover structure, wording, applications, confidence for asking questions, and practical planning after the session.",
+            "tone": "default",
+            "iconAssetId": "icon-mentoring"
+          },
+          {
+            "title": "Leave with something clearer",
+            "body": "The aim is progress you can use straight away, such as a stronger CV, a clearer application, or a better sense of the next action.",
+            "tone": "soft",
+            "iconAssetId": "icon-growth"
+          }
+        ]
+      },
+      "supportSection": {
+        "eyebrow": "First-time reassurance",
+        "title": "Keep anxiety low and the next step obvious.",
+        "summary": "Safety, privacy, and simple ways to ask first stay visible alongside the session detail.",
+        "checklistTitle": "Support and reassurance that stay visible",
+        "items": [
+          {
+            "title": "Ask before attending",
+            "body": "If you want to check the session is right, contact is okay before travelling. This also works for parents, carers, and referrers.",
+            "tone": "soft",
+            "iconAssetId": "icon-contact"
+          },
+          {
+            "title": "Venue detail is handled carefully",
+            "body": "Rochdale stays public, while exact location detail is shared privately on enquiry rather than published openly.",
+            "tone": "default",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Safeguarding stays in view",
+            "body": "The safeguarding and contact routes remain visible from this page so support questions never rely on hidden links.",
+            "tone": "soft",
+            "iconAssetId": "icon-community-event"
+          }
+        ],
+        "note": {
+          "title": "Not sure if this is the right route?",
+          "body": "Use the contact path if you want to check the session, ask on someone else's behalf, or explain a need briefly before anyone travels.",
+          "tone": "info",
+          "action": {
+            "label": "Contact the team",
+            "variant": "secondary",
+            "routeId": "contact"
+          }
+        }
+      },
+      "relatedProgrammeSection": {
+        "eyebrow": "Wider route",
+        "title": "This session sits inside the wider Career Support & CV Help route.",
+        "summary": "The programme page explains the broader support offer. This session page owns the exact Saturday timing, calendar file, and first-visit detail.",
+        "actionLabel": "See wider route"
+      },
+      "faqSection": {
+        "eyebrow": "Questions before you come",
+        "title": "Questions people often ask before a first visit.",
+        "summary": "These answers lower anxiety without pretending the session has confirmed details that are not yet public."
+      },
+      "urgentNoticeTitle": "Urgent help",
+      "fallbackNotice": {
+        "title": "Need a different next step?",
+        "body": "Use contact if you need help deciding whether CV support is the right route, or if the current Saturday time does not work.",
+        "tone": "info",
+        "action": {
+          "label": "Contact the team",
+          "variant": "text",
+          "routeId": "contact"
+        }
+      },
+      "ctaBand": {
+        "eyebrow": "Next step",
+        "title": "Ask about the session or keep the wider career route in view.",
+        "summary": "The fastest next step is to ask about CV support. If you are still deciding, the wider programme and contact routes stay available.",
+        "badges": [
+          "Low-pressure first step",
+          "Rochdale-based",
+          "Calendar download available"
+        ],
+        "actions": [
+          {
+            "label": "Contact the team",
+            "variant": "primary",
+            "routeId": "contact"
+          },
+          {
+            "label": "See wider career support",
+            "variant": "surface",
+            "routeId": "programme-career-support-cv-help"
+          },
+          {
+            "label": "See all sessions",
+            "variant": "text",
+            "routeId": "sessions"
+          }
+        ],
+        "note": {
+          "title": "Safeguarding stays visible",
+          "body": "If you need urgent help or need to raise a safeguarding concern, use the safeguarding route straight away.",
+          "tone": "important",
+          "action": {
+            "label": "View safeguarding",
+            "variant": "text",
+            "routeId": "safeguarding"
+          }
+        }
+      }
+    },
+    {
+      "pageId": "session-youth-club",
+      "sessionSlug": "youth-club",
+      "intro": {
+        "eyebrow": "Saturday session",
+        "title": "Youth club built around welcome, friendship, and safe space.",
+        "locationNotePrefix": "Based in",
+        "locationNoteSuffix": "Exact venue details are shared on enquiry.",
+        "supportingNote": "Come as you are. If a first visit feels like a big step, a young person or parent/carer can ask first."
+      },
+      "actions": {
+        "joinLabel": "Ask to join",
+        "calendarLabel": "Add to calendar"
+      },
+      "atAGlanceSection": {
+        "eyebrow": "At a glance",
+        "title": "Make the first visit feel welcoming before anyone travels.",
+        "summary": "The route shows the weekly rhythm, how participation can look, and how venue detail is handled without turning the session into a formal intake process.",
+        "timingLabel": "When it runs",
+        "locationLabel": "Where it happens",
+        "audienceLabel": "Who it is for",
+        "audienceSummary": "Young people are the main audience. Parents or carers can still ask about fit, atmosphere, and practical detail before a first visit if that helps.",
+        "bringLabel": "What to bring",
+        "bringSummary": "Nothing formal is required. Someone can come as they are, or ask first if having a clearer picture would make the visit feel easier."
+      },
+      "expectationSection": {
+        "eyebrow": "What to expect",
+        "title": "A first visit should feel welcoming, social, and easy to grow into.",
+        "summary": "The value here is atmosphere, repeated attendance, and connection over time rather than a one-off task.",
+        "checklistTitle": "The core session promise",
+        "items": [
+          {
+            "title": "Arrive without needing a perfect reason",
+            "body": "Someone can come for company, activities, conversation, or simply to try the space.",
+            "tone": "soft",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "More than one way to take part",
+            "body": "Games, shared activities, and chill time mean participation does not have to look the same for everyone on the night.",
+            "tone": "default",
+            "iconAssetId": "icon-youth-activities"
+          },
+          {
+            "title": "Friendship builds through repetition",
+            "body": "Because the session runs every week, familiar faces and confidence can grow over time instead of being forced in a single evening.",
+            "tone": "soft",
+            "iconAssetId": "icon-community-event"
+          }
+        ]
+      },
+      "supportSection": {
+        "eyebrow": "First-time reassurance",
+        "title": "Belonging should feel possible before the first visit.",
+        "summary": "Reassurance stays practical: ask-first contact, careful venue handling, and visible safeguarding rather than vague mood language.",
+        "checklistTitle": "Support and reassurance that stay visible",
+        "items": [
+          {
+            "title": "Ask before travelling",
+            "body": "A young person can ask a question first, and parents or carers can check the fit without taking over the route.",
+            "tone": "soft",
+            "iconAssetId": "icon-contact"
+          },
+          {
+            "title": "Take the pressure off arrival",
+            "body": "The public page makes room for someone who joins in straight away and someone who needs a little time to look around and settle.",
+            "tone": "default",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Location and safeguarding stay clear",
+            "body": "Rochdale is public, exact venue detail is handled on enquiry, and the safeguarding route stays visible if a concern needs a different response.",
+            "tone": "soft",
+            "iconAssetId": "icon-community-event"
+          }
+        ],
+        "note": {
+          "title": "Want to ask about a first visit?",
+          "body": "Use the contact route if a young person, parent, or carer wants to ask about the atmosphere, practical detail, or whether youth club feels like the right next step.",
+          "tone": "info",
+          "action": {
+            "label": "Contact the team",
+            "variant": "secondary",
+            "routeId": "contact"
+          }
+        }
+      },
+      "relatedProgrammeSection": {
+        "eyebrow": "Wider route",
+        "title": "This session sits inside the wider Community & Friendship route.",
+        "summary": "The programme page explains the broader belonging-first route across community and friendship. This session page owns the live Saturday timing, calendar file, and first-visit detail.",
+        "actionLabel": "See wider route"
+      },
+      "faqSection": {
+        "eyebrow": "Questions before you come",
+        "title": "Questions people often ask before a first visit.",
+        "summary": "These answers reduce first-visit anxiety, explain participation honestly, and keep unverified youth-work specifics out of the page."
+      },
+      "urgentNoticeTitle": "Urgent help",
+      "fallbackNotice": {
+        "title": "Need a different next step?",
+        "body": "Use contact if you want to ask about fit before attending, or if stepping back to the wider Community & Friendship route feels more useful first.",
+        "tone": "info",
+        "action": {
+          "label": "Contact the team",
+          "variant": "text",
+          "routeId": "contact"
+        }
+      },
+      "ctaBand": {
+        "eyebrow": "Next step",
+        "title": "Ask about youth club or keep the wider belonging route in view.",
+        "summary": "The clearest next step is to ask about the session. The wider programme and sessions hub stay visible if someone needs more context first.",
+        "badges": [
+          "Low-pressure first step",
+          "Rochdale-based",
+          "Calendar download available"
+        ],
+        "actions": [
+          {
+            "label": "Contact the team",
+            "variant": "primary",
+            "routeId": "contact"
+          },
+          {
+            "label": "See wider community route",
+            "variant": "surface",
+            "routeId": "programme-community-friendship"
+          },
+          {
+            "label": "See all sessions",
+            "variant": "text",
+            "routeId": "sessions"
+          }
+        ],
+        "note": {
+          "title": "Safeguarding stays visible",
+          "body": "If there is an urgent concern or safeguarding issue, use the safeguarding route straight away.",
+          "tone": "important",
+          "action": {
+            "label": "View safeguarding",
+            "variant": "text",
+            "routeId": "safeguarding"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+---
+import { getMediaDimensions, getMediaFallbackRender } from "../../lib/media/delivery.js";
+import MediaFallback from "./MediaFallback.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  asset: MediaAsset;
+  className?: string;
+  eager?: boolean;
+  altOverride?: string;
+}
+
+const { asset, className = "", eager = false, altOverride } = Astro.props;
+
+if (asset.kind !== "icon") {
+  throw new Error(`MediaIcon expects an icon asset. Received: ${asset.id}`);
+}
+
+const alt = asset.decorative ? "" : (altOverride ?? asset.alt);
+const fallbackRender = getMediaFallbackRender(asset);
+const dimensions = getMediaDimensions(asset);
+---
+
+{
+  fallbackRender ? (
+    <img
+      src={fallbackRender.publicPath}
+      width={dimensions.width}
+      height={dimensions.height}
+      class={className}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      fetchpriority={eager ? "high" : "auto"}
+      alt={alt}
+    />
+  ) : (
+    <MediaFallback
+      alt={alt}
+      assetLabel={asset.label}
+      className={className}
+      decorative={asset.decorative}
+      kind="icon"
+    />
+  )
+}

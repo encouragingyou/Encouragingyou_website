@@ -1,0 +1,61 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import Badge from "./Badge.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  title: string;
+  summary: string;
+  audienceLabel: string;
+  appliesTo: string[];
+  signals: string[];
+  actions: ActionLink[];
+  headingLevel?: 2 | 3;
+}
+
+const {
+  title,
+  summary,
+  audienceLabel,
+  appliesTo,
+  signals,
+  actions,
+  headingLevel = 2
+} = Astro.props;
+---
+
+<article class="safeguarding-route-card">
+  <div class="safeguarding-route-card__header">
+    <div class="safeguarding-route-card__heading-group">
+      <p class="eyebrow">Safeguarding route</p>
+      {
+        headingLevel === 3 ? (
+          <h3 class="safeguarding-route-card__title">{title}</h3>
+        ) : (
+          <h2 class="safeguarding-route-card__title">{title}</h2>
+        )
+      }
+    </div>
+    <Badge label={audienceLabel} tone="accent" />
+  </div>
+
+  <p class="safeguarding-route-card__summary">{summary}</p>
+
+  <div class="safeguarding-route-card__columns">
+    <div>
+      <p class="safeguarding-route-card__label">Use this route when</p>
+      <ul class="safeguarding-route-card__list">
+        {appliesTo.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <div>
+      <p class="safeguarding-route-card__label">Keep in mind</p>
+      <ul class="safeguarding-route-card__list">
+        {signals.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <ActionCluster actions={actions} />
+</article>

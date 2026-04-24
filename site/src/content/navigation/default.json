@@ -1,0 +1,112 @@
+{
+  "homeLinkBehavior": "logo-only",
+  "primaryItems": [
+    {
+      "label": "About",
+      "routeId": "about"
+    },
+    {
+      "label": "Programmes",
+      "routeId": "programmes"
+    },
+    {
+      "label": "Events & Updates",
+      "routeId": "events-updates"
+    },
+    {
+      "label": "Get Involved",
+      "routeId": "get-involved"
+    },
+    {
+      "label": "Safeguarding",
+      "routeId": "safeguarding"
+    },
+    {
+      "label": "Contact",
+      "routeId": "contact"
+    }
+  ],
+  "headerCta": {
+    "label": "Join a session",
+    "routeId": "sessions"
+  },
+  "footerGroups": [
+    {
+      "title": "Explore",
+      "items": [
+        {
+          "label": "About",
+          "routeId": "about"
+        },
+        {
+          "label": "Programmes",
+          "routeId": "programmes"
+        },
+        {
+          "label": "Sessions",
+          "routeId": "sessions"
+        },
+        {
+          "label": "Events & Updates",
+          "routeId": "events-updates"
+        }
+      ]
+    },
+    {
+      "title": "Get Support",
+      "items": [
+        {
+          "label": "Get Involved",
+          "routeId": "get-involved"
+        },
+        {
+          "label": "Volunteer With Us",
+          "routeId": "volunteer"
+        },
+        {
+          "label": "Partner With Us",
+          "routeId": "partner"
+        },
+        {
+          "label": "Contact",
+          "routeId": "contact"
+        },
+        {
+          "label": "Safeguarding",
+          "routeId": "safeguarding"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "items": [
+        {
+          "label": "Privacy Notice",
+          "routeId": "privacy"
+        },
+        {
+          "label": "Cookie Notice",
+          "routeId": "cookies"
+        },
+        {
+          "label": "Accessibility Statement",
+          "routeId": "accessibility"
+        },
+        {
+          "label": "Terms / Site Policy",
+          "routeId": "terms"
+        }
+      ]
+    },
+    {
+      "title": "Social",
+      "items": [
+        {
+          "label": "Instagram",
+          "href": "https://www.instagram.com/encouragingyou1/",
+          "external": true
+        }
+      ]
+    }
+  ]
+}

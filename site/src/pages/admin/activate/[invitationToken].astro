@@ -1,0 +1,124 @@
+---
+import AdminAccessState from "../../../components/admin/AdminAccessState.astro";
+import AdminAuthLayout from "../../../layouts/AdminAuthLayout.astro";
+import { createAdminActivationModel } from "../../../lib/cms/admin-auth.js";
+
+export const prerender = false;
+
+const invitationToken = Astro.params.invitationToken ?? "";
+const model = await createAdminActivationModel(invitationToken);
+---
+
+<AdminAuthLayout
+  title="Activate invited access"
+  eyebrow="Invitation"
+  description="Set a strong password, enroll MFA, and save the recovery codes that are issued after activation."
+>
+  {
+    !model.invitation ? (
+      <AdminAccessState
+        statusCode={model.invitationStatus.status}
+        title="Invitation unavailable"
+        message="That activation link is missing, expired, or has already been used."
+      />
+    ) : (
+      <div class="admin-stack">
+        <div class="admin-review-card">
+          <strong>{model.invitation.email}</strong>
+          <p class="admin-muted">
+            Role: {model.invitation.roleId}. This link expires at{" "}
+            {new Date(model.invitation.expiresAt).toLocaleString("en-GB")}.
+          </p>
+        </div>
+
+        <p
+          class="admin-status-note admin-status-note--error"
+          data-admin-activation-error
+          hidden
+        />
+
+        <form
+          class="admin-auth-form"
+          method="post"
+          action="/api/admin/activate/"
+          data-admin-activation-form
+        >
+          <input type="hidden" name="invitationToken" value={invitationToken} />
+          <input type="hidden" name="totpSecret" value={model.totpSecret ?? ""} />
+
+          <label class="admin-field-label" for="display-name">
+            Display name
+          </label>
+          <input
+            class="admin-auth-input"
+            id="display-name"
+            name="displayName"
+            type="text"
+            value={model.invitation.displayName}
+            autocomplete="name"
+            required
+          />
+
+          <label class="admin-field-label" for="activation-password">
+            Password
+          </label>
+          <input
+            class="admin-auth-input"
+            id="activation-password"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            required
+          />
+
+          <label class="admin-field-label" for="activation-password-confirm">
+            Confirm password
+          </label>
+          <input
+            class="admin-auth-input"
+            id="activation-password-confirm"
+            name="passwordConfirm"
+            type="password"
+            autocomplete="new-password"
+            required
+          />
+
+          <div class="admin-review-card">
+            <strong>Authenticator setup key</strong>
+            <p class="admin-muted">
+              Add this key to an authenticator app before submitting the form.
+            </p>
+            <code class="admin-inline-code">{model.formattedTotpSecret}</code>
+          </div>
+
+          <label class="admin-field-label" for="activation-code">
+            Current six-digit authenticator code
+          </label>
+          <input
+            class="admin-auth-input"
+            id="activation-code"
+            name="totpCode"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            required
+          />
+
+          <button class="admin-button admin-button--primary" type="submit">
+            Activate account
+          </button>
+        </form>
+
+        <div class="admin-review-card" data-admin-activation-result hidden>
+          <strong>Activation complete</strong>
+          <p class="admin-muted" data-admin-activation-message>
+            Save the recovery codes before leaving this page.
+          </p>
+          <ul class="admin-tag-list" data-admin-recovery-codes />
+          <a class="admin-link-button" href="/admin/">
+            Open the admin portal
+          </a>
+        </div>
+      </div>
+    )
+  }
+</AdminAuthLayout>

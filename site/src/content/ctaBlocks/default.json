@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "id": "join-session",
+      "label": "Join a session",
+      "routeId": "sessions",
+      "href": null,
+      "style": "primary",
+      "audience": ["young-people", "parents-carers", "referrers"],
+      "summary": "Primary call to action for people ready to explore live session options."
+    },
+    {
+      "id": "get-support",
+      "label": "Get support",
+      "routeId": "contact",
+      "href": null,
+      "style": "secondary",
+      "audience": ["young-people", "parents-carers", "community-members"],
+      "summary": "Low-friction support CTA for people who need help but are not ready to choose a programme."
+    },
+    {
+      "id": "volunteer",
+      "label": "Volunteer with us",
+      "routeId": "volunteer",
+      "href": null,
+      "style": "primary",
+      "audience": ["volunteers", "community-members"],
+      "summary": "Volunteer pathway CTA focused on role clarity and safe expectations."
+    },
+    {
+      "id": "partner",
+      "label": "Partner with us",
+      "routeId": "partner",
+      "href": null,
+      "style": "surface",
+      "audience": ["partners", "funders", "referrers"],
+      "summary": "Partnership CTA for referrals, sponsorship, and collaboration routes."
+    }
+  ]
+}

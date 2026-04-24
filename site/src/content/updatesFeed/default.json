@@ -1,0 +1,355 @@
+{
+  "index": {
+    "filterLabel": "Browse the public feed by type",
+    "allLabel": "All items",
+    "featuredSection": {
+      "eyebrow": "Pinned now",
+      "title": "Keep the clearest public item visible, even when publishing is light.",
+      "summary": "A pinned surface can carry one current public event notice or opportunity without forcing the site into a busy newsroom pattern."
+    },
+    "feedSection": {
+      "eyebrow": "Latest public items",
+      "title": "Confirmed updates, opportunities, and event notices in one calm feed.",
+      "summary": "Recurring Saturday sessions stay on the Sessions route. This feed is for occasional events, public-facing updates, and wider opportunities."
+    },
+    "emptyState": {
+      "title": "No public items are live right now.",
+      "summary": "Use the sessions and contact routes for live support questions while this editorial space waits for confirmed public dates, updates, or opportunities.",
+      "primaryAction": {
+        "label": "Join a session",
+        "routeId": "sessions",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Contact the team",
+        "routeId": "contact",
+        "variant": "surface"
+      }
+    },
+    "filterEmptyState": {
+      "title": "No items match this filter right now.",
+      "summary": "Try another filter, or use the sessions and get involved routes for the clearest live next steps."
+    },
+    "archiveNotice": {
+      "title": "Past event handling",
+      "body": "When dated event items expire, they should step down in emphasis or archive cleanly instead of staying pinned as if they are still upcoming.",
+      "tone": "info"
+    }
+  },
+  "categories": [
+    {
+      "id": "event",
+      "label": "Events",
+      "description": "Occasional public dates, workshops, and community event notices."
+    },
+    {
+      "id": "update",
+      "label": "Updates",
+      "description": "Public-facing changes, notices, and direction-setting updates."
+    },
+    {
+      "id": "opportunity",
+      "label": "Opportunities",
+      "description": "Ways to get involved, support the work, or take a practical next step."
+    }
+  ],
+  "items": [
+    {
+      "id": "community-events-watch",
+      "slug": "community-events-and-workshops",
+      "title": "Community event dates will appear here once they are confirmed.",
+      "summary": "Occasional community events and workshops are part of the wider public offer, but dates are only published when they are ready to share.",
+      "dateLabel": "Dates to be confirmed",
+      "timeLabel": "Time shared when confirmed",
+      "locationLabel": "Rochdale",
+      "statusLabel": "Upcoming event guidance",
+      "routeId": "contact",
+      "actionLabel": "Ask about community events",
+      "cardActionLabel": "View event details",
+      "audience": ["community-members", "young-people", "partners"],
+      "updateType": "event",
+      "publicationStatus": "published",
+      "featured": true,
+      "showOnHome": false,
+      "sortOrder": 1,
+      "eventLifecycle": "date-to-be-confirmed",
+      "archiveBehavior": "demote-to-feed",
+      "mediaId": null,
+      "detail": {
+        "intro": {
+          "eyebrow": "Event detail",
+          "title": "Community events and workshops",
+          "summary": "This page keeps occasional public event guidance in one place without pretending details are confirmed before they are ready.",
+          "supportingText": "Use the contact route if you want to ask whether a wider public event is being planned.",
+          "badges": ["Occasional public events", "Details shared when confirmed"]
+        },
+        "secondaryAction": {
+          "label": "Browse live sessions",
+          "routeId": "sessions",
+          "variant": "surface"
+        },
+        "sections": [
+          {
+            "id": "why-this-page-stays-light",
+            "eyebrow": "Why this page exists",
+            "title": "Public event notices should be useful, not speculative.",
+            "paragraphs": [
+              "EncouragingYou may occasionally share wider community events or workshops, but this route only publishes them when there is enough confirmed information to make a visit feel realistic.",
+              "That keeps the site honest at launch and stops the editorial feed from sounding busier than the real public rhythm."
+            ],
+            "bullets": [
+              "No half-confirmed public dates",
+              "No duplicate Saturday session timetable",
+              "One place for occasional event guidance"
+            ]
+          },
+          {
+            "id": "what-we-can-confirm-now",
+            "eyebrow": "What we can confirm",
+            "title": "The wider public offer may include community events and workshops.",
+            "paragraphs": [
+              "The public location anchor remains Rochdale, but exact venue information should only appear when it is appropriate to publish.",
+              "Date and time details will be added here once they are ready to share publicly."
+            ]
+          },
+          {
+            "id": "what-to-use-in-the-meantime",
+            "eyebrow": "Current next steps",
+            "title": "Use the live or support routes for anything current.",
+            "paragraphs": [
+              "If you are looking for immediate Saturday support, start on Sessions rather than waiting for an event notice.",
+              "If you need to ask whether something wider is coming up, use Contact so the team can reply directly."
+            ],
+            "actionReferences": [
+              {
+                "label": "See live sessions",
+                "routeId": "sessions",
+                "variant": "surface"
+              },
+              {
+                "label": "Contact the team",
+                "routeId": "contact",
+                "variant": "text"
+              }
+            ]
+          }
+        ],
+        "proofNotice": {
+          "title": "Public detail boundary",
+          "body": "This event page stays live as a trusted holding point, but it should not claim date, venue, or booking details until those facts are confirmed.",
+          "tone": "info"
+        },
+        "relatedSection": {
+          "eyebrow": "Related routes",
+          "title": "Use a current route while event details are still light.",
+          "summary": "The editorial family should point people back into practical routes when that is the more useful next step."
+        },
+        "relatedItemIds": ["live-support-routes", "get-involved-open"],
+        "ctaBand": {
+          "eyebrow": "Need a current route?",
+          "title": "Use contact or live sessions while wider public event details are still being confirmed.",
+          "summary": "This page should stay available as a calm editorial reference, not a substitute for current support routes.",
+          "badges": ["Sessions stay separate", "Dates published when confirmed"],
+          "actions": [
+            {
+              "label": "Ask about community events",
+              "routeId": "contact",
+              "variant": "primary"
+            },
+            {
+              "label": "Browse live sessions",
+              "routeId": "sessions",
+              "variant": "surface"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "live-support-routes",
+      "slug": "live-support-stays-on-sessions",
+      "title": "Recurring Saturday support stays on the Sessions route.",
+      "summary": "Use the Sessions page for the live Saturday offers. This feed stays reserved for broader updates, occasional events, and public notices when they are ready to share.",
+      "statusLabel": "Current route update",
+      "routeId": "sessions",
+      "actionLabel": "See live sessions",
+      "cardActionLabel": "Read update",
+      "audience": ["young-people", "parents-carers", "community-members"],
+      "updateType": "update",
+      "publicationStatus": "published",
+      "showOnHome": true,
+      "sortOrder": 2,
+      "updateLifecycle": "current",
+      "archiveBehavior": "keep-visible",
+      "mediaId": null,
+      "detail": {
+        "intro": {
+          "eyebrow": "Update",
+          "title": "Live Saturday support stays on the Sessions route",
+          "summary": "This update keeps the site boundary clear: recurring CV support and Youth Club remain on Sessions, while Events & Updates stays lighter and more occasional.",
+          "supportingText": "If you need a current time, calendar file, or attendance guidance, start with Sessions rather than waiting for an editorial post.",
+          "badges": ["Service update", "Current route guidance"]
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        },
+        "sections": [
+          {
+            "id": "what-this-update-changes",
+            "eyebrow": "What this means",
+            "title": "Recurring support no longer shares space with occasional editorial notices.",
+            "paragraphs": [
+              "The Sessions route is now the public source of truth for live Saturday offers, practical detail, and calendar links.",
+              "Events & Updates stays reserved for occasional public notices so the site does not become a second timetable."
+            ]
+          },
+          {
+            "id": "when-to-use-sessions",
+            "eyebrow": "Best next step",
+            "title": "Use Sessions when you need something current and actionable.",
+            "paragraphs": [
+              "Choose Sessions if you want live timings, session detail, or the clearest route into current support.",
+              "Use Contact if you are unsure which Saturday offer fits or you need help before attending."
+            ],
+            "actionReferences": [
+              {
+                "label": "See live sessions",
+                "routeId": "sessions",
+                "variant": "surface"
+              },
+              {
+                "label": "Contact the team",
+                "routeId": "contact",
+                "variant": "text"
+              }
+            ]
+          }
+        ],
+        "relatedSection": {
+          "eyebrow": "Related editorial items",
+          "title": "Other public updates around the site",
+          "summary": "The editorial family can stay small while still pointing to adjacent public routes."
+        },
+        "relatedItemIds": ["community-events-watch", "get-involved-open"],
+        "ctaBand": {
+          "eyebrow": "Need a live route?",
+          "title": "Go straight to Sessions when you want current support details.",
+          "summary": "This update is here to reduce confusion, not to replace the live route itself.",
+          "badges": ["Live support stays separate", "Contact remains available"],
+          "actions": [
+            {
+              "label": "See live sessions",
+              "routeId": "sessions",
+              "variant": "primary"
+            },
+            {
+              "label": "Contact the team",
+              "routeId": "contact",
+              "variant": "surface"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "get-involved-open",
+      "slug": "volunteer-partner-or-refer-someone",
+      "title": "Volunteer, partner, or refer someone through one clear route.",
+      "summary": "If you want to help, collaborate, or point someone toward support, the Get Involved route is the current public starting point.",
+      "statusLabel": "Open now",
+      "routeId": "get-involved",
+      "actionLabel": "See ways to get involved",
+      "cardActionLabel": "Read opportunity",
+      "audience": ["volunteers", "partners", "referrers", "community-members"],
+      "updateType": "opportunity",
+      "publicationStatus": "published",
+      "showOnHome": true,
+      "sortOrder": 3,
+      "updateLifecycle": "current",
+      "archiveBehavior": "keep-visible",
+      "mediaId": "volunteer-partner-cta",
+      "detail": {
+        "intro": {
+          "eyebrow": "Opportunity",
+          "title": "Volunteer, partner, or refer someone through one clear route",
+          "summary": "This opportunity post points people to one current starting place for volunteering, partnership conversations, and referrals.",
+          "supportingText": "Use the dedicated hub when you want a practical next step without guessing which route applies.",
+          "badges": ["Open now", "Practical next step"]
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        },
+        "sections": [
+          {
+            "id": "who-this-is-for",
+            "eyebrow": "Who this helps",
+            "title": "One route works better than scattering support, partner, and referral prompts.",
+            "paragraphs": [
+              "The current public starting point is a single Get Involved route that separates motivations clearly once someone arrives.",
+              "That keeps volunteering, partnership, and referral conversations visible without making the editorial feed do the work of a hub page."
+            ],
+            "bullets": [
+              "Volunteer interest",
+              "Partnership and collaboration",
+              "Referral and supporter pathways"
+            ]
+          },
+          {
+            "id": "why-it-stays-on-the-hub",
+            "eyebrow": "Why the hub matters",
+            "title": "The Get Involved route holds the practical detail.",
+            "paragraphs": [
+              "Use Get Involved for route cards, privacy-aware next steps, and the clearest handoff into volunteer, partner, or referral journeys.",
+              "This opportunity entry stays short so the editorial layer can signal the route without trying to replace it."
+            ],
+            "actionReferences": [
+              {
+                "label": "See ways to get involved",
+                "routeId": "get-involved",
+                "variant": "surface"
+              },
+              {
+                "label": "Contact the team",
+                "routeId": "contact",
+                "variant": "text"
+              }
+            ]
+          }
+        ],
+        "proofNotice": {
+          "title": "Scope note",
+          "body": "This opportunity post should direct people into the hub without inventing volunteer role specifics or named partnership arrangements that are not yet public.",
+          "tone": "info"
+        },
+        "relatedSection": {
+          "eyebrow": "Related editorial items",
+          "title": "Useful context before or after you visit the hub",
+          "summary": "The editorial family can connect public opportunities to current support and event guidance without collapsing the routes together."
+        },
+        "relatedItemIds": ["live-support-routes", "community-events-watch"],
+        "ctaBand": {
+          "eyebrow": "Ready to take the next step?",
+          "title": "Start on the Get Involved hub, then use Contact if you need something more specific.",
+          "summary": "The hub is the current public route for volunteering, partnership, referral, and wider supporter journeys.",
+          "badges": ["Volunteer", "Partner", "Referral"],
+          "actions": [
+            {
+              "label": "See ways to get involved",
+              "routeId": "get-involved",
+              "variant": "primary"
+            },
+            {
+              "label": "Contact the team",
+              "routeId": "contact",
+              "variant": "surface"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

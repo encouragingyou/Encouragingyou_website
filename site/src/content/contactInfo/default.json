@@ -1,0 +1,91 @@
+{
+  "publicEmail": "admin@encouragingyou.co.uk",
+  "publicPhone": null,
+  "publicPhoneStatus": "placeholder",
+  "instagramUrl": "https://www.instagram.com/encouragingyou1/",
+  "serviceAreaLabel": "Rochdale",
+  "venueName": null,
+  "venueAddress": null,
+  "venueDisclosurePolicy": "shared-on-enquiry",
+  "mapEmbedAllowedAtLaunch": false,
+  "locationGuidance": {
+    "generalLocalityLabel": "Rochdale",
+    "serviceAreaSummary": "EncouragingYou is based in Rochdale and supports local young people, families, referrers, volunteers, partners, and wider community members who may need connection or practical help.",
+    "venueDisclosureSummary": "Exact venue or meeting-point details can be shared on enquiry when they matter for a session, referral, or support conversation instead of being published as a blanket address.",
+    "mapAccessSummary": "The launch contact route does not load an interactive map on arrival. If a public directions link is approved later, it can be added without redesigning the page.",
+    "publicDirectionsLabel": null,
+    "publicDirectionsUrl": null
+  },
+  "urgentGuidance": {
+    "emergencyText": "If someone is in immediate danger or needs urgent emergency help, call 999.",
+    "safeguardingRouteId": "safeguarding"
+  },
+  "reasonOptions": [
+    {
+      "id": "join-session",
+      "label": "Join a session",
+      "routingKey": "session-intake",
+      "targetAudience": ["young-people", "parents-carers", "referrers"]
+    },
+    {
+      "id": "cv-support",
+      "label": "CV support",
+      "routingKey": "career-support-intake",
+      "targetAudience": ["young-people", "parents-carers", "referrers"]
+    },
+    {
+      "id": "volunteer",
+      "label": "Volunteer enquiry",
+      "routingKey": "volunteer-intake",
+      "targetAudience": ["volunteers", "community-members"]
+    },
+    {
+      "id": "partner",
+      "label": "Partnership enquiry",
+      "routingKey": "partner-intake",
+      "targetAudience": ["partners", "funders", "referrers"]
+    },
+    {
+      "id": "referral",
+      "label": "Referral / ask on behalf of someone",
+      "routingKey": "referral-intake",
+      "targetAudience": ["parents-carers", "referrers", "partners"]
+    },
+    {
+      "id": "general",
+      "label": "General question",
+      "routingKey": "general-intake",
+      "targetAudience": [
+        "young-people",
+        "parents-carers",
+        "community-members",
+        "partners"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility feedback",
+      "routingKey": "accessibility-feedback",
+      "targetAudience": [
+        "young-people",
+        "parents-carers",
+        "community-members",
+        "partners"
+      ]
+    },
+    {
+      "id": "safeguarding",
+      "label": "Safeguarding concern",
+      "routingKey": "safeguarding-intake",
+      "targetAudience": [
+        "young-people",
+        "parents-carers",
+        "referrers",
+        "community-members",
+        "older-people",
+        "partners"
+      ]
+    }
+  ],
+  "formPrivacyNote": "We use the details you share only to reply to your enquiry or help route it to the right next step."
+}

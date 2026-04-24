@@ -1,0 +1,117 @@
+---
+import SupportForm from "../forms/SupportForm.astro";
+import ActionCluster from "../ui/ActionCluster.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface ReasonOption {
+  id: string;
+  label: string;
+  targetAudience: string[];
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  secondaryAction?: ActionLink;
+  contactState: "pending" | "verified";
+  pendingFields: string[];
+  surfaceId: string;
+  organizationName: string;
+  formHeading: string;
+  formIntro: string;
+  privacyNote: string;
+  privacyHighlights: string[];
+  privacyNoticeTitle: string;
+  privacyNoticeActionLabel: string;
+  messageHelper: string;
+  updatesOptInLabel: string;
+  emailFallbackPrefix: string;
+  noScriptNote: string;
+  invalidStatusMessage: string;
+  submittingStatusMessage: string;
+  reasons: ReasonOption[];
+  email: string;
+  successMessage: string;
+  urgentGuidance: string;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  secondaryAction,
+  contactState,
+  pendingFields,
+  surfaceId,
+  organizationName,
+  formHeading,
+  formIntro,
+  privacyNote,
+  privacyHighlights,
+  privacyNoticeTitle,
+  privacyNoticeActionLabel,
+  messageHelper,
+  updatesOptInLabel,
+  emailFallbackPrefix,
+  noScriptNote,
+  invalidStatusMessage,
+  submittingStatusMessage,
+  reasons,
+  email,
+  successMessage,
+  urgentGuidance
+} = Astro.props;
+
+const launchNote =
+  contactState === "pending"
+    ? {
+        title: "Launch contact note",
+        body: pendingFields.includes("publicPhone")
+          ? "Email is the confirmed public route for launch. Phone and venue details are still shared on enquiry until they are confirmed for publication."
+          : "Some public contact details are still being confirmed, so launch visitors should use the email route first.",
+        tone: "info" as const
+      }
+    : null;
+---
+
+<div class="home-contact" data-home-section="contact-panel">
+  <div class="home-contact__lead">
+    <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+    {secondaryAction ? <ActionCluster actions={[secondaryAction]} /> : null}
+    <NoticeBlock title="Urgent help" body={urgentGuidance} tone="important" />
+    {
+      launchNote ? (
+        <NoticeBlock
+          title={launchNote.title}
+          body={launchNote.body}
+          tone={launchNote.tone}
+        />
+      ) : null
+    }
+  </div>
+
+  <div class="home-contact__form">
+    <SupportForm
+      surfaceId={surfaceId}
+      heading={formHeading}
+      intro={formIntro}
+      organizationName={organizationName}
+      privacyNote={privacyNote}
+      privacyHighlights={privacyHighlights}
+      privacyNoticeTitle={privacyNoticeTitle}
+      privacyNoticeActionLabel={privacyNoticeActionLabel}
+      messageHelper={messageHelper}
+      updatesOptInLabel={updatesOptInLabel}
+      emailFallbackPrefix={emailFallbackPrefix}
+      noScriptNote={noScriptNote}
+      invalidStatusMessage={invalidStatusMessage}
+      submittingStatusMessage={submittingStatusMessage}
+      reasons={reasons}
+      email={email}
+      successMessage={successMessage}
+    />
+  </div>
+</div>

@@ -1,0 +1,149 @@
+{
+  "outputDirectory": "/social",
+  "canvas": {
+    "width": 1200,
+    "height": 630
+  },
+  "assets": [
+    {
+      "id": "home",
+      "routeFamilies": [
+        "home"
+      ],
+      "publicPath": "/social/home.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for start here with EncouragingYou branding."
+    },
+    {
+      "id": "about",
+      "routeFamilies": [
+        "about"
+      ],
+      "publicPath": "/social/about.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for about with EncouragingYou branding."
+    },
+    {
+      "id": "programmes",
+      "routeFamilies": [
+        "programmes"
+      ],
+      "publicPath": "/social/programmes.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for programmes with EncouragingYou branding."
+    },
+    {
+      "id": "programme-detail",
+      "routeFamilies": [
+        "programme-detail"
+      ],
+      "publicPath": "/social/programme-detail.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for programme detail with EncouragingYou branding."
+    },
+    {
+      "id": "sessions",
+      "routeFamilies": [
+        "sessions"
+      ],
+      "publicPath": "/social/sessions.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for live sessions with EncouragingYou branding."
+    },
+    {
+      "id": "session-detail",
+      "routeFamilies": [
+        "session-detail"
+      ],
+      "publicPath": "/social/session-detail.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for session detail with EncouragingYou branding."
+    },
+    {
+      "id": "events-updates",
+      "routeFamilies": [
+        "events-updates"
+      ],
+      "publicPath": "/social/events-updates.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for events & updates with EncouragingYou branding."
+    },
+    {
+      "id": "editorial-detail",
+      "routeFamilies": [
+        "editorial-detail"
+      ],
+      "publicPath": "/social/editorial-detail.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for editorial detail with EncouragingYou branding."
+    },
+    {
+      "id": "get-involved",
+      "routeFamilies": [
+        "get-involved"
+      ],
+      "publicPath": "/social/get-involved.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for get involved with EncouragingYou branding."
+    },
+    {
+      "id": "volunteer",
+      "routeFamilies": [
+        "volunteer"
+      ],
+      "publicPath": "/social/volunteer.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for volunteer with EncouragingYou branding."
+    },
+    {
+      "id": "partner",
+      "routeFamilies": [
+        "partner"
+      ],
+      "publicPath": "/social/partner.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for partner with EncouragingYou branding."
+    },
+    {
+      "id": "contact",
+      "routeFamilies": [
+        "contact"
+      ],
+      "publicPath": "/social/contact.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for contact with EncouragingYou branding."
+    },
+    {
+      "id": "safeguarding",
+      "routeFamilies": [
+        "safeguarding"
+      ],
+      "publicPath": "/social/safeguarding.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for safeguarding with EncouragingYou branding."
+    },
+    {
+      "id": "legal",
+      "routeFamilies": [
+        "legal"
+      ],
+      "publicPath": "/social/legal.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "Social preview graphic for trust information with EncouragingYou branding."
+    }
+  ]
+}

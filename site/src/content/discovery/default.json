@@ -1,0 +1,158 @@
+{
+  "robots": {
+    "sitemapPath": "/sitemap.xml",
+    "policies": [
+      {
+        "userAgent": "*",
+        "allow": ["/"],
+        "disallow": ["/api/", "/system/"]
+      }
+    ]
+  },
+  "sitemap": {
+    "inclusionRule": "canonical-indexable-status-200-only",
+    "excludeRoutePrefixes": ["/api/", "/system/"],
+    "includeEditorialWhen": "indexVisible",
+    "lastmodStrategy": "omit-until-trustworthy"
+  },
+  "socialPreview": {
+    "outputDirectory": "/social",
+    "canvas": {
+      "width": 1200,
+      "height": 630
+    },
+    "brand": {
+      "siteName": "EncouragingYou",
+      "strapline": "Youth-led support in Rochdale",
+      "launchTruthNote": "Illustration-led launch site"
+    },
+    "families": [
+      {
+        "id": "home",
+        "routeFamilies": ["home"],
+        "eyebrow": "Start here",
+        "headline": "Youth-led support in Rochdale",
+        "supportingText": "Sessions, support, and practical next steps that feel welcoming from the start.",
+        "accentStart": "#fc8c6c",
+        "accentEnd": "#f8e8d0"
+      },
+      {
+        "id": "about",
+        "routeFamilies": ["about"],
+        "eyebrow": "About",
+        "headline": "A youth-led organisation rooted in real community experience",
+        "supportingText": "Mission, values, and why EncouragingYou exists.",
+        "accentStart": "#90b4a0",
+        "accentEnd": "#f5f3ef"
+      },
+      {
+        "id": "programmes",
+        "routeFamilies": ["programmes"],
+        "eyebrow": "Programmes",
+        "headline": "Support that meets people where they are",
+        "supportingText": "Four clear support pillars with calm next-step guidance.",
+        "accentStart": "#00405c",
+        "accentEnd": "#f8e8d0"
+      },
+      {
+        "id": "programme-detail",
+        "routeFamilies": ["programme-detail"],
+        "eyebrow": "Programme detail",
+        "headline": "Choose the route that fits your next step",
+        "supportingText": "Programme pages stay honest about live sessions, enquiry routes, and support boundaries.",
+        "accentStart": "#1b5567",
+        "accentEnd": "#fff7ec"
+      },
+      {
+        "id": "sessions",
+        "routeFamilies": ["sessions"],
+        "eyebrow": "Live sessions",
+        "headline": "Recurring Saturday support in one practical hub",
+        "supportingText": "Current offers, timings, and what to expect before attending.",
+        "accentStart": "#00405c",
+        "accentEnd": "#90b4a0"
+      },
+      {
+        "id": "session-detail",
+        "routeFamilies": ["session-detail"],
+        "eyebrow": "Session detail",
+        "headline": "Practical session detail without the guesswork",
+        "supportingText": "Logistics, reassurance, and clear ways to ask for help before coming along.",
+        "accentStart": "#d56f53",
+        "accentEnd": "#f5f3ef"
+      },
+      {
+        "id": "events-updates",
+        "routeFamilies": ["events-updates"],
+        "eyebrow": "Events & updates",
+        "headline": "Public updates that stay useful, light, and current",
+        "supportingText": "Occasional event notices and updates without turning the site into a busy newsroom.",
+        "accentStart": "#90b4a0",
+        "accentEnd": "#f8e8d0"
+      },
+      {
+        "id": "editorial-detail",
+        "routeFamilies": ["editorial-detail"],
+        "eyebrow": "Editorial detail",
+        "headline": "Confirmed public notices with clear route back to live support",
+        "supportingText": "Events and updates stay grounded in visible, current information.",
+        "accentStart": "#6d917b",
+        "accentEnd": "#fffdf8"
+      },
+      {
+        "id": "get-involved",
+        "routeFamilies": ["get-involved"],
+        "eyebrow": "Get involved",
+        "headline": "Volunteer, partner, refer, or support through one clear route",
+        "supportingText": "Distinct pathways for helping without mixing them up with live support routes.",
+        "accentStart": "#00405c",
+        "accentEnd": "#f5f3ef"
+      },
+      {
+        "id": "volunteer",
+        "routeFamilies": ["volunteer"],
+        "eyebrow": "Volunteer",
+        "headline": "Volunteer pathways with honest expectations",
+        "supportingText": "Roles, checks, and the enquiry route explained clearly.",
+        "accentStart": "#fc8c6c",
+        "accentEnd": "#fffdf8"
+      },
+      {
+        "id": "partner",
+        "routeFamilies": ["partner"],
+        "eyebrow": "Partner",
+        "headline": "Partnership and referral routes with clear boundaries",
+        "supportingText": "Collaboration, sponsorship, and referral pathways grounded in what the site can currently support.",
+        "accentStart": "#90b4a0",
+        "accentEnd": "#f5f3ef"
+      },
+      {
+        "id": "contact",
+        "routeFamilies": ["contact"],
+        "eyebrow": "Contact",
+        "headline": "Ask a question and get routed to the right next step",
+        "supportingText": "Short-form contact, clear guidance, and Rochdale-first public location framing.",
+        "accentStart": "#d56f53",
+        "accentEnd": "#f8e8d0"
+      },
+      {
+        "id": "safeguarding",
+        "routeFamilies": ["safeguarding"],
+        "eyebrow": "Safeguarding",
+        "headline": "Calm safeguarding routes with clear emergency boundaries",
+        "supportingText": "Child and adult safeguarding guidance separated clearly and handled with care.",
+        "accentStart": "#002635",
+        "accentEnd": "#90b4a0"
+      },
+      {
+        "id": "legal",
+        "routeFamilies": ["legal"],
+        "eyebrow": "Trust information",
+        "headline": "Privacy, accessibility, cookies, and site-use information",
+        "supportingText": "Trust surfaces stay direct, readable, and aligned with the live launch state.",
+        "accentStart": "#35525c",
+        "accentEnd": "#f5f3ef"
+      }
+    ]
+  }
+}

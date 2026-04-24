@@ -1,0 +1,54 @@
+---
+import {
+  buildButtonClassName,
+  type ButtonState,
+  type ButtonVariant
+} from "../../lib/ui/button.ts";
+
+interface Props {
+  className?: string;
+  disabled?: boolean;
+  fullWidth?: boolean;
+  name?: string;
+  state?: ButtonState;
+  type?: "button" | "submit" | "reset";
+  value?: string;
+  variant?: ButtonVariant;
+}
+
+const {
+  className = "",
+  disabled = false,
+  fullWidth = false,
+  name,
+  state = "default",
+  type = "button",
+  value,
+  variant = "primary",
+  ...attributes
+} = Astro.props;
+
+const buttonState = disabled ? "disabled" : state;
+const isLoading = buttonState === "loading";
+---
+
+<button
+  class={buildButtonClassName({
+    className,
+    fullWidth,
+    state: buttonState,
+    variant
+  })}
+  type={type}
+  name={name}
+  value={value}
+  disabled={disabled || isLoading}
+  aria-busy={isLoading ? "true" : undefined}
+  data-button-state={buttonState}
+  data-motion="emphasis"
+  {...attributes}
+>
+  <span class="button__label">
+    <slot />
+  </span>
+</button>

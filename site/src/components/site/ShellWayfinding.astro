@@ -1,0 +1,59 @@
+---
+import Breadcrumbs from "../ui/Breadcrumbs.astro";
+import SiteNoticeStack from "./SiteNoticeStack.astro";
+import type {
+  BreadcrumbItem,
+  RelatedLinkGroup,
+  ShellLink,
+  ShellNotice
+} from "../../lib/types/site-ui";
+
+interface Props {
+  breadcrumbs?: BreadcrumbItem[];
+  backLink?: ShellLink | null;
+  notices?: ShellNotice[];
+  relatedLinkGroup?: RelatedLinkGroup | null;
+}
+
+const {
+  breadcrumbs = [],
+  backLink = null,
+  notices = [],
+  relatedLinkGroup = null
+} = Astro.props;
+const hasWayfinding =
+  breadcrumbs.length > 0 ||
+  Boolean(backLink) ||
+  notices.length > 0 ||
+  Boolean(relatedLinkGroup);
+---
+
+{
+  hasWayfinding ? (
+    <div class="shell-wayfinding">
+      <div
+        class="container container--wide shell-wayfinding__inner"
+        data-motion="reveal structural"
+      >
+        {backLink ? (
+          <p class="shell-back-link">
+            <a href={backLink.href}>{backLink.label}</a>
+          </p>
+        ) : null}
+        {breadcrumbs.length > 0 ? <Breadcrumbs items={breadcrumbs} /> : null}
+        {relatedLinkGroup ? (
+          <nav class="shell-related-links" aria-label={relatedLinkGroup.title}>
+            <ul>
+              {relatedLinkGroup.links.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+        <SiteNoticeStack items={notices} />
+      </div>
+    </div>
+  ) : null
+}

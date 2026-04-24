@@ -1,0 +1,65 @@
+{
+  "slug": "cv-support",
+  "route": "/sessions/cv-support/",
+  "title": "CV Support Session",
+  "shortTitle": "CV support",
+  "launchStatus": "launch",
+  "programmeIds": ["career-support-cv-help"],
+  "summary": "One-to-one help with CVs, applications, and practical next steps before youth club starts.",
+  "eventDescription": "One-to-one help with CVs, job applications, and practical next steps in Rochdale.",
+  "audiences": ["young-people", "parents-carers", "referrers"],
+  "schedule": {
+    "type": "weekly-recurring",
+    "label": "Every Saturday",
+    "byDay": ["SA"],
+    "intervalWeeks": 1,
+    "startLocalDate": "2026-04-25",
+    "startTime": "16:45",
+    "durationMinutes": 120,
+    "timezone": "Europe/London",
+    "status": {
+      "state": "active",
+      "note": null,
+      "resumeDate": null,
+      "seasonStartDate": null,
+      "seasonEndDate": null
+    }
+  },
+  "calendar": {
+    "publicPath": "/calendar/cv-support.ics",
+    "uid": "encouragingyou-cv-support@encouragingyou.co.uk",
+    "status": "available"
+  },
+  "location": {
+    "locality": "Rochdale",
+    "venueName": null,
+    "venueAddress": null,
+    "disclosurePolicy": "shared-on-enquiry"
+  },
+  "access": {
+    "priceLabel": null,
+    "priceStatus": "placeholder",
+    "referralRequired": null,
+    "referralStatus": "placeholder"
+  },
+  "contact": {
+    "email": "admin@encouragingyou.co.uk",
+    "emailSubject": "CV support session",
+    "reasonId": "cv-support"
+  },
+  "trustNotes": [
+    "Specific venue details can be shared on enquiry.",
+    "The session is designed to feel practical and calm rather than intimidating.",
+    "Safeguarding and privacy routes stay visible throughout the session journey."
+  ],
+  "featureBullets": [
+    "Bring what you already have, even if that is only a question or a blank document.",
+    "Work through applications, wording, structure, and the next practical step.",
+    "Leave with something clearer and more usable than when you arrived."
+  ],
+  "faqGroupIds": ["join-session"],
+  "featuredMediaId": "programme-career-support",
+  "featuredIconId": "icon-cv-support",
+  "primaryCtaId": "join-session",
+  "seoDescription": "Join EncouragingYou's Saturday CV support session in Rochdale for one-to-one help with CVs, applications, and practical next steps."
+}

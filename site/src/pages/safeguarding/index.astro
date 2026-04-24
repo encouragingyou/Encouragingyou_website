@@ -1,0 +1,134 @@
+---
+import SupportForm from "../../components/forms/SupportForm.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import ProofBoundaryPanel from "../../components/ui/ProofBoundaryPanel.astro";
+import SafeguardingRouteCard from "../../components/ui/SafeguardingRouteCard.astro";
+import TrustStatusPanel from "../../components/ui/TrustStatusPanel.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getSafeguardingHubPageModel } from "../../lib/content/site-content.ts";
+
+const model: ReturnType<typeof getSafeguardingHubPageModel> =
+  getSafeguardingHubPageModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/safeguarding/"
+  pageId="safeguarding"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+    </PageIntro>
+
+    <NoticeBlock
+      title={model.emergencyNotice.title}
+      body={model.emergencyNotice.body}
+      tone={model.emergencyNotice.tone}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="safeguarding-route-grid">
+      {
+        model.routeCards.map((card: (typeof model.routeCards)[number], index: number) => (
+          <SafeguardingRouteCard
+            title={card.title}
+            summary={card.summary}
+            audienceLabel={card.audienceLabel}
+            appliesTo={card.appliesTo}
+            signals={card.signals}
+            actions={card.actions}
+            headingLevel={index === 0 ? 2 : 3}
+          />
+        ))
+      }
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <div class="safeguarding-overview-grid">
+      <div class="layout-stack layout-stack--roomy">
+        <TrustStatusPanel
+          title={model.publicConcernPanel.title}
+          summary={model.publicConcernPanel.summary}
+          detail={model.publicConcernPanel.detail}
+          statusLabel={model.publicConcernPanel.statusLabel}
+          statusTone={model.publicConcernPanel.statusTone}
+          bullets={model.publicConcernPanel.bullets}
+          actions={model.publicConcernPanel.actions}
+          tone="soft"
+        />
+
+        <NoticeBlock
+          title={model.formNotice.title}
+          body={model.formNotice.body}
+          tone={model.formNotice.tone}
+        />
+
+        <SupportForm
+          id={model.formId}
+          surfaceId={model.surfaceId}
+          eyebrow={model.formEyebrow}
+          heading={model.formHeading}
+          intro={model.formIntro}
+          organizationName={model.organizationName}
+          privacyNote={model.privacyNote}
+          privacyHighlights={model.privacyHighlights}
+          privacyNoticeTitle={model.privacyNoticeTitle}
+          privacyNoticeActionLabel={model.privacyNoticeActionLabel}
+          messageHelper={model.messageHelper}
+          updatesOptInLabel={model.updatesOptInLabel}
+          showUpdatesOptIn={model.showUpdatesOptIn}
+          emailFallbackPrefix={model.emailFallbackPrefix}
+          noScriptNote={model.noScriptNote}
+          invalidStatusMessage={model.invalidStatusMessage}
+          submittingStatusMessage={model.submittingStatusMessage}
+          reasons={model.reasons}
+          defaultReasonId={model.defaultReasonId}
+          reasonFieldLabel={model.reasonFieldLabel}
+          reasonSelectPlaceholder={model.reasonSelectPlaceholder}
+          reasonFieldMode={model.reasonFieldMode}
+          successMessage={model.successMessage}
+          submitLabel={model.submitLabel}
+          email={model.email}
+        />
+      </div>
+
+      <div class="safeguarding-state-grid">
+        {
+          model.statePanels.map((panel, index) => (
+            <TrustStatusPanel
+              title={panel.title}
+              summary={panel.summary}
+              detail={panel.detail}
+              statusLabel={panel.statusLabel}
+              statusTone={panel.statusTone}
+              bullets={panel.bullets}
+              actions={panel.actions}
+              headingLevel={index === 0 ? 2 : 3}
+              tone={index === 0 ? "soft" : "default"}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <ProofBoundaryPanel {...model.proofBoundary} />
+  </PageSection>
+</BaseLayout>

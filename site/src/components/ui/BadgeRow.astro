@@ -1,0 +1,39 @@
+---
+import Badge from "./Badge.astro";
+
+interface BadgeItem {
+  current?: boolean;
+  label: string;
+  tone?: "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+}
+
+interface Props {
+  className?: string;
+  items: Array<BadgeItem | string>;
+}
+
+const { className = "", items } = Astro.props;
+
+const normalizedItems = items.map((item) =>
+  typeof item === "string"
+    ? {
+        label: item,
+        tone: "default" as const
+      }
+    : {
+        current: item.current ?? false,
+        label: item.label,
+        tone: item.tone ?? "default"
+      }
+);
+---
+
+{
+  normalizedItems.length > 0 ? (
+    <div class={`badge-row${className ? ` ${className}` : ""}`}>
+      {normalizedItems.map((item) => (
+        <Badge label={item.label} tone={item.tone} current={item.current} />
+      ))}
+    </div>
+  ) : null
+}

@@ -1,0 +1,68 @@
+name: Admin Release Candidate
+
+on:
+  workflow_run:
+    workflows:
+      - Admin Quality
+    types:
+      - completed
+
+concurrency:
+  group: admin-release-candidate-${{ github.event.workflow_run.head_branch || github.event.workflow_run.head_sha }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
+    name: Package Admin Release Candidate
+    runs-on: ubuntu-latest
+    env:
+      DEPLOYMENT_SURFACE: admin
+      ADMIN_PORTAL_ENABLED: "true"
+      ANALYTICS_MODE: off
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Check out validated commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: site/.nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Set release metadata
+        run: |
+          HEAD_SHA="${{ github.event.workflow_run.head_sha }}"
+          echo "RELEASE_SHA=$HEAD_SHA" >> "$GITHUB_ENV"
+          echo "RELEASE_ID=${HEAD_SHA:0:12}" >> "$GITHUB_ENV"
+          echo "RELEASE_CREATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build admin artifact
+        run: npm run build --workspaces=false
+
+      - name: Package immutable admin release bundle
+        run: npm run release:package --workspaces=false
+
+      - name: Upload packaged admin release bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-admin-release-${{ env.RELEASE_ID }}
+          path: |
+            site/output/releases/encouragingyou-site-admin-*.tgz
+            site/output/releases/admin-*/release-manifest.json
+            site/output/releases/admin-*/release-checksums.txt
+          retention-days: 30

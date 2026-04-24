@@ -1,0 +1,62 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import CardPanel from "../ui/CardPanel.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface UpdateItem {
+  id: string;
+  title: string;
+  summary: string;
+  href: string;
+  metaLabel: string;
+  updateType: string;
+}
+
+interface StateCopy {
+  title: string;
+  summary: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary?: string;
+  state: "present" | "absent";
+  items: UpdateItem[];
+  primaryAction?: ActionLink;
+  emptyState?: StateCopy;
+}
+
+const { eyebrow, title, summary, state, items, primaryAction, emptyState } = Astro.props;
+---
+
+<div class="home-updates" data-home-section="updates-surface">
+  <div class="home-updates__header">
+    <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+    {primaryAction ? <ActionCluster actions={[primaryAction]} /> : null}
+  </div>
+
+  {
+    state === "present" && items.length > 0 ? (
+      <div class="home-updates__grid detail-grid">
+        {items.map((item) => (
+          <CardPanel
+            heading={item.title}
+            headingLevel={3}
+            href={item.href}
+            interactive={true}
+            summary={item.summary}
+            eyebrow={item.metaLabel}
+            tone="muted"
+          />
+        ))}
+      </div>
+    ) : emptyState ? (
+      <div class="home-updates__empty">
+        <p class="home-updates__empty-title">{emptyState.title}</p>
+        <p>{emptyState.summary}</p>
+      </div>
+    ) : null
+  }
+</div>

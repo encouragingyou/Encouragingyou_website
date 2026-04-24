@@ -1,0 +1,54 @@
+{
+  "cv-support": {
+    "id": "cv-support",
+    "title": "CV support session",
+    "shortTitle": "CV support",
+    "route": "/sessions/cv-support/",
+    "publicCalendarPath": "/calendar/cv-support.ics",
+    "description": "One-to-one help with CVs, job applications, and practical next steps in Rochdale.",
+    "legacyImage": "https://www.encouragingyou.co.uk/images/career-support-960.webp",
+    "imageMediaId": "programme-career-support",
+    "schedule": {
+      "type": "weekly-recurring",
+      "label": "Every Saturday",
+      "byDay": [
+        "SA"
+      ],
+      "intervalWeeks": 1,
+      "startLocalDate": "2026-04-25",
+      "startTime": "16:45",
+      "endTime": "18:45",
+      "durationMinutes": 120,
+      "timezone": "Europe/London"
+    },
+    "location": "Rochdale",
+    "uid": "encouragingyou-cv-support@encouragingyou.co.uk",
+    "summaryFromCalendar": "EncouragingYou CV Support Session"
+  },
+  "youth-club": {
+    "id": "youth-club",
+    "title": "Youth club session",
+    "shortTitle": "Youth club",
+    "route": "/sessions/youth-club/",
+    "publicCalendarPath": "/calendar/youth-club.ics",
+    "description": "Games, activities, chill time, and friendship-building in a safe, welcoming youth space.",
+    "legacyImage": "https://www.encouragingyou.co.uk/images/community-friendship-960.webp",
+    "imageMediaId": "programme-community-friendship",
+    "schedule": {
+      "type": "weekly-recurring",
+      "label": "Every Saturday",
+      "byDay": [
+        "SA"
+      ],
+      "intervalWeeks": 1,
+      "startLocalDate": "2026-04-25",
+      "startTime": "18:45",
+      "endTime": "20:45",
+      "durationMinutes": 120,
+      "timezone": "Europe/London"
+    },
+    "location": "Rochdale",
+    "uid": "encouragingyou-youth-club@encouragingyou.co.uk",
+    "summaryFromCalendar": "EncouragingYou Youth Club Session"
+  }
+}

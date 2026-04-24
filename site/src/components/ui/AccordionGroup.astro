@@ -1,0 +1,48 @@
+---
+interface AccordionItem {
+  answer: string;
+  open?: boolean;
+  question: string;
+}
+
+interface Props {
+  className?: string;
+  groupId?: string;
+  items: AccordionItem[];
+}
+
+const { className = "", groupId = "accordion-group", items } = Astro.props;
+---
+
+<div
+  class={`accordion${className ? ` ${className}` : ""}`}
+  data-disclosure-group={groupId}
+>
+  {
+    items.map((item, index) => (
+      <details
+        class="accordion__item faq-item"
+        data-disclosure-item
+        data-disclosure-state={item.open ? "expanded" : "collapsed"}
+        data-motion="feedback"
+        open={item.open}
+      >
+        <summary
+          class="accordion__summary"
+          id={`${groupId}-question-${index}`}
+          aria-controls={`${groupId}-answer-${index}`}
+          data-motion="feedback"
+        >
+          <span>{item.question}</span>
+          <span class="accordion__marker" aria-hidden="true" />
+        </summary>
+        <div
+          class="accordion__content faq-item__answer"
+          id={`${groupId}-answer-${index}`}
+        >
+          <p>{item.answer}</p>
+        </div>
+      </details>
+    ))
+  }
+</div>

@@ -1,0 +1,1470 @@
+{
+  "pages": [
+    {
+      "pageId": "about",
+      "template": "about",
+      "metaDescription": "Learn why EncouragingYou exists, how its youth-led mission took shape, and how that purpose connects to practical support across Rochdale.",
+      "intro": {
+        "eyebrow": "About EncouragingYou",
+        "title": "A youth-led organisation rooted in real community experience.",
+        "summary": "We created EncouragingYou to be the kind of support we wished existed: welcoming, practical, inclusive, and real.",
+        "badges": ["Youth-led leadership", "Welcoming support", "Rochdale-rooted"],
+        "mediaId": "about-leadership",
+        "actionReferences": [
+          {
+            "label": "See our programmes",
+            "variant": "primary",
+            "routeId": "programmes"
+          },
+          {
+            "label": "Get support",
+            "variant": "secondary",
+            "routeId": "contact"
+          }
+        ]
+      },
+      "storySections": [
+        {
+          "id": "origin",
+          "eyebrow": "The lightbulb moment",
+          "title": "EncouragingYou started with a gap we could already see around us.",
+          "paragraphs": [
+            "The organisation began after seeing young people in the local community struggling, feeling lost, or not knowing where to turn for steady support.",
+            "Instead of building something distant or formal, the aim was to create the kind of space we wished had existed already: somewhere people could feel understood, welcomed, and given a real chance to grow."
+          ],
+          "quote": {
+            "text": "We wanted to create the kind of support we wished existed: welcoming, practical, inclusive, and real.",
+            "attribution": "Approved origin direction"
+          }
+        },
+        {
+          "id": "leadership",
+          "eyebrow": "Who we are",
+          "title": "Run by young leaders who understand the pressures first-hand.",
+          "paragraphs": [
+            "EncouragingYou is run by dedicated young leaders and volunteers. That matters because the people shaping the work are close to the realities many young people are facing now, not talking about them from a distance.",
+            "That lived experience helps the organisation connect in a more relatable, supportive, and authentic way. The goal is not to position leadership above the community, but to grow alongside it."
+          ],
+          "bullets": [
+            "Youth-led leadership shapes the tone, priorities, and atmosphere.",
+            "Practical help sits alongside belonging and confidence-building.",
+            "People can understand the next step without gatekeeping."
+          ],
+          "badges": ["Relationship-first", "Lived experience", "Plain language"],
+          "actionReferences": [
+            {
+              "label": "See Saturday sessions",
+              "variant": "surface",
+              "routeId": "sessions"
+            }
+          ]
+        },
+        {
+          "id": "approach",
+          "eyebrow": "How we work",
+          "title": "Support that is clear, low-pressure, and useful from the first visit.",
+          "paragraphs": [
+            "The organisation brings together practical support such as CV help, confidence-building, and mentoring with a community atmosphere that helps people feel they belong.",
+            "That means short routes into help, plain language, and visible next steps rather than asking people to prove themselves before they are welcomed."
+          ],
+          "bullets": [
+            "Practical help and confidence-building sit together.",
+            "Belonging matters as much as information.",
+            "Privacy and safeguarding routes stay visible near contact points."
+          ],
+          "note": {
+            "title": "Trust in practice",
+            "body": "This route builds confidence through clear public information. Named team biographies, partner proof, and impact claims stay out of the page until they are approved for publication.",
+            "tone": "info"
+          }
+        },
+        {
+          "id": "wider-community",
+          "eyebrow": "Wider community commitment",
+          "title": "The work is youth-led, but the welcome is wider than youth-only support.",
+          "paragraphs": [
+            "The strongest focus remains around young people, confidence, and practical support, but the vision is for a stronger and more connected community overall.",
+            "That opens space for community events, social connection, and support that can also reach older generations or people who might otherwise feel isolated."
+          ],
+          "badges": ["Intergenerational connection", "Community support"],
+          "mediaId": "community-support-intergenerational",
+          "reversed": true,
+          "actionReferences": [
+            {
+              "label": "Explore community support",
+              "variant": "secondary",
+              "routeId": "programme-community-support-intergenerational-connection"
+            }
+          ],
+          "note": {
+            "title": "Current public scope",
+            "body": "The community direction is public now. Fuller examples, partner references, and future event detail can be added later once approved for publication.",
+            "tone": "info"
+          }
+        }
+      ],
+      "purposeSection": {
+        "eyebrow": "Mission and vision",
+        "title": "Purpose first, with community at the centre.",
+        "summary": "The mission stays practical: help people feel supported, connected, and able to move forward.",
+        "missionLabel": "Mission",
+        "visionLabel": "Vision",
+        "driveLabel": "What keeps the work moving",
+        "driveSummary": "The work is driven by seeing young people gain confidence, succeed, and feel valued, while the wider community becomes more connected and more able to support one another.",
+        "driveBullets": [
+          "Create a welcoming environment where people feel comfortable rather than judged.",
+          "Help people connect, belong, build confidence, and support each other.",
+          "Keep the community focus broad enough to include younger and older generations."
+        ]
+      },
+      "valuesSection": {
+        "eyebrow": "Our values",
+        "title": "What people should feel in the way we work.",
+        "summary": "These are practical standards for how support is delivered, not abstract slogans.",
+        "items": [
+          {
+            "title": "Welcome without judgement",
+            "summary": "The atmosphere feels calm, respectful, and easy to enter, especially for people who are unsure about asking for help.",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Real support, not empty promises",
+            "summary": "Advice, mentoring, and next steps are practical enough to help someone move forward, not just sound encouraging.",
+            "iconAssetId": "icon-cv-support"
+          },
+          {
+            "title": "Community connection",
+            "summary": "Belonging matters. Support helps people feel part of something rather than left to figure everything out alone.",
+            "iconAssetId": "icon-community-event"
+          },
+          {
+            "title": "Confidence and opportunity",
+            "summary": "The work helps people grow in confidence, recognise their strengths, and access new opportunities.",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Respect, safety, and inclusion",
+            "summary": "Clear boundaries, privacy guidance, and safeguarding routes are part of the welcome, not an afterthought.",
+            "iconAssetId": "icon-contact"
+          }
+        ]
+      },
+      "audienceSection": {
+        "eyebrow": "Who we support",
+        "title": "Support that reaches beyond one age group or one kind of need.",
+        "summary": "The strongest fit is still around youth support, confidence, and guidance, but the wider community matters too.",
+        "items": [
+          {
+            "title": "Young people looking for support or direction",
+            "summary": "This includes people who want confidence-building, practical help, mentoring, or a place where they can feel supported and understood.",
+            "action": {
+              "label": "Explore sessions",
+              "variant": "text",
+              "routeId": "sessions"
+            }
+          },
+          {
+            "title": "Parents, carers, referrers, and community members",
+            "summary": "The route should also work for people trying to help someone else take the next step, ask a question, or understand what support is available.",
+            "action": {
+              "label": "Contact the team",
+              "variant": "text",
+              "routeId": "contact"
+            }
+          },
+          {
+            "title": "Older or isolated community members who need connection",
+            "summary": "The wider community commitment leaves room for intergenerational support, shared activities, and routes that reduce isolation rather than treating people as separate audiences.",
+            "action": {
+              "label": "See wider community support",
+              "variant": "text",
+              "routeId": "programme-community-support-intergenerational-connection"
+            }
+          }
+        ]
+      },
+      "trustSection": {
+        "eyebrow": "Trust in practice",
+        "title": "Confidence should come from clear routes and visible care, not inflated claims.",
+        "summary": "The strongest public trust signals stay close to the story: youth-led leadership, a welcoming environment, privacy clarity, and a visible safeguarding path.",
+        "trustSignalIds": [
+          "youth-led",
+          "safe-space",
+          "privacy-clarity",
+          "visible-safeguarding"
+        ]
+      },
+      "proofBoundary": {
+        "eyebrow": "Credibility boundaries",
+        "title": "What we are not claiming in public yet.",
+        "summary": "The page stays warm and complete without pretending certainty where proof still needs approval.",
+        "publishNow": [
+          "The origin story, mission, vision, and youth-led posture already described on the public site.",
+          "Practical support pathways, privacy guidance, and safeguarding signposts already visible across the site."
+        ],
+        "awaitingConfirmation": [
+          "Any public wording that depends on confirmed vetting or training process detail.",
+          "Named leadership biographies, team portraits, and approved partner references."
+        ],
+        "withheldUntilVerified": [
+          "Impact statistics, testimonials, or outcome claims that have not been approved.",
+          "Detailed claims about live partnerships, referral volume, or specific venue disclosure."
+        ]
+      },
+      "ctaBand": {
+        "eyebrow": "Choose the next step",
+        "title": "Move from the story into the route that helps most.",
+        "summary": "Whether you want to explore support, join a Saturday session, ask a question, or support the work, the next conversation is clear.",
+        "badges": ["Programmes", "Sessions", "Get involved"],
+        "actions": [
+          {
+            "label": "See our programmes",
+            "variant": "primary",
+            "routeId": "programmes"
+          },
+          {
+            "label": "Join a session",
+            "variant": "secondary",
+            "routeId": "sessions"
+          },
+          {
+            "label": "Contact the team",
+            "variant": "surface",
+            "routeId": "contact"
+          }
+        ],
+        "note": {
+          "title": "Different reason for visiting?",
+          "body": "Use Get involved if you want to volunteer, partner, or ask on behalf of someone else.",
+          "tone": "info",
+          "action": {
+            "label": "See involvement routes",
+            "variant": "text",
+            "routeId": "get-involved"
+          }
+        }
+      }
+    },
+    {
+      "pageId": "privacy",
+      "template": "legal",
+      "metaDescription": "Plain-language privacy information for contact, involvement, volunteer, partner, and safeguarding enquiries on the EncouragingYou website."
+    },
+    {
+      "pageId": "programmes",
+      "template": "programme-index",
+      "metaDescription": "Explore EncouragingYou's four core support pillars, understand how programmes differ from live sessions, and choose the route that fits best.",
+      "intro": {
+        "eyebrow": "Programme overview",
+        "title": "Support that meets people where they are.",
+        "summary": "From community and friendship to personal growth, career support, and wider community connection, these pillars explain what each route is for before you decide how to step in.",
+        "badges": [
+          "4 support pillars",
+          "Programme-led guidance",
+          "Sessions plus support routes"
+        ],
+        "actionReferences": [
+          {
+            "label": "See Saturday sessions",
+            "variant": "primary",
+            "routeId": "sessions"
+          },
+          {
+            "label": "Get support",
+            "variant": "secondary",
+            "routeId": "contact"
+          }
+        ]
+      },
+      "overviewPanels": [
+        {
+          "title": "Programmes explain the support theme",
+          "body": "Use this route when you want to understand what kind of support fits before you look at dates, timings, or one specific activity."
+        },
+        {
+          "title": "Sessions show live recurring opportunities",
+          "body": "Use the Sessions route when you are ready for practical timing, first-visit detail, and the clearest current join path."
+        },
+        {
+          "title": "Contact stays available when you are unsure",
+          "body": "If none of the published routes fits neatly, the contact route should still help you or someone else work out the next step."
+        }
+      ],
+      "scheduleSection": {
+        "eyebrow": "Live support right now",
+        "title": "Some pillars already connect to recurring Saturday sessions.",
+        "summary": "Career support and community friendship currently have the clearest published live routes. The other pillars still matter, but they are not pretending to be timetable-heavy when they are not."
+      },
+      "audienceSection": {
+        "eyebrow": "Choose by what you need",
+        "title": "The right pillar should be recognisable even if you do not already know the programme names.",
+        "summary": "These routes are designed around intent, not insider language.",
+        "items": [
+          {
+            "title": "Belonging, friendship, and a welcoming first step",
+            "summary": "Start with Community & Friendship if someone needs safe space, low-pressure connection, or a route back into community.",
+            "action": {
+              "label": "Explore Community & Friendship",
+              "variant": "text",
+              "routeId": "programme-community-friendship"
+            }
+          },
+          {
+            "title": "Confidence, life skills, and personal growth",
+            "summary": "Start with Personal Growth & Life Skills if the need is confidence-building, leadership, motivation, or longer-term development.",
+            "action": {
+              "label": "Explore Personal Growth",
+              "variant": "text",
+              "routeId": "programme-personal-growth-life-skills"
+            }
+          },
+          {
+            "title": "CV help, applications, and work-readiness",
+            "summary": "Start with Career Support & CV Help if someone needs practical employment guidance and a route that can quickly turn into action.",
+            "action": {
+              "label": "Explore Career Support",
+              "variant": "text",
+              "routeId": "programme-career-support-cv-help"
+            }
+          },
+          {
+            "title": "Wider community connection and support",
+            "summary": "Start with Community Support / Intergenerational Connection if the route needs to hold older people, isolation, or broader community support without forcing everything into a youth-club frame.",
+            "action": {
+              "label": "Explore Community Support",
+              "variant": "text",
+              "routeId": "programme-community-support-intergenerational-connection"
+            }
+          }
+        ]
+      },
+      "launchNotice": {
+        "title": "Launch note",
+        "body": "Some pillars already connect to a live recurring session, while others are currently best understood through the programme overview and contact route. The page stays honest about that difference instead of implying every pillar has the same kind of published timetable.",
+        "tone": "info"
+      },
+      "ctaBand": {
+        "eyebrow": "Need a clearer next step?",
+        "title": "Use the route that matches your confidence level and what you already know.",
+        "summary": "If you know you want timings, go to Sessions. If you know the kind of support you need, start with a programme. If you are still unsure, contact the team.",
+        "badges": ["Programmes", "Sessions", "Contact"],
+        "actions": [
+          {
+            "label": "See Saturday sessions",
+            "variant": "primary",
+            "routeId": "sessions"
+          },
+          {
+            "label": "Get support",
+            "variant": "secondary",
+            "routeId": "contact"
+          },
+          {
+            "label": "Get involved",
+            "variant": "surface",
+            "routeId": "get-involved"
+          }
+        ],
+        "note": {
+          "title": "Coming on behalf of someone else?",
+          "body": "Parents, carers, referrers, and partners can still use the contact route if the right pillar is not obvious from the public information.",
+          "tone": "info"
+        }
+      }
+    },
+    {
+      "pageId": "sessions",
+      "template": "session-index",
+      "metaDescription": "Browse recurring Saturday sessions, understand what to expect, and find the clearest next step into support.",
+      "intro": {
+        "eyebrow": "Saturday sessions",
+        "title": "Recurring offers that are easy to understand and easy to return to.",
+        "summary": "Join a session, ask for support, and understand the practical next step without decoding a timetable first.",
+        "badges": ["Low-pressure first step", "Live Saturday routes"],
+        "supportingText": "If you need a different kind of help before choosing a session, use the support route instead."
+      },
+      "actions": {
+        "primaryLabel": "Get support",
+        "secondaryLabel": "See programmes"
+      },
+      "scheduleSection": {
+        "eyebrow": "Compare the live options",
+        "title": "Choose the Saturday route that fits best right now.",
+        "summary": "Each card keeps the next date, timing, linked programme, and clearest next step visible without turning the page into a dense timetable."
+      },
+      "guidanceSection": {
+        "eyebrow": "Before you come",
+        "title": "Practical detail and reassurance should stay public.",
+        "summary": "The session hub helps someone feel clear enough to take the next step before they need to send a long message."
+      },
+      "guidancePanels": [
+        {
+          "title": "First visits can stay simple",
+          "body": "You do not need a polished explanation, a perfect reason, or a full plan before you ask about coming."
+        },
+        {
+          "title": "Location details stay careful",
+          "body": "The public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy."
+        },
+        {
+          "title": "Support routes stay visible",
+          "body": "If you are not sure which session fits, want to ask on someone else's behalf, or need another route entirely, contact and safeguarding links should still be easy to find."
+        }
+      ],
+      "faqSection": {
+        "groupId": "join-session",
+        "eyebrow": "Questions before you come",
+        "title": "Common concerns are answered before someone has to email."
+      },
+      "sidebarNotice": {
+        "title": "Need another route?",
+        "body": "If the Saturday sessions are not the right fit, use the contact route and the team can help you figure out the next step.",
+        "tone": "info"
+      },
+      "ctaBand": {
+        "eyebrow": "Need the wider route first?",
+        "title": "Use support or programme pages if you need more context before choosing a session.",
+        "summary": "The sessions hub is the live front door. The broader support routes stay available if you want to ask first, understand the wider offer, or come on behalf of someone else.",
+        "badges": ["Support", "Programmes", "Safeguarding"],
+        "actions": [
+          {
+            "label": "Contact the team",
+            "variant": "primary",
+            "routeId": "contact"
+          },
+          {
+            "label": "See programmes",
+            "variant": "secondary",
+            "routeId": "programmes"
+          },
+          {
+            "label": "Read safeguarding",
+            "variant": "surface",
+            "routeId": "safeguarding"
+          }
+        ],
+        "note": {
+          "title": "Asking on behalf of someone else?",
+          "body": "Parents, carers, and referrers can use contact first if they want to check the right route before anyone travels.",
+          "tone": "info",
+          "action": {
+            "label": "Ask a question",
+            "variant": "text",
+            "routeId": "contact"
+          }
+        }
+      }
+    },
+    {
+      "pageId": "contact",
+      "template": "contact",
+      "metaDescription": "Use the main contact route for support questions, referrals, volunteering or partnership enquiries, and urgent signposting.",
+      "intro": {
+        "eyebrow": "Contact",
+        "title": "We're here to help you find the right next step.",
+        "summary": "Ask a short question about sessions, support, volunteering, partnership, or a referral without having to guess which route comes first.",
+        "badges": [
+          "Low-friction first contact",
+          "Rochdale-based",
+          "Safeguarding kept separate"
+        ],
+        "supportingText": "Use the route cards when one path already fits. If you are still unsure, the short form below can help the team route the next conversation properly.",
+        "actionReferences": [
+          {
+            "label": "Send a short message",
+            "href": "#contact-form",
+            "variant": "primary"
+          },
+          {
+            "label": "Browse sessions",
+            "routeId": "sessions",
+            "variant": "secondary"
+          },
+          {
+            "label": "Read safeguarding",
+            "routeId": "safeguarding",
+            "variant": "surface"
+          }
+        ]
+      },
+      "routesSection": {
+        "eyebrow": "Choose the shortest route",
+        "title": "Different questions deserve different first steps.",
+        "summary": "Use a dedicated route when one is already clear. Use the short message form below when you need help choosing, are asking on someone else's behalf, or have a broader question."
+      },
+      "routeCards": [
+        {
+          "routeId": "join-session"
+        },
+        {
+          "routeId": "referral"
+        },
+        {
+          "routeId": "volunteer"
+        },
+        {
+          "routeId": "partner"
+        }
+      ],
+      "contactMethodsSection": {
+        "eyebrow": "Contact methods",
+        "title": "Use the channel that matches the kind of first contact you need.",
+        "summary": "Email and the short form are the safest launch routes. Social can help with lighter first contact. Safety concerns are always routed separately.",
+        "cards": [
+          {
+            "methodId": "email",
+            "title": "Email is the main public contact route.",
+            "summary": "Use email for general questions, support, referrals, and follow-up when you want a written reply that can be routed carefully.",
+            "bullets": [
+              "Useful for support, session, and general next-step questions",
+              "Works well when you are asking on behalf of someone else"
+            ],
+            "tone": "soft",
+            "actionLabel": "Email the team"
+          },
+          {
+            "methodId": "phone",
+            "title": "A public phone line is not published yet.",
+            "summary": "We are not inventing a phone number before it is confirmed for publication. Use the short form or email if you need a first reply.",
+            "bullets": [
+              "Keeps launch contact details honest",
+              "Lets the team share the right follow-up method later if needed"
+            ],
+            "tone": "muted",
+            "actionLabel": "Use the short form"
+          },
+          {
+            "methodId": "instagram",
+            "title": "Instagram stays available for lighter first contact.",
+            "summary": "It can work for a quick first message or to check which route fits, but safeguarding or private support concerns are better handled through email or the secure form.",
+            "bullets": [
+              "Good for a quick check-in or signpost",
+              "Move to email or the form when more detail or privacy matters"
+            ],
+            "tone": "default",
+            "actionLabel": "Open Instagram"
+          },
+          {
+            "methodId": "safeguarding",
+            "title": "Safety concerns need the safeguarding route.",
+            "summary": "If your question is about someone being at risk or you need to raise a concern, use the dedicated safeguarding information rather than the general enquiry queue.",
+            "bullets": [
+              "Urgent danger should go to emergency services",
+              "Safeguarding stays separate from general support questions"
+            ],
+            "tone": "callout",
+            "actionLabel": "Read safeguarding"
+          }
+        ]
+      },
+      "locationSection": {
+        "eyebrow": "Location and directions",
+        "title": "Rochdale is the public location anchor.",
+        "summary": "The page keeps service-area wording clear without publishing blanket venue details or loading a heavy map on arrival.",
+        "cards": [
+          {
+            "title": "Service area",
+            "body": "EncouragingYou is based in Rochdale and works locally with young people, families, referrers, volunteers, partners, and wider community members who may need support or connection.",
+            "tone": "soft"
+          },
+          {
+            "title": "Exact venue details",
+            "body": "Where a session, meeting point, or practical visit detail matters, it can be shared on enquiry once the right route is clear.",
+            "tone": "default"
+          },
+          {
+            "title": "Directions and maps",
+            "body": "This launch route does not embed an interactive map on first load. If public directions are approved later, they can be added without changing the overall contact architecture.",
+            "tone": "muted"
+          }
+        ],
+        "note": {
+          "title": "Need to check travel before attending?",
+          "body": "Use Sessions if you already know you want a live Saturday route, or send a short message if you need the exact venue confirmed before you travel.",
+          "tone": "info",
+          "action": {
+            "label": "Browse sessions",
+            "routeId": "sessions",
+            "variant": "text"
+          }
+        }
+      },
+      "faqSection": {
+        "groupId": "contact",
+        "eyebrow": "Questions before you send a message",
+        "title": "Contact route FAQs",
+        "summary": "These questions explain what Contact is for, when to use a more specific route, and how location or urgency are handled."
+      },
+      "formSurfaceId": "support-general",
+      "urgentNoticeTitle": "Urgent help"
+    },
+    {
+      "pageId": "get-involved",
+      "template": "get-involved-hub",
+      "metaDescription": "Join a session, volunteer, ask about a referral, or explore partnership and supporter pathways through one clear involvement hub.",
+      "intro": {
+        "eyebrow": "Get involved",
+        "title": "Get involved in a way that works for you.",
+        "summary": "Join a session, volunteer your time, ask about a referral, or explore partnership and supporter pathways without guessing which route comes first.",
+        "badges": [
+          "Participant routes",
+          "Volunteer pathways",
+          "Partner and referral-friendly"
+        ],
+        "supportingText": "The hub makes clear which steps already have dedicated guidance, which still rely on contact, and where privacy and safeguarding guidance still matter.",
+        "mediaId": "volunteer-partner-cta",
+        "actionReferences": [
+          {
+            "label": "Join a session",
+            "routeId": "sessions",
+            "variant": "primary"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "surface"
+          }
+        ]
+      },
+      "routesSection": {
+        "eyebrow": "Choose the route",
+        "title": "The first step matches why you are here.",
+        "summary": "Participants, volunteers, partners, referrers, and wider supporters are not all pushed through the same vague message."
+      },
+      "routeCards": [
+        {
+          "routeId": "join-session"
+        },
+        {
+          "routeId": "volunteer"
+        },
+        {
+          "routeId": "partner"
+        },
+        {
+          "routeId": "referral"
+        },
+        {
+          "routeId": "supporter"
+        }
+      ],
+      "processSection": {
+        "eyebrow": "How the process works",
+        "title": "Start small, then move into the right conversation.",
+        "summary": "People can see what happens next before they are asked for a long message, a formal proposal, or a commitment they do not understand yet.",
+        "steps": [
+          {
+            "title": "Choose the route that fits your reason for visiting.",
+            "body": "Use Sessions for live attendance, Volunteer for role interest, Partner for collaboration, and referral or supporter pathways when you are asking on someone else's behalf or offering broader practical help."
+          },
+          {
+            "title": "We keep the next step proportionate.",
+            "body": "Short enquiries come first. Where checks, safeguarding expectations, or role detail matter, that is explained before anyone is asked to commit."
+          },
+          {
+            "title": "Privacy and safeguarding stay visible near the contact points.",
+            "body": "No one should have to hunt for the privacy notice or safeguarding route after they have already decided to reach out."
+          }
+        ]
+      },
+      "launchNotice": {
+        "title": "Tone boundary",
+        "body": "Get involved stays practical and collaborative, with a first step proportionate to what is actually live at launch.",
+        "tone": "info"
+      },
+      "spotlightSection": {
+        "eyebrow": "Current opportunities and support needed",
+        "title": "Use a live opportunity when it helps, but keep the hub calm when the feed is quiet.",
+        "summary": "A public opportunity can be surfaced here without turning the route into a second newsroom or replacing the dedicated pathways above.",
+        "emptyTitle": "No separate public opportunity is live right now.",
+        "emptySummary": "The hub still works when there is nothing new to spotlight. Use contact if you can help in a way that does not fit one named path yet.",
+        "fallbackAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        },
+        "supportPanel": {
+          "eyebrow": "Support another way",
+          "title": "One-off help, venue offers, introductions, or local support can still start here.",
+          "body": "If you can help in a practical way that does not fit a named volunteer role or formal partnership route yet, send a short message and explain what you have in mind.",
+          "bullets": [
+            "Venue or space offers",
+            "Local introductions or practical help",
+            "Support that does not fit one named route yet"
+          ],
+          "action": {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "primary"
+          }
+        }
+      },
+      "faqSection": {
+        "groupId": "get-involved",
+        "eyebrow": "Questions before you send an enquiry",
+        "title": "Common involvement questions are answered in public first.",
+        "summary": "Keep the answers short, practical, and specific enough to reduce uncertainty before someone writes to the team."
+      },
+      "formSurfaceId": "involvement-general",
+      "ctaBand": {
+        "eyebrow": "Need the clearest next step?",
+        "title": "Use the hub for direction, then move into the route that fits best.",
+        "summary": "Live support stays on Sessions. Volunteer, referral, partner, and wider supporter questions still feel easy to start from here.",
+        "badges": ["Sessions", "Volunteer route", "Partner route and referral support"],
+        "actions": [
+          {
+            "label": "Join a session",
+            "routeId": "sessions",
+            "variant": "primary"
+          },
+          {
+            "label": "See volunteer with us",
+            "routeId": "volunteer",
+            "variant": "surface"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "surface"
+          }
+        ],
+        "note": {
+          "title": "Looking for a current public opportunity?",
+          "body": "Use Events & Updates when a live public opportunity has been published. The Get Involved hub stays useful even when that feed is quiet.",
+          "tone": "info",
+          "action": {
+            "label": "See events and updates",
+            "routeId": "events-updates",
+            "variant": "text"
+          }
+        }
+      }
+    },
+    {
+      "pageId": "safeguarding",
+      "template": "safeguarding",
+      "metaDescription": "Use the correct safeguarding route quickly, with separate child and adult guidance, a secure concern form, and clear emergency boundaries.",
+      "intro": {
+        "eyebrow": "Safeguarding",
+        "title": "Use the right safeguarding route quickly and clearly.",
+        "summary": "If you are worried about someone's safety or wellbeing, choose the child or adult safeguarding route below and use it as soon as possible. If someone is in immediate danger, call 999 first.",
+        "badges": [
+          "Child and adult routes kept separate",
+          "Secure concern form",
+          "Emergency services first if urgent"
+        ],
+        "supportingText": "This part of the site stays plainer and more procedural so the next step is easy to find.",
+        "actionReferences": [
+          {
+            "label": "Send a safeguarding message",
+            "href": "#safeguarding-concern",
+            "variant": "primary"
+          },
+          {
+            "label": "Read the Privacy Notice",
+            "routeId": "privacy",
+            "variant": "surface"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "safeguarding-child",
+      "template": "safeguarding",
+      "metaDescription": "Raise child safeguarding concerns clearly, with a secure concern form, emergency boundaries, and practical reporting guidance.",
+      "intro": {
+        "eyebrow": "Child safeguarding",
+        "title": "Raise child safeguarding concerns clearly and without delay.",
+        "summary": "Use this route when the concern is about a child or young person. If there is immediate danger or urgent medical risk, call 999 first.",
+        "badges": [
+          "Child or young person under 18",
+          "Secure concern form",
+          "Emergency services first if urgent"
+        ],
+        "supportingText": "This route is for safeguarding concerns, not ordinary programme, session, or volunteer questions.",
+        "actionReferences": [
+          {
+            "label": "Send a safeguarding message",
+            "href": "#safeguarding-concern",
+            "variant": "primary"
+          },
+          {
+            "label": "Read adult safeguarding",
+            "routeId": "safeguarding-adult",
+            "variant": "surface"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "safeguarding-adult",
+      "template": "safeguarding",
+      "metaDescription": "Raise adult safeguarding concerns clearly, with a secure concern form, emergency boundaries, and practical reporting guidance.",
+      "intro": {
+        "eyebrow": "Adult safeguarding",
+        "title": "Raise adult safeguarding concerns clearly and without delay.",
+        "summary": "Use this route when the concern is about an adult with care and support needs. If there is immediate danger or urgent medical risk, call 999 first.",
+        "badges": [
+          "Adult with care and support needs",
+          "Secure concern form",
+          "Emergency services first if urgent"
+        ],
+        "supportingText": "This route is for safeguarding concerns, not ordinary contact, referral, or partnership enquiries.",
+        "actionReferences": [
+          {
+            "label": "Send a safeguarding message",
+            "href": "#safeguarding-concern",
+            "variant": "primary"
+          },
+          {
+            "label": "Read child safeguarding",
+            "routeId": "safeguarding-child",
+            "variant": "surface"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "events-updates",
+      "template": "updates-index",
+      "metaDescription": "Browse occasional public events, current updates, and practical opportunities without confusing them with the live sessions route.",
+      "intro": {
+        "eyebrow": "Events & updates",
+        "title": "A calm place for public dates, updates, and current opportunities.",
+        "summary": "Use this route for occasional event notices, lightweight public updates, and current opportunities. Recurring Saturday support stays on the Sessions route.",
+        "badges": [
+          "Light editorial rhythm",
+          "Sessions stay separate",
+          "Imagery stays optional"
+        ],
+        "supportingText": "Updates appear when there is something real to share, without pretending there is a busy newsroom behind it.",
+        "actionReferences": [
+          {
+            "label": "Join a session",
+            "routeId": "sessions",
+            "variant": "primary"
+          },
+          {
+            "label": "Get involved",
+            "routeId": "get-involved",
+            "variant": "surface"
+          }
+        ]
+      },
+      "overviewPanels": [
+        {
+          "title": "Live support still belongs on Sessions",
+          "body": "Recurring Saturday CV support and youth club details stay on the Sessions route so the editorial feed does not become a duplicate timetable."
+        },
+        {
+          "title": "Events appear when details are confirmed",
+          "body": "Occasional community events or workshops can be published here once date, time, and location guidance is ready to share in public."
+        },
+        {
+          "title": "Opportunities can stay visible without pretending to be news",
+          "body": "Current ways to volunteer, partner, or support the work can sit alongside updates when they help people find a real next step."
+        }
+      ],
+      "emptyState": {
+        "eyebrow": "Events and updates",
+        "title": "No public items are live right now.",
+        "summary": "Use the sessions and contact routes for live support questions while this editorial space waits for confirmed public dates, updates, or opportunities.",
+        "primaryAction": {
+          "label": "Join a session",
+          "routeId": "sessions",
+          "variant": "primary"
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        }
+      },
+      "notice": {
+        "title": "Publishing rhythm",
+        "body": "This route stays light and honest. If publishing volume is low, it still points people toward the live routes that matter.",
+        "tone": "info"
+      },
+      "ctaBand": {
+        "eyebrow": "Next step",
+        "title": "Use the live route you need now, then come back here for wider public updates.",
+        "summary": "If you are looking for immediate support, start with Sessions or Contact. If you want to help, keep the involvement route close by.",
+        "badges": [
+          "Events stay occasional",
+          "Opportunities stay practical",
+          "No fake newsroom pattern"
+        ],
+        "actions": [
+          {
+            "label": "Browse live sessions",
+            "routeId": "sessions",
+            "variant": "primary"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "surface"
+          },
+          {
+            "label": "Explore involvement routes",
+            "routeId": "get-involved",
+            "variant": "text"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "volunteer",
+      "template": "volunteer-detail",
+      "metaDescription": "Volunteer with EncouragingYou through a clear first conversation about possible roles, support, safeguarding expectations, and realistic time commitment.",
+      "intro": {
+        "eyebrow": "Volunteer with us",
+        "title": "Volunteer in a way that feels clear, supported, and fair.",
+        "summary": "If you want to help, start with a short conversation about the kind of contribution that fits, the support you would need, and any safeguarding expectations that come with the role.",
+        "badges": [
+          "Possible pathways, not invented role promises",
+          "Safeguarding visible early",
+          "No pressure to over-commit"
+        ],
+        "supportingText": "The first step is a short enquiry, not a long application. We would rather explain the route properly than make volunteering sound vague or improvised.",
+        "mediaId": "volunteer-partner-cta",
+        "actionReferences": [
+          {
+            "label": "Send a volunteer enquiry",
+            "href": "#volunteer-enquiry",
+            "variant": "primary"
+          },
+          {
+            "label": "Back to get involved",
+            "routeId": "get-involved",
+            "variant": "surface"
+          },
+          {
+            "label": "Read safeguarding information",
+            "routeId": "safeguarding",
+            "variant": "text"
+          }
+        ]
+      },
+      "notice": {
+        "title": "Start with the right level of honesty",
+        "body": "This route explains likely volunteer pathways and the public safeguarding boundary, while exact responsibilities, supervision, and checks are confirmed through the first conversation.",
+        "tone": "important"
+      },
+      "pathwaysSection": {
+        "eyebrow": "Possible pathways",
+        "title": "Different people help in different ways.",
+        "summary": "The public brief supports a few credible pathways into volunteering. The exact shape depends on current need, fit, and the level of responsibility involved.",
+        "items": [
+          {
+            "eyebrow": "Session support",
+            "title": "Help create a calm, welcoming environment.",
+            "summary": "Some volunteers may help around sessions or community activity where practical support, warmth, and reliability matter.",
+            "bullets": [
+              "Helping people feel settled when they arrive",
+              "Supporting set-up, flow, or a welcoming atmosphere",
+              "Working alongside youth-led staff and volunteers rather than carrying the whole session"
+            ],
+            "note": "Good for people who want to support the atmosphere before taking on anything more formal.",
+            "iconAssetId": "icon-youth-activities"
+          },
+          {
+            "eyebrow": "Skills and encouragement",
+            "title": "Bring a practical skill, lived experience, or encouraging presence.",
+            "summary": "Some pathways may suit people who can offer encouragement, community understanding, or a practical skill that supports confidence-building work.",
+            "bullets": [
+              "Sharing encouragement, patience, and community-minded support",
+              "Helping around employability, confidence, or creative activity when appropriate",
+              "Starting with a conversation about fit before any role is agreed"
+            ],
+            "note": "Useful when you have something specific to offer but need to talk through where it fits first.",
+            "iconAssetId": "icon-mentoring"
+          },
+          {
+            "eyebrow": "Occasional practical help",
+            "title": "Offer lighter-touch or one-off help when regular volunteering is not realistic.",
+            "summary": "Not every contribution needs to begin as a long-term commitment. Sometimes the best first step is occasional help, local introductions, or practical support around community activity.",
+            "bullets": [
+              "One-off or occasional support can still be useful",
+              "Local knowledge, introductions, or event help may be relevant",
+              "If it does not fit a named role yet, the first conversation can still explore it fairly"
+            ],
+            "note": "This keeps the route open to real help without pretending every volunteer path is identical.",
+            "iconAssetId": "icon-community-event"
+          }
+        ],
+        "note": {
+          "title": "Need another route instead?",
+          "body": "If you are mainly looking for support, a referral path, or a community collaboration conversation, use the clearer public route for that instead of forcing it through volunteer language.",
+          "tone": "info",
+          "action": {
+            "label": "Back to the involvement hub",
+            "routeId": "get-involved",
+            "variant": "text"
+          }
+        }
+      },
+      "supportSection": {
+        "eyebrow": "Support and induction",
+        "title": "Support should come before commitment.",
+        "summary": "Volunteering feels meaningful and well-held, not like being dropped into an undefined role.",
+        "items": [
+          {
+            "title": "Start with a real conversation",
+            "body": "The first conversation covers why you want to help, what kind of role feels realistic, and where boundaries or extra support might be needed.",
+            "tone": "soft",
+            "iconAssetId": "icon-contact"
+          },
+          {
+            "title": "Induction and expectations stay visible",
+            "body": "If a role looks like a fit, day-to-day expectations, safeguarding context, and who you would be working alongside are explained before anything starts.",
+            "tone": "accent",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Questions are welcome before agreement",
+            "body": "The route stays open to people who want to ask first, especially if they are new to volunteering or unsure what kind of role would suit them.",
+            "tone": "soft",
+            "iconAssetId": "icon-mentoring"
+          }
+        ]
+      },
+      "processSection": {
+        "eyebrow": "How it works",
+        "title": "A fair first conversation comes before any role is agreed.",
+        "summary": "The enquiry flow is designed to stay low-pressure while still protecting the organisation, the people involved, and the safeguarding boundary.",
+        "steps": [
+          {
+            "title": "Send a short enquiry",
+            "body": "Tell us how you would like to help, what feels realistic, and whether you are asking about a regular or occasional contribution."
+          },
+          {
+            "title": "We reply with the right first conversation",
+            "body": "You get a response that routes the next conversation properly rather than forcing every volunteer into the same generic path."
+          },
+          {
+            "title": "Checks and support are explained before anything starts",
+            "body": "If a role involves safeguarding responsibilities or a higher level of trust, that is discussed clearly alongside support, supervision, and next steps."
+          }
+        ]
+      },
+      "screeningSection": {
+        "eyebrow": "Safeguarding and checks",
+        "title": "Safeguarding is part of the route, not fine print.",
+        "summary": "The public material supports clear safeguarding visibility, but it does not justify pretending every role has the same process or level of vetting.",
+        "items": [
+          {
+            "title": "Keep the safety boundary visible early",
+            "body": "If a pathway would place someone around young people or other sensitive community support, safeguarding expectations are visible before anyone is asked to proceed.",
+            "tone": "accent",
+            "iconAssetId": "icon-contact"
+          },
+          {
+            "title": "Checks depend on the level of responsibility",
+            "body": "Not every volunteer pathway needs the same checks. If a role requires more screening, that is explained proportionately and clearly before commitment.",
+            "tone": "soft",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Use the verified public trust statement",
+            "body": "The public safeguarding statement confirms that EncouragingYou follows safeguarding procedures and uses trained, vetted staff and volunteers.",
+            "tone": "soft",
+            "iconAssetId": "icon-contact"
+          }
+        ],
+        "note": {
+          "title": "Need the full safeguarding route?",
+          "body": "Use the dedicated safeguarding page if your question is about a concern, the safety process itself, or the difference between child and adult safeguarding routes.",
+          "tone": "important",
+          "action": {
+            "label": "Read safeguarding information",
+            "routeId": "safeguarding",
+            "variant": "text"
+          }
+        }
+      },
+      "timeCommitmentSection": {
+        "eyebrow": "Time commitment",
+        "title": "Start with what you can genuinely offer.",
+        "summary": "A realistic offer of time is more useful than a bigger promise that becomes hard to sustain.",
+        "items": [
+          {
+            "title": "Honesty is better than over-committing",
+            "body": "If you can only help occasionally or in a lighter-touch way, say that early. The first conversation matches the route to what is genuinely possible.",
+            "tone": "soft",
+            "iconAssetId": "icon-growth"
+          },
+          {
+            "title": "Regular and occasional roles are not the same",
+            "body": "Some support may need steadier availability while other contributions may be more flexible. The route explains that difference instead of hiding it.",
+            "tone": "accent",
+            "iconAssetId": "icon-community-event"
+          },
+          {
+            "title": "A slower start can still be the right start",
+            "body": "First-time volunteers, younger helpers, or people returning after a gap may need a clearer introduction and a gentler pace at the beginning.",
+            "tone": "soft",
+            "iconAssetId": "icon-youth-activities"
+          }
+        ]
+      },
+      "faqSection": {
+        "eyebrow": "Volunteer questions",
+        "title": "Questions people often ask before volunteering.",
+        "summary": "The route answers the basics without pretending the organisation has already published a fixed role catalogue.",
+        "groupId": "volunteer"
+      },
+      "formSurfaceId": "volunteer-enquiry",
+      "sidebarNotice": {
+        "title": "Privacy and safeguarding stay visible near the enquiry path.",
+        "body": "Use the volunteer form for interest in helping. If your question is really about immediate support, a referral, or a safeguarding concern, use the dedicated route instead.",
+        "tone": "info"
+      },
+      "ctaBand": {
+        "eyebrow": "Next step",
+        "title": "If volunteering is not the right fit, the wider involvement routes are still here.",
+        "summary": "Use the involvement hub if you want to compare routes again, the sessions hub if you need support now, or contact if you want to ask a broader question.",
+        "badges": [
+          "Volunteer path stays distinct",
+          "Support routes stay easy to find",
+          "No pressure-led conversion"
+        ],
+        "actions": [
+          {
+            "label": "Back to get involved",
+            "routeId": "get-involved",
+            "variant": "primary"
+          },
+          {
+            "label": "Browse live sessions",
+            "routeId": "sessions",
+            "variant": "surface"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "text"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "partner",
+      "template": "partner-detail",
+      "metaDescription": "Partner with EncouragingYou through one clear route for referrals, collaboration, sponsorship, venue support, and other practical local partnerships.",
+      "intro": {
+        "eyebrow": "Partner with us",
+        "title": "Start a partnership conversation that is clear, local, and proportionate.",
+        "summary": "Use this route if you are a school, referrer, community organisation, local business, or funder who wants to explore how EncouragingYou could support people or work alongside you.",
+        "badges": ["Referral-friendly", "Collaboration-led", "Youth-led credibility"],
+        "supportingText": "You do not need a formal proposal before first contact. A short outline of the local need, idea, or practical offer is enough to start the right conversation.",
+        "mediaId": "volunteer-partner-cta",
+        "actionReferences": [
+          {
+            "label": "Start a partnership enquiry",
+            "href": "#partner-enquiry",
+            "variant": "primary"
+          },
+          {
+            "label": "Back to get involved",
+            "routeId": "get-involved",
+            "variant": "surface"
+          },
+          {
+            "label": "See our programmes",
+            "routeId": "programmes",
+            "variant": "text"
+          }
+        ]
+      },
+      "notice": {
+        "title": "What this route does",
+        "body": "The partner page explains who collaboration is for, the kinds of support that may be useful, and how to start the next conversation without overstating how formal the process is.",
+        "tone": "info"
+      },
+      "audienceSection": {
+        "eyebrow": "Who this route is for",
+        "title": "Useful for institutions, local groups, and practical supporters who need the right starting point.",
+        "summary": "The page works for people asking about a young person, a shared activity, or a practical contribution to the wider work.",
+        "items": [
+          {
+            "title": "Schools, colleges, and referral-minded professionals",
+            "summary": "Use this route when you need to explain a local need, ask whether EncouragingYou could be a fit, or understand the safest next step before making assumptions.",
+            "action": {
+              "label": "Start a partnership enquiry",
+              "href": "#partner-enquiry",
+              "variant": "text"
+            }
+          },
+          {
+            "title": "Community organisations, faith groups, and local networks",
+            "summary": "This is the right route for joint delivery ideas, signposting conversations, or community collaboration that connects people into welcoming local support.",
+            "action": {
+              "label": "Explore community support",
+              "routeId": "programme-community-support-intergenerational-connection",
+              "variant": "text"
+            }
+          },
+          {
+            "title": "Local businesses, funders, venue partners, and practical supporters",
+            "summary": "Use the route if you can offer space, sponsorship, equipment, introductions, refreshments, or another practical contribution that could strengthen the work without turning the page into a fundraising pitch.",
+            "action": {
+              "label": "See get involved",
+              "routeId": "get-involved",
+              "variant": "text"
+            }
+          }
+        ]
+      },
+      "pathwaysSection": {
+        "eyebrow": "What collaboration could look like",
+        "title": "Partnership does not have to mean one fixed model.",
+        "summary": "Some conversations will be about a person who needs support. Others will be about place, funding, delivery, or practical local help. The public route makes those differences easy to see.",
+        "items": [
+          {
+            "eyebrow": "Referral pathway",
+            "title": "Referral and signposting conversations",
+            "summary": "If you are trying to help someone find the right starting point, use this route to explain the situation briefly and ask what support or next step could fit best.",
+            "bullets": [
+              "Useful for schools, referrers, and professionals supporting someone else",
+              "Low-friction first contact without a formal referral contract",
+              "Keeps the route clear if the next step should move into support rather than partnership"
+            ],
+            "note": "Say clearly if the message is about a specific person so the team can route it as a referral.",
+            "iconAssetId": "icon-contact",
+            "action": {
+              "label": "Open the enquiry form",
+              "href": "#partner-enquiry",
+              "variant": "primary"
+            }
+          },
+          {
+            "eyebrow": "Collaboration pathway",
+            "title": "Joint delivery, events, and community collaboration",
+            "summary": "Use this pathway if you want to explore a workshop, shared activity, community event, or local collaboration that fits EncouragingYou's youth-led and community-rooted direction.",
+            "bullets": [
+              "Good for local groups, community organisers, and organisations with overlapping aims",
+              "Works for one-off activities or lighter-touch collaboration, not only long programmes",
+              "Starts with audience, purpose, and local context rather than polished partnership language"
+            ],
+            "note": "Start with the idea and the people it could help, not a long deck.",
+            "iconAssetId": "icon-community-event",
+            "action": {
+              "label": "See our programmes",
+              "routeId": "programmes",
+              "variant": "text"
+            }
+          },
+          {
+            "eyebrow": "Practical support pathway",
+            "title": "Sponsorship, venue, in-kind, or practical local support",
+            "summary": "Partnership can also mean the practical help that makes community work possible, such as space, equipment, introductions, refreshments, or sponsorship.",
+            "bullets": [
+              "Relevant for local businesses, funders, venues, and practical supporters",
+              "Useful when the offer is practical rather than programme-led",
+              "Keeps the tone grounded and community-minded rather than corporate or donation-heavy"
+            ],
+            "note": "The route sounds useful and serious, not like a sponsorship package page.",
+            "iconAssetId": "icon-growth",
+            "action": {
+              "label": "Start a partnership enquiry",
+              "href": "#partner-enquiry",
+              "variant": "text"
+            }
+          }
+        ],
+        "note": {
+          "title": "No formal package required",
+          "body": "The first conversation can stay short and specific. A partnership enquiry is enough to explain the organisation, the local need, or the practical offer you have in mind.",
+          "tone": "info",
+          "action": {
+            "label": "Start a partnership enquiry",
+            "href": "#partner-enquiry",
+            "variant": "text"
+          }
+        }
+      },
+      "supportSection": {
+        "eyebrow": "Why this route can feel credible now",
+        "title": "Public trust should come from clarity, not overclaiming.",
+        "summary": "The page needs to feel serious enough for institutions while staying honest about what is and is not yet public.",
+        "items": [
+          {
+            "title": "The wider offer is already visible",
+            "body": "Programmes, Saturday sessions, safeguarding information, and the youth-led story are already public. A partner can understand the direction before sending an enquiry.",
+            "tone": "soft",
+            "iconAssetId": "icon-youth-activities"
+          },
+          {
+            "title": "Privacy and safeguarding are not hidden",
+            "body": "The contact point sits alongside the privacy notice and safeguarding route, which helps referral-minded visitors understand that care and boundaries matter here.",
+            "tone": "accent",
+            "iconAssetId": "icon-safe-space"
+          },
+          {
+            "title": "Rochdale-rooted, with room for broader relevance",
+            "body": "The public description stays grounded in Rochdale while leaving space for wider community relevance where that is truthful. It does not promise more geographic coverage than is currently supported.",
+            "tone": "soft",
+            "iconAssetId": "icon-community-event"
+          }
+        ],
+        "note": {
+          "title": "If the issue is urgent or about safety",
+          "body": "The partner route is for collaboration, referral, and practical support conversations. If the issue is really about an immediate concern or safeguarding process, use the dedicated safeguarding route instead.",
+          "tone": "important",
+          "action": {
+            "label": "Read safeguarding information",
+            "routeId": "safeguarding",
+            "variant": "text"
+          }
+        }
+      },
+      "processSection": {
+        "eyebrow": "How the first conversation works",
+        "title": "Start with the local context, then route the next step properly.",
+        "summary": "The goal is a proportionate first contact rather than a formal procurement process or a vague inbox.",
+        "steps": [
+          {
+            "title": "Share the organisation, opportunity, or local need.",
+            "body": "A few lines is enough. Say whether the conversation is about a referral, collaboration idea, sponsorship, venue offer, or another practical form of support."
+          },
+          {
+            "title": "We separate partnership questions from urgent or safeguarding issues.",
+            "body": "If the matter is about immediate safety or a safeguarding concern, use the dedicated safeguarding route instead of the partner form."
+          },
+          {
+            "title": "The next conversation can then be shaped around fit, scope, and practical reality.",
+            "body": "That may mean an email reply first, a clearer route into referral support, or a follow-up conversation once the local need is understood."
+          }
+        ]
+      },
+      "proofBoundary": {
+        "eyebrow": "Proof and publication boundaries",
+        "title": "The page stays credible by showing what is true now and what is still awaiting approval.",
+        "summary": "That leaves space for future partner logos, case studies, or testimonials without forcing placeholder proof into the launch route.",
+        "publishNow": [
+          "Youth-led, community-rooted support and current public programme and session routes.",
+          "A live partnership enquiry path for referrals, collaboration, sponsorship, venue support, and practical local help.",
+          "Clear privacy and safeguarding links near the contact point."
+        ],
+        "awaitingConfirmation": [
+          "Named partner examples, sector-specific case studies, or approved collaboration stories.",
+          "Any public wording about geographic coverage beyond the current Rochdale-centred description."
+        ],
+        "withheldUntilVerified": [
+          "Partner logos, testimonials, or success stories that are not yet approved for publication.",
+          "Claims about formal referral pipelines, guaranteed response times, or contractual arrangements that the repo does not evidence."
+        ]
+      },
+      "faqSection": {
+        "eyebrow": "Partner questions",
+        "title": "Questions people often ask before starting a partnership conversation.",
+        "summary": "The route answers the practical basics before anyone feels they need to send a long message or a formal proposal.",
+        "groupId": "partner"
+      },
+      "formSurfaceId": "partner-enquiry",
+      "sidebarNotice": {
+        "title": "Use the route that matches the real reason for getting in touch.",
+        "body": "The partner form is for collaboration, sponsorship, venue support, referrals, and practical local help. If you simply need general support or are unsure where to start, the contact route is still available.",
+        "tone": "info"
+      },
+      "ctaBand": {
+        "eyebrow": "Need a different route?",
+        "title": "Keep partnership distinct, while staying close to the wider involvement routes.",
+        "summary": "Use Get Involved if you want to compare pathways again, Volunteer if the real question is about giving time, or Contact if you need a broader support conversation.",
+        "badges": [
+          "Partner route stays distinct",
+          "Volunteer still has its own path",
+          "Referral-friendly next steps"
+        ],
+        "actions": [
+          {
+            "label": "Back to get involved",
+            "routeId": "get-involved",
+            "variant": "primary"
+          },
+          {
+            "label": "See volunteer with us",
+            "routeId": "volunteer",
+            "variant": "surface"
+          },
+          {
+            "label": "Contact the team",
+            "routeId": "contact",
+            "variant": "text"
+          }
+        ],
+        "note": {
+          "title": "Need to point someone toward support instead?",
+          "body": "If the conversation is really about a young person, parent, or community member needing a clear support route, use Contact or Sessions rather than forcing that need into a generic partnership label.",
+          "tone": "info",
+          "action": {
+            "label": "See contact route",
+            "routeId": "contact",
+            "variant": "text"
+          }
+        }
+      }
+    },
+    {
+      "pageId": "accessibility",
+      "template": "legal",
+      "metaDescription": "Accessibility statement for the live EncouragingYou website, including current evidence, known limitations, and a dedicated route to report a barrier."
+    },
+    {
+      "pageId": "cookies",
+      "template": "legal",
+      "metaDescription": "Plain-language cookie and storage-access information for the live EncouragingYou build, including the anonymous first-party analytics model and objection control.",
+      "emptyState": {
+        "eyebrow": "Policy route",
+        "title": "How this site uses cookies and other storage or access technologies.",
+        "summary": "This route explains what device-side technologies are live now, what stays absent, and how the live anonymous measurement layer can be switched off.",
+        "primaryAction": {
+          "label": "Read the Privacy Notice",
+          "routeId": "privacy",
+          "variant": "secondary"
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "text"
+        }
+      },
+      "notice": {
+        "title": "Launch state",
+        "body": "No banner is shown at launch because advertising, profiling, and other non-essential tracking are absent. This route is now the canonical notice for the live measurement model, the objection control, and any future change triggers.",
+        "tone": "info"
+      }
+    },
+    {
+      "pageId": "terms",
+      "template": "legal",
+      "metaDescription": "Plain-language terms and site-policy information for the live EncouragingYou website, including use boundaries, external links, downloads, and content ownership."
+    },
+    {
+      "pageId": "not-found",
+      "template": "not-found",
+      "metaDescription": "Use the main support routes to recover from a missing page.",
+      "emptyState": {
+        "eyebrow": "Page not found",
+        "title": "That page is missing, but the main routes into support are still here.",
+        "summary": "If you were looking for a session, support route, update, or safeguarding information, use the recovery links below rather than starting again from scratch.",
+        "primaryAction": {
+          "label": "Go to the homepage",
+          "href": "/",
+          "variant": "primary"
+        },
+        "secondaryAction": {
+          "label": "Contact the team",
+          "routeId": "contact",
+          "variant": "surface"
+        }
+      },
+      "notice": {
+        "title": "Need urgent help?",
+        "body": "If someone is in immediate danger or needs urgent emergency support, call 999. For safeguarding concerns, use the dedicated safeguarding route.",
+        "tone": "important"
+      }
+    }
+  ]
+}

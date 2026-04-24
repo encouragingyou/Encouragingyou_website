@@ -1,0 +1,211 @@
+{
+  "settings": {
+    "standardTarget": "WCAG 2.2 AA",
+    "assessmentApproach": "self-evaluation",
+    "formalAuditStatus": "no-independent-audit",
+    "lastReviewed": "2026-04-23",
+    "responseExpectation": "Use the accessibility feedback form or the published email route and we will reply as soon as we can.",
+    "feedbackSurfaceId": "accessibility-feedback"
+  },
+  "page": {
+    "eyebrow": "Accessibility statement",
+    "title": "How accessibility is handled on the live EncouragingYou website.",
+    "summary": "This statement covers the live public site, explains what has been checked so far, and shows the clearest route to ask for help or report a barrier.",
+    "statusNote": {
+      "title": "Current statement scope",
+      "body": "This is a launch-ready accessibility statement for the live site build. It does not claim a full independent audit or a formal declaration of complete compliance.",
+      "tone": "important"
+    },
+    "primaryAction": {
+      "label": "Report an accessibility problem",
+      "variant": "primary",
+      "href": "#accessibility-feedback-form"
+    },
+    "secondaryAction": {
+      "label": "Read the Cookie Notice",
+      "variant": "secondary",
+      "routeId": "cookies"
+    },
+    "summaryCards": [
+      {
+        "title": "What the site aims for",
+        "body": "The live site is built with WCAG 2.2 AA as the working standard for the public launch build.",
+        "bullets": [
+          "Readable contrast and visible focus states",
+          "Keyboard-friendly navigation and disclosure patterns",
+          "Clear form labels, helper text, and error states",
+          "Reduced-motion-safe behaviour where motion is used"
+        ]
+      },
+      {
+        "title": "What has been checked so far",
+        "body": "Accessibility has been reviewed through the current build, the shared component system, and the automated checks already wired into the repo.",
+        "bullets": [
+          "Keyboard reachability for skip links and FAQ disclosures",
+          "Reduced-motion handling on the live shell",
+          "Structured form validation, focus recovery, and no-JS confirmation flow",
+          "Browser and responsive checks through Astro and Playwright"
+        ]
+      },
+      {
+        "title": "What is still limited",
+        "body": "The site is honest about the difference between current checks and a full audit.",
+        "bullets": [
+          "No independent accessibility audit is published yet",
+          "External platforms such as Instagram, email clients, and calendar apps are outside the main site's direct control",
+          "A full assistive-technology compatibility matrix is not published at launch"
+        ]
+      }
+    ],
+    "contents": [
+      {
+        "id": "measures",
+        "label": "What the site already does"
+      },
+      {
+        "id": "testing",
+        "label": "How the launch build has been checked"
+      },
+      {
+        "id": "known-limitations",
+        "label": "Known limitations and alternatives"
+      },
+      {
+        "id": "external-surfaces",
+        "label": "External tools and destinations"
+      },
+      {
+        "id": "feedback",
+        "label": "How to ask for help or report a barrier"
+      },
+      {
+        "id": "review",
+        "label": "How this statement stays current"
+      }
+    ],
+    "measuresSection": {
+      "eyebrow": "What the site already does",
+      "title": "Accessibility support is built into the current shell, form system, and content patterns.",
+      "summary": "The site does not rely on a single accessibility widget or one isolated route. The working expectation is that the core public journeys should be understandable, keyboard reachable, and low-friction by default.",
+      "items": [
+        {
+          "title": "Structure and navigation",
+          "body": "The main shell includes skip links, breadcrumb support, clear heading hierarchy, and a mobile navigation pattern that can be opened, closed, and escaped from the keyboard.",
+          "tone": "soft",
+          "iconAssetId": "icon-safe-space"
+        },
+        {
+          "title": "Forms and feedback routes",
+          "body": "Live forms use labels above fields, helper text, visible validation, focused error recovery, and a no-JavaScript confirmation fallback instead of depending on placeholder-only labelling or client-side scripting alone.",
+          "tone": "soft",
+          "iconAssetId": "icon-contact"
+        },
+        {
+          "title": "Motion, media, and low-JS choices",
+          "body": "Reduced-motion preferences are respected, decorative imagery is kept separate from trust-critical claims, and the launch build avoids heavy third-party embeds such as an auto-loaded interactive map on the contact route.",
+          "tone": "soft",
+          "iconAssetId": "icon-growth"
+        }
+      ]
+    },
+    "assessmentSection": {
+      "eyebrow": "Launch evidence",
+      "title": "The current statement is based on repo evidence, not a claim of perfection.",
+      "summary": "The live statement distinguishes between what has been tested in the current repo and what still needs deeper review or future auditing.",
+      "items": [
+        {
+          "title": "Manual launch review",
+          "body": "The current build has been reviewed for keyboard reachability, visible focus treatment, reduced-motion behaviour, responsive layouts, and form handling across the main public routes.",
+          "tone": "soft"
+        },
+        {
+          "title": "Automated checks in the repo",
+          "body": "The site runs shared unit checks, Astro validation, and Playwright browser checks as part of the current quality gate. Those checks support the statement, but they are not a substitute for an independent audit.",
+          "tone": "soft"
+        },
+        {
+          "title": "Review date",
+          "body": "This statement was reviewed against the live launch build on 23 April 2026.",
+          "tone": "soft"
+        }
+      ]
+    },
+    "limitationSection": {
+      "eyebrow": "Known limitations",
+      "title": "Some boundaries are already known, and they are shown here plainly.",
+      "summary": "Known limitations are listed to reduce frustration. When there is a workaround or a better route, it should be visible alongside the limitation rather than hidden in support replies."
+    },
+    "limitations": [
+      {
+        "title": "External platforms are outside the main website's direct control",
+        "body": "Instagram, email applications opened from mailto links, and calendar applications opened from .ics files are not part of the core site runtime.",
+        "impact": "Accessibility on those platforms depends on the provider and the app someone uses.",
+        "workaround": "If an external destination blocks you, use the accessibility feedback form or the published email route and explain what you were trying to do."
+      },
+      {
+        "title": "Calendar downloads depend on the app that opens them",
+        "body": "The session routes provide .ics files as a convenience, but the experience after download is controlled by the calendar app or device, not by the website itself.",
+        "impact": "Import behaviour, reminders, and display may vary between devices and calendar tools.",
+        "workaround": "Use the session page itself as the source of truth for the next date and contact the team if you need the timing confirmed in another format."
+      },
+      {
+        "title": "A full assistive-technology compatibility matrix is not published yet",
+        "body": "The launch build includes manual and automated checks, but it does not yet publish a named matrix for every browser and assistive technology combination.",
+        "impact": "Some combinations may work well without being individually documented in public yet.",
+        "workaround": "Report the exact combination that caused difficulty so the team can reproduce it and respond more precisely."
+      }
+    ],
+    "externalSurfacesSection": {
+      "eyebrow": "External tools and destinations",
+      "title": "The statement separates the main site from the services it links out to.",
+      "summary": "This helps keep the statement truthful. The main site can describe and limit its own behaviour, but it should not overclaim control over platforms or applications it does not run.",
+      "items": [
+        {
+          "title": "Instagram and other social destinations",
+          "body": "Social links leave the site and move into a third-party platform with its own accessibility, privacy, and account settings."
+        },
+        {
+          "title": "Email and calendar apps",
+          "body": "Mailto links and calendar files are provided as practical next-step helpers, but the app that opens afterwards is outside the site's direct control."
+        },
+        {
+          "title": "Maps and directions",
+          "body": "The launch contact route does not load an interactive map by default. If a public directions link is added later, it will need its own external-service note and review."
+        }
+      ]
+    },
+    "feedbackSection": {
+      "eyebrow": "Feedback and help",
+      "title": "Tell us if something is difficult to use or if you need another format.",
+      "summary": "The accessibility route should help people reach a practical response, not just acknowledge a principle.",
+      "bullets": [
+        "Tell us which page or action caused the problem",
+        "Tell us what you were trying to do",
+        "Tell us what device, browser, or assistive technology you were using if you know it",
+        "Tell us if you need the information in another format"
+      ],
+      "note": {
+        "title": "Need a general support reply instead?",
+        "body": "If the issue is mainly about joining a session, getting help, or asking a wider question, the Contact route is still available as the general conversation path.",
+        "tone": "info",
+        "action": {
+          "label": "Go to Contact",
+          "variant": "text",
+          "routeId": "contact"
+        }
+      }
+    },
+    "reviewSection": {
+      "eyebrow": "Keeping this current",
+      "title": "This statement should change when the build changes.",
+      "summary": "The statement is tied to the live public build, not to future plans or ideal conditions."
+    },
+    "reviewTriggers": [
+      "A new public form, embed, processor, or third-party platform is added",
+      "A published directions or map link goes live",
+      "A formal accessibility audit is completed",
+      "A new known limitation is found on the live site",
+      "Core route behaviour changes in a way that affects keyboard, motion, forms, or media"
+    ]
+  }
+}

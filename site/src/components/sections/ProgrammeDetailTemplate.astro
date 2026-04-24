@@ -1,0 +1,496 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import CtaBand from "./CtaBand.astro";
+import EmptyState from "../ui/EmptyState.astro";
+import FeatureSplit from "./FeatureSplit.astro";
+import FaqGroup from "../ui/FaqGroup.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import PageSection from "../layout/PageSection.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import SessionSummaryCard from "../ui/SessionSummaryCard.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+
+interface Props {
+  hero: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    bullets: string[];
+    media: MediaAsset;
+    disclosure?: MediaDisclosure | string | null;
+    primaryAction?: ActionLink;
+    secondaryAction?: ActionLink;
+    badges?: string[];
+    supportingNote?: string;
+  };
+  atAGlanceSection: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    audienceLabel: string;
+    stateLabel: string;
+    deliveryLabel: string;
+    trustLabel: string;
+  };
+  atAGlance: {
+    audienceSummary: string;
+    audienceHighlights: string[];
+    deliverySummary: string;
+    trustNotes: string[];
+    state: {
+      id: string;
+      label: string;
+      summary: string;
+      tone: BadgeTone;
+      linkedSession: {
+        title: string;
+        href: string;
+        summary: string;
+      } | null;
+    };
+  };
+  contentSection: {
+    eyebrow: string;
+    title: string;
+  };
+  experienceSection?: {
+    eyebrow?: string;
+    title: string;
+    summary?: string;
+    items: Array<{
+      title: string;
+      summary: string;
+      icon: MediaAsset;
+    }>;
+  } | null;
+  audienceRoutesSection?: {
+    eyebrow?: string;
+    title: string;
+    summary?: string;
+    items: Array<{
+      title: string;
+      summary: string;
+      icon: MediaAsset;
+      action: ActionLink;
+      tone?: "accent" | "callout" | "default" | "muted" | "soft";
+    }>;
+  } | null;
+  sections: Array<{
+    id: string;
+    heading: string;
+    body: string[];
+    bullets: string[];
+  }>;
+  relatedSessionsSection: {
+    eyebrow?: string;
+    title: string;
+    summary?: string;
+    emptyState?: {
+      eyebrow: string;
+      title: string;
+      summary: string;
+      primaryAction: ActionLink;
+      secondaryAction?: ActionLink;
+    } | null;
+    panels?: Array<{
+      title: string;
+      summary: string;
+      tone?: "accent" | "callout" | "default" | "muted" | "soft";
+      icon?: MediaAsset;
+    }>;
+    notice?: {
+      action?: ActionLink;
+      title?: string;
+      body: string;
+      tone?: "error" | "important" | "info" | "success";
+    } | null;
+  };
+  relatedSessions: Array<{
+    title: string;
+    summary: string;
+    href: string;
+    calendarHref?: string | null;
+    timeLabel: string;
+    nextLabel?: string | null;
+    statusLabel?: string | null;
+    statusMessage?: string | null;
+    icon: MediaAsset;
+  }>;
+  trustSection: {
+    eyebrow: string;
+    title: string;
+    summary?: string;
+    cards: Array<{
+      title: string;
+      summary: string;
+      icon: MediaAsset;
+    }>;
+    notes: string[];
+  };
+  faqSection?: {
+    eyebrow?: string;
+    title: string;
+  } | null;
+  faqGroupId?: string | null;
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  evidenceNotice?: {
+    title?: string;
+    body: string;
+    tone?: "error" | "important" | "info" | "success";
+  } | null;
+  ctaBand: {
+    eyebrow: string;
+    title: string;
+    summary: string;
+    badges: string[];
+    actions: ActionLink[];
+    note?: {
+      action?: ActionLink;
+      title?: string;
+      body: string;
+      tone?: "error" | "important" | "info" | "success";
+    };
+  };
+  notice?: {
+    title?: string;
+    body: string;
+    tone?: "error" | "important" | "info" | "success";
+  };
+}
+
+const {
+  hero,
+  atAGlanceSection,
+  atAGlance,
+  contentSection,
+  experienceSection = null,
+  audienceRoutesSection = null,
+  sections,
+  relatedSessionsSection,
+  relatedSessions,
+  trustSection,
+  faqSection = null,
+  faqGroupId = null,
+  faqs = [],
+  evidenceNotice = null,
+  ctaBand,
+  notice
+} = Astro.props as Props;
+
+const relatedSessionPanels = relatedSessionsSection.panels ?? [];
+const hasRelatedSessionsPrimary =
+  relatedSessions.length > 0 || Boolean(relatedSessionsSection.emptyState);
+const hasRelatedSessionsAside =
+  Boolean(relatedSessionsSection.notice) || relatedSessionPanels.length > 0;
+const hasRelatedSessionsSection = hasRelatedSessionsPrimary || hasRelatedSessionsAside;
+---
+
+<PageSection className="page-section--intro">
+  <FeatureSplit
+    eyebrow={hero.eyebrow}
+    title={hero.title}
+    summary={hero.summary}
+    bullets={hero.bullets}
+    media={hero.media}
+    disclosure={hero.disclosure}
+    primaryAction={hero.primaryAction}
+    secondaryAction={hero.secondaryAction}
+    badges={hero.badges ?? [atAGlance.state.label]}
+    supportingNote={hero.supportingNote}
+    headingLevel={1}
+  />
+</PageSection>
+
+<PageSection tone="tint">
+  <div class="programme-detail-section">
+    <SectionHeading
+      eyebrow={atAGlanceSection.eyebrow}
+      title={atAGlanceSection.title}
+      summary={atAGlanceSection.summary}
+    />
+    <div class="programme-at-a-glance">
+      <CardPanel heading={atAGlanceSection.audienceLabel} tone="soft">
+        <p>{atAGlance.audienceSummary}</p>
+        <ul class="programme-detail-list">
+          {atAGlance.audienceHighlights.map((highlight) => <li>{highlight}</li>)}
+        </ul>
+      </CardPanel>
+
+      <CardPanel heading={atAGlanceSection.stateLabel} tone="soft">
+        <p class="programme-at-a-glance__state-badge">
+          <span class={`badge badge--${atAGlance.state.tone}`} data-badge-state="default">
+            {atAGlance.state.label}
+          </span>
+        </p>
+        <p>{atAGlance.state.summary}</p>
+        {
+          atAGlance.state.linkedSession ? (
+            <p class="programme-at-a-glance__linked-session">
+              <span>Live route:</span>{" "}
+              <a href={atAGlance.state.linkedSession.href}>
+                {atAGlance.state.linkedSession.title}
+              </a>
+              {" · "}
+              {atAGlance.state.linkedSession.summary}
+            </p>
+          ) : null
+        }
+      </CardPanel>
+
+      <CardPanel heading={atAGlanceSection.deliveryLabel} tone="soft">
+        <p>{atAGlance.deliverySummary}</p>
+      </CardPanel>
+
+      <CardPanel heading={atAGlanceSection.trustLabel} tone="soft">
+        <ul class="programme-detail-list">
+          {atAGlance.trustNotes.map((note) => <li>{note}</li>)}
+        </ul>
+      </CardPanel>
+    </div>
+  </div>
+</PageSection>
+
+{
+  experienceSection ? (
+    <PageSection>
+      <div class="programme-detail-section">
+        <SectionHeading
+          eyebrow={experienceSection.eyebrow ?? ""}
+          title={experienceSection.title}
+          summary={experienceSection.summary}
+        />
+        <div class="action-grid">
+          {experienceSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.summary}
+              icon={item.icon}
+              tone="soft"
+            />
+          ))}
+        </div>
+      </div>
+    </PageSection>
+  ) : null
+}
+
+{
+  audienceRoutesSection ? (
+    <PageSection>
+      <div class="programme-detail-section">
+        <SectionHeading
+          eyebrow={audienceRoutesSection.eyebrow ?? ""}
+          title={audienceRoutesSection.title}
+          summary={audienceRoutesSection.summary}
+        />
+        <div class="action-grid">
+          {audienceRoutesSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.summary}
+              icon={item.icon}
+              actions={[item.action]}
+              tone={item.tone ?? "soft"}
+              headingLevel={3}
+            />
+          ))}
+        </div>
+      </div>
+    </PageSection>
+  ) : null
+}
+
+<PageSection tone="band">
+  <div class="programme-detail-section">
+    <SectionHeading eyebrow={contentSection.eyebrow} title={contentSection.title} />
+    <div class="detail-grid layout-grid layout-grid--policy">
+      {
+        sections.map((section) => (
+          <CardPanel heading={section.heading}>
+            <div class="content-stack">
+              {section.body.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+            <ul class="check-list">
+              {section.bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </CardPanel>
+        ))
+      }
+    </div>
+  </div>
+</PageSection>
+
+{
+  hasRelatedSessionsSection ? (
+    <PageSection>
+      <div class="programme-detail-section">
+        <SectionHeading
+          eyebrow={relatedSessionsSection.eyebrow ?? ""}
+          title={relatedSessionsSection.title}
+          summary={relatedSessionsSection.summary}
+        />
+        {hasRelatedSessionsPrimary && hasRelatedSessionsAside ? (
+          <div class="layout-grid layout-grid--sidebar">
+            <div class="sessions-strip">
+              {relatedSessions.length > 0 ? (
+                <div class="sessions-strip__grid layout-grid layout-grid--summary">
+                  {relatedSessions.map((session) => (
+                    <SessionSummaryCard {...session} />
+                  ))}
+                </div>
+              ) : relatedSessionsSection.emptyState ? (
+                <EmptyState
+                  eyebrow={relatedSessionsSection.emptyState.eyebrow}
+                  headingLevel={2}
+                  title={relatedSessionsSection.emptyState.title}
+                  summary={relatedSessionsSection.emptyState.summary}
+                  primaryAction={relatedSessionsSection.emptyState.primaryAction}
+                  secondaryAction={relatedSessionsSection.emptyState.secondaryAction}
+                />
+              ) : null}
+            </div>
+            <div class="layout-stack layout-stack--roomy">
+              {relatedSessionsSection.notice ? (
+                <NoticeBlock
+                  title={relatedSessionsSection.notice.title}
+                  body={relatedSessionsSection.notice.body}
+                  tone={relatedSessionsSection.notice.tone ?? "info"}
+                  action={relatedSessionsSection.notice.action}
+                />
+              ) : null}
+              {relatedSessionPanels.map((panel) => (
+                <CardPanel
+                  heading={panel.title}
+                  summary={panel.summary}
+                  tone={panel.tone ?? "soft"}
+                  icon={panel.icon}
+                />
+              ))}
+            </div>
+          </div>
+        ) : hasRelatedSessionsPrimary ? (
+          <div class="sessions-strip">
+            {relatedSessions.length > 0 ? (
+              <div class="sessions-strip__grid layout-grid layout-grid--summary">
+                {relatedSessions.map((session) => (
+                  <SessionSummaryCard {...session} />
+                ))}
+              </div>
+            ) : relatedSessionsSection.emptyState ? (
+              <EmptyState
+                eyebrow={relatedSessionsSection.emptyState.eyebrow}
+                headingLevel={2}
+                title={relatedSessionsSection.emptyState.title}
+                summary={relatedSessionsSection.emptyState.summary}
+                primaryAction={relatedSessionsSection.emptyState.primaryAction}
+                secondaryAction={relatedSessionsSection.emptyState.secondaryAction}
+              />
+            ) : null}
+          </div>
+        ) : (
+          <div class="layout-stack layout-stack--roomy">
+            {relatedSessionsSection.notice ? (
+              <NoticeBlock
+                title={relatedSessionsSection.notice.title}
+                body={relatedSessionsSection.notice.body}
+                tone={relatedSessionsSection.notice.tone ?? "info"}
+                action={relatedSessionsSection.notice.action}
+              />
+            ) : null}
+            {relatedSessionPanels.map((panel) => (
+              <CardPanel
+                heading={panel.title}
+                summary={panel.summary}
+                tone={panel.tone ?? "soft"}
+                icon={panel.icon}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </PageSection>
+  ) : null
+}
+
+{
+  faqSection && faqGroupId && faqs.length > 0 ? (
+    <PageSection tone="tint">
+      <div class="layout-grid layout-grid--sidebar">
+        <div class="layout-stack layout-stack--roomy">
+          <SectionHeading eyebrow={faqSection.eyebrow ?? ""} title={faqSection.title} />
+          <FaqGroup groupId={faqGroupId} items={faqs} />
+        </div>
+        {evidenceNotice ? (
+          <NoticeBlock
+            title={evidenceNotice.title}
+            body={evidenceNotice.body}
+            tone={evidenceNotice.tone ?? "info"}
+          />
+        ) : null}
+      </div>
+    </PageSection>
+  ) : evidenceNotice ? (
+    <PageSection tone="tint">
+      <NoticeBlock
+        title={evidenceNotice.title}
+        body={evidenceNotice.body}
+        tone={evidenceNotice.tone ?? "info"}
+      />
+    </PageSection>
+  ) : null
+}
+
+<PageSection>
+  <div class="programme-trust">
+    <div class="programme-trust__intro">
+      <SectionHeading
+        eyebrow={trustSection.eyebrow}
+        title={trustSection.title}
+        summary={trustSection.summary}
+      />
+      {
+        trustSection.notes.length > 0 ? (
+          <CardPanel heading="What to keep clear" tone="callout">
+            <ul class="programme-detail-list">
+              {trustSection.notes.map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </CardPanel>
+        ) : null
+      }
+    </div>
+    <div class="trust-grid">
+      {
+        trustSection.cards.map((card) => (
+          <CardPanel
+            heading={card.title}
+            summary={card.summary}
+            icon={card.icon}
+            tone="muted"
+          />
+        ))
+      }
+    </div>
+  </div>
+</PageSection>
+
+<PageSection>
+  <CtaBand
+    eyebrow={ctaBand.eyebrow}
+    title={ctaBand.title}
+    summary={ctaBand.summary}
+    badges={ctaBand.badges}
+    actions={ctaBand.actions}
+    note={ctaBand.note ?? notice}
+  />
+</PageSection>

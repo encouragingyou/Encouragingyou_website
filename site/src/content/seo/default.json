@@ -1,0 +1,158 @@
+{
+  "defaults": {
+    "titleSeparator": " | ",
+    "siteName": "EncouragingYou",
+    "locale": "en_GB",
+    "defaultRobots": "index,follow",
+    "noindexRobots": "noindex,follow",
+    "defaultOgType": "website",
+    "defaultSocialMediaId": "hero-home"
+  },
+  "pageDirectives": [
+    {
+      "pageId": "home",
+      "indexing": "index",
+      "primaryTopic": "Youth-led community support in Rochdale",
+      "searchIntent": "Find a welcoming first step into support, sessions, or community help in Rochdale.",
+      "titleOverride": "EncouragingYou | Youth-led support in Rochdale"
+    },
+    {
+      "pageId": "about",
+      "indexing": "index",
+      "primaryTopic": "About EncouragingYou",
+      "searchIntent": "Understand the mission, youth-led approach, and community purpose before taking the next step."
+    },
+    {
+      "pageId": "programmes",
+      "indexing": "index",
+      "primaryTopic": "Support programmes",
+      "searchIntent": "Compare the four programme pillars and choose the route that fits best."
+    },
+    {
+      "pageId": "programme-community-friendship",
+      "indexing": "index",
+      "primaryTopic": "Community and friendship support",
+      "searchIntent": "Check whether the belonging-led community route feels like the right starting point."
+    },
+    {
+      "pageId": "programme-personal-growth-life-skills",
+      "indexing": "index",
+      "primaryTopic": "Personal growth and life skills support",
+      "searchIntent": "Understand the confidence-building and life-skills offer before making contact."
+    },
+    {
+      "pageId": "programme-career-support-cv-help",
+      "indexing": "index",
+      "primaryTopic": "Career support and CV help",
+      "searchIntent": "Find practical CV and job-readiness support and then move into the live Saturday route."
+    },
+    {
+      "pageId": "programme-community-support-intergenerational-connection",
+      "indexing": "index",
+      "primaryTopic": "Community support and intergenerational connection",
+      "searchIntent": "Understand the wider community-support route without confusing it with a formal care service."
+    },
+    {
+      "pageId": "sessions",
+      "indexing": "index",
+      "primaryTopic": "Recurring Saturday sessions",
+      "searchIntent": "See the live recurring offers, timings, and what to expect before attending."
+    },
+    {
+      "pageId": "session-cv-support",
+      "indexing": "index",
+      "primaryTopic": "CV support session",
+      "searchIntent": "Check practical session details, what to bring, and how to join the CV support offer."
+    },
+    {
+      "pageId": "session-youth-club",
+      "indexing": "index",
+      "primaryTopic": "Youth club session",
+      "searchIntent": "Check the atmosphere, safe-space model, and first-visit details before attending youth club."
+    },
+    {
+      "pageId": "events-updates",
+      "indexing": "index",
+      "primaryTopic": "Public events and updates",
+      "searchIntent": "Find current dates, updates, and opportunities without confusing them with the live support routes."
+    },
+    {
+      "pageId": "get-involved",
+      "indexing": "index",
+      "primaryTopic": "Get involved pathways",
+      "searchIntent": "Choose the right route for volunteering, partnering, referrals, or wider support."
+    },
+    {
+      "pageId": "volunteer",
+      "indexing": "index",
+      "primaryTopic": "Volunteer pathways",
+      "searchIntent": "Understand roles, expectations, checks, and how to start volunteering."
+    },
+    {
+      "pageId": "partner",
+      "indexing": "index",
+      "primaryTopic": "Partnership pathways",
+      "searchIntent": "Understand how to collaborate, refer, sponsor, or support the organisation."
+    },
+    {
+      "pageId": "contact",
+      "indexing": "index",
+      "primaryTopic": "Contact EncouragingYou",
+      "searchIntent": "Ask a question, request support, or route a visitor into the right next step."
+    },
+    {
+      "pageId": "safeguarding",
+      "indexing": "index",
+      "primaryTopic": "Safeguarding guidance",
+      "searchIntent": "Reach the right safeguarding route quickly and understand the emergency boundary."
+    },
+    {
+      "pageId": "safeguarding-child",
+      "indexing": "index",
+      "primaryTopic": "Child safeguarding guidance",
+      "searchIntent": "Reach the dedicated child safeguarding route quickly and clearly."
+    },
+    {
+      "pageId": "safeguarding-adult",
+      "indexing": "index",
+      "primaryTopic": "Adult safeguarding guidance",
+      "searchIntent": "Reach the dedicated adult safeguarding route quickly and clearly."
+    },
+    {
+      "pageId": "privacy",
+      "indexing": "noindex",
+      "primaryTopic": "Privacy notice",
+      "searchIntent": "Review how enquiry and contact data is handled after following a direct trust link."
+    },
+    {
+      "pageId": "cookies",
+      "indexing": "noindex",
+      "primaryTopic": "Cookie and storage notice",
+      "searchIntent": "Review the site's current storage and access position after following a direct trust link."
+    },
+    {
+      "pageId": "accessibility",
+      "indexing": "noindex",
+      "primaryTopic": "Accessibility statement",
+      "searchIntent": "Review accessibility commitments, known limitations, and the feedback route after following a direct trust link."
+    },
+    {
+      "pageId": "terms",
+      "indexing": "noindex",
+      "primaryTopic": "Site policy",
+      "searchIntent": "Review site-use boundaries and basic legal policy after following a direct trust link."
+    },
+    {
+      "pageId": "not-found",
+      "indexing": "noindex",
+      "primaryTopic": "Broken-link recovery",
+      "searchIntent": "Recover from an outdated or broken link without losing the main route options."
+    },
+    {
+      "pageId": "component-preview",
+      "indexing": "noindex",
+      "primaryTopic": "Internal component preview",
+      "searchIntent": "Support internal QA only; this route should not appear in search."
+    }
+  ]
+}

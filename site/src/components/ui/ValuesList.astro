@@ -1,0 +1,30 @@
+---
+import MediaIcon from "./MediaIcon.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  className?: string;
+  items: Array<{
+    icon: MediaAsset;
+    summary: string;
+    title: string;
+  }>;
+}
+
+const { className = "", items } = Astro.props;
+const listClass = `values-list${className ? ` ${className}` : ""}`;
+---
+
+<ul class={listClass}>
+  {
+    items.map((item) => (
+      <li class="values-list__item">
+        <MediaIcon asset={item.icon} className="values-list__icon" />
+        <div class="values-list__content">
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>

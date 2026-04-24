@@ -1,0 +1,120 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import Badge from "./Badge.astro";
+import DisclosureNote from "./DisclosureNote.astro";
+import MediaIcon from "./MediaIcon.astro";
+import MediaPicture from "./MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface MetaRow {
+  kind: "date" | "location" | "status" | "time";
+  label: string;
+}
+
+interface Props {
+  action: ActionLink;
+  disclosure?: MediaDisclosure | string | null;
+  featured?: boolean;
+  icon: MediaAsset;
+  media?: MediaAsset;
+  metaLabel: string;
+  metaRows: MetaRow[];
+  summary: string;
+  title: string;
+  typeLabel: string;
+  updateType: "event" | "opportunity" | "update";
+}
+
+const {
+  action,
+  disclosure = null,
+  featured = false,
+  icon,
+  media,
+  metaLabel,
+  metaRows,
+  summary,
+  title,
+  typeLabel,
+  updateType
+} = Astro.props;
+
+function iconPath(kind: MetaRow["kind"]) {
+  if (kind === "date") {
+    return "M7 2.75A.75.75 0 0 1 7.75 2h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 7 2.75Zm7 0A.75.75 0 0 1 14.75 2h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 14 2.75ZM4 5.75A1.75 1.75 0 0 1 5.75 4h10.5A1.75 1.75 0 0 1 18 5.75v9.5A1.75 1.75 0 0 1 16.25 17H5.75A1.75 1.75 0 0 1 4 15.25Zm1.5 1.75v7.75a.25.25 0 0 0 .25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm2.5 2.25h2.5v2.25H8Zm4 0h2.5v2.25H12Z";
+  }
+
+  if (kind === "time") {
+    return "M12 4.5a7.5 7.5 0 1 0 0 15a7.5 7.5 0 0 0 0-15Zm0 1.5a6 6 0 1 1 0 12a6 6 0 0 1 0-12Zm-.75 2.75a.75.75 0 0 1 1.5 0v3.19l2.06 1.24a.75.75 0 0 1-.78 1.28l-2.42-1.46a.75.75 0 0 1-.36-.64Z";
+  }
+
+  if (kind === "location") {
+    return "M12 3.5a5 5 0 0 0-5 5c0 3.66 4.25 8.44 4.43 8.64a.75.75 0 0 0 1.14 0c.18-.2 4.43-4.98 4.43-8.64a5 5 0 0 0-5-5Zm0 6.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3Z";
+  }
+
+  return "M4.75 12A7.25 7.25 0 1 1 12 19.25A7.26 7.26 0 0 1 4.75 12Zm7.25-3.75a.88.88 0 1 0 0-1.75a.88.88 0 0 0 0 1.75Zm0 7a.75.75 0 0 0 .75-.75v-3.5a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 .75.75Z";
+}
+---
+
+<article
+  class:list={[
+    "editorial-card",
+    `editorial-card--${updateType}`,
+    featured && "editorial-card--featured"
+  ]}
+  data-editorial-item
+  data-editorial-filter-kind={updateType}
+>
+  {
+    media ? (
+      <div class="editorial-card__media">
+        <MediaPicture
+          asset={media}
+          sizes="(min-width: 70rem) 28rem, 100vw"
+          eager={featured}
+        />
+        {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+      </div>
+    ) : null
+  }
+
+  <div class="editorial-card__body">
+    <div class="editorial-card__header">
+      <div class="editorial-card__heading-group">
+        <p class="eyebrow">{featured ? "Pinned now" : metaLabel}</p>
+        <h2 class="editorial-card__title">{title}</h2>
+      </div>
+      <div class="editorial-card__badges">
+        <Badge label={typeLabel} tone={featured ? "accent" : "soft"} />
+        {featured ? <Badge label="Featured" tone="meta" /> : null}
+      </div>
+    </div>
+
+    <p class="editorial-card__summary">{summary}</p>
+
+    <div class="editorial-card__meta" aria-label="Editorial item details">
+      <div class="editorial-card__meta-leading">
+        <MediaIcon asset={icon} className="editorial-card__type-icon" />
+        <span>{typeLabel}</span>
+      </div>
+
+      {
+        metaRows.map((row) => (
+          <div class="editorial-card__meta-item">
+            <svg
+              class="editorial-card__meta-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="currentColor"
+            >
+              <path d={iconPath(row.kind)} />
+            </svg>
+            <span>{row.label}</span>
+          </div>
+        ))
+      }
+    </div>
+
+    <ActionCluster actions={[action]} className="editorial-card__actions" />
+  </div>
+</article>

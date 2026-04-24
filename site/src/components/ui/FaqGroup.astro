@@ -1,0 +1,17 @@
+---
+import AccordionGroup from "./AccordionGroup.astro";
+
+interface FaqItem {
+  answer: string;
+  question: string;
+}
+
+interface Props {
+  groupId?: string;
+  items: FaqItem[];
+}
+
+const { items, groupId = "faq-group" } = Astro.props;
+---
+
+<AccordionGroup groupId={groupId} items={items} className="faq-list" />

@@ -1,0 +1,59 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import MediaIcon from "./MediaIcon.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  action?: ActionLink;
+  bullets?: string[];
+  eyebrow?: string;
+  headingLevel?: 2 | 3;
+  icon: MediaAsset;
+  note?: string;
+  summary: string;
+  title: string;
+}
+
+const {
+  action,
+  bullets = [],
+  eyebrow,
+  headingLevel = 3,
+  icon,
+  note,
+  summary,
+  title
+} = Astro.props;
+const actions = action ? [action] : [];
+---
+
+<article class="involvement-role-card">
+  <div class="involvement-role-card__header">
+    <MediaIcon asset={icon} className="card-panel__icon involvement-role-card__icon" />
+    <div class="involvement-role-card__heading-copy">
+      {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
+      {
+        headingLevel === 2 ? (
+          <h2 class="involvement-role-card__title">{title}</h2>
+        ) : (
+          <h3 class="involvement-role-card__title">{title}</h3>
+        )
+      }
+    </div>
+  </div>
+
+  <p class="involvement-role-card__summary">{summary}</p>
+
+  {
+    bullets.length > 0 ? (
+      <ul class="check-list involvement-role-card__list">
+        {bullets.map((bullet) => (
+          <li>{bullet}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  {note ? <p class="involvement-role-card__note">{note}</p> : null}
+  <ActionCluster actions={actions} className="involvement-role-card__actions" />
+</article>

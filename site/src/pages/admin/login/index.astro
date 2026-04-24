@@ -1,0 +1,111 @@
+---
+import AdminAccessState from "../../../components/admin/AdminAccessState.astro";
+import AdminAuthLayout from "../../../layouts/AdminAuthLayout.astro";
+import { resolveSafeAdminReturnTo } from "../../../lib/cms/admin-session.js";
+
+export const prerender = false;
+
+const adminState = Astro.locals.admin;
+const returnTo = resolveSafeAdminReturnTo(Astro.url.searchParams.get("returnTo"));
+const status = `${Astro.url.searchParams.get("state") ?? ""}`.trim();
+
+const statusMessages = {
+  "invalid-credentials": {
+    tone: "error",
+    message: "The email or password was not accepted."
+  },
+  locked: {
+    tone: "error",
+    message: "This account is temporarily locked after repeated failed password attempts."
+  },
+  "mfa-expired": {
+    tone: "error",
+    message: "The MFA challenge expired. Sign in again."
+  },
+  "session-expired": {
+    tone: "error",
+    message: "The previous session expired. Sign in again."
+  },
+  "logged-out": {
+    tone: "success",
+    message: "Signed out of the admin portal."
+  }
+};
+const statusMessage =
+  status in statusMessages ? statusMessages[status as keyof typeof statusMessages] : null;
+const showLoginForm =
+  adminState?.enabled && adminState?.reason !== "crypto-config-missing";
+---
+
+<AdminAuthLayout
+  title="Admin sign in"
+  eyebrow="Authentication"
+  description="Use your invited account email, password, and follow-up MFA challenge. Self-registration is intentionally disabled."
+>
+  {
+    !showLoginForm ? (
+      <AdminAccessState
+        statusCode={adminState?.enabled ? 503 : 503}
+        title={
+          adminState?.enabled
+            ? "Admin crypto is not configured"
+            : "Admin portal is disabled"
+        }
+        message={
+          adminState?.enabled
+            ? "Set the admin encryption keyring before enabling sign-in on this origin."
+            : "The admin portal is currently disabled for this environment."
+        }
+      />
+    ) : (
+      <div class="admin-stack">
+        {statusMessage ? (
+          <p
+            class:list={["admin-status-note", `admin-status-note--${statusMessage.tone}`]}
+          >
+            {statusMessage.message}
+          </p>
+        ) : null}
+
+        <form class="admin-auth-form" method="post" action="/api/admin/login/">
+          <input type="hidden" name="returnTo" value={returnTo} />
+          <label class="admin-field-label" for="admin-email">
+            Email address
+          </label>
+          <input
+            class="admin-auth-input"
+            id="admin-email"
+            name="email"
+            type="email"
+            autocomplete="username"
+            required
+          />
+
+          <label class="admin-field-label" for="admin-password">
+            Password
+          </label>
+          <input
+            class="admin-auth-input"
+            id="admin-password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+
+          <button class="admin-button admin-button--primary" type="submit">
+            Continue to MFA
+          </button>
+        </form>
+
+        <div class="admin-review-card">
+          <strong>Account lifecycle</strong>
+          <p class="admin-muted">
+            Access is invitation-only. New accounts and password-reset links are issued by
+            a technical maintainer after out-of-band identity checks.
+          </p>
+        </div>
+      </div>
+    )
+  }
+</AdminAuthLayout>

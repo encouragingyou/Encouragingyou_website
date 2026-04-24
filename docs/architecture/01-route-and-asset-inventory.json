@@ -1,0 +1,315 @@
+{
+  "generatedAt": "2026-04-22",
+  "prototypeRoot": "source/blurpint",
+  "sourceArtworkRoot": "source/media_attachment",
+  "summary": {
+    "pageCount": 8,
+    "stylesheetCount": 1,
+    "scriptCount": 1,
+    "fontCount": 1,
+    "calendarFileCount": 2,
+    "metadataFileCount": 3,
+    "derivedImageCount": 50,
+    "sourceArtworkFileCount": 15,
+    "qaArtifactCount": 10
+  },
+  "routes": [
+    {
+      "route": "/",
+      "file": "source/blurpint/index.html",
+      "title": "EncouragingYou | Youth-led support in Rochdale",
+      "h1": "Build confidence, get practical help, and move forward.",
+      "description": "EncouragingYou offers Saturday CV support, youth club sessions, and welcoming community support in Rochdale.",
+      "currentRole": "Home page",
+      "formActions": [
+        {
+          "action": "mailto:admin@encouragingyou.co.uk",
+          "method": "POST"
+        }
+      ],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk"
+      ],
+      "calendarLinks": [
+        "/calendar/cv-support.ics",
+        "/calendar/youth-club.ics"
+      ],
+      "structuredDataBlocks": 1
+    },
+    {
+      "route": "/about/",
+      "file": "source/blurpint/about/index.html",
+      "title": "About | EncouragingYou",
+      "h1": "Youth-led leadership with practical care built in.",
+      "description": "Learn how EncouragingYou brings youth-led leadership, welcoming sessions, and practical support together in Rochdale.",
+      "currentRole": "About page",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk"
+      ],
+      "calendarLinks": [],
+      "structuredDataBlocks": 0
+    },
+    {
+      "route": "/sessions/",
+      "file": "source/blurpint/sessions/index.html",
+      "title": "Sessions | EncouragingYou",
+      "h1": "Recurring offers that are easy to understand and easy to return to.",
+      "description": "See EncouragingYou's recurring Saturday sessions in Rochdale, including CV support and youth club.",
+      "currentRole": "Session hub",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk"
+      ],
+      "calendarLinks": [
+        "/calendar/cv-support.ics",
+        "/calendar/youth-club.ics"
+      ],
+      "structuredDataBlocks": 0
+    },
+    {
+      "route": "/sessions/cv-support/",
+      "file": "source/blurpint/sessions/cv-support/index.html",
+      "title": "CV Support Session | EncouragingYou",
+      "h1": "CV support that is practical, calm, and one-to-one.",
+      "description": "Join EncouragingYou's Saturday CV support session in Rochdale for one-to-one help with CVs, applications, and next steps.",
+      "currentRole": "Session detail",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk",
+        "mailto:admin@encouragingyou.co.uk?subject=CV%20support%20session"
+      ],
+      "calendarLinks": [
+        "/calendar/cv-support.ics"
+      ],
+      "structuredDataBlocks": 1
+    },
+    {
+      "route": "/sessions/youth-club/",
+      "file": "source/blurpint/sessions/youth-club/index.html",
+      "title": "Youth Club Session | EncouragingYou",
+      "h1": "Youth club built around welcome, friendship, and safe space.",
+      "description": "Join EncouragingYou's Saturday youth club in Rochdale for games, activities, and friendship in a positive, welcoming space.",
+      "currentRole": "Session detail",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk",
+        "mailto:admin@encouragingyou.co.uk?subject=Youth%20club%20session"
+      ],
+      "calendarLinks": [
+        "/calendar/youth-club.ics"
+      ],
+      "structuredDataBlocks": 1
+    },
+    {
+      "route": "/get-involved/",
+      "file": "source/blurpint/get-involved/index.html",
+      "title": "Get Involved | EncouragingYou",
+      "h1": "Support the work without a complicated first step.",
+      "description": "Volunteer with EncouragingYou, partner with the team, or ask about referrals and community support in Rochdale.",
+      "currentRole": "Mixed involvement hub",
+      "formActions": [
+        {
+          "action": "mailto:admin@encouragingyou.co.uk",
+          "method": "POST"
+        }
+      ],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk"
+      ],
+      "calendarLinks": [],
+      "structuredDataBlocks": 0
+    },
+    {
+      "route": "/safeguarding/",
+      "file": "source/blurpint/safeguarding/index.html",
+      "title": "Safeguarding | EncouragingYou",
+      "h1": "Separate child and adult safeguarding routes, explained plainly.",
+      "description": "Read EncouragingYou's safeguarding information, including separate routes for child and adult safeguarding concerns.",
+      "currentRole": "Safeguarding summary",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk",
+        "mailto:admin@encouragingyou.co.uk?subject=Safeguarding%20concern"
+      ],
+      "calendarLinks": [],
+      "structuredDataBlocks": 0
+    },
+    {
+      "route": "/privacy/",
+      "file": "source/blurpint/privacy/index.html",
+      "title": "Privacy | EncouragingYou",
+      "h1": "Short, readable, and linked at the point where people share information.",
+      "description": "Read EncouragingYou's simple privacy notice and cookie information.",
+      "currentRole": "Privacy summary",
+      "formActions": [],
+      "mailtoLinks": [
+        "mailto:admin@encouragingyou.co.uk",
+        "mailto:admin@encouragingyou.co.uk?subject=Privacy%20question"
+      ],
+      "calendarLinks": [],
+      "structuredDataBlocks": 0
+    }
+  ],
+  "sharedImplementation": {
+    "stylesheets": [
+      "source/blurpint/assets/css/styles.css"
+    ],
+    "scripts": [
+      {
+        "file": "source/blurpint/assets/js/site.js",
+        "responsibilities": [
+          "Calculate next Saturday occurrences for two recurring sessions",
+          "Update next-session labels in card and detail templates",
+          "Inject Event schema into the two session detail pages at runtime",
+          "Trigger scroll reveal animations",
+          "Update footer year"
+        ]
+      }
+    ],
+    "fontFiles": [
+      "source/blurpint/assets/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2"
+    ],
+    "calendarFiles": [
+      "source/blurpint/calendar/cv-support.ics",
+      "source/blurpint/calendar/youth-club.ics"
+    ],
+    "metadataFiles": [
+      "source/blurpint/favicon.svg",
+      "source/blurpint/robots.txt",
+      "source/blurpint/sitemap.xml"
+    ],
+    "imagePipeline": {
+      "script": "source/blurpint/scripts/build-images.sh",
+      "illustrationInputs": [
+        "source/media_attachment/1) Homepage hero illustration.png",
+        "source/media_attachment/2) About page : youth-led leadership illustration.png",
+        "source/media_attachment/3) Programme card series Community  Friendship.png",
+        "source/media_attachment/4) Programme card series Personal Growth.png",
+        "source/media_attachment/5) Programme card series Career Support.png",
+        "source/media_attachment/6) Intergenerational community support illustration.png",
+        "source/media_attachment/7) Volunteer : partner call-to-action illustration.png"
+      ],
+      "iconInputs": [
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/8) Custom icon set for UX and wayfinding.png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (2).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (3).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (4).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (5).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_27 AM (6).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_28 AM (7).png",
+        "source/media_attachment/8) Custom icon set for UX and wayfinding/ChatGPT Image Apr 22, 2026, 12_29_28 AM (8).png"
+      ],
+      "outputSummary": {
+        "responsiveIllustrationFiles": 42,
+        "iconFiles": 8,
+        "formats": [
+          "avif",
+          "webp"
+        ]
+      }
+    }
+  },
+  "contentSources": {
+    "hardcodedHtmlFiles": [
+      "source/blurpint/index.html",
+      "source/blurpint/about/index.html",
+      "source/blurpint/sessions/index.html",
+      "source/blurpint/sessions/cv-support/index.html",
+      "source/blurpint/sessions/youth-club/index.html",
+      "source/blurpint/get-involved/index.html",
+      "source/blurpint/safeguarding/index.html",
+      "source/blurpint/privacy/index.html"
+    ],
+    "derivedRuntimeContent": [
+      "Next-session labels generated from the sessions object in source/blurpint/assets/js/site.js",
+      "Event JSON-LD injected client-side into the two session detail pages",
+      "Footer year generated at runtime"
+    ],
+    "staticDataArtifacts": [
+      "source/blurpint/calendar/cv-support.ics",
+      "source/blurpint/calendar/youth-club.ics",
+      "source/blurpint/sitemap.xml",
+      "source/blurpint/robots.txt"
+    ]
+  },
+  "forms": [
+    {
+      "page": "/",
+      "file": "source/blurpint/index.html",
+      "type": "Support form",
+      "action": "mailto:admin@encouragingyou.co.uk",
+      "method": "POST",
+      "fields": [
+        "name",
+        "email",
+        "reason",
+        "message",
+        "updatesOptIn"
+      ]
+    },
+    {
+      "page": "/get-involved/",
+      "file": "source/blurpint/get-involved/index.html",
+      "type": "Get involved enquiry form",
+      "action": "mailto:admin@encouragingyou.co.uk",
+      "method": "POST",
+      "fields": [
+        "name",
+        "email",
+        "reason",
+        "message"
+      ]
+    }
+  ],
+  "legalAndTrust": {
+    "implementedPages": [
+      "source/blurpint/safeguarding/index.html",
+      "source/blurpint/privacy/index.html"
+    ],
+    "missingLaunchRoutes": [
+      "/contact/",
+      "/programmes/",
+      "/programmes/community-friendship/",
+      "/programmes/personal-growth/",
+      "/programmes/career-support/",
+      "/programmes/intergenerational-community-support/",
+      "/events-updates/",
+      "/volunteer/",
+      "/partner/",
+      "/cookies/",
+      "/accessibility/",
+      "/terms/",
+      "/404/"
+    ]
+  },
+  "qaArtifacts": {
+    "consoleLogs": [
+      "source/blurpint/.playwright-cli/console-2026-04-22T18-29-53-653Z.log"
+    ],
+    "pageSnapshots": [
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-29-53-801Z.yml",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-30-25-593Z.yml",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-31-48-022Z.yml",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-31-54-186Z.yml",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-31-58-253Z.yml",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-34-13-118Z.yml"
+    ],
+    "screenshots": [
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-32-18-875Z.png",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-32-56-398Z.png",
+      "source/blurpint/.playwright-cli/page-2026-04-22T18-34-14-205Z.png"
+    ],
+    "notableIssues": [
+      "Browser console captured a 404 for favicon.ico",
+      "The mobile home screenshot shows the full navigation stacking above the hero rather than using a dedicated mobile navigation pattern"
+    ]
+  },
+  "observations": [
+    "Navigation and footer markup are duplicated across every HTML route.",
+    "Only the home page carries explicit Open Graph tags, and only the home page carries Organization schema in source HTML.",
+    "Session detail pages reserve Event schema blocks, but the final JSON-LD is injected in the browser rather than generated at build time.",
+    "Contact and involvement flows currently depend on mailto links and mailto form submissions.",
+    "The prototype has no dedicated Contact page, Programmes overview, Events and Updates index, Volunteer page, Partner page, Accessibility Statement, Cookies page, Terms page, or custom 404 route."
+  ]
+}

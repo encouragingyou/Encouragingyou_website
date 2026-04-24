@@ -1,0 +1,64 @@
+---
+interface Props {
+  workstream: {
+    id: string;
+    label: string;
+    family: string;
+    routePattern: string;
+    previewRoute: string | null;
+    editableSurfaceCount: number;
+    operatorSurfaceCount: number;
+    lockedSurfaceCount: number;
+    documents: {
+      slug: string;
+      title: string;
+      sourceCollection: string;
+      ownership: string;
+    }[];
+  };
+}
+
+const { workstream } = Astro.props;
+---
+
+<article class="admin-workstream-card">
+  <div class="admin-workstream-card__meta">
+    <span class="admin-chip">{workstream.family}</span>
+    <span class="admin-muted">{workstream.routePattern}</span>
+  </div>
+  <h3 class="admin-workstream-card__title">
+    <a href={`/admin/content/${workstream.id}/`}>{workstream.label}</a>
+  </h3>
+  <p class="admin-muted">
+    {workstream.editableSurfaceCount} client-editable surface{
+      workstream.editableSurfaceCount === 1 ? "" : "s"
+    },
+    {" "}
+    {workstream.operatorSurfaceCount} publisher-held, {workstream.lockedSurfaceCount} locked
+    by design.
+  </p>
+  <ul class="admin-inline-list">
+    {
+      workstream.documents.slice(0, 3).map((document) => (
+        <li>
+          <a href={`/admin/documents/${document.slug}/`}>{document.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="admin-workstream-card__actions">
+    <a class="admin-link-button" href={`/admin/content/${workstream.id}/`}>
+      Open workstream
+    </a>
+    {
+      workstream.previewRoute ? (
+        <a
+          class="admin-link-button admin-link-button--ghost"
+          href={workstream.previewRoute}
+        >
+          Published route
+        </a>
+      ) : null
+    }
+  </div>
+</article>

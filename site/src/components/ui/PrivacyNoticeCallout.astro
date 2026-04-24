@@ -1,0 +1,41 @@
+---
+import ButtonLink from "./ButtonLink.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  title: string;
+  body: string;
+  bullets?: string[];
+  action?: ActionLink;
+  tone?: "info" | "important" | "success" | "error";
+}
+
+const { title, body, bullets = [], action, tone = "important" } = Astro.props;
+---
+
+<section class="privacy-notice-callout" data-tone={tone} aria-label={title}>
+  <div class="layout-stack layout-stack--compact">
+    <h3 class="privacy-notice-callout__title">{title}</h3>
+    <p>{body}</p>
+
+    {
+      bullets.length > 0 ? (
+        <ul class="check-list privacy-notice-callout__list">
+          {bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      ) : null
+    }
+
+    {
+      action ? (
+        <div class="privacy-notice-callout__actions">
+          <ButtonLink href={action.href} variant={action.variant}>
+            {action.label}
+          </ButtonLink>
+        </div>
+      ) : null
+    }
+  </div>
+</section>

@@ -1,0 +1,135 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import MediaPicture from "../ui/MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  bullets?: string[];
+  bodyFirst?: boolean;
+  media: MediaAsset;
+  disclosure?: MediaDisclosure | string | null;
+  primaryAction?: ActionLink;
+  secondaryAction?: ActionLink;
+  badges?: string[];
+  supportingNote?: string;
+  reversed?: boolean;
+  headingLevel?: 1 | 2;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  bullets = [],
+  bodyFirst = false,
+  media,
+  disclosure,
+  primaryAction,
+  secondaryAction,
+  badges = [],
+  supportingNote,
+  reversed = false,
+  headingLevel = 2
+} = Astro.props;
+
+const splitClass = `feature-split${reversed ? " feature-split--reversed" : ""}`;
+---
+
+<section class={splitClass}>
+  {
+    bodyFirst ? (
+      <>
+        <div class="feature-split__body">
+          <p class="eyebrow">{eyebrow}</p>
+          {headingLevel === 1 ? <h1>{title}</h1> : <h2>{title}</h2>}
+          <p class="feature-split__summary">{summary}</p>
+
+          {bullets.length > 0 ? (
+            <ul class="check-list">
+              {bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          ) : null}
+
+          {badges.length > 0 ? (
+            <BadgeRow
+              items={badges.map((badge) => ({
+                label: badge,
+                tone: "soft" as const
+              }))}
+              className="feature-split__badges"
+            />
+          ) : null}
+
+          {primaryAction || secondaryAction ? (
+            <ActionCluster
+              actions={[
+                ...(primaryAction ? [primaryAction] : []),
+                ...(secondaryAction ? [secondaryAction] : [])
+              ]}
+            />
+          ) : null}
+
+          {supportingNote ? (
+            <p class="feature-split__supporting-note">{supportingNote}</p>
+          ) : null}
+        </div>
+
+        <div class="feature-split__media">
+          <MediaPicture asset={media} sizes="(min-width: 64rem) 50vw, 100vw" />
+          {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="feature-split__media">
+          <MediaPicture asset={media} sizes="(min-width: 64rem) 50vw, 100vw" />
+          {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+        </div>
+
+        <div class="feature-split__body">
+          <p class="eyebrow">{eyebrow}</p>
+          {headingLevel === 1 ? <h1>{title}</h1> : <h2>{title}</h2>}
+          <p class="feature-split__summary">{summary}</p>
+
+          {bullets.length > 0 ? (
+            <ul class="check-list">
+              {bullets.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          ) : null}
+
+          {badges.length > 0 ? (
+            <BadgeRow
+              items={badges.map((badge) => ({
+                label: badge,
+                tone: "soft" as const
+              }))}
+              className="feature-split__badges"
+            />
+          ) : null}
+
+          {primaryAction || secondaryAction ? (
+            <ActionCluster
+              actions={[
+                ...(primaryAction ? [primaryAction] : []),
+                ...(secondaryAction ? [secondaryAction] : [])
+              ]}
+            />
+          ) : null}
+
+          {supportingNote ? (
+            <p class="feature-split__supporting-note">{supportingNote}</p>
+          ) : null}
+        </div>
+      </>
+    )
+  }
+</section>

@@ -1,0 +1,25 @@
+---
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import type { ShellNotice } from "../../lib/types/site-ui";
+
+interface Props {
+  items: ShellNotice[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 ? (
+    <div class="site-notice-stack" data-shell-notices>
+      {items.map((item) => (
+        <NoticeBlock
+          title={item.title}
+          body={item.body}
+          tone={item.tone}
+          action={item.action}
+        />
+      ))}
+    </div>
+  ) : null
+}

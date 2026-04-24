@@ -1,0 +1,31 @@
+{
+  "siteName": "EncouragingYou",
+  "legalName": "EncouragingYou CIC",
+  "siteUrl": "https://www.encouragingyou.co.uk",
+  "serviceAreaLabel": "Rochdale",
+  "serviceAreaDescription": "Youth-led support in Rochdale, with a wider community welcome for young people, carers, referrers, volunteers, partners, and older people who may need connection or practical help.",
+  "missionSummary": "Empower young people and strengthen the wider community through practical guidance, safe spaces, and youth-led support.",
+  "visionSummary": "Build a stronger, more connected community where people feel supported, understood, and able to grow.",
+  "launchMediaPolicy": "Use the supplied AI illustration suite for launch atmosphere and narrative, but replace trust-critical imagery with consented real photography when available.",
+  "primaryEmail": "admin@encouragingyou.co.uk",
+  "primaryPhone": null,
+  "primaryPhoneStatus": "placeholder",
+  "socialLinks": [
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/encouragingyou1/"
+    }
+  ],
+  "operationalAssumptions": [
+    {
+      "id": "public-phone-number",
+      "summary": "A public phone number has not been supplied yet and must not be invented in page content.",
+      "requiredForLaunch": true
+    },
+    {
+      "id": "session-access-model",
+      "summary": "Whether sessions are free, open access, or referral-based is not confirmed in the source materials.",
+      "requiredForLaunch": true
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "signals": [
+    {
+      "id": "safe-space",
+      "label": "Safe, positive environment",
+      "iconAssetId": "icon-safe-space",
+      "summary": "The approved brief describes safe, inclusive, welcoming spaces where young people can thrive and ask for support without pressure.",
+      "verificationStatus": "implemented-in-prototype",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": [
+        "home.trust-strip",
+        "programme-community-friendship",
+        "session-youth-club"
+      ]
+    },
+    {
+      "id": "youth-led",
+      "label": "Youth-led and relationship-first",
+      "iconAssetId": "icon-mentoring",
+      "summary": "The approved brief positions EncouragingYou as run by dedicated young leaders and volunteers with lived experience.",
+      "verificationStatus": "stated-in-brief",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": ["home.trust-strip", "about", "programmes"]
+    },
+    {
+      "id": "trained-and-vetted",
+      "label": "Trained and vetted team",
+      "iconAssetId": "icon-community-event",
+      "summary": "The approved brief and safeguarding copy state that safeguarding procedures are in place and that staff and volunteers are trained and vetted.",
+      "verificationStatus": "stated-in-brief",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": ["home.trust-strip", "safeguarding", "volunteer"]
+    },
+    {
+      "id": "privacy-clarity",
+      "label": "Privacy clarity at the point of contact",
+      "iconAssetId": "icon-contact",
+      "summary": "Every enquiry route should explain how information is used and link directly to the privacy notice.",
+      "verificationStatus": "implemented-in-prototype",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": [
+        "home.contact-panel",
+        "contact",
+        "get-involved",
+        "volunteer",
+        "partner"
+      ]
+    },
+    {
+      "id": "visible-safeguarding",
+      "label": "Visible safeguarding route",
+      "iconAssetId": "icon-safe-space",
+      "summary": "Safeguarding must remain visible in the main navigation and on high-anxiety decision points.",
+      "verificationStatus": "implemented-in-prototype",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": ["header", "footer", "contact", "sessions", "safeguarding"]
+    },
+    {
+      "id": "ai-disclosure",
+      "label": "AI illustration disclosure",
+      "iconAssetId": "icon-contact",
+      "summary": "Illustration-heavy sections should disclose that AI artwork is being used for launch and is not participant photography.",
+      "verificationStatus": "implemented-in-prototype",
+      "nonNegotiableForLaunch": true,
+      "displayContexts": [
+        "home.hero",
+        "home.programmes",
+        "about.hero",
+        "get-involved.hero"
+      ]
+    }
+  ]
+}

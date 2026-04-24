@@ -1,0 +1,90 @@
+---
+import CtaBand from "../sections/CtaBand.astro";
+import BrandMark from "./BrandMark.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import type { FooterSupportModel, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface FooterItem {
+  label: string;
+  href: string;
+}
+
+interface FooterGroup {
+  title: string;
+  items: FooterItem[];
+}
+
+interface Props {
+  brand: {
+    name: string;
+    tag: string;
+    summary: string;
+  };
+  groups: FooterGroup[];
+  email: string;
+  serviceAreaLabel: string;
+  aiDisclosure: MediaDisclosure | null;
+  support: FooterSupportModel;
+}
+
+const { brand, groups, email, serviceAreaLabel, aiDisclosure, support } = Astro.props;
+const year = new Date().getFullYear();
+const footerId = (title: string) =>
+  `footer-${title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")}`;
+---
+
+<footer class="site-footer" id="site-footer" tabindex="-1">
+  <div class="container container--wide site-footer__lead">
+    <div class="site-footer__brand motion-order-0" data-motion="reveal">
+      <a href="/" aria-label={`${brand.name} home`}>
+        <BrandMark name={brand.name} tag={brand.tag} />
+      </a>
+      <p class="site-footer__summary">{brand.summary}</p>
+      {
+        aiDisclosure ? (
+          <DisclosureNote disclosure={aiDisclosure} className="site-footer__note" />
+        ) : null
+      }
+    </div>
+
+    <div class="motion-order-1" data-motion="reveal">
+      <CtaBand
+        className="site-footer__support"
+        eyebrow={support.eyebrow}
+        title={support.title}
+        summary={support.summary}
+        actions={[
+          support.primaryAction,
+          ...(support.secondaryAction ? [support.secondaryAction] : [])
+        ]}
+      />
+    </div>
+  </div>
+
+  <div class="container container--wide site-footer__inner">
+    <div class="site-footer__groups">
+      {
+        groups.map((group) => (
+          <section class="site-footer__group" aria-labelledby={footerId(group.title)}>
+            <h2 id={footerId(group.title)}>{group.title}</h2>
+            <ul>
+              {group.items.map((item) => (
+                <li>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+  <div class="container container--wide site-footer__meta">
+    <a href={`mailto:${email}`}>{email}</a>
+    <span>Based around {serviceAreaLabel}</span>
+    <span>© {year} {brand.name}</span>
+  </div>
+</footer>

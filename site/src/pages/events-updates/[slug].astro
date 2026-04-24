@@ -1,0 +1,35 @@
+---
+import EditorialUpdateDetailTemplate from "../../components/sections/EditorialUpdateDetailTemplate.astro";
+import EventDetailTemplate from "../../components/sections/EventDetailTemplate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getEditorialDetailModel,
+  getEditorialDetailStaticPaths
+} from "../../lib/content/site-content.ts";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getEditorialDetailStaticPaths();
+}
+
+const { slug } = Astro.params as { slug: string };
+const model = getEditorialDetailModel(slug);
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath={model.meta.canonicalPath}
+  pageId="events-updates"
+  breadcrumbs={model.breadcrumbs}
+  backLink={{ label: "Back to Events & Updates", href: "/events-updates/" }}
+  structuredData={model.structuredData}
+>
+  {
+    model.template === "event-detail" ? (
+      <EventDetailTemplate model={model} />
+    ) : (
+      <EditorialUpdateDetailTemplate model={model} />
+    )
+  }
+</BaseLayout>

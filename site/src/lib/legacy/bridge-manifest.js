@@ -1,0 +1,136 @@
+export const astroManagedRoutes = [
+  {
+    route: "/",
+    source: "site/src/pages/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-implemented"
+  },
+  {
+    route: "/404/",
+    source: "site/src/pages/404.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-implemented"
+  },
+  {
+    route: "/about/",
+    source: "site/src/pages/about/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-shell-proof"
+  },
+  {
+    route: "/programmes/",
+    source: "site/src/pages/programmes/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/programmes/[slug]/",
+    source: "site/src/pages/programmes/[slug].astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/events-updates/",
+    source: "site/src/pages/events-updates/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/contact/",
+    source: "site/src/pages/contact/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/privacy/",
+    source: "site/src/pages/privacy/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-shell-proof"
+  },
+  {
+    route: "/get-involved/",
+    source: "site/src/pages/get-involved/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-responsive-layout-foundation"
+  },
+  {
+    route: "/sessions/",
+    source: "site/src/pages/sessions/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-responsive-layout-foundation"
+  },
+  {
+    route: "/sessions/[slug]/",
+    source: "site/src/pages/sessions/[slug].astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-responsive-layout-foundation"
+  },
+  {
+    route: "/safeguarding/",
+    source: "site/src/pages/safeguarding/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-responsive-layout-foundation"
+  },
+  {
+    route: "/volunteer/",
+    source: "site/src/pages/volunteer/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/partner/",
+    source: "site/src/pages/partner/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/cookies/",
+    source: "site/src/pages/cookies/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/accessibility/",
+    source: "site/src/pages/accessibility/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  },
+  {
+    route: "/terms/",
+    source: "site/src/pages/terms/index.astro",
+    state: "normalize-and-migrate",
+    parityStatus: "astro-minimum-viable"
+  }
+];
+
+export const wrappedLegacyRoutes = [];
+
+export const adoptedLegacyAssetDirectories = [
+  {
+    publicPath: "/fonts/",
+    sourcePath: "source/blurpint/assets/fonts",
+    state: "adopt-until-font-source-is-owned-locally",
+    retirementTrigger:
+      "Retire once the launch font file is fully owned outside source/blurpint."
+  }
+];
+
+export const adoptedLegacyRootFiles = [
+  {
+    publicPath: "/favicon.svg",
+    sourcePath: "source/blurpint/favicon.svg",
+    state: "adopt-unchanged",
+    retirementTrigger: "Replace when the new app owns final brand assets."
+  }
+];
+
+export const legacyRuntimeScripts = [];
+
+export const legacyBuildScripts = [
+  {
+    sourcePath: "source/blurpint/scripts/build-images.sh",
+    state: "legacy-reference-only",
+    retirementTrigger:
+      "Retire after prompt 10 has been absorbed into the new media pipeline documentation."
+  }
+];

@@ -1,0 +1,84 @@
+name: Public Site Production Promote
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Commit SHA that already passed Site Quality and has a packaged release candidate.
+        required: true
+        type: string
+      release_id:
+        description: Optional release identifier override. Leave blank to use the first 12 characters of the SHA.
+        required: false
+        type: string
+
+concurrency:
+  group: site-production
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    name: Promote Production Release
+    runs-on: ubuntu-latest
+    environment: public-production
+    env:
+      DEPLOYMENT_SURFACE: public
+      ADMIN_PORTAL_ENABLED: "false"
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Check out release candidate commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: site/.nvmrc
+
+      - name: Resolve release metadata
+        run: |
+          RELEASE_SHA_INPUT="${{ inputs.release_sha }}"
+          RELEASE_ID_INPUT="${{ inputs.release_id }}"
+
+          if [ -n "$RELEASE_ID_INPUT" ]; then
+            RELEASE_ID_VALUE="$RELEASE_ID_INPUT"
+          else
+            RELEASE_ID_VALUE="${RELEASE_SHA_INPUT:0:12}"
+          fi
+
+          echo "RELEASE_SHA=$RELEASE_SHA_INPUT" >> "$GITHUB_ENV"
+          echo "RELEASE_ID=$RELEASE_ID_VALUE" >> "$GITHUB_ENV"
+
+      - name: Assert deployment configuration
+        env:
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.PUBLIC_RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          test -n "$PUBLIC_SITE_URL"
+          test -n "$RENDER_DEPLOY_HOOK_URL"
+
+      - name: Trigger Render deploy for the approved commit
+        env:
+          RELEASE_SHA: ${{ env.RELEASE_SHA }}
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.PUBLIC_RENDER_DEPLOY_HOOK_URL }}
+        run: node ./scripts/trigger-render-deploy.mjs
+
+      - name: Verify the live production release
+        env:
+          RELEASE_ID: ${{ env.RELEASE_ID }}
+          RELEASE_SHA: ${{ env.RELEASE_SHA }}
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+        run: >
+          node ./scripts/verify-deployment.mjs
+          --base-url "$PUBLIC_SITE_URL"
+          --channel production
+          --surface public
+          --expectReleaseId "$RELEASE_ID"
+          --expectReleaseSha "$RELEASE_SHA"
+          --attempts 60
+          --waitMs 10000

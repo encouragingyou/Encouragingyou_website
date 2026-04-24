@@ -1,0 +1,295 @@
+{
+  "launchPages": [
+    {
+      "id": "home",
+      "route": "/",
+      "title": "Home",
+      "template": "home",
+      "primaryAudiences": ["young-people", "parents-carers", "community-members"],
+      "pageIntent": "Make the first step obvious, build trust quickly, and route visitors into support, programmes, or involvement.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "about",
+      "route": "/about/",
+      "title": "About",
+      "template": "about",
+      "primaryAudiences": ["young-people", "parents-carers", "partners", "funders"],
+      "pageIntent": "Explain mission, vision, youth-led credibility, and why the organisation exists.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "programmes",
+      "route": "/programmes/",
+      "title": "Programmes",
+      "template": "programme-index",
+      "primaryAudiences": [
+        "young-people",
+        "parents-carers",
+        "referrers",
+        "community-members"
+      ],
+      "pageIntent": "Show the four support pillars and help visitors identify the most relevant route.",
+      "trustCritical": false,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "programme-community-friendship",
+      "route": "/programmes/community-friendship/",
+      "title": "Community & Friendship",
+      "template": "programme-detail",
+      "primaryAudiences": ["young-people", "parents-carers"],
+      "pageIntent": "Explain belonging, safe-space design, and the welcoming route into community support.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "programme-personal-growth-life-skills",
+      "route": "/programmes/personal-growth-life-skills/",
+      "title": "Personal Growth & Life Skills",
+      "template": "programme-detail",
+      "primaryAudiences": ["young-people", "parents-carers", "referrers"],
+      "pageIntent": "Explain confidence-building, life-skills development, and youth-led growth opportunities.",
+      "trustCritical": false,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "programme-career-support-cv-help",
+      "route": "/programmes/career-support-cv-help/",
+      "title": "Career Support & CV Help",
+      "template": "programme-detail",
+      "primaryAudiences": ["young-people", "parents-carers", "referrers"],
+      "pageIntent": "Clarify practical CV and job-readiness support and route visitors into the Saturday session.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "programme-community-support-intergenerational-connection",
+      "route": "/programmes/community-support-intergenerational-connection/",
+      "title": "Community Support / Intergenerational Connection",
+      "template": "programme-detail",
+      "primaryAudiences": [
+        "community-members",
+        "older-people",
+        "parents-carers",
+        "referrers"
+      ],
+      "pageIntent": "Describe wider community support beyond youth-only activity and route broader cross-age visitors into the right next step without implying a standing care or events service.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "sessions",
+      "route": "/sessions/",
+      "title": "Sessions",
+      "template": "session-index",
+      "primaryAudiences": ["young-people", "parents-carers", "referrers"],
+      "pageIntent": "Provide a clear join-a-session hub with current recurring offers, expectations, and practical next steps.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "session-cv-support",
+      "route": "/sessions/cv-support/",
+      "title": "CV Support Session",
+      "template": "session-detail",
+      "primaryAudiences": ["young-people", "parents-carers", "referrers"],
+      "pageIntent": "Explain the practical CV support offer, the session rhythm, and what to expect before attending.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "session-youth-club",
+      "route": "/sessions/youth-club/",
+      "title": "Youth Club Session",
+      "template": "session-detail",
+      "primaryAudiences": ["young-people", "parents-carers"],
+      "pageIntent": "Explain the youth club atmosphere, the safe-space model, and how first-time attendees can join.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "events-updates",
+      "route": "/events-updates/",
+      "title": "Events & Updates",
+      "template": "updates-index",
+      "primaryAudiences": ["community-members", "partners", "young-people"],
+      "pageIntent": "Keep the site current without turning it into a high-maintenance news hub.",
+      "trustCritical": false,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "get-involved",
+      "route": "/get-involved/",
+      "title": "Get Involved",
+      "template": "get-involved-hub",
+      "primaryAudiences": ["volunteers", "partners", "referrers", "community-members"],
+      "pageIntent": "Route visitors into volunteering, partnership, referral, or support pathways without friction.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "volunteer",
+      "route": "/volunteer/",
+      "title": "Volunteer With Us",
+      "template": "volunteer-detail",
+      "primaryAudiences": ["volunteers", "community-members"],
+      "pageIntent": "Explain role pathways, checks, training, and time expectations for volunteers.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "partner",
+      "route": "/partner/",
+      "title": "Partner With Us",
+      "template": "partner-detail",
+      "primaryAudiences": ["partners", "referrers", "funders"],
+      "pageIntent": "Explain collaboration, referral, sponsorship, and partnership pathways with credibility.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "contact",
+      "route": "/contact/",
+      "title": "Contact",
+      "template": "contact",
+      "primaryAudiences": [
+        "young-people",
+        "parents-carers",
+        "referrers",
+        "community-members",
+        "partners"
+      ],
+      "pageIntent": "Provide a low-friction contact route with clear guidance and short-form enquiry options.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "safeguarding",
+      "route": "/safeguarding/",
+      "title": "Safeguarding",
+      "template": "safeguarding",
+      "primaryAudiences": ["parents-carers", "referrers", "partners", "young-people"],
+      "pageIntent": "Provide calm, serious reassurance and separate child and adult safeguarding routes.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "safeguarding-child",
+      "route": "/safeguarding/child/",
+      "title": "Child Safeguarding",
+      "template": "safeguarding",
+      "primaryAudiences": ["young-people", "parents-carers", "referrers", "partners"],
+      "pageIntent": "Provide a dedicated child safeguarding route with clear emergency and reporting boundaries.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "safeguarding-adult",
+      "route": "/safeguarding/adult/",
+      "title": "Adult Safeguarding",
+      "template": "safeguarding",
+      "primaryAudiences": [
+        "parents-carers",
+        "referrers",
+        "community-members",
+        "older-people",
+        "partners"
+      ],
+      "pageIntent": "Provide a dedicated adult safeguarding route with clear emergency and reporting boundaries.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "privacy",
+      "route": "/privacy/",
+      "title": "Privacy Notice",
+      "template": "legal",
+      "primaryAudiences": [
+        "young-people",
+        "parents-carers",
+        "referrers",
+        "volunteers",
+        "partners"
+      ],
+      "pageIntent": "Explain how enquiry data is handled and link directly from every form.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "cookies",
+      "route": "/cookies/",
+      "title": "Cookie Notice",
+      "template": "legal",
+      "primaryAudiences": ["community-members", "partners"],
+      "pageIntent": "Explain the live storage/access position, the first-party aggregate analytics model, the no-banner decision, and what must change before consent becomes necessary.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "accessibility",
+      "route": "/accessibility/",
+      "title": "Accessibility Statement",
+      "template": "legal",
+      "primaryAudiences": ["young-people", "parents-carers", "community-members"],
+      "pageIntent": "Describe the site's accessibility commitment, known limitations, and contact route for help.",
+      "trustCritical": true,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "terms",
+      "route": "/terms/",
+      "title": "Terms / Site Policy",
+      "template": "legal",
+      "primaryAudiences": ["community-members", "partners"],
+      "pageIntent": "Provide a practical site policy for acceptable use, ownership, and liability boundaries.",
+      "trustCritical": false,
+      "contentStatus": "seeded"
+    },
+    {
+      "id": "not-found",
+      "route": "/404/",
+      "title": "Page not found",
+      "template": "not-found",
+      "primaryAudiences": ["young-people", "parents-carers", "community-members"],
+      "pageIntent": "Recover visitors from broken or outdated links without losing trust.",
+      "trustCritical": false,
+      "contentStatus": "seeded"
+    }
+  ],
+  "placeholderPages": [],
+  "phaseTwoPages": [
+    {
+      "id": "gallery",
+      "route": "/gallery/",
+      "title": "Gallery",
+      "template": "updates-index",
+      "primaryAudiences": ["community-members", "partners", "funders"],
+      "pageIntent": "Show consented real photography once available.",
+      "trustCritical": true,
+      "contentStatus": "phase-two"
+    },
+    {
+      "id": "impact-stories",
+      "route": "/impact-stories/",
+      "title": "Impact & Stories",
+      "template": "updates-index",
+      "primaryAudiences": ["partners", "funders", "community-members"],
+      "pageIntent": "Share proof, stories, and outcomes once real evidence is approved.",
+      "trustCritical": true,
+      "contentStatus": "phase-two"
+    },
+    {
+      "id": "team",
+      "route": "/team/",
+      "title": "Team",
+      "template": "about",
+      "primaryAudiences": ["parents-carers", "partners", "funders"],
+      "pageIntent": "Introduce the team once approved bios and headshots exist.",
+      "trustCritical": true,
+      "contentStatus": "phase-two"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import SessionSummaryCard from "../../components/ui/SessionSummaryCard.astro";
+import ProgrammePillarCard from "../../components/ui/ProgrammePillarCard.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import { getProgrammesIndexModel } from "../../lib/content/site-content.ts";
+
+const model = getProgrammesIndexModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/programmes/"
+  pageId="programmes"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+      headingLevel={1}
+    />
+
+    <div class="programmes-overview">
+      <div class="programmes-overview__comparison action-grid">
+        {
+          model.overviewPanels.map((panel, index) => (
+            <CardPanel
+              heading={panel.title}
+              summary={"body" in panel ? panel.body : undefined}
+              tone={index === 1 ? "accent" : "soft"}
+            >
+              {"bullets" in panel &&
+              Array.isArray(panel.bullets) &&
+              panel.bullets.length > 0 ? (
+                <ul class="programme-detail-list">
+                  {panel.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </CardPanel>
+          ))
+        }
+      </div>
+
+      <div class="programme-pillars" data-programmes-pillar-grid>
+        {model.items.map((item) => <ProgrammePillarCard {...item} />)}
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection tone="band">
+    <div class="programmes-live-support">
+      <div class="programmes-live-support__header">
+        <SectionHeading
+          eyebrow={model.scheduleSection.eyebrow}
+          title={model.scheduleSection.title}
+          summary={model.scheduleSection.summary}
+        />
+        <NoticeBlock
+          title={model.notice.title}
+          body={model.notice.body}
+          tone={model.notice.tone}
+        />
+      </div>
+
+      <div class="sessions-strip">
+        <div class="sessions-strip__grid layout-grid layout-grid--summary">
+          {model.liveSessions.map((session) => <SessionSummaryCard {...session} />)}
+        </div>
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <SectionHeading
+      eyebrow={model.audienceSection.eyebrow}
+      title={model.audienceSection.title}
+      summary={model.audienceSection.summary}
+    />
+    <div class="programmes-audience-grid action-grid">
+      {
+        model.audienceSection.items.map((item) => (
+          <CardPanel
+            heading={item.title}
+            summary={item.summary}
+            tone="soft"
+            actions={item.action ? [item.action] : []}
+          />
+        ))
+      }
+    </div>
+  </PageSection>
+
+  <PageSection>
+    <CtaBand
+      eyebrow={model.ctaBand.eyebrow}
+      title={model.ctaBand.title}
+      summary={model.ctaBand.summary}
+      badges={model.ctaBand.badges}
+      actions={model.ctaBand.actions}
+      note={model.ctaBand.note}
+    />
+  </PageSection>
+</BaseLayout>

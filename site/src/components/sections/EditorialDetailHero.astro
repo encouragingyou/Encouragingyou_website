@@ -1,0 +1,70 @@
+---
+import ActionCluster from "../ui/ActionCluster.astro";
+import BadgeRow from "../ui/BadgeRow.astro";
+import DisclosureNote from "../ui/DisclosureNote.astro";
+import MediaPicture from "../ui/MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  actions: ActionLink[];
+  badges?: string[];
+  disclosure?: MediaDisclosure | string | null;
+  eyebrow: string;
+  media?: MediaAsset;
+  metaLabel: string;
+  supportingText?: string | null;
+  summary: string;
+  title: string;
+}
+
+const {
+  actions,
+  badges = [],
+  disclosure = null,
+  eyebrow,
+  media,
+  metaLabel,
+  supportingText = null,
+  summary,
+  title
+} = Astro.props;
+---
+
+<section
+  class:list={["editorial-detail-hero", media && "editorial-detail-hero--with-media"]}
+>
+  <div class="editorial-detail-hero__body">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="editorial-detail-hero__meta">{metaLabel}</p>
+    <p class="editorial-detail-hero__summary">{summary}</p>
+
+    {
+      badges.length > 0 ? (
+        <BadgeRow
+          items={badges.map((badge) => ({ label: badge, tone: "soft" as const }))}
+        />
+      ) : null
+    }
+
+    {actions.length > 0 ? <ActionCluster actions={actions} /> : null}
+    {
+      supportingText ? (
+        <p class="editorial-detail-hero__supporting">{supportingText}</p>
+      ) : null
+    }
+  </div>
+
+  {
+    media ? (
+      <div class="editorial-detail-hero__media">
+        <MediaPicture
+          asset={media}
+          sizes="(min-width: 70rem) 36rem, 100vw"
+          eager={true}
+        />
+        {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+      </div>
+    ) : null
+  }
+</section>

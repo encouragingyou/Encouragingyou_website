@@ -1,0 +1,85 @@
+services:
+  - type: web
+    name: encouragingyou-site-public
+    runtime: node
+    plan: starter
+    buildCommand: cd site && npm ci && npm run build
+    startCommand: cd site && node ./dist/server/entry.mjs
+    autoDeployTrigger: off
+    healthCheckPath: /api/health/
+    maxShutdownDelaySeconds: 45
+    previews:
+      generation: manual
+      numInstances: 1
+    buildFilter:
+      paths:
+        - site/**
+        - source/**
+        - render.yaml
+        - .github/workflows/site-quality.yml
+        - .github/workflows/site-release-candidate.yml
+        - .github/workflows/site-production-promote.yml
+    disk:
+      name: runtime-data
+      mountPath: /var/data
+    envVars:
+      - key: NODE_VERSION
+        value: 24.10.0
+      # Keep the public origin environment-owned so previews can use RENDER_EXTERNAL_URL.
+      - key: SITE_URL
+        sync: false
+      - key: DEPLOYMENT_SURFACE
+        value: public
+      - key: ADMIN_PORTAL_ENABLED
+        value: "false"
+      # Do not set DEPLOYMENT_CHANNEL here. Render preview instances inherit service env vars,
+      # and preview detection must come from IS_PULL_REQUEST / RENDER instead.
+      - key: ANALYTICS_MODE
+        value: statistical
+      - key: ENQUIRY_STORAGE_DIR
+        value: /var/data/enquiries
+      - key: ANALYTICS_STORAGE_DIR
+        value: /var/data/analytics
+
+  - type: web
+    name: encouragingyou-admin
+    runtime: node
+    plan: starter
+    buildCommand: cd site && npm ci && npm run build
+    startCommand: cd site && node ./dist/server/entry.mjs
+    autoDeployTrigger: off
+    healthCheckPath: /api/health/
+    maxShutdownDelaySeconds: 45
+    previews:
+      generation: manual
+      numInstances: 1
+    buildFilter:
+      paths:
+        - site/**
+        - source/**
+        - render.yaml
+        - .github/workflows/admin-quality.yml
+        - .github/workflows/admin-release-candidate.yml
+        - .github/workflows/admin-production-promote.yml
+    disk:
+      name: admin-runtime-data
+      mountPath: /var/admin-data
+    envVars:
+      - key: NODE_VERSION
+        value: 24.10.0
+      - key: SITE_URL
+        sync: false
+      - key: ADMIN_ORIGIN_URL
+        sync: false
+      - key: DEPLOYMENT_SURFACE
+        value: admin
+      - key: ADMIN_PORTAL_ENABLED
+        value: "true"
+      - key: ANALYTICS_MODE
+        value: off
+      - key: ADMIN_STORAGE_DIR
+        value: /var/admin-data/admin
+      - key: ADMIN_ADDITIONAL_ALLOWED_ORIGINS
+        sync: false
+      - key: ADMIN_TOTP_ENCRYPTION_KEYS
+        sync: false

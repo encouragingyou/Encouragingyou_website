@@ -1,0 +1,418 @@
+{
+  "metaTitle": "EncouragingYou | Youth-led support in Rochdale",
+  "metaDescription": "Build confidence, get practical help, and find the right next step into sessions, support, or community-rooted programmes in Rochdale.",
+  "routePurpose": "Make the first step obvious for people seeking support, carers and referrers checking trust cues, and visitors exploring the wider organisation.",
+  "audiencePriority": [
+    "young-people",
+    "parents-carers",
+    "referrers",
+    "community-members",
+    "volunteers",
+    "partners"
+  ],
+  "actions": [
+    {
+      "id": "join-session",
+      "ctaId": "join-session",
+      "summary": "See current Saturday offers, timings, and what to expect before attending.",
+      "iconAssetId": "icon-community-event",
+      "audiences": ["young-people", "parents-carers", "referrers"],
+      "placements": ["hero", "quick-actions", "live-sessions"]
+    },
+    {
+      "id": "get-support",
+      "ctaId": "get-support",
+      "summary": "Send a short message if you need help, want to ask on someone else's behalf, or are not sure which route fits.",
+      "iconAssetId": "icon-contact",
+      "audiences": ["young-people", "parents-carers", "referrers", "community-members"],
+      "placements": ["hero", "quick-actions", "faq-cluster", "contact-panel"]
+    },
+    {
+      "id": "see-saturday-sessions",
+      "label": "See Saturday sessions",
+      "summary": "Browse the current Saturday sessions and practical details before deciding to come along.",
+      "variant": "primary",
+      "routeId": "sessions",
+      "audiences": ["young-people", "parents-carers", "referrers"],
+      "placements": ["trust-strip", "live-sessions"]
+    },
+    {
+      "id": "ask-before-you-come",
+      "label": "Ask before you come",
+      "summary": "Use the contact route if you want to check fit, timing, or support before attending.",
+      "variant": "secondary",
+      "routeId": "contact",
+      "audiences": ["young-people", "parents-carers", "referrers"],
+      "placements": ["live-sessions"]
+    },
+    {
+      "id": "ask-a-support-question",
+      "label": "Ask a support question",
+      "summary": "Send a short message if the public answers do not cover what you need.",
+      "variant": "secondary",
+      "routeId": "contact",
+      "audiences": ["young-people", "parents-carers", "referrers", "community-members"],
+      "placements": ["faq-cluster"]
+    },
+    {
+      "id": "get-cv-help",
+      "label": "Get CV help",
+      "summary": "Find one-to-one support for CVs, applications, and job-readiness next steps.",
+      "variant": "surface",
+      "routeId": "programme-career-support-cv-help",
+      "iconAssetId": "icon-cv-support",
+      "audiences": ["young-people", "parents-carers", "referrers"],
+      "placements": ["quick-actions", "programme-teasers"]
+    },
+    {
+      "id": "explore-programmes",
+      "label": "See all programmes",
+      "summary": "Understand the wider support areas before choosing the route that fits best.",
+      "variant": "surface",
+      "routeId": "programmes",
+      "audiences": ["young-people", "parents-carers", "referrers", "community-members"],
+      "placements": ["programme-teasers"]
+    },
+    {
+      "id": "about-organisation",
+      "label": "Why EncouragingYou exists",
+      "summary": "See the youth-led approach and the values behind the support offer.",
+      "variant": "surface",
+      "routeId": "about",
+      "audiences": ["parents-carers", "partners", "funders", "community-members"],
+      "placements": ["about-teaser", "trust-strip"]
+    },
+    {
+      "id": "see-community-support",
+      "label": "See community support",
+      "summary": "Explore the route for wider community connection and intergenerational support.",
+      "variant": "surface",
+      "routeId": "programme-community-support-intergenerational-connection",
+      "audiences": ["community-members", "older-people", "partners", "referrers"],
+      "placements": ["feature-split"]
+    },
+    {
+      "id": "see-updates",
+      "label": "See events and updates",
+      "summary": "Check for confirmed news, dates, or public updates when they are ready to share.",
+      "variant": "surface",
+      "routeId": "events-updates",
+      "audiences": ["community-members", "young-people", "partners"],
+      "placements": ["updates-surface"]
+    },
+    {
+      "id": "volunteer-or-partner",
+      "label": "Volunteer or partner",
+      "summary": "Explore volunteering, referrals, and partnership pathways without a complicated start.",
+      "variant": "surface",
+      "routeId": "get-involved",
+      "iconAssetId": "icon-mentoring",
+      "audiences": ["volunteers", "community-members", "partners", "referrers"],
+      "placements": ["quick-actions", "feature-split"]
+    },
+    {
+      "id": "see-involvement-routes",
+      "label": "See involvement routes",
+      "summary": "Open the hub for volunteering, partnership, and referral-friendly next steps.",
+      "variant": "primary",
+      "routeId": "get-involved",
+      "audiences": ["volunteers", "community-members", "partners", "referrers"],
+      "placements": ["feature-split"]
+    },
+    {
+      "id": "privacy-notice",
+      "label": "Privacy notice",
+      "summary": "Read how enquiry details are used before you share information.",
+      "variant": "text",
+      "routeId": "privacy",
+      "audiences": ["young-people", "parents-carers", "referrers", "volunteers"],
+      "placements": ["trust-strip", "contact-panel"]
+    },
+    {
+      "id": "safeguarding-information",
+      "label": "Safeguarding information",
+      "summary": "Keep the safeguarding route visible before anyone has to search for it.",
+      "variant": "text",
+      "routeId": "safeguarding",
+      "audiences": ["parents-carers", "referrers", "partners", "young-people"],
+      "placements": ["trust-strip", "contact-panel"]
+    },
+    {
+      "id": "email-the-team",
+      "label": "Email the team",
+      "summary": "Open a simple email route for questions, support, or partnership interest.",
+      "variant": "surface",
+      "href": "mailto:admin@encouragingyou.co.uk",
+      "audiences": ["community-members", "volunteers", "partners"],
+      "placements": ["feature-split", "contact-panel"]
+    }
+  ],
+  "conversionStack": {
+    "primaryActionId": "join-session",
+    "secondaryActionId": "get-support",
+    "supportingActionIds": ["get-cv-help", "explore-programmes", "volunteer-or-partner"],
+    "audienceJourneys": [
+      {
+        "audience": "young-people",
+        "summary": "Make the first session or support route easy to choose without long reading.",
+        "primaryActionId": "join-session",
+        "secondaryActionId": "get-support",
+        "supportingActionIds": ["get-cv-help"]
+      },
+      {
+        "audience": "parents-carers",
+        "summary": "Keep trust, safeguarding, and a low-friction contact route visible before commitment.",
+        "primaryActionId": "join-session",
+        "secondaryActionId": "get-support",
+        "supportingActionIds": [
+          "safeguarding-information",
+          "privacy-notice",
+          "explore-programmes"
+        ]
+      },
+      {
+        "audience": "referrers",
+        "summary": "Show the route into sessions or contact clearly while keeping the wider programme shape visible.",
+        "primaryActionId": "join-session",
+        "secondaryActionId": "get-support",
+        "supportingActionIds": ["get-cv-help", "explore-programmes"]
+      },
+      {
+        "audience": "community-members",
+        "summary": "Explain that the welcome extends beyond Saturday sessions and into wider community support.",
+        "primaryActionId": "get-support",
+        "secondaryActionId": "see-community-support",
+        "supportingActionIds": ["explore-programmes", "see-updates"]
+      },
+      {
+        "audience": "volunteers",
+        "summary": "Send interested supporters to the involvement hub rather than forcing them through support-first language.",
+        "primaryActionId": "volunteer-or-partner",
+        "secondaryActionId": "email-the-team",
+        "supportingActionIds": ["about-organisation", "safeguarding-information"]
+      },
+      {
+        "audience": "partners",
+        "summary": "Lead with credibility, partnership routes, and the wider programme picture before any ask.",
+        "primaryActionId": "volunteer-or-partner",
+        "secondaryActionId": "email-the-team",
+        "supportingActionIds": [
+          "about-organisation",
+          "see-community-support",
+          "privacy-notice"
+        ]
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Youth-led support in Rochdale",
+    "headline": "Build confidence, get practical help, and move forward.",
+    "summary": "Join a session, ask for support, or explore the wider programmes that make belonging and practical help feel easier to reach.",
+    "badgeItems": [
+      "Every Saturday",
+      "CV help before youth club",
+      "Warm, low-pressure welcome"
+    ],
+    "primaryActionId": "join-session",
+    "secondaryActionId": "get-support",
+    "mediaId": "hero-home"
+  },
+  "sections": [
+    {
+      "id": "quick-actions",
+      "kind": "quick-actions",
+      "eyebrow": "Start here",
+      "title": "What can you do here today?",
+      "summary": "Start with the route that fits today, whether that is a session, support, or a way to help.",
+      "actionIds": ["join-session", "get-cv-help", "get-support", "volunteer-or-partner"]
+    },
+    {
+      "id": "trust-strip",
+      "kind": "trust-strip",
+      "eyebrow": "Trust matters early",
+      "title": "Safety, privacy, and a calm first step are visible before anyone commits.",
+      "summary": "The main trust questions sit close to the first actions instead of being hidden in the footer.",
+      "tone": "tint",
+      "trustItems": [
+        {
+          "signalId": "safe-space",
+          "actionId": "see-saturday-sessions"
+        },
+        {
+          "signalId": "youth-led",
+          "actionId": "about-organisation"
+        },
+        {
+          "signalId": "visible-safeguarding",
+          "actionId": "safeguarding-information"
+        },
+        {
+          "signalId": "privacy-clarity",
+          "actionId": "privacy-notice"
+        }
+      ],
+      "emptyBehavior": "fail-build"
+    },
+    {
+      "id": "live-sessions",
+      "kind": "live-sessions",
+      "eyebrow": "Live sessions",
+      "title": "Two Saturday offers, one clear starting point.",
+      "summary": "CV support runs first, then youth club follows straight after. You can come for one or stay for both.",
+      "tone": "band",
+      "width": "wide",
+      "primaryActionId": "see-saturday-sessions",
+      "secondaryActionId": "ask-before-you-come",
+      "maxItems": 2,
+      "emptyBehavior": "show-support-action",
+      "emptyState": {
+        "title": "Saturday session dates are being confirmed.",
+        "summary": "Use the support route and the team can help you with the right next step while the public schedule is light."
+      },
+      "pausedState": {
+        "title": "Session timings can change.",
+        "summary": "If the public schedule is paused or unavailable, keep the support route visible instead of guessing the next date."
+      }
+    },
+    {
+      "id": "programme-teasers",
+      "kind": "programme-teasers",
+      "eyebrow": "Programmes",
+      "title": "Support that goes beyond one session or one need.",
+      "summary": "Explore the wider support areas if you want the bigger picture before choosing a route.",
+      "programmeSlugs": [
+        "community-friendship",
+        "personal-growth-life-skills",
+        "career-support-cv-help",
+        "community-support-intergenerational-connection"
+      ],
+      "primaryActionId": "explore-programmes",
+      "emptyBehavior": "show-primary-action"
+    },
+    {
+      "id": "about-teaser",
+      "kind": "page-teaser",
+      "eyebrow": "Why EncouragingYou exists",
+      "title": "Youth-led leadership with practical care built in.",
+      "summary": "See the values, lived perspective, and practical approach behind the sessions and support routes.",
+      "pageId": "about",
+      "primaryActionId": "about-organisation"
+    },
+    {
+      "id": "community-support",
+      "kind": "feature-split",
+      "eyebrow": "Broader community support",
+      "title": "The welcome extends beyond one programme or one age group.",
+      "summary": "EncouragingYou makes room for mentoring, intergenerational connection, and practical support that helps people feel less alone.",
+      "bullets": [
+        "Clear, plain-language expectations before someone attends.",
+        "Visible routes for support, privacy, and safeguarding.",
+        "No third-party feed or autoplay media on the critical path."
+      ],
+      "mediaId": "community-support-intergenerational",
+      "primaryActionId": "see-community-support",
+      "width": "wide"
+    },
+    {
+      "id": "updates-surface",
+      "kind": "updates-surface",
+      "eyebrow": "Events and updates",
+      "title": "Public updates can stay light without disappearing.",
+      "summary": "Use this area for confirmed dates, community news, or launch-safe notices when they are ready to share.",
+      "pageId": "events-updates",
+      "primaryActionId": "see-updates",
+      "maxItems": 2,
+      "emptyBehavior": "teaser",
+      "emptyState": {
+        "title": "No public updates are live right now.",
+        "summary": "The sessions and support routes stay current while this space waits for confirmed dates or news."
+      }
+    },
+    {
+      "id": "involvement-cta",
+      "kind": "feature-split",
+      "eyebrow": "Get involved",
+      "title": "Volunteer, partner, or refer someone who needs a starting point.",
+      "summary": "Clear roles, transparent next steps, and no long application barrier before someone understands the ask.",
+      "badges": ["Volunteer roles", "Partner enquiries", "Referral-friendly"],
+      "mediaId": "volunteer-partner-cta",
+      "actionIds": ["see-involvement-routes", "email-the-team"],
+      "width": "wide",
+      "reversed": true
+    },
+    {
+      "id": "faq-cluster",
+      "kind": "faq-cluster",
+      "eyebrow": "Questions before you ask",
+      "title": "Simple answers before anyone has to send a message.",
+      "summary": "Use the public answers first, then keep the support route close by for anything more specific.",
+      "faqGroupId": "home-support",
+      "primaryActionId": "ask-a-support-question"
+    },
+    {
+      "id": "contact-panel",
+      "kind": "contact-panel",
+      "eyebrow": "Get support or ask a question",
+      "title": "Send a short message and we will help you find the right next step.",
+      "summary": "Use this route if you need help choosing between a session, programme, referral, or community route.",
+      "formSurfaceId": "support-general",
+      "primaryActionId": "get-support",
+      "secondaryActionId": "safeguarding-information"
+    }
+  ],
+  "stateRules": {
+    "liveSessions": {
+      "sectionId": "live-sessions",
+      "supportActionId": "get-support"
+    },
+    "updates": {
+      "sectionId": "updates-surface",
+      "collectionId": "updates-feed",
+      "emptyBehavior": "teaser",
+      "primaryActionId": "see-updates"
+    },
+    "contact": {
+      "sectionId": "contact-panel",
+      "confirmedFields": [
+        "publicEmail",
+        "urgentGuidance.safeguardingRouteId",
+        "formPrivacyNote"
+      ],
+      "pendingFields": ["publicPhone", "venueName", "venueAddress"]
+    },
+    "aiDisclosures": {
+      "requiredSectionIds": [
+        "hero",
+        "programme-teasers",
+        "community-support",
+        "involvement-cta"
+      ],
+      "optionalSectionIds": []
+    },
+    "shellNotices": {
+      "pageId": "home"
+    }
+  },
+  "launchBoundaries": {
+    "staysOnHomepageNow": [
+      "hero with first-step actions",
+      "quick routes for support, sessions, and involvement",
+      "trust cues close to the main decisions",
+      "live Saturday session visibility",
+      "programme overview",
+      "support contact route"
+    ],
+    "deferredToLaterRoutes": [
+      "full about-storytelling depth",
+      "individual programme detail depth",
+      "full event and update archive",
+      "detailed volunteer and partner pathways"
+    ],
+    "intentionallyExcludedFromLaunch": [
+      "invented testimonials or impact numbers",
+      "unapproved partner logos",
+      "participant photography that has not been cleared for use",
+      "dense news feed modules with no real content behind them"
+    ]
+  }
+}

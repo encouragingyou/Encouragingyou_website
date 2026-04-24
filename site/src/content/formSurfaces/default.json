@@ -1,0 +1,126 @@
+{
+  "surfaces": [
+    {
+      "id": "support-general",
+      "heading": "Send a short message",
+      "intro": "Use this for a general question, a support request, or a first contact on behalf of someone else. We use your details only to reply or route the next step properly.",
+      "privacyNote": "We use the details you share here to reply, route the next step, and keep any session context attached when you arrived from a session page.",
+      "privacyHighlights": [
+        "The optional updates box is separate from your main message.",
+        "We do not ask for more information than we need to reply.",
+        "If your message is really a safeguarding concern, use the safeguarding route instead."
+      ],
+      "allowedReasonIds": [
+        "join-session",
+        "cv-support",
+        "volunteer",
+        "partner",
+        "referral",
+        "general",
+        "accessibility"
+      ],
+      "reasonFieldLabel": "This message is about",
+      "successMessage": "Your message is with the team. They will reply with the right next step as soon as they can."
+    },
+    {
+      "id": "involvement-general",
+      "heading": "Start with a short message",
+      "intro": "Tell us whether you want to join, volunteer, partner, refer someone, or support the work in another practical way and we will route the next conversation properly.",
+      "privacyNote": "We use the details you share here to route your message into the right volunteer, partner, referral, or support conversation.",
+      "privacyHighlights": [
+        "The optional updates box is separate from the main involvement message.",
+        "Your enquiry is handled manually rather than sent into a separate newsletter or CRM platform at launch.",
+        "Do not use this route for urgent safeguarding concerns."
+      ],
+      "allowedReasonIds": [
+        "join-session",
+        "cv-support",
+        "volunteer",
+        "partner",
+        "referral",
+        "general"
+      ],
+      "successMessage": "Your message is with the team. They will reply with the involvement route that fits best."
+    },
+    {
+      "id": "volunteer-enquiry",
+      "eyebrow": "Volunteer enquiry",
+      "heading": "Start with a volunteer enquiry",
+      "intro": "Tell us how you would like to help and what time feels realistic. We use your details only to reply and route the next conversation properly.",
+      "privacyNote": "We use the details you share here to reply to your volunteer enquiry and decide the fairest next conversation to offer.",
+      "privacyHighlights": [
+        "The optional updates box is separate from your volunteer enquiry.",
+        "Share only the detail needed for a first conversation.",
+        "Sensitive case information should not be sent here unless the team asks for it later."
+      ],
+      "messageHelper": "Let us know how you'd like to help and how much time you can offer.",
+      "submitLabel": "Send volunteer enquiry",
+      "successMessage": "Your volunteer enquiry is with the team. They will reply with the next fair step when they can.",
+      "defaultReasonId": "volunteer",
+      "allowedReasonIds": ["volunteer"],
+      "reasonFieldLabel": "This message is about",
+      "reasonSelectPlaceholder": null
+    },
+    {
+      "id": "partner-enquiry",
+      "eyebrow": "Partnership enquiry",
+      "heading": "Start with a partnership enquiry",
+      "intro": "Share the local need, collaboration idea, referral context, or practical offer in a few lines. We use your details only to reply and route the next conversation properly.",
+      "privacyNote": "We use the details you share here to reply, understand the collaboration or referral context, and route the message to the right follow-up.",
+      "privacyHighlights": [
+        "The optional updates box is separate from the partnership or referral enquiry.",
+        "The launch build does not connect this route to a separate partner-management platform.",
+        "If the message becomes a safeguarding matter, use the safeguarding route instead."
+      ],
+      "messageHelper": "Tell us who you are, what kind of partnership or referral conversation this is, and what would be most useful to discuss next.",
+      "submitLabel": "Send partnership enquiry",
+      "successMessage": "Your partnership enquiry is with the team. They will reply with the most useful next conversation they can offer.",
+      "defaultReasonId": "partner",
+      "allowedReasonIds": ["partner", "referral"],
+      "reasonFieldLabel": "This message is about",
+      "reasonSelectPlaceholder": null
+    },
+    {
+      "id": "accessibility-feedback",
+      "eyebrow": "Accessibility feedback",
+      "heading": "Report an accessibility problem",
+      "intro": "Use this secure form if something on the site is hard to use or if you need information in another format. We use your details only to reply and work out the most useful next step.",
+      "privacyNote": "We use the details you share here only to understand the accessibility issue, reply, and arrange practical help or an alternative format if that is needed.",
+      "privacyHighlights": [
+        "This route is for accessibility barriers or format requests, not general marketing contact.",
+        "Share only the detail needed to describe the problem and how we can reply.",
+        "This form does not include the optional updates box."
+      ],
+      "messageHelper": "Tell us what page or action caused the problem, what you were trying to do, and what would help next.",
+      "submitLabel": "Send accessibility feedback",
+      "successMessage": "Your accessibility message is with the team. They will reply with the most useful next step they can offer.",
+      "defaultReasonId": "accessibility",
+      "allowedReasonIds": ["accessibility"],
+      "reasonFieldLabel": "This message is about",
+      "reasonFieldMode": "hidden",
+      "showUpdatesOptIn": false,
+      "reasonSelectPlaceholder": null
+    },
+    {
+      "id": "safeguarding-concern",
+      "eyebrow": "Safeguarding concern",
+      "heading": "Send a safeguarding message",
+      "intro": "Use this secure form for a non-emergency safeguarding concern. It reaches the public safeguarding intake and should not be treated as an emergency-response service.",
+      "privacyNote": "We use the details you share here only to review the concern, contact you back if needed, and route it to the right safeguarding response.",
+      "privacyHighlights": [
+        "Send only the details needed to understand the concern and contact you back.",
+        "This form does not include the optional updates box.",
+        "If the risk is immediate, call 999 rather than waiting for a reply."
+      ],
+      "messageHelper": "Say what happened, who is affected, and what the immediate risk is. Include only the details needed to understand the concern and contact you back.",
+      "emailFallbackPrefix": "If you cannot use the form, email the public safeguarding inbox at ",
+      "submitLabel": "Send safeguarding message",
+      "successMessage": "Your safeguarding message is with the team. If the risk becomes immediate, call 999 rather than waiting for a reply.",
+      "defaultReasonId": "safeguarding",
+      "allowedReasonIds": ["safeguarding"],
+      "reasonFieldMode": "hidden",
+      "showUpdatesOptIn": false,
+      "reasonSelectPlaceholder": null
+    }
+  ]
+}

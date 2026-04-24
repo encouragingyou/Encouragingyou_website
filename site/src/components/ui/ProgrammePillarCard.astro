@@ -1,0 +1,169 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import BadgeRow from "./BadgeRow.astro";
+import CardPanel from "./CardPanel.astro";
+import DisclosureNote from "./DisclosureNote.astro";
+import MediaIcon from "./MediaIcon.astro";
+import MediaPicture from "./MediaPicture.astro";
+import type { ActionLink, MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+
+interface Props {
+  title: string;
+  summary: string;
+  href: string;
+  media: MediaAsset;
+  icon: MediaAsset;
+  disclosure?: MediaDisclosure | string | null;
+  audienceSummary: string;
+  audienceHighlights: string[];
+  deliverySummary: string;
+  gains: string[];
+  trustCues: string[];
+  primaryAction: ActionLink;
+  secondaryAction?: ActionLink;
+  headingLevel?: 2 | 3;
+  state: {
+    id: string;
+    label: string;
+    summary: string;
+    tone: BadgeTone;
+    linkedSession: {
+      title: string;
+      href: string;
+      summary: string;
+    } | null;
+  };
+}
+
+const {
+  title,
+  summary,
+  href,
+  media,
+  icon,
+  disclosure = null,
+  audienceSummary,
+  audienceHighlights,
+  deliverySummary,
+  gains,
+  trustCues,
+  primaryAction,
+  secondaryAction,
+  headingLevel = 2,
+  state
+} = Astro.props as Props;
+
+const actions = [primaryAction, secondaryAction].filter(Boolean) as ActionLink[];
+---
+
+<CardPanel
+  as="article"
+  className="programme-pillar-card"
+  tone="muted"
+  data-programme-state={state.id}
+>
+  <div class="programme-pillar-card__media">
+    <MediaPicture
+      asset={media}
+      sizes="(min-width: 72rem) 24rem, (min-width: 48rem) 50vw, 100vw"
+    />
+    {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+  </div>
+
+  <div class="programme-pillar-card__body">
+    <div class="programme-pillar-card__header">
+      <MediaIcon asset={icon} className="programme-pillar-card__icon" />
+      <div class="programme-pillar-card__heading-group">
+        <p class="eyebrow">Support pillar</p>
+        {
+          headingLevel === 3 ? (
+            <h3 class="programme-pillar-card__title">
+              <a href={href}>{title}</a>
+            </h3>
+          ) : (
+            <h2 class="programme-pillar-card__title">
+              <a href={href}>{title}</a>
+            </h2>
+          )
+        }
+      </div>
+    </div>
+
+    <BadgeRow
+      className="programme-pillar-card__state"
+      items={[
+        {
+          label: state.label,
+          tone: state.tone
+        }
+      ]}
+    />
+
+    <p class="programme-pillar-card__summary">{summary}</p>
+
+    <div class="programme-pillar-card__details">
+      <div class="programme-pillar-card__detail">
+        <p class="programme-pillar-card__label">Best for</p>
+        <p>{audienceSummary}</p>
+      </div>
+
+      {
+        audienceHighlights.length > 0 ? (
+          <div class="programme-pillar-card__detail">
+            <p class="programme-pillar-card__label">Who this route helps</p>
+            <ul class="programme-pillar-card__list">
+              {audienceHighlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null
+      }
+
+      <div class="programme-pillar-card__detail">
+        <p class="programme-pillar-card__label">How it shows up now</p>
+        <p>{deliverySummary}</p>
+      </div>
+
+      <div class="programme-pillar-card__detail">
+        <p class="programme-pillar-card__label">What you will gain</p>
+        <ul class="programme-pillar-card__list">
+          {gains.map((gain) => <li>{gain}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="programme-pillar-card__status">
+      <p class="programme-pillar-card__label">Current access</p>
+      <p>{state.summary}</p>
+      {
+        state.linkedSession ? (
+          <p class="programme-pillar-card__linked-session">
+            <span>Live route:</span>{" "}
+            <a href={state.linkedSession.href}>{state.linkedSession.title}</a>
+            {" · "}
+            {state.linkedSession.summary}
+          </p>
+        ) : null
+      }
+    </div>
+
+    {
+      trustCues.length > 0 ? (
+        <div class="programme-pillar-card__trust">
+          <p class="programme-pillar-card__label">Trust cues</p>
+          <BadgeRow
+            items={trustCues.map((cue) => ({
+              label: cue,
+              tone: "soft" as const
+            }))}
+          />
+        </div>
+      ) : null
+    }
+
+    <ActionCluster actions={actions} className="programme-pillar-card__actions" />
+  </div>
+</CardPanel>

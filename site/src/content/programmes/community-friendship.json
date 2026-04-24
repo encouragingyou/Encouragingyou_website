@@ -1,0 +1,71 @@
+{
+  "slug": "community-friendship",
+  "route": "/programmes/community-friendship/",
+  "title": "Community & Friendship",
+  "shortTitle": "Community & Friendship",
+  "launchStatus": "launch",
+  "summary": "A belonging-first support route built around safe space, low-pressure connection, and regular community familiarity.",
+  "promise": "Help people feel welcomed, settle into community at their own pace, and build friendships they want to return to.",
+  "audiences": ["young-people", "parents-carers"],
+  "audienceSummary": "Best for young people who need belonging, friendship, and a low-pressure place to settle in.",
+  "audienceHighlights": [
+    "Young people who want a welcoming first step into support or community",
+    "Parents or carers looking for a safe, positive atmosphere before someone attends"
+  ],
+  "existingDeliveryMode": "active-session-linked",
+  "relatedSessionIds": ["youth-club"],
+  "featuredMediaId": "programme-community-friendship",
+  "featuredIconId": "icon-safe-space",
+  "deliverySummary": "This pillar is already visible through the recurring Saturday youth club. The session page handles timings and joining detail, while the programme page explains the wider belonging-first approach behind it.",
+  "trustSignalIds": ["safe-space", "visible-safeguarding", "privacy-clarity"],
+  "trustNotes": [
+    "A calm, welcoming first experience matters as much as the activity itself.",
+    "People do not need to know anyone before they come.",
+    "Safeguarding and first-time reassurance are part of the programme, not separate from it.",
+    "Rochdale can stay public while precise venue details are shared on enquiry."
+  ],
+  "outcomeBullets": [
+    "Belonging and social connection",
+    "A low-pressure welcome for first-time attendees",
+    "Confidence to return and build friendships over time"
+  ],
+  "bodySections": [
+    {
+      "id": "what-this-programme-is",
+      "heading": "What this programme is for",
+      "body": [
+        "This programme covers the relationship-building side of EncouragingYou's offer: friendship, safe-space design, and a reliable atmosphere that does not expect someone to arrive already confident.",
+        "It is the clearest route for people who want community, conversation, and a place to settle in before taking bigger steps."
+      ],
+      "bullets": ["Safe space", "Belonging", "Low-pressure welcome"]
+    },
+    {
+      "id": "what-participation-can-feel-like",
+      "heading": "What participation can feel like",
+      "body": [
+        "The route creates room for games, conversation, chill time, and informal connection without making anyone feel exposed for being quiet or new.",
+        "That matters because the value of Community & Friendship is not only what happens on the timetable. It is the feeling that someone can come back, feel more at ease, and recognise familiar people over time."
+      ],
+      "bullets": [
+        "You do not need to know anyone first",
+        "There is more than one way to join in",
+        "Repeat visits help confidence grow"
+      ]
+    },
+    {
+      "id": "how-the-live-route-works",
+      "heading": "How the live route works right now",
+      "body": [
+        "The strongest live expression of this programme is the Saturday youth club session.",
+        "That page carries timings, calendar detail, and the first practical joining step, while this programme page explains the purpose behind the session and keeps the belonging-first route visible even if the schedule changes."
+      ],
+      "bullets": [
+        "Linked to youth club",
+        "Designed for repeat attendance",
+        "Venue details can be shared on enquiry"
+      ]
+    }
+  ],
+  "primaryCtaId": "join-session",
+  "seoDescription": "Learn how EncouragingYou creates welcoming community and friendship routes for young people through safe, low-pressure support in Rochdale."
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "youth-club",
+  "route": "/sessions/youth-club/",
+  "title": "Youth Club Session",
+  "shortTitle": "Youth club",
+  "launchStatus": "launch",
+  "programmeIds": ["community-friendship"],
+  "summary": "Games, conversation, and a welcoming place to build friendships without needing to know anyone first.",
+  "eventDescription": "Games, activities, chill time, and friendship-building in a welcoming youth club space.",
+  "audiences": ["young-people", "parents-carers"],
+  "schedule": {
+    "type": "weekly-recurring",
+    "label": "Every Saturday",
+    "byDay": ["SA"],
+    "intervalWeeks": 1,
+    "startLocalDate": "2026-04-25",
+    "startTime": "18:45",
+    "durationMinutes": 120,
+    "timezone": "Europe/London",
+    "status": {
+      "state": "active",
+      "note": null,
+      "resumeDate": null,
+      "seasonStartDate": null,
+      "seasonEndDate": null
+    }
+  },
+  "calendar": {
+    "publicPath": "/calendar/youth-club.ics",
+    "uid": "encouragingyou-youth-club@encouragingyou.co.uk",
+    "status": "available"
+  },
+  "location": {
+    "locality": "Rochdale",
+    "venueName": null,
+    "venueAddress": null,
+    "disclosurePolicy": "shared-on-enquiry"
+  },
+  "access": {
+    "priceLabel": null,
+    "priceStatus": "placeholder",
+    "referralRequired": null,
+    "referralStatus": "placeholder"
+  },
+  "contact": {
+    "email": "admin@encouragingyou.co.uk",
+    "emailSubject": "Youth club session",
+    "reasonId": "join-session"
+  },
+  "trustNotes": [
+    "The session is designed to feel welcoming and low-pressure from the first visit.",
+    "Young people can join in, hang back, or settle at their own pace.",
+    "Parents or carers can ask first, and safeguarding stays visible from the route.",
+    "Exact venue detail is shared on enquiry rather than published openly."
+  ],
+  "featureBullets": [
+    "Come as you are. You do not need to know anyone first.",
+    "Games, activities, conversation, and chill time give more than one way to take part.",
+    "A quieter first visit is okay, and no one has to perform confidence straight away.",
+    "The weekly rhythm helps people recognise familiar faces and build friendships over time."
+  ],
+  "faqGroupIds": ["session-youth-club"],
+  "featuredMediaId": "programme-community-friendship",
+  "featuredIconId": "icon-youth-activities",
+  "primaryCtaId": "join-session",
+  "seoDescription": "Join EncouragingYou's Saturday youth club in Rochdale for games, conversation, and a welcoming space to build friendships at your own pace."
+}

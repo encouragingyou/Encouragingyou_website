@@ -1,0 +1,127 @@
+{
+  "version": "2026-04-24",
+  "generatedAt": "2026-04-24T00:00:00.000Z",
+  "allCollectionsMatchSource": true,
+  "collectionDiffs": [
+    {
+      "collectionName": "siteSettings",
+      "sourceFingerprint": "cf03ddb09f0af2122006ab7821d2408a1c18722f49ede4cbfd15f2401a4e93a5",
+      "publishedFingerprint": "cf03ddb09f0af2122006ab7821d2408a1c18722f49ede4cbfd15f2401a4e93a5",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "shellConfig",
+      "sourceFingerprint": "2bb04b6b1e4af3ef27b12f290d8b8013a9502c0dd9ef8fc1d1d18e7a3bdd2071",
+      "publishedFingerprint": "2bb04b6b1e4af3ef27b12f290d8b8013a9502c0dd9ef8fc1d1d18e7a3bdd2071",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "contactInfo",
+      "sourceFingerprint": "8ca1570cc714fdd9b9b0ef31b588855df6a418532de887b914d4740326c1e6a2",
+      "publishedFingerprint": "8ca1570cc714fdd9b9b0ef31b588855df6a418532de887b914d4740326c1e6a2",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "homePage",
+      "sourceFingerprint": "5823bda0884da273f4c392abd7d130571644b0aff54ddbf090bf02dbff93b455",
+      "publishedFingerprint": "5823bda0884da273f4c392abd7d130571644b0aff54ddbf090bf02dbff93b455",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "routePages",
+      "sourceFingerprint": "67df7badedb06b638e7613e168d049dc696d37401ed09496b4e612c32d67ab5b",
+      "publishedFingerprint": "67df7badedb06b638e7613e168d049dc696d37401ed09496b4e612c32d67ab5b",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "programmes",
+      "sourceFingerprint": "4efa803b10d84ffe1cb5101f09d7315e133c9178820711aa10540f1390a2d0ee",
+      "publishedFingerprint": "4efa803b10d84ffe1cb5101f09d7315e133c9178820711aa10540f1390a2d0ee",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "programmePageContent",
+      "sourceFingerprint": "11840b7e05ba2b5218025a89c17fe7bc69a630f4c8957ea169e30a1ac29335de",
+      "publishedFingerprint": "11840b7e05ba2b5218025a89c17fe7bc69a630f4c8957ea169e30a1ac29335de",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "sessions",
+      "sourceFingerprint": "ba467225f04dd4c4255eaaf94816d83b4545b1b22927be5a01d67b5619d572d1",
+      "publishedFingerprint": "ba467225f04dd4c4255eaaf94816d83b4545b1b22927be5a01d67b5619d572d1",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "sessionPageContent",
+      "sourceFingerprint": "38eae2d40c428cdfdd9d03f08d00af7849d6e562e077c6e57a9b16091be2600d",
+      "publishedFingerprint": "38eae2d40c428cdfdd9d03f08d00af7849d6e562e077c6e57a9b16091be2600d",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "updatesFeed",
+      "sourceFingerprint": "5ebc5f69339f963e0fc456d6780c456fa8c6664117c3e6d41aa91400d9ae33ba",
+      "publishedFingerprint": "5ebc5f69339f963e0fc456d6780c456fa8c6664117c3e6d41aa91400d9ae33ba",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "faqs",
+      "sourceFingerprint": "38e5e71514e5b6339e9f2711c17c4e5ed9ae60b0f976d43368e162cbd211d46a",
+      "publishedFingerprint": "38e5e71514e5b6339e9f2711c17c4e5ed9ae60b0f976d43368e162cbd211d46a",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "formSurfaces",
+      "sourceFingerprint": "bc7151b7c0b5a0d8a437f9542eef12461e85bafa5167bef2ba6078d28c0ac2fa",
+      "publishedFingerprint": "bc7151b7c0b5a0d8a437f9542eef12461e85bafa5167bef2ba6078d28c0ac2fa",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "privacyNotice",
+      "sourceFingerprint": "43dca069732a0b0a7e1620a860f0bf9d95004add9af284cfa07245d0586c4a5f",
+      "publishedFingerprint": "43dca069732a0b0a7e1620a860f0bf9d95004add9af284cfa07245d0586c4a5f",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "accessibilityStatement",
+      "sourceFingerprint": "8f321ab36420317e02547493f1ce47da08325db15213d5b2b80d08cd9fce4d0e",
+      "publishedFingerprint": "8f321ab36420317e02547493f1ce47da08325db15213d5b2b80d08cd9fce4d0e",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "sitePolicy",
+      "sourceFingerprint": "a6932216a927ca3aaf0bc8fde614258302f662bf461bce31707472c10969597c",
+      "publishedFingerprint": "a6932216a927ca3aaf0bc8fde614258302f662bf461bce31707472c10969597c",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "storageAccess",
+      "sourceFingerprint": "616e5d38e712445061e40f33ec35ab002c787e53a1ffd0a50db4b70f0e3c7d85",
+      "publishedFingerprint": "616e5d38e712445061e40f33ec35ab002c787e53a1ffd0a50db4b70f0e3c7d85",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "seo",
+      "sourceFingerprint": "14ede65494d4c1411c49d44f1c17f069eb2ca84f69e62bf841791be883464f15",
+      "publishedFingerprint": "14ede65494d4c1411c49d44f1c17f069eb2ca84f69e62bf841791be883464f15",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "mediaLibrary",
+      "sourceFingerprint": "159ecddc090adcdf49c82e19b2f3019feac1e3fbabf3ba52f136f2e7f28ba8cf",
+      "publishedFingerprint": "159ecddc090adcdf49c82e19b2f3019feac1e3fbabf3ba52f136f2e7f28ba8cf",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "safeguardingInfo",
+      "sourceFingerprint": "0deda2629236cf4d6c26132f12be9f6516bcd76816475ed4ca9d43dc3cd8949c",
+      "publishedFingerprint": "0deda2629236cf4d6c26132f12be9f6516bcd76816475ed4ca9d43dc3cd8949c",
+      "matchesSource": true
+    },
+    {
+      "collectionName": "involvementRoutes",
+      "sourceFingerprint": "98e8bf2ba132812483e0f79c5d48a20ffa0b847b6c42d9251b0213c11baa5ab9",
+      "publishedFingerprint": "98e8bf2ba132812483e0f79c5d48a20ffa0b847b6c42d9251b0213c11baa5ab9",
+      "matchesSource": true
+    }
+  ]
+}

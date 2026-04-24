@@ -1,0 +1,271 @@
+---
+import PolicyContents from "../../components/legal/PolicyContents.astro";
+import SupportForm from "../../components/forms/SupportForm.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAccessibilityPageModel } from "../../lib/content/site-content.ts";
+
+const model = getAccessibilityPageModel();
+const formalAuditLabel =
+  model.formalAuditStatus === "no-independent-audit"
+    ? "No independent audit published yet"
+    : model.formalAuditStatus === "self-evaluation"
+      ? "Self-evaluated"
+      : "Independent audit completed";
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/accessibility/"
+  pageId="accessibility"
+  breadcrumbs={model.breadcrumbs}
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      actions={model.actions}
+    />
+
+    <NoticeBlock
+      title={model.statusNote.title}
+      body={model.statusNote.body}
+      tone={model.statusNote.tone}
+      action={model.statusNote.action}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-grid layout-grid--sidebar policy-summary-layout">
+      <div class="policy-summary-grid">
+        {
+          model.summaryCards.map((card, index) => (
+            <CardPanel
+              heading={card.title}
+              summary={card.body}
+              headingLevel={index === 0 ? 2 : 3}
+            >
+              {card.bullets?.length ? (
+                <ul class="check-list">
+                  {card.bullets.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </CardPanel>
+          ))
+        }
+      </div>
+
+      <PolicyContents items={model.contents} />
+    </div>
+  </PageSection>
+
+  <PageSection id="measures" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.measuresSection.eyebrow ?? ""}
+        title={model.measuresSection.title}
+        summary={model.measuresSection.summary}
+      />
+
+      <div class="policy-registry-grid">
+        {
+          model.measuresSection.items.map((item, index) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone={item.tone}
+              icon={item.icon}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="testing" tone="tint" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.assessmentSection.eyebrow ?? ""}
+        title={model.assessmentSection.title}
+        summary={model.assessmentSection.summary}
+      />
+
+      <div class="policy-registry-grid">
+        {
+          model.assessmentSection.items.map((item, index) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone={item.tone}
+              icon={item.icon}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+        <CardPanel
+          heading="Current accessibility posture"
+          summary={`Working target: ${model.standardTarget}. Assessment approach: ${model.assessmentApproach}.`}
+          tone="soft"
+          headingLevel={2}
+        >
+          <p class="storage-access-card__note">{formalAuditLabel}</p>
+        </CardPanel>
+      </div>
+
+      <NoticeBlock
+        title={model.cookieEntryPoint.title}
+        body={model.cookieEntryPoint.body}
+        tone="info"
+      />
+    </div>
+  </PageSection>
+
+  <PageSection id="known-limitations" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.limitationSection.eyebrow ?? ""}
+        title={model.limitationSection.title}
+        summary={model.limitationSection.summary}
+      />
+
+      <div class="policy-registry-grid">
+        {
+          model.limitations.map((item, index) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone="soft"
+              headingLevel={index === 0 ? 2 : 3}
+            >
+              <dl class="storage-access-card__details">
+                <div>
+                  <dt>What this means</dt>
+                  <dd>{item.impact}</dd>
+                </div>
+                <div>
+                  <dt>Alternative or next step</dt>
+                  <dd>{item.workaround}</dd>
+                </div>
+              </dl>
+            </CardPanel>
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="external-surfaces" tone="band" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.externalSurfacesSection.eyebrow ?? ""}
+        title={model.externalSurfacesSection.title}
+        summary={model.externalSurfacesSection.summary}
+      />
+
+      <div class="policy-registry-grid">
+        {
+          model.externalSurfacesSection.items.map((item, index) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.body}
+              tone="soft"
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="feedback" width="wide">
+    <div class="layout-grid layout-grid--sidebar">
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.feedbackSection.eyebrow ?? ""}
+          title={model.feedbackSection.title}
+          summary={model.feedbackSection.summary}
+        />
+
+        <NoticeBlock
+          title={model.feedbackIntroNotice.title}
+          body={model.feedbackIntroNotice.body}
+          tone={model.feedbackIntroNotice.tone}
+        />
+
+        <CardPanel
+          heading="What helps most in a report"
+          summary={model.responseExpectation}
+          tone="soft"
+        >
+          <ul class="check-list">
+            {model.feedbackSection.bullets.map((item) => <li>{item}</li>)}
+          </ul>
+        </CardPanel>
+
+        {
+          model.feedbackSection.note ? (
+            <NoticeBlock
+              title={model.feedbackSection.note.title}
+              body={model.feedbackSection.note.body}
+              tone={model.feedbackSection.note.tone}
+              action={model.feedbackSection.note.action}
+            />
+          ) : null
+        }
+      </div>
+
+      <SupportForm
+        id={model.feedbackForm.id}
+        surfaceId={model.feedbackForm.surfaceId}
+        defaultReasonId={model.feedbackForm.defaultReasonId}
+        eyebrow={model.feedbackForm.eyebrow}
+        heading={model.feedbackForm.formHeading}
+        intro={model.feedbackForm.formIntro}
+        organizationName={model.feedbackForm.organizationName}
+        privacyNote={model.feedbackForm.privacyNote}
+        privacyHighlights={model.feedbackForm.privacyHighlights}
+        privacyNoticeTitle={model.feedbackForm.privacyNoticeTitle}
+        privacyNoticeActionLabel={model.feedbackForm.privacyNoticeActionLabel}
+        messageHelper={model.feedbackForm.messageHelper}
+        updatesOptInLabel={model.feedbackForm.updatesOptInLabel}
+        showUpdatesOptIn={model.feedbackForm.showUpdatesOptIn}
+        emailFallbackPrefix={model.feedbackForm.emailFallbackPrefix}
+        noScriptNote={model.feedbackForm.noScriptNote}
+        invalidStatusMessage={model.feedbackForm.invalidStatusMessage}
+        submittingStatusMessage={model.feedbackForm.submittingStatusMessage}
+        reasons={model.feedbackForm.reasons}
+        reasonFieldLabel={model.feedbackForm.reasonFieldLabel}
+        reasonSelectPlaceholder={model.feedbackForm.reasonSelectPlaceholder}
+        reasonFieldMode={model.feedbackForm.reasonFieldMode}
+        email={model.feedbackForm.email}
+        successMessage={model.feedbackForm.successMessage}
+        submitLabel={model.feedbackForm.submitLabel}
+      />
+    </div>
+  </PageSection>
+
+  <PageSection id="review" tone="tint" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.reviewSection.eyebrow ?? ""}
+        title={model.reviewSection.title}
+        summary={model.reviewSection.summary}
+      />
+
+      <CardPanel heading="Review triggers" tone="soft">
+        <ul class="check-list">
+          {model.reviewTriggers.map((item) => <li>{item}</li>)}
+        </ul>
+      </CardPanel>
+    </div>
+  </PageSection>
+</BaseLayout>

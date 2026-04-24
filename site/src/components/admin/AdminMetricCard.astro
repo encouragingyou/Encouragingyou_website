@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  value: string | number;
+  detail: string;
+}
+
+const { label, value, detail } = Astro.props;
+---
+
+<article class="admin-metric-card">
+  <p class="admin-eyebrow">{label}</p>
+  <p class="admin-metric-value">{value}</p>
+  <p class="admin-muted">{detail}</p>
+</article>

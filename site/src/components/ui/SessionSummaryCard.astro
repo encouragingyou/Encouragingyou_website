@@ -1,0 +1,70 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import Badge from "./Badge.astro";
+import CardPanel from "./CardPanel.astro";
+import MediaIcon from "./MediaIcon.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  title: string;
+  summary: string;
+  href: string;
+  calendarHref?: string | null;
+  timeLabel: string;
+  nextLabel?: string | null;
+  statusLabel?: string | null;
+  statusMessage?: string | null;
+  icon: MediaAsset;
+}
+
+const {
+  title,
+  summary,
+  href,
+  calendarHref = null,
+  timeLabel,
+  nextLabel = null,
+  statusLabel = null,
+  statusMessage = null,
+  icon
+} = Astro.props;
+const secondaryLine = nextLabel ?? statusLabel ?? statusMessage;
+const actions = [
+  {
+    label: "See details",
+    href,
+    variant: "text" as const
+  },
+  ...(calendarHref
+    ? [
+        {
+          label: "Add to calendar",
+          href: calendarHref,
+          variant: "text" as const
+        }
+      ]
+    : [])
+];
+---
+
+<CardPanel as="article" className="session-card" tone="muted">
+  <div class="session-card__top">
+    <div class="session-card__label">
+      <MediaIcon asset={icon} className="card-panel__icon session-card__icon" />
+      <div class="session-card__title-wrap">
+        <p class="eyebrow">Recurring session</p>
+        <h3>{title}</h3>
+      </div>
+    </div>
+    <Badge label={timeLabel} tone="meta" className="meta-pill" />
+  </div>
+  <p>{summary}</p>
+  {
+    secondaryLine ? (
+      <p class="session-card__next">
+        <strong>{secondaryLine}</strong>
+      </p>
+    ) : null
+  }
+  <ActionCluster actions={actions} className="session-card__links" />
+</CardPanel>

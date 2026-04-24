@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  actionsSlot?: boolean;
+}
+
+const { title, eyebrow, description, actionsSlot = false } = Astro.props;
+---
+
+<section class="admin-panel">
+  <header
+    class:list={["admin-panel-header", { "admin-panel-header--actions": actionsSlot }]}
+  >
+    <div>
+      {eyebrow ? <p class="admin-eyebrow">{eyebrow}</p> : null}
+      <h2 class="admin-panel-title">{title}</h2>
+      {description ? <p class="admin-muted">{description}</p> : null}
+    </div>
+    {
+      actionsSlot ? (
+        <div class="admin-panel-actions">
+          <slot name="actions" />
+        </div>
+      ) : null
+    }
+  </header>
+  <div class="admin-panel-body">
+    <slot />
+  </div>
+</section>

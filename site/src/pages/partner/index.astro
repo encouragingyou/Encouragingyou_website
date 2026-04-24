@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SupportForm from "../../components/forms/SupportForm.astro";
+import CtaBand from "../../components/sections/CtaBand.astro";
+import InvolvementInfoSection from "../../components/sections/InvolvementInfoSection.astro";
+import InvolvementProcessList from "../../components/sections/InvolvementProcessList.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import DisclosureNote from "../../components/ui/DisclosureNote.astro";
+import FaqGroup from "../../components/ui/FaqGroup.astro";
+import InvolvementRoleCard from "../../components/ui/InvolvementRoleCard.astro";
+import MediaPicture from "../../components/ui/MediaPicture.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import ProofBoundaryPanel from "../../components/ui/ProofBoundaryPanel.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import { getPartnerPageModel } from "../../lib/content/site-content.ts";
+
+const model = getPartnerPageModel();
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/get-involved/"
+  pageId="partner"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+
+      <Fragment slot="media">
+        <MediaPicture
+          asset={model.media}
+          eager={true}
+          sizes="(min-width: 64rem) 50vw, 100vw"
+        />
+        {model.disclosure ? <DisclosureNote disclosure={model.disclosure} /> : null}
+      </Fragment>
+    </PageIntro>
+
+    <NoticeBlock
+      title={model.notice.title}
+      body={model.notice.body}
+      tone={model.notice.tone}
+    />
+  </PageSection>
+
+  <PageSection>
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.audienceSection.eyebrow ?? ""}
+        title={model.audienceSection.title}
+        summary={model.audienceSection.summary}
+      />
+
+      <div class="detail-grid">
+        {
+          model.audienceSection.items.map((item) => (
+            <CardPanel
+              heading={item.title}
+              summary={item.summary}
+              tone="soft"
+              actions={item.action ? [item.action] : []}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.pathwaysSection.eyebrow ?? ""}
+        title={model.pathwaysSection.title}
+        summary={model.pathwaysSection.summary}
+      />
+
+      <div class="layout-grid layout-grid--cards involvement-role-grid">
+        {
+          model.pathwaysSection.items.map((item, index) => (
+            <InvolvementRoleCard
+              eyebrow={item.eyebrow}
+              title={item.title}
+              summary={item.summary}
+              bullets={item.bullets}
+              note={item.note}
+              icon={item.icon}
+              action={item.action}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+
+      {
+        model.pathwaysSection.note ? (
+          <NoticeBlock
+            title={model.pathwaysSection.note.title}
+            body={model.pathwaysSection.note.body}
+            tone={model.pathwaysSection.note.tone}
+            action={model.pathwaysSection.note.action}
+          />
+        ) : null
+      }
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <div class="layout-grid layout-grid--sidebar">
+      <InvolvementInfoSection
+        eyebrow={model.supportSection.eyebrow}
+        title={model.supportSection.title}
+        summary={model.supportSection.summary}
+        items={model.supportSection.items}
+        note={model.supportSection.note}
+      />
+
+      <ProofBoundaryPanel {...model.proofBoundary} />
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <InvolvementProcessList
+      eyebrow={model.processSection.eyebrow}
+      title={model.processSection.title}
+      summary={model.processSection.summary}
+      steps={model.processSection.steps}
+    />
+  </PageSection>
+
+  <PageSection>
+    <div class="layout-grid layout-grid--sidebar">
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.faqSection.eyebrow ?? ""}
+          title={model.faqSection.title}
+          summary={model.faqSection.summary}
+        />
+        <FaqGroup groupId={model.faqGroupId} items={model.faqs} />
+        <NoticeBlock
+          title={model.sidebarNotice.title}
+          body={model.sidebarNotice.body}
+          tone={model.sidebarNotice.tone}
+        />
+      </div>
+
+      <SupportForm
+        id={model.partnerFormId}
+        surfaceId={model.surfaceId}
+        eyebrow={model.formEyebrow}
+        heading={model.formHeading}
+        intro={model.formIntro}
+        organizationName={model.organizationName}
+        privacyNote={model.privacyNote}
+        privacyHighlights={model.privacyHighlights}
+        privacyNoticeTitle={model.privacyNoticeTitle}
+        privacyNoticeActionLabel={model.privacyNoticeActionLabel}
+        messageHelper={model.messageHelper}
+        updatesOptInLabel={model.updatesOptInLabel}
+        emailFallbackPrefix={model.emailFallbackPrefix}
+        noScriptNote={model.noScriptNote}
+        invalidStatusMessage={model.invalidStatusMessage}
+        submittingStatusMessage={model.submittingStatusMessage}
+        reasons={model.reasons}
+        defaultReasonId={model.defaultReasonId}
+        reasonFieldLabel={model.reasonFieldLabel}
+        reasonSelectPlaceholder={model.reasonSelectPlaceholder}
+        successMessage={model.successMessage}
+        submitLabel={model.submitLabel}
+        email={model.email}
+      />
+    </div>
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <CtaBand
+      eyebrow={model.ctaBand.eyebrow}
+      title={model.ctaBand.title}
+      summary={model.ctaBand.summary}
+      badges={model.ctaBand.badges}
+      actions={model.ctaBand.actions}
+      note={model.ctaBand.note}
+    />
+  </PageSection>
+</BaseLayout>

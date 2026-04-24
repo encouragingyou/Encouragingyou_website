@@ -1,0 +1,80 @@
+---
+interface Props {
+  adminSession: {
+    capabilities: string[];
+  };
+}
+
+const { adminSession } = Astro.props;
+
+const canDraft = adminSession.capabilities.includes("create-draft");
+const canRequestReview = adminSession.capabilities.includes("request-review");
+const canApprove = adminSession.capabilities.includes("approve-content");
+const canPublish = adminSession.capabilities.includes("publish-content");
+const canRevert = adminSession.capabilities.includes("revert-content");
+---
+
+<section class="admin-action-bar" data-admin-action-bar>
+  <div>
+    <p class="admin-eyebrow">Workflow</p>
+    <h2 class="admin-panel-title">Draft, review, approval, and publish</h2>
+    <p class="admin-muted" data-workflow-status>
+      Working draft. Review and publish actions are server-checked and audited before the
+      public publication path is allowed to move.
+    </p>
+  </div>
+  <div class="admin-action-bar__controls">
+    {
+      canDraft ? (
+        <button class="admin-button" type="button" data-workflow-action="save-draft">
+          Save draft
+        </button>
+      ) : null
+    }
+    {
+      canRequestReview ? (
+        <button
+          class="admin-button admin-button--ghost"
+          type="button"
+          data-workflow-action="request-review"
+        >
+          Request review
+        </button>
+      ) : null
+    }
+    {
+      canApprove ? (
+        <button
+          class="admin-button admin-button--ghost"
+          type="button"
+          data-workflow-action="approve"
+        >
+          Approve
+        </button>
+      ) : null
+    }
+    {
+      canPublish ? (
+        <button
+          class="admin-button admin-button--primary"
+          type="button"
+          data-workflow-action="publish"
+        >
+          Publish
+        </button>
+      ) : null
+    }
+    {
+      canRevert ? (
+        <button
+          class="admin-button admin-button--ghost"
+          type="button"
+          data-workflow-action="revert"
+        >
+          Revert to published
+        </button>
+      ) : null
+    }
+  </div>
+  <p class="admin-status-note" data-validation-summary></p>
+</section>

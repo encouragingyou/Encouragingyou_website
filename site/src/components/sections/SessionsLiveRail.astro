@@ -1,0 +1,47 @@
+---
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import MediaIcon from "../ui/MediaIcon.astro";
+import type { MediaAsset } from "../../lib/types/site-ui";
+
+interface RailItem {
+  href: string;
+  icon: MediaAsset;
+  programmeTitle: string;
+  statusLabel: string;
+  timeLabel: string;
+  title: string;
+}
+
+interface Props {
+  items: RailItem[];
+  summary: string;
+  title: string;
+  tone?: "important" | "info" | "success";
+}
+
+const { items, summary, title, tone = "info" } = Astro.props;
+---
+
+<aside class="sessions-live-rail" aria-label="Live session overview">
+  <NoticeBlock eyebrow="This Saturday" title={title} body={summary} tone={tone} />
+
+  <div class="sessions-live-rail__list">
+    {
+      items.map((item) => (
+        <a class="sessions-live-rail__item" href={item.href}>
+          <div class="sessions-live-rail__item-top">
+            <div class="sessions-live-rail__item-title">
+              <MediaIcon asset={item.icon} className="sessions-live-rail__icon" />
+              <div>
+                <p class="sessions-live-rail__item-name">{item.title}</p>
+                <p class="sessions-live-rail__item-programme">{item.programmeTitle}</p>
+              </div>
+            </div>
+            <span class="badge badge--meta">{item.timeLabel}</span>
+          </div>
+          <p class="sessions-live-rail__item-status">{item.statusLabel}</p>
+        </a>
+      ))
+    }
+  </div>
+</aside>

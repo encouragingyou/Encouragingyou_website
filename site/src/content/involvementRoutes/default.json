@@ -1,0 +1,149 @@
+{
+  "routes": [
+    {
+      "id": "join-session",
+      "title": "Join a session",
+      "routeId": "sessions",
+      "launchPresence": "primary-route",
+      "pathState": "live-route",
+      "statusLabel": "Live route",
+      "summary": "Use the sessions hub if you want a practical, current route into Saturday CV support or youth club without sending a long message first.",
+      "audiences": ["young-people", "parents-carers", "referrers"],
+      "nextStep": "Browse the sessions hub, check the current offer, and send a short enquiry if you want help choosing the right session.",
+      "trustNote": "Participants, parents, and referrers should be able to see timings, first-visit reassurance, and safeguarding context before contacting the team.",
+      "requiresSafeguardingContext": true,
+      "supportPoints": [
+        "Current Saturday sessions live on the Sessions hub",
+        "First-time reassurance stays visible before someone attends",
+        "Contact remains available if you want to ask first"
+      ],
+      "iconAssetId": "icon-youth-activities",
+      "primaryAction": {
+        "label": "Browse live sessions",
+        "routeId": "sessions",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Get support first",
+        "routeId": "contact",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "volunteer",
+      "title": "Volunteer with us",
+      "routeId": "volunteer",
+      "launchPresence": "primary-route",
+      "pathState": "route-ready",
+      "statusLabel": "Dedicated route",
+      "summary": "Start here if you want role pathways, checks, and next-step expectations explained before you commit your time.",
+      "audiences": ["volunteers", "community-members"],
+      "nextStep": "Use the volunteer route to understand the pathway, then send a short enquiry if the role feels like a fit.",
+      "trustNote": "Volunteering should feel fair, supported, and clear about safeguarding expectations rather than improvised.",
+      "requiresSafeguardingContext": true,
+      "supportPoints": [
+        "Role pathways should be visible before any application flow",
+        "Safeguarding and checks stay visible early",
+        "A short enquiry should come before a long commitment"
+      ],
+      "iconAssetId": "icon-mentoring",
+      "primaryAction": {
+        "label": "See volunteer with us",
+        "routeId": "volunteer",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Contact the team",
+        "routeId": "contact",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "partner",
+      "title": "Partner with us",
+      "routeId": "partner",
+      "launchPresence": "primary-route",
+      "pathState": "route-ready",
+      "statusLabel": "Dedicated route",
+      "summary": "Use this pathway for referrals, sponsorship, venue support, collaboration, or local partnership conversations that need a clearer public starting point.",
+      "audiences": ["partners", "funders", "referrers"],
+      "nextStep": "Use the partner route to understand who it is for, what collaboration could look like, and how to send a short enquiry that can be routed properly.",
+      "trustNote": "Schools, funders, local authorities, and community organisations should be able to see a credible partnership invitation before they are asked to send a message.",
+      "requiresSafeguardingContext": false,
+      "supportPoints": [
+        "Referrals, sponsorship, and collaboration all start here",
+        "A formal proposal is not required for first contact",
+        "The next step stays proportionate and enquiry-led"
+      ],
+      "iconAssetId": "icon-community-event",
+      "primaryAction": {
+        "label": "See partner with us",
+        "routeId": "partner",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Contact the team",
+        "routeId": "contact",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "referral",
+      "title": "Refer someone",
+      "routeId": "contact",
+      "launchPresence": "hub-route",
+      "pathState": "contact-led",
+      "statusLabel": "Referral-friendly",
+      "summary": "Parents, carers, schools, and community referrers can start with a short explanation of who needs help and what kind of support might fit.",
+      "audiences": ["parents-carers", "referrers", "partners"],
+      "nextStep": "Use the contact route, choose a referral-focused reason, and tell us whether you are asking on someone else's behalf.",
+      "trustNote": "Referrers need a route that explains safety, fit, and next steps without forcing them through volunteer-first language.",
+      "requiresSafeguardingContext": true,
+      "supportPoints": [
+        "You do not need to know the exact programme before asking",
+        "Parents, carers, schools, and partners can all start here",
+        "Safeguarding guidance stays visible if the question is about safety"
+      ],
+      "iconAssetId": "icon-contact",
+      "primaryAction": {
+        "label": "Ask about a referral",
+        "routeId": "contact",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "Safeguarding information",
+        "routeId": "safeguarding",
+        "variant": "text"
+      }
+    },
+    {
+      "id": "supporter",
+      "title": "Support in another practical way",
+      "routeId": "contact",
+      "launchPresence": "hub-route",
+      "pathState": "opportunity-route",
+      "statusLabel": "Current opportunities when available",
+      "summary": "If you can offer space, introductions, practical help, or local support that does not fit a named role yet, start here.",
+      "audiences": ["community-members", "partners", "funders", "volunteers"],
+      "nextStep": "Use a live public opportunity when one is published, or send a short message describing the support you have in mind.",
+      "trustNote": "The hub should stay open to practical help without turning every supporter into a fundraiser or sending them through the wrong route.",
+      "requiresSafeguardingContext": false,
+      "supportPoints": [
+        "One-off support is welcome",
+        "Current public opportunities should surface when they are live",
+        "Contact remains the fallback if your offer does not fit a named path"
+      ],
+      "iconAssetId": "icon-growth",
+      "primaryAction": {
+        "label": "Contact the team",
+        "routeId": "contact",
+        "variant": "primary"
+      },
+      "secondaryAction": {
+        "label": "See events and updates",
+        "routeId": "events-updates",
+        "variant": "text"
+      }
+    }
+  ]
+}

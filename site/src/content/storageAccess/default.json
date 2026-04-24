@@ -1,0 +1,316 @@
+{
+  "page": {
+    "eyebrow": "Cookie notice",
+    "title": "How this site uses cookies and other storage or access technologies.",
+    "summary": "The live build avoids advertising, profiling, and other non-essential tracking. It does use a tightly limited first-party measurement layer for aggregate site-improvement statistics, together with a simple objection control on this route.",
+    "statusNote": {
+      "title": "Launch state",
+      "body": "The live build does not run advertising, remarketing, or third-party analytics. It does run first-party aggregate measurement for service improvement only, and this route is the place to review or switch that measurement off.",
+      "tone": "info"
+    },
+    "primaryAction": {
+      "label": "Read the Privacy Notice",
+      "routeId": "privacy",
+      "variant": "secondary"
+    },
+    "secondaryAction": {
+      "label": "Contact the team",
+      "routeId": "contact",
+      "variant": "text"
+    },
+    "summaryCards": [
+      {
+        "title": "No advertising or profiling cookies at launch",
+        "body": "The public routes do not declare advertising pixels, remarketing cookies, third-party analytics tags, or cross-site profiling widgets."
+      },
+      {
+        "title": "No banner at launch",
+        "body": "The live measurement layer is designed around a narrow statistical-purpose model with an objection control on this route, not a pre-enabled marketing stack that needs a banner."
+      },
+      {
+        "title": "Future additions stay off first",
+        "body": "Any future analytics vendor, embed, campaign tag, or consent-requiring technology must update this notice, the Privacy Notice, and the implementation before release."
+      }
+    ],
+    "contents": [
+      {
+        "id": "current-state",
+        "label": "Current state"
+      },
+      {
+        "id": "active-registry",
+        "label": "Active technologies"
+      },
+      {
+        "id": "absent-registry",
+        "label": "Confirmed absent"
+      },
+      {
+        "id": "consent-decision",
+        "label": "Consent and banner decision"
+      },
+      {
+        "id": "analytics-preferences",
+        "label": "Analytics choices"
+      },
+      {
+        "id": "future-changes",
+        "label": "What must change first"
+      }
+    ],
+    "activeSection": {
+      "eyebrow": "Registry",
+      "title": "What the launch build actually does on a visitor's device.",
+      "summary": "These are the audited device-side behaviors in the live public build. None of them activate advertising, profiling, or third-party tracking."
+    },
+    "absentSection": {
+      "eyebrow": "Confirmed absent",
+      "title": "What is confirmed absent at launch.",
+      "summary": "These common cookie and tracking patterns were checked and are not active in the live build. If any of them are introduced later, this notice and the Privacy Notice must change first."
+    },
+    "sections": [
+      {
+        "id": "current-state",
+        "title": "The live launch position is intentionally narrow.",
+        "paragraphs": [
+          "The public build does not use advertising cookies, remarketing tags, social-feed embeds, interactive map embeds, or third-party consent tooling on arrival.",
+          "It does use a first-party measurement layer that sends only limited page, CTA, form, and calendar-intent events to the site's own analytics endpoint so the organisation can understand whether key journeys are working and improve the site."
+        ],
+        "bullets": [
+          "No advertising, remarketing, or cross-site tracking at launch",
+          "No third-party analytics or tag manager at launch",
+          "No map or social-feed embed on public routes at launch",
+          "No names, email addresses, phone numbers, message text, or safeguarding details in analytics payloads"
+        ],
+        "note": {
+          "title": "External destinations are link-only",
+          "body": "Public links such as Instagram, email, or phone only open if someone chooses to follow them. The site does not embed those services into the page first.",
+          "tone": "info"
+        }
+      },
+      {
+        "id": "consent-decision",
+        "title": "Why the launch site does not show a banner.",
+        "paragraphs": [
+          "The live build does not use advertising, profiling, or other non-essential tracking. The only measurement that is active is a narrow first-party aggregate statistics layer intended to understand site journeys and improve the service.",
+          "That measurement is paired with clear information and a simple way to object on this route. If a future change introduces analytics or embeds that fall outside that narrow model, the feature must stay switched off until the site has updated notices and the right control mechanism."
+        ],
+        "bullets": [
+          "Advertising, profiling, and cross-site tracking stay off",
+          "Anonymous service-improvement measurement can be switched off here",
+          "Any new purpose or provider requires a fresh review before release"
+        ]
+      },
+      {
+        "id": "analytics-preferences",
+        "title": "How analytics objection works on the live build.",
+        "paragraphs": [
+          "The live analytics layer uses the site's own endpoint and keeps to aggregate service-improvement questions such as which routes lead people to the next step, which forms complete successfully, and which session pages create real interest.",
+          "If you switch that measurement off on this route, the site stores only a first-party preference cookie so it can remember your objection on later visits. It does not create an advertising or cross-site identifier."
+        ],
+        "bullets": [
+          "No session replay, heatmaps, fingerprinting, or advertising pixels",
+          "No free-text form content or personal contact details in analytics events",
+          "No safeguarding-route analytics beyond ordinary service delivery"
+        ]
+      },
+      {
+        "id": "future-changes",
+        "title": "Future additions cannot activate silently.",
+        "paragraphs": [
+          "This registry is the change-control surface for device-side technologies. If the implementation changes, this page, the Privacy Notice, and any supporting consent controls must be updated together before the new behavior goes live."
+        ]
+      }
+    ],
+    "analyticsControlSection": {
+      "eyebrow": "Analytics choices",
+      "title": "Control the live anonymous measurement layer.",
+      "summary": "These controls only affect the site's own aggregate service-improvement analytics. They do not switch on advertising, remarketing, or third-party tracking.",
+      "note": "If you ask us to keep the objection in place, the site stores a first-party preference cookie so it can remember that choice on later visits.",
+      "objectLabel": "Turn off anonymous analytics",
+      "resumeLabel": "Turn anonymous analytics back on",
+      "stateMessages": {
+        "active": {
+          "title": "Anonymous service-improvement analytics are active.",
+          "body": "The live build is counting limited route, CTA, form-success, and calendar-interest signals in aggregate so the organisation can improve the site without tracking people across services."
+        },
+        "objected": {
+          "title": "Anonymous service-improvement analytics are off on this device.",
+          "body": "The site is honoring the objection stored for this browser and is not sending live measurement events."
+        },
+        "browserSignal": {
+          "title": "Anonymous service-improvement analytics are off because your browser is signaling a privacy preference.",
+          "body": "The site treats a browser privacy signal as an objection and leaves the live measurement layer switched off."
+        },
+        "disabled": {
+          "title": "Anonymous service-improvement analytics are not active in this build.",
+          "body": "The runtime is currently configured without live measurement collection."
+        }
+      }
+    },
+    "changeControlSection": {
+      "eyebrow": "Change control",
+      "title": "Before anything non-essential goes live.",
+      "summary": "These triggers block silent rollout of new storage, access, or tracking behavior."
+    },
+    "changeTriggers": [
+      "Add analytics, measurement scripts, or campaign tags that store or access information on a device",
+      "Add an interactive map, video, social feed, or other embed that brings third-party storage or access behavior into the page",
+      "Add a cookie banner, preference centre, or consent record without updating this notice and the Privacy Notice",
+      "Start using localStorage, sessionStorage, IndexedDB, or fingerprinting for anything beyond a narrow exempt purpose",
+      "Add a CAPTCHA or other third-party anti-abuse token that stores information on the visitor's device"
+    ]
+  },
+  "settings": {
+    "consentExperience": "informational-notice",
+    "nonEssentialTechnologiesStatus": "absent",
+    "consentRecordStorage": "cookie",
+    "consentSchemaVersion": "2026-04-statistical-analytics-v1",
+    "preferenceCenterState": "available",
+    "reopenControl": "cookie-notice-route",
+    "javascriptRequirement": "none",
+    "futureDefault": "off-until-reviewed",
+    "reviewCadence": "change-driven"
+  },
+  "registry": {
+    "active": [
+      {
+        "id": "standard-browser-requests",
+        "label": "Standard browser request delivery",
+        "category": "communication-delivery",
+        "party": "first-party",
+        "activation": "always-on",
+        "persistence": "none",
+        "consentRequirement": "not-required",
+        "provider": "Browser request/response handling",
+        "purpose": "Load HTML, CSS, JavaScript, fonts, images, and other same-site files in the normal way a website works.",
+        "implementation": "The site relies on ordinary browser requests and same-site responses. It does not add a tracking identifier or consent cookie to those responses.",
+        "duration": "No site-defined storage is written to the device by this mechanism.",
+        "userControl": "Standard browser controls apply."
+      },
+      {
+        "id": "same-site-enquiry-submission",
+        "label": "Same-site enquiry submission handling",
+        "category": "service-essential",
+        "party": "first-party",
+        "activation": "user-triggered",
+        "persistence": "none",
+        "consentRequirement": "not-required",
+        "provider": "EncouragingYou enquiry endpoint",
+        "purpose": "Send a message to the site's own `/api/enquiry/` endpoint when someone chooses to submit a form.",
+        "implementation": "The form posts `FormData` to the same site. Anti-abuse checks use a honeypot field, a render-time check, and request metadata on the server instead of a client-side cookie or third-party token.",
+        "duration": "Nothing is stored on the device by this mechanism.",
+        "userControl": "It only runs if a visitor submits a form."
+      },
+      {
+        "id": "responsive-layout-and-motion-sync",
+        "label": "Responsive layout and reduced-motion adaptation",
+        "category": "appearance-helper",
+        "party": "first-party",
+        "activation": "always-on",
+        "persistence": "none",
+        "consentRequirement": "not-required",
+        "provider": "EncouragingYou site shell",
+        "purpose": "Adapt layout, navigation state, and motion level to the screen size and reduced-motion preference already exposed by the browser or device.",
+        "implementation": "CSS media queries and `window.matchMedia(...)` help the shell respond to viewport width and `prefers-reduced-motion` without storing a cross-visit preference record.",
+        "duration": "The result is not stored beyond the current page view.",
+        "userControl": "Visitors can change the underlying browser or device preference in their own settings."
+      },
+      {
+        "id": "first-party-statistical-analytics",
+        "label": "First-party aggregate service-improvement analytics",
+        "category": "statistical",
+        "party": "first-party",
+        "activation": "always-on",
+        "persistence": "none",
+        "consentRequirement": "not-required",
+        "provider": "EncouragingYou analytics endpoint",
+        "purpose": "Count limited route, CTA, calendar-intent, and form-completion signals in aggregate so the organisation can understand whether the public site is helping people take the next step.",
+        "implementation": "The shared client runtime and server routes send only a small allowlisted event taxonomy to the site's own `/api/analytics/` endpoint. The endpoint stores aggregate counters only and rejects free text, direct identifiers, safeguarding details, and third-party sharing.",
+        "duration": "No measurement identifier is written to the device. Aggregate daily counters are retained server-side for service-improvement reporting.",
+        "userControl": "The objection control on this route turns the measurement layer off for this browser."
+      },
+      {
+        "id": "analytics-objection-preference",
+        "label": "Analytics objection preference cookie",
+        "category": "service-essential",
+        "party": "first-party",
+        "activation": "user-triggered",
+        "persistence": "persistent",
+        "consentRequirement": "not-required",
+        "provider": "EncouragingYou cookie notice route",
+        "purpose": "Remember an objection to the live aggregate analytics layer so the site does not restart that measurement on later visits from the same browser.",
+        "implementation": "A first-party cookie is only set when someone actively turns the anonymous analytics layer off. It stores the objection state and is not reused for advertising, personalization, or cross-site tracking.",
+        "duration": "Up to 180 days unless it is cleared sooner or the visitor turns the measurement back on.",
+        "userControl": "Visitors can clear the objection by using the control on this route."
+      }
+    ],
+    "absent": [
+      {
+        "id": "non-essential-cookies",
+        "label": "Non-essential cookies",
+        "category": "non-essential",
+        "party": "first-party",
+        "detail": "The live build does not declare first-party or third-party cookies for advertising, remarketing, personalization, or cross-site analytics.",
+        "reason": "The launch measurement model is intentionally limited to first-party aggregate statistics and an objection cookie."
+      },
+      {
+        "id": "web-storage-apis",
+        "label": "Web storage APIs",
+        "category": "non-essential",
+        "party": "first-party",
+        "detail": "The public site code does not use `localStorage`, `sessionStorage`, or IndexedDB to remember analytics choices or identify people between visits.",
+        "reason": "The live preference control uses a first-party cookie instead of browser storage APIs."
+      },
+      {
+        "id": "analytics-and-measurement-tags",
+        "label": "Analytics and measurement tags",
+        "category": "statistical",
+        "party": "third-party",
+        "detail": "No third-party analytics platform, tag manager, heatmap, session replay tool, or measurement pixel is configured on the public routes.",
+        "reason": "The live measurement model is intentionally same-site and processor-free at launch."
+      },
+      {
+        "id": "embedded-maps-and-media",
+        "label": "Interactive maps and third-party embeds",
+        "category": "non-essential",
+        "party": "third-party",
+        "detail": "The contact route does not load an interactive map on arrival, and the public routes do not embed social feeds, videos, or third-party widgets that set storage on page load.",
+        "reason": "Third-party embed behavior is kept out of the page until there is a verified need and a lawful implementation path."
+      },
+      {
+        "id": "advertising-and-remarketing",
+        "label": "Advertising, remarketing, and cross-site tracking",
+        "category": "non-essential",
+        "party": "third-party",
+        "detail": "No advertising pixel, remarketing tag, affiliate cookie, or cross-site profiling technology is active in the launch build.",
+        "reason": "The site does not run advertising or remarketing at launch."
+      },
+      {
+        "id": "third-party-anti-abuse-tokens",
+        "label": "Third-party anti-abuse tokens",
+        "category": "service-essential",
+        "party": "third-party",
+        "detail": "The form stack does not use reCAPTCHA, Turnstile, or another third-party token that stores or accesses information on the visitor's device.",
+        "reason": "Launch abuse defenses are handled through same-site validation and server-side checks instead."
+      }
+    ],
+    "futureGuardrails": [
+      {
+        "id": "statistical-measurement",
+        "title": "Statistical or analytics additions",
+        "body": "Any future analytics tool must be classified explicitly, checked against the relevant PECR exception, reflected in the registry, and kept off until the site can support the right notice and user control."
+      },
+      {
+        "id": "embeds-and-widgets",
+        "title": "Embeds, maps, and third-party widgets",
+        "body": "Any future embed must be configured in the most privacy-preserving mode available, or replaced with a plain link if the provider cannot support a truthful launch-safe implementation."
+      },
+      {
+        "id": "consent-mechanism",
+        "title": "Banner and preference rollout",
+        "body": "If a future feature requires consent, the site must move from this objection-based route to a real banner and preference flow with equal reject and accept emphasis, durable withdrawal, and a persistent revisit path."
+      }
+    ]
+  }
+}

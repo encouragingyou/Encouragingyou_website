@@ -1,0 +1,17 @@
+---
+import SafeguardingDetailTemplate from "../../../components/sections/SafeguardingDetailTemplate.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getSafeguardingDetailPageModel } from "../../../lib/content/site-content.ts";
+
+const model: ReturnType<typeof getSafeguardingDetailPageModel> =
+  getSafeguardingDetailPageModel("adult");
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/safeguarding/adult/"
+  pageId="safeguarding-adult"
+  structuredData={model.structuredData}
+>
+  <SafeguardingDetailTemplate model={model} />
+</BaseLayout>

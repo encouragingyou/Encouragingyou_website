@@ -1,0 +1,41 @@
+---
+import ButtonLink from "./ButtonLink.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+interface Props {
+  actions: ActionLink[];
+  align?: "center" | "start";
+  className?: string;
+  fullWidth?: boolean;
+  stack?: boolean;
+}
+
+const {
+  actions,
+  align = "start",
+  className = "",
+  fullWidth = false,
+  stack = false
+} = Astro.props;
+
+const clusterClass = [
+  "action-cluster",
+  align === "center" ? "action-cluster--center" : "action-cluster--start",
+  stack ? "action-cluster--stack" : "",
+  className
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  actions.length > 0 ? (
+    <div class={clusterClass}>
+      {actions.map((action) => (
+        <ButtonLink href={action.href} variant={action.variant} fullWidth={fullWidth}>
+          {action.label}
+        </ButtonLink>
+      ))}
+    </div>
+  ) : null
+}

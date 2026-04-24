@@ -1,0 +1,46 @@
+---
+import adminPortalClientUrl from "../lib/client/admin-portal.js?url";
+import "../styles/admin.css";
+
+interface Props {
+  title: string;
+  eyebrow: string;
+  description: string;
+}
+
+const { title, eyebrow, description } = Astro.props;
+const deployment = Astro.locals.deployment;
+---
+
+<!doctype html>
+<html
+  lang="en"
+  data-deployment-channel={deployment?.channel}
+  data-deployment-surface={deployment?.surface}
+  data-release-id={deployment?.releaseId}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>{title}</title>
+  </head>
+  <body class="admin-layout-body">
+    <main class="admin-auth-shell">
+      <section class="admin-auth-card">
+        <a class="admin-brand admin-brand--auth" href="/admin/login/">
+          <span class="admin-brand__mark">EY</span>
+          <span>
+            <strong>EncouragingYou CMS</strong>
+            <small>Invitation-only editorial portal</small>
+          </span>
+        </a>
+        <p class="admin-eyebrow">{eyebrow}</p>
+        <h1 class="admin-panel-title">{title}</h1>
+        <p class="admin-muted">{description}</p>
+        <slot />
+      </section>
+    </main>
+    <script type="module" src={adminPortalClientUrl} is:inline></script>
+  </body>
+</html>

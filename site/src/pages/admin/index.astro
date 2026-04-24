@@ -1,0 +1,109 @@
+---
+import AdminMetricCard from "../../components/admin/AdminMetricCard.astro";
+import AdminPanel from "../../components/admin/AdminPanel.astro";
+import AdminWorkstreamCard from "../../components/admin/AdminWorkstreamCard.astro";
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import { getAdminDashboard, listAdminWorkstreams } from "../../lib/cms/admin-portal.js";
+
+export const prerender = false;
+
+const adminSession = Astro.locals.admin!;
+const dashboard = getAdminDashboard(adminSession?.roleId ?? "publisher");
+const featuredWorkstreams = listAdminWorkstreams().slice(0, 6);
+---
+
+<AdminLayout
+  title="Editorial dashboard"
+  adminPageId="dashboard"
+  adminSession={adminSession}
+>
+  <div class="admin-grid">
+    <AdminMetricCard
+      label="Content groups"
+      value={dashboard.workstreamCount}
+      detail="Recognizable route-led workstreams instead of raw schema entities."
+    />
+    <AdminMetricCard
+      label="CMS documents"
+      value={dashboard.documentCount}
+      detail="Seeded write-model records currently attached to the admin workflow."
+    />
+    <AdminMetricCard
+      label="Editable today"
+      value={dashboard.editableDocumentCount}
+      detail="Documents your current server role can open for text edits."
+    />
+    <AdminMetricCard
+      label="Locked surfaces"
+      value={dashboard.lockedSurfaceCount}
+      detail="Developer-owned layout, routing, and runtime surfaces kept outside the CMS."
+    />
+  </div>
+
+  <div class="admin-grid admin-grid--wide">
+    <AdminPanel
+      title="What changed"
+      eyebrow="Live workspace"
+      description="Prompt 54 adds the secured auth boundary around the constrained editing shell. Drafts remain isolated from the public read model until later publication wiring is completed."
+    >
+      <div class="admin-stack">
+        <div class="admin-review-card">
+          <strong>Review queue</strong>
+          <p class="admin-muted">
+            Submitted drafts appear here after an editor requests review. This counter is
+            fed from the admin browser workspace, never the public site.
+          </p>
+          <p class="admin-status-note" data-dashboard-review-count>
+            No pending review items in this browser yet.
+          </p>
+        </div>
+        <div class="admin-review-card">
+          <strong>Locked boundary</strong>
+          <p class="admin-muted">
+            Editors can change text, metadata, and fixed-template repeatable items only.
+            They cannot change layouts, components, animations, routes, or runtime
+            behavior.
+          </p>
+        </div>
+        <div class="admin-review-card">
+          <strong>Publication contract</strong>
+          <p class="admin-muted">
+            Draft preview and diff live inside the admin portal only. The public read
+            model still consumes published snapshots only.
+          </p>
+        </div>
+      </div>
+    </AdminPanel>
+
+    <AdminPanel
+      title="Workflow states"
+      eyebrow="Editorial lifecycle"
+      description="These are the allowed revision states carried forward from Prompt 52."
+    >
+      <ul class="admin-tag-list">
+        {
+          dashboard.stateLabels.map((state) => (
+            <li>
+              {state.label}
+              {state.publicVisible ? " (public)" : ""}
+            </li>
+          ))
+        }
+      </ul>
+    </AdminPanel>
+  </div>
+
+  <AdminPanel
+    title="Priority workstreams"
+    eyebrow="Open content"
+    description="The portal is organized around public pages and route families the client already recognizes."
+  >
+    <div class="admin-grid">
+      {
+        featuredWorkstreams.map((workstream) => (
+          <AdminWorkstreamCard workstream={workstream} />
+        ))
+      }
+    </div>
+  </AdminPanel>
+</AdminLayout>

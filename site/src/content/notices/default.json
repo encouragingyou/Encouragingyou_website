@@ -1,0 +1,36 @@
+{
+  "notices": [
+    {
+      "id": "ai-illustration",
+      "title": "AI illustration disclosure",
+      "text": "Launch illustration, not participant photography.",
+      "variants": {
+        "prominent": "Launch illustration, not participant photography.",
+        "compact": "Launch illustration, not participant photography.",
+        "sitewide": "Illustrations on this launch site are AI-generated unless stated otherwise."
+      },
+      "appliesTo": ["illustration", "home", "about", "programmes", "get-involved"],
+      "severity": "info"
+    },
+    {
+      "id": "service-area-venue",
+      "title": "Service area and venue note",
+      "text": "The service area anchor is Rochdale. Specific venue details can be shared on enquiry where appropriate.",
+      "appliesTo": ["sessions", "session-cv-support", "session-youth-club", "contact"],
+      "severity": "info"
+    },
+    {
+      "id": "privacy-short-form",
+      "title": "Short-form privacy note",
+      "text": "We use the details you share only to reply or route your enquiry to the right next step.",
+      "appliesTo": [
+        "contact-form",
+        "home.contact-panel",
+        "get-involved",
+        "volunteer",
+        "partner"
+      ],
+      "severity": "important"
+    }
+  ]
+}

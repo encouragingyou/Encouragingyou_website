@@ -1,0 +1,40 @@
+---
+import type { MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  disclosure?: MediaDisclosure | string | null;
+  text?: string | null;
+  className?: string;
+}
+
+const { disclosure, text = null, className = "" } = Astro.props;
+const normalizedDisclosure =
+  typeof disclosure === "string"
+    ? {
+        noticeId: "legacy",
+        text: disclosure,
+        variant: "prominent",
+        context: "detail"
+      }
+    : disclosure;
+const content = normalizedDisclosure?.text ?? text;
+const variant = normalizedDisclosure?.variant ?? "prominent";
+const context = normalizedDisclosure?.context ?? "detail";
+const classes = ["disclosure-note", `disclosure-note--${variant}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  content ? (
+    <p
+      class={classes}
+      data-disclosure
+      data-disclosure-variant={variant}
+      data-disclosure-context={context}
+      data-notice-id={normalizedDisclosure?.noticeId ?? "legacy"}
+    >
+      {content}
+    </p>
+  ) : null
+}

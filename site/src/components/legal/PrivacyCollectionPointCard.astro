@@ -1,0 +1,79 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+
+interface RouteLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  routes: RouteLink[];
+  dataTypes: string[];
+  purpose: string;
+  workingBasis: string;
+  sharing: string;
+  retention: string;
+  note?: string | null;
+  headingLevel?: 2 | 3;
+}
+
+const {
+  title,
+  routes,
+  dataTypes,
+  purpose,
+  workingBasis,
+  sharing,
+  retention,
+  note = null,
+  headingLevel = 3
+} = Astro.props;
+---
+
+<CardPanel
+  heading={title}
+  summary={purpose}
+  tone="soft"
+  headingLevel={headingLevel}
+  className="privacy-collection-card"
+>
+  <div class="layout-stack layout-stack--compact">
+    <div class="privacy-collection-card__meta">
+      <h4>Shown on</h4>
+      <ul class="inline-link-list">
+        {
+          routes.map((route) => (
+            <li>
+              <a href={route.href}>{route.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="privacy-collection-card__meta">
+      <h4>Usually asks for</h4>
+      <ul class="check-list">
+        {dataTypes.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <dl class="privacy-collection-card__details">
+      <div>
+        <dt>Why it is used</dt>
+        <dd>{workingBasis}</dd>
+      </div>
+      <div>
+        <dt>Who may see it</dt>
+        <dd>{sharing}</dd>
+      </div>
+      <div>
+        <dt>Retention approach</dt>
+        <dd>{retention}</dd>
+      </div>
+    </dl>
+
+    {note ? <p class="privacy-collection-card__note">{note}</p> : null}
+  </div>
+</CardPanel>

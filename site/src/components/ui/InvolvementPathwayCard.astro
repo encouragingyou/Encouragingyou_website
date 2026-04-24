@@ -1,0 +1,87 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import BadgeRow from "./BadgeRow.astro";
+import MediaIcon from "./MediaIcon.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+
+interface Props {
+  actions: ActionLink[];
+  featured?: boolean;
+  headingLevel?: 2 | 3;
+  icon: MediaAsset;
+  statusLabel: string;
+  summary: string;
+  supportPoints?: string[];
+  supportingText: string;
+  title: string;
+  tone?: "accent" | "soft" | "success";
+  trustNote: string;
+}
+
+const {
+  actions,
+  featured = false,
+  headingLevel = 3,
+  icon,
+  statusLabel,
+  summary,
+  supportPoints = [],
+  supportingText,
+  title,
+  tone = "soft",
+  trustNote
+} = Astro.props;
+
+const statusTone: BadgeTone =
+  tone === "success" ? "success" : tone === "accent" ? "accent" : "soft";
+---
+
+<article
+  class:list={[
+    "involvement-pathway-card",
+    featured && "involvement-pathway-card--featured"
+  ]}
+  data-involvement-tone={tone}
+>
+  <div class="involvement-pathway-card__header">
+    <div class="involvement-pathway-card__title-group">
+      <MediaIcon
+        asset={icon}
+        className="card-panel__icon involvement-pathway-card__icon"
+      />
+      <div class="involvement-pathway-card__heading-copy">
+        <p class="eyebrow">{featured ? "Current public route" : "Pathway"}</p>
+        {
+          headingLevel === 2 ? (
+            <h2 class="involvement-pathway-card__title">{title}</h2>
+          ) : (
+            <h3 class="involvement-pathway-card__title">{title}</h3>
+          )
+        }
+      </div>
+    </div>
+
+    <BadgeRow
+      className="involvement-pathway-card__badges"
+      items={[{ label: statusLabel, tone: statusTone }]}
+    />
+  </div>
+
+  <p class="involvement-pathway-card__summary">{summary}</p>
+  <p class="involvement-pathway-card__supporting">{supportingText}</p>
+
+  {
+    supportPoints.length > 0 ? (
+      <ul class="check-list involvement-pathway-card__list">
+        {supportPoints.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  <p class="involvement-pathway-card__trust">{trustNote}</p>
+  <ActionCluster actions={actions} className="involvement-pathway-card__actions" />
+</article>

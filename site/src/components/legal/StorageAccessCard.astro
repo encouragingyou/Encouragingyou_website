@@ -1,0 +1,55 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+
+interface DetailRow {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  title: string;
+  summary: string;
+  statusLabel: string;
+  statusTone?: "accent" | "meta" | "success";
+  detailRows: DetailRow[];
+  note?: string | null;
+  headingLevel?: 2 | 3;
+}
+
+const {
+  title,
+  summary,
+  statusLabel,
+  statusTone = "meta",
+  detailRows,
+  note = null,
+  headingLevel = 3
+} = Astro.props;
+---
+
+<CardPanel
+  heading={title}
+  summary={summary}
+  tone="soft"
+  headingLevel={headingLevel}
+  className="storage-access-card"
+>
+  <div class="layout-stack layout-stack--compact">
+    <p class="storage-access-card__status" data-status={statusTone}>
+      {statusLabel}
+    </p>
+
+    <dl class="storage-access-card__details">
+      {
+        detailRows.map((row) => (
+          <div>
+            <dt>{row.label}</dt>
+            <dd>{row.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    {note ? <p class="storage-access-card__note">{note}</p> : null}
+  </div>
+</CardPanel>

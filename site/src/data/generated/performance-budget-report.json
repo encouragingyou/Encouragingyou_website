@@ -1,0 +1,514 @@
+{
+  "version": "2026-04-24",
+  "generatedAt": "2026-04-24T11:02:19.460Z",
+  "sharedAssets": {
+    "css": [
+      {
+        "file": "/_astro/_invitationToken_.DP24FL7y.css",
+        "rawBytes": 7339,
+        "gzipBytes": 2091
+      },
+      {
+        "file": "/_astro/index.BTFx4sS0.css",
+        "rawBytes": 92187,
+        "gzipBytes": 14481
+      }
+    ],
+    "js": [
+      {
+        "file": "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js",
+        "rawBytes": 12148,
+        "gzipBytes": 4577
+      },
+      {
+        "file": "/_astro/admin-portal.CZ6GPhYB.js",
+        "rawBytes": 23216,
+        "gzipBytes": 5602
+      },
+      {
+        "file": "/_astro/client.Ct1RvbWB.js",
+        "rawBytes": 21354,
+        "gzipBytes": 6080
+      }
+    ],
+    "astroGeneratedMediaCount": 0,
+    "astroGeneratedMedia": []
+  },
+  "sentinels": [
+    {
+      "route": "/",
+      "tier": "first-impression",
+      "htmlBytes": 50133,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 85718,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/hero-1200.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/about/",
+      "tier": "first-impression",
+      "htmlBytes": 31808,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 112940,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/about-960.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/programmes/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 40422,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/programmes/community-friendship/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 34748,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/sessions/",
+      "tier": "live-session",
+      "htmlBytes": 26106,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/sessions/cv-support/",
+      "tier": "live-session",
+      "htmlBytes": 29961,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/get-involved/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 42339,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 87388,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/volunteer-partner-1200.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/contact/",
+      "tier": "utility-trust",
+      "htmlBytes": 42807,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/privacy/",
+      "tier": "utility-trust",
+      "htmlBytes": 40727,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/events-updates/",
+      "tier": "editorial",
+      "htmlBytes": 26924,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/events-updates/community-events-and-workshops/",
+      "tier": "editorial",
+      "htmlBytes": 19689,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    }
+  ],
+  "cachePolicy": {
+    "html": {
+      "marketing": "public, max-age=0",
+      "truthCritical": "public, max-age=0"
+    },
+    "api": {
+      "sensitive": "no-store"
+    },
+    "static": {
+      "hashedClientAssets": "public, max-age=31536000, immutable",
+      "fonts": "public, max-age=604800, stale-while-revalidate=86400",
+      "curatedMedia": "public, max-age=604800, stale-while-revalidate=86400",
+      "downloads": "public, max-age=3600, must-revalidate",
+      "discovery": "public, max-age=3600, must-revalidate",
+      "socialPreviews": "public, max-age=86400, must-revalidate",
+      "favicon": "public, max-age=86400, must-revalidate"
+    }
+  },
+  "serverLogs": [
+    "12:02:19 [@astrojs/node] Server listening on http://127.0.0.1:4329\n"
+  ],
+  "routes": [
+    {
+      "route": "/",
+      "tier": "first-impression",
+      "htmlBytes": 50133,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 85718,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/hero-1200.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/about/",
+      "tier": "first-impression",
+      "htmlBytes": 31808,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 112940,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/about-960.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/programmes/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 40422,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/programmes/community-friendship/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 34748,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/sessions/",
+      "tier": "live-session",
+      "htmlBytes": 26106,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/sessions/cv-support/",
+      "tier": "live-session",
+      "htmlBytes": 29961,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/get-involved/",
+      "tier": "illustration-heavy",
+      "htmlBytes": 42339,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 1,
+      "eagerImageBytes": 87388,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [
+        "/images/volunteer-partner-1200.webp"
+      ],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/contact/",
+      "tier": "utility-trust",
+      "htmlBytes": 42807,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/privacy/",
+      "tier": "utility-trust",
+      "htmlBytes": 40727,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/events-updates/",
+      "tier": "editorial",
+      "htmlBytes": 26924,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "route": "/events-updates/community-events-and-workshops/",
+      "tier": "editorial",
+      "htmlBytes": 19689,
+      "stylesheetBytes": 92187,
+      "moduleScriptBytes": 12148,
+      "fontPreloadCount": 1,
+      "eagerImageCount": 0,
+      "eagerImageBytes": 0,
+      "stylesheets": [
+        "/_astro/index.BTFx4sS0.css"
+      ],
+      "moduleScripts": [
+        "/_astro/BaseLayout.astro_astro_type_script_index_0_lang.yEqH9Nya.js"
+      ],
+      "eagerImages": [],
+      "cacheControl": "public, max-age=0",
+      "pass": true,
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import BadgeRow from "./BadgeRow.astro";
+import CardPanel from "./CardPanel.astro";
+import DisclosureNote from "./DisclosureNote.astro";
+import MediaPicture from "./MediaPicture.astro";
+import type { MediaAsset, MediaDisclosure } from "../../lib/types/site-ui";
+
+interface Props {
+  title: string;
+  summary: string;
+  href: string;
+  media: MediaAsset;
+  disclosure?: MediaDisclosure | string | null;
+  tags: string[];
+  ctaLabel: string;
+}
+
+const { title, summary, href, media, disclosure, tags, ctaLabel } = Astro.props;
+---
+
+<CardPanel as="article" className="programme-card">
+  <div class="programme-card__media">
+    <MediaPicture
+      asset={media}
+      sizes="(min-width: 64rem) 22rem, (min-width: 42rem) 50vw, 100vw"
+    />
+    {disclosure ? <DisclosureNote disclosure={disclosure} /> : null}
+  </div>
+  <div class="programme-card__body">
+    <h3>{title}</h3>
+    <p>{summary}</p>
+    <BadgeRow
+      items={tags.map((tag) => ({
+        label: tag,
+        tone: "soft" as const
+      }))}
+      className="programme-card__tags"
+    />
+    <ActionCluster
+      actions={[
+        {
+          label: ctaLabel,
+          href,
+          variant: "text"
+        }
+      ]}
+    />
+  </div>
+</CardPanel>

@@ -1,0 +1,1653 @@
+{
+  "version": "2026-04-24",
+  "baselinePrompt": 50,
+  "principles": [
+    "The CMS is a constrained editorial system, not a page builder.",
+    "Only existing text-bearing and metadata-bearing surfaces may be mutated.",
+    "Public browsers consume published content through a read-only contract.",
+    "Write access, authentication, sessions, secrets, and audit logs stay on a separate admin origin.",
+    "Design tokens, layouts, route wiring, analytics, security, and executable code remain developer-owned."
+  ],
+  "ownershipClasses": [
+    {
+      "id": "client-editable",
+      "title": "Client-editable text",
+      "description": "End-client editors may change the approved text fields through constrained controls."
+    },
+    {
+      "id": "operator-controlled",
+      "title": "Operator-controlled",
+      "description": "Only trained publishers or internal operators may change this text or metadata because it affects trust, legal accuracy, routing, or publication state."
+    },
+    {
+      "id": "developer-owned",
+      "title": "Developer-owned",
+      "description": "Structure, rendering logic, runtime behavior, and technical configuration remain outside the client CMS."
+    }
+  ],
+  "mutationPrimitives": [
+    {
+      "id": "short-plain-text",
+      "label": "Short plain text",
+      "description": "Single-line copy such as headings, labels, or concise helper text.",
+      "allowedFormatting": [],
+      "maxLength": 120
+    },
+    {
+      "id": "long-plain-text",
+      "label": "Long plain text",
+      "description": "Paragraph-length plain text with no markup.",
+      "allowedFormatting": [],
+      "maxLength": 900
+    },
+    {
+      "id": "constrained-rich-text",
+      "label": "Constrained rich text",
+      "description": "Very small allowlist for legal or editorial body copy.",
+      "allowedFormatting": [
+        "paragraph",
+        "unordered-list",
+        "ordered-list",
+        "strong",
+        "emphasis",
+        "link"
+      ],
+      "maxLength": 5000
+    },
+    {
+      "id": "repeatable-list",
+      "label": "Repeatable fixed-template list",
+      "description": "Editors may add, remove, and reorder items only within a fixed template the public site already knows how to render.",
+      "allowedFormatting": [],
+      "maxLength": 20
+    },
+    {
+      "id": "seo-snippet",
+      "label": "SEO snippet",
+      "description": "Metadata text such as SEO title, description, or social-preview fallback copy.",
+      "allowedFormatting": [],
+      "maxLength": 160
+    },
+    {
+      "id": "alt-text",
+      "label": "Alt text or caption",
+      "description": "Accessibility text for already-approved media assets.",
+      "allowedFormatting": [],
+      "maxLength": 180
+    },
+    {
+      "id": "route-reference-picker",
+      "label": "Route picker",
+      "description": "Internal destination selected from an allowlisted set of existing public routes.",
+      "allowedFormatting": [],
+      "maxLength": 1
+    },
+    {
+      "id": "external-link-allowlist",
+      "label": "External link allowlist",
+      "description": "External destination selected from an operator-managed allowlist, not typed as a free URL.",
+      "allowedFormatting": [],
+      "maxLength": 1
+    },
+    {
+      "id": "publication-control",
+      "label": "Publication control",
+      "description": "Draft, review, publish, archive, and revert metadata for editorial items.",
+      "allowedFormatting": [],
+      "maxLength": 1
+    },
+    {
+      "id": "developer-locked",
+      "label": "Developer locked",
+      "description": "Surface is intentionally outside CMS mutation scope.",
+      "allowedFormatting": [],
+      "maxLength": 0
+    }
+  ],
+  "linkPolicies": [
+    {
+      "id": "none",
+      "label": "No link editing",
+      "description": "Surface does not expose editable links."
+    },
+    {
+      "id": "internal-route-only",
+      "label": "Internal route picker only",
+      "description": "Destination must be chosen from a fixed list of public routes."
+    },
+    {
+      "id": "external-allowlist",
+      "label": "External allowlist",
+      "description": "Destination must come from an operator-maintained allowlist such as Instagram or the ICO."
+    },
+    {
+      "id": "operator-managed",
+      "label": "Operator managed",
+      "description": "Link target is managed by publishers or maintainers, not end-client editors."
+    }
+  ],
+  "forbiddenCapabilities": [
+    "component ordering",
+    "layout region editing",
+    "template switching",
+    "route creation",
+    "slug generation outside approved patterns",
+    "design token editing",
+    "raw HTML injection",
+    "raw CSS injection",
+    "raw JavaScript injection",
+    "iframe or embed insertion",
+    "analytics configuration changes",
+    "security header or CSP changes",
+    "environment variable editing",
+    "arbitrary media upload for public use without governance",
+    "public-side write APIs"
+  ],
+  "adminBoundary": {
+    "writeOrigin": "separate-secure-origin-required",
+    "publicOriginWriteCapability": "forbidden",
+    "publicReadModel": "published-content-only",
+    "draftIsolation": "required",
+    "approvalIsolation": "required",
+    "sessionBoundary": "admin-only-session-store",
+    "deploymentBoundary": "separate-admin-deploy-and-observability-required",
+    "rollbackBoundary": "content-publish-revert-and-admin-runtime-rollback-must-be-separate-from-public-site-release-rollback",
+    "unverifiedOperationalRequirements": [
+      "final admin domain",
+      "identity provider",
+      "key-management service",
+      "support and recovery contacts",
+      "audit-log retention owner"
+    ]
+  },
+  "capabilities": [
+    "create-draft",
+    "edit-client-fields",
+    "request-review",
+    "view-diff",
+    "view-audit-log",
+    "edit-operator-fields",
+    "approve-content",
+    "publish-content",
+    "revert-content",
+    "archive-content",
+    "manage-editor-access",
+    "manage-schema-and-mappings",
+    "manage-runtime-and-secrets"
+  ],
+  "roles": [
+    {
+      "id": "client-editor",
+      "title": "Invited client editor",
+      "description": "Can draft and revise approved editable copy fields, but cannot publish or change trust-critical configuration.",
+      "can": ["create-draft", "edit-client-fields", "request-review", "view-diff"],
+      "cannot": [
+        "edit-operator-fields",
+        "approve-content",
+        "publish-content",
+        "revert-content",
+        "archive-content",
+        "manage-editor-access",
+        "manage-schema-and-mappings",
+        "manage-runtime-and-secrets"
+      ]
+    },
+    {
+      "id": "publisher",
+      "title": "Approver and publisher",
+      "description": "Owns review, trust-critical text, publication state, and content rollback.",
+      "can": [
+        "create-draft",
+        "edit-client-fields",
+        "edit-operator-fields",
+        "request-review",
+        "view-diff",
+        "view-audit-log",
+        "approve-content",
+        "publish-content",
+        "revert-content",
+        "archive-content"
+      ],
+      "cannot": [
+        "manage-editor-access",
+        "manage-schema-and-mappings",
+        "manage-runtime-and-secrets"
+      ]
+    },
+    {
+      "id": "technical-maintainer",
+      "title": "Technical maintainer",
+      "description": "Owns schema, mappings, runtime, deployment, and emergency recovery.",
+      "can": [
+        "create-draft",
+        "edit-client-fields",
+        "edit-operator-fields",
+        "request-review",
+        "view-diff",
+        "view-audit-log",
+        "approve-content",
+        "publish-content",
+        "revert-content",
+        "archive-content",
+        "manage-editor-access",
+        "manage-schema-and-mappings",
+        "manage-runtime-and-secrets"
+      ],
+      "cannot": []
+    }
+  ],
+  "seedSources": [
+    {
+      "id": "global-shell-seed",
+      "contentCollection": "shellConfig",
+      "sourcePath": "site/src/content/shellConfig/default.json",
+      "seedStrategy": "preserve-existing-keys-and-route-ids",
+      "notes": "Seeds footer support copy, utility copy, and route-bound CTA text without exposing navigation structure editing."
+    },
+    {
+      "id": "site-settings-seed",
+      "contentCollection": "siteSettings",
+      "sourcePath": "site/src/content/siteSettings/default.json",
+      "seedStrategy": "preserve-global-identity-fields",
+      "notes": "Seeds organisation name, tagline, service-area language, and public identity text."
+    },
+    {
+      "id": "route-page-seed",
+      "contentCollection": "routePages",
+      "sourcePath": "site/src/content/routePages/default.json",
+      "seedStrategy": "seed-by-page-id",
+      "notes": "Primary source for static-route intros, sections, CTAs, helper copy, and trust callouts."
+    },
+    {
+      "id": "home-seed",
+      "contentCollection": "homePage",
+      "sourcePath": "site/src/content/homePage/default.json",
+      "seedStrategy": "seed-by-section-id",
+      "notes": "Preserves canonical homepage section ids and CTA references."
+    },
+    {
+      "id": "programme-seed",
+      "contentCollection": "programmes",
+      "sourcePath": "site/src/content/programmes/*.json",
+      "seedStrategy": "seed-by-slug",
+      "notes": "Preserves slugs, audience metadata, and programme-level editorial copy."
+    },
+    {
+      "id": "programme-page-seed",
+      "contentCollection": "programmePageContent",
+      "sourcePath": "site/src/content/programmePageContent/default.json",
+      "seedStrategy": "seed-by-page-id",
+      "notes": "Seeds programme detail templates and route-specific supporting copy."
+    },
+    {
+      "id": "session-seed",
+      "contentCollection": "sessions",
+      "sourcePath": "site/src/content/sessions/*.json",
+      "seedStrategy": "seed-by-slug-preserve-calendar-contract",
+      "notes": "Preserves session slugs, recurrence linkage, and operational metadata."
+    },
+    {
+      "id": "session-page-seed",
+      "contentCollection": "sessionPageContent",
+      "sourcePath": "site/src/content/sessionPageContent/default.json",
+      "seedStrategy": "seed-by-page-id",
+      "notes": "Seeds fixed-template session detail text around the canonical session data."
+    },
+    {
+      "id": "editorial-feed-seed",
+      "contentCollection": "updatesFeed",
+      "sourcePath": "site/src/content/updatesFeed/default.json",
+      "seedStrategy": "seed-by-item-id-and-slug",
+      "notes": "Preserves publication status, slugs, taxonomy, and item-level detail copy."
+    },
+    {
+      "id": "faq-seed",
+      "contentCollection": "faqs",
+      "sourcePath": "site/src/content/faqs/default.json",
+      "seedStrategy": "seed-by-group-id-and-item-order",
+      "notes": "Preserves FAQ group ownership for route families."
+    },
+    {
+      "id": "form-surface-seed",
+      "contentCollection": "formSurfaces",
+      "sourcePath": "site/src/content/formSurfaces/default.json",
+      "seedStrategy": "seed-by-surface-id",
+      "notes": "Seeds helper text, field labels, reason sets, and submission copy while keeping validation/runtime logic outside CMS scope."
+    },
+    {
+      "id": "legal-seed",
+      "contentCollection": "privacyNotice",
+      "sourcePath": "site/src/content/privacyNotice/default.json",
+      "seedStrategy": "seed-by-section-id-and-collection-point-id",
+      "notes": "Legal and policy content remains operator-controlled even when stored in the CMS."
+    },
+    {
+      "id": "storage-seed",
+      "contentCollection": "storageAccess",
+      "sourcePath": "site/src/content/storageAccess/default.json",
+      "seedStrategy": "seed-by-entry-id",
+      "notes": "Cookie/storage inventory stays operator-controlled."
+    },
+    {
+      "id": "accessibility-seed",
+      "contentCollection": "accessibilityStatement",
+      "sourcePath": "site/src/content/accessibilityStatement/default.json",
+      "seedStrategy": "seed-by-section-id",
+      "notes": "Accessibility statement stays operator-controlled."
+    },
+    {
+      "id": "site-policy-seed",
+      "contentCollection": "sitePolicy",
+      "sourcePath": "site/src/content/sitePolicy/default.json",
+      "seedStrategy": "seed-by-section-id",
+      "notes": "Site policy and legal boundaries stay operator-controlled."
+    },
+    {
+      "id": "seo-seed",
+      "contentCollection": "seo",
+      "sourcePath": "site/src/content/seo/default.json",
+      "seedStrategy": "seed-by-page-id-and-default-key",
+      "notes": "SEO fields are imported for review and publication control, not open end-client editing by default."
+    },
+    {
+      "id": "media-seed",
+      "contentCollection": "mediaLibrary",
+      "sourcePath": "site/src/content/mediaLibrary/default.json",
+      "seedStrategy": "seed-by-asset-id-no-public-upload",
+      "notes": "Only alt text, captions, and disclosure text are in scope for future CMS editing."
+    }
+  ],
+  "routeFieldRegistry": [
+    {
+      "id": "global-shell",
+      "label": "Global shell and footer",
+      "routePattern": "all-public-routes",
+      "pageIds": [],
+      "sourceCollections": [
+        "siteSettings",
+        "shellConfig",
+        "navigation",
+        "contactInfo",
+        "seo"
+      ],
+      "surfaces": [
+        {
+          "id": "brand-and-tagline",
+          "label": "Organisation name, tagline, and footer summary",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "short-plain-text",
+          "sourceRef": "siteSettings.default.json",
+          "fields": ["organisationName", "tagline", "siteSummary"],
+          "linkPolicyId": "none",
+          "description": "Global brand copy that appears in the shared shell."
+        },
+        {
+          "id": "support-cta-copy",
+          "label": "Shared footer support CTA copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "long-plain-text",
+          "sourceRef": "shellConfig.default.json",
+          "fields": [
+            "footerSupport.eyebrow",
+            "footerSupport.title",
+            "footerSupport.summary",
+            "footerSupport.actionLabels"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Shared support-language and CTA labels for the footer band."
+        },
+        {
+          "id": "utility-links-and-contact-identifiers",
+          "label": "Header utility destinations and legal/footer identifiers",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "external-link-allowlist",
+          "sourceRef": "shellConfig.default.json + contactInfo.default.json",
+          "fields": ["publicEmail", "instagramUrl", "utilityLinkTargets"],
+          "linkPolicyId": "operator-managed",
+          "description": "Public identifiers and outbound destinations are trust-sensitive and must stay allowlisted."
+        },
+        {
+          "id": "navigation-taxonomy-and-shell-behavior",
+          "label": "Primary navigation taxonomy, current-state rules, and shell CTA switching",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "site/src/components/site + site/src/lib/content/site-shell.ts",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot add, reorder, or restyle the navigation shell."
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "label": "Homepage",
+      "routePattern": "/",
+      "pageIds": ["home"],
+      "sourceCollections": ["homePage", "routePages", "seo", "mediaLibrary"],
+      "surfaces": [
+        {
+          "id": "hero-and-quick-actions",
+          "label": "Hero copy, quick actions, and section summaries",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "long-plain-text",
+          "sourceRef": "homePage.default.json",
+          "fields": [
+            "hero.eyebrow",
+            "hero.title",
+            "hero.summary",
+            "quickActions",
+            "sectionSummaries"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Primary public homepage messaging and CTA labels."
+        },
+        {
+          "id": "trust-strip-and-callouts",
+          "label": "Trust-strip cards, reassurance snippets, and FAQ teaser copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "homePage.default.json + routePages.default.json",
+          "fields": ["trustStrip.items", "featureCallouts", "faqCluster"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Fixed-template lists and snippets on the homepage."
+        },
+        {
+          "id": "home-seo-and-share-copy",
+          "label": "Homepage SEO and social-preview text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": [
+            "pageDirectives[home].titleOverride",
+            "pageDirectives[home].metaDescription",
+            "pageDirectives[home].searchIntent"
+          ],
+          "linkPolicyId": "none",
+          "description": "Search and share metadata should stay under publisher review."
+        },
+        {
+          "id": "home-layout-and-section-order",
+          "label": "Homepage section order, visual treatment, and motion behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "site/src/pages/index.astro + site/src/lib/content/site-content.ts",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "No page-builder control is exposed for the homepage."
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "routePattern": "/about/",
+      "pageIds": ["about"],
+      "sourceCollections": ["routePages", "seo", "mediaLibrary"],
+      "surfaces": [
+        {
+          "id": "about-narrative-copy",
+          "label": "Narrative sections, values list, and intro copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "routePages.default.json",
+          "fields": [
+            "about.intro",
+            "about.storySections",
+            "about.values",
+            "about.ctaLabels"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Primary About-page storytelling within a fixed template."
+        },
+        {
+          "id": "about-proof-boundary",
+          "label": "Proof-boundary and trust-governance text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "routePages.default.json",
+          "fields": ["about.proofBoundary", "about.trustPanel"],
+          "linkPolicyId": "none",
+          "description": "Trust-critical proof boundaries must remain under publisher review."
+        },
+        {
+          "id": "about-seo-and-image-alt",
+          "label": "About-page SEO text and illustration alt text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "alt-text",
+          "sourceRef": "seo.default.json + mediaLibrary.default.json",
+          "fields": [
+            "pageDirectives[about].metaDescription",
+            "media.about-leadership.alt"
+          ],
+          "linkPolicyId": "none",
+          "description": "Share/search copy and alt text remain approved metadata."
+        },
+        {
+          "id": "about-template-structure",
+          "label": "Narrative-section composition and layout behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "site/src/pages/about/index.astro + site/src/components/sections/NarrativeSection.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "Structure, ordering, and presentation remain developer-owned."
+        }
+      ]
+    },
+    {
+      "id": "programmes-index",
+      "label": "Programmes index",
+      "routePattern": "/programmes/",
+      "pageIds": ["programmes"],
+      "sourceCollections": ["routePages", "programmes", "seo"],
+      "surfaces": [
+        {
+          "id": "programmes-intro-and-audience-copy",
+          "label": "Intro, audience guidance, and overview supporting copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "long-plain-text",
+          "sourceRef": "routePages.default.json",
+          "fields": [
+            "programmes.intro",
+            "programmes.audienceSection",
+            "programmes.supportSection"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Route-level copy for the programmes landing page."
+        },
+        {
+          "id": "programme-card-teasers",
+          "label": "Programme card names, summaries, badges, and teaser CTAs",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "programmes/*.json",
+          "fields": [
+            "programme.title",
+            "programme.summary",
+            "programme.badges",
+            "programme.cardCtaLabel"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Per-programme teaser text within the fixed card grid."
+        },
+        {
+          "id": "programmes-seo-copy",
+          "label": "Programmes index SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": [
+            "pageDirectives[programmes].metaDescription",
+            "pageDirectives[programmes].titleOverride"
+          ],
+          "linkPolicyId": "none",
+          "description": "Search-oriented metadata for the programmes landing page."
+        },
+        {
+          "id": "programme-grid-order-and-live-state-derivation",
+          "label": "Programme order, state derivation, and card layout",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "site/src/pages/programmes/index.astro + site/src/lib/content/site-content.ts",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot reorder the page architecture or override derived route states."
+        }
+      ]
+    },
+    {
+      "id": "programme-community-friendship",
+      "label": "Programme detail - Community and Friendship",
+      "routePattern": "/programmes/community-friendship/",
+      "pageIds": ["programme-community-friendship"],
+      "sourceCollections": ["programmes", "programmePageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "community-friendship-core-copy",
+          "label": "Intro, body sections, expectations, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "community-friendship.json + programmePageContent.default.json",
+          "fields": ["intro", "bodySections", "experienceSection", "ctaBand", "faqIntro"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Programme-level story and supporting copy."
+        },
+        {
+          "id": "community-friendship-live-link-and-proof-copy",
+          "label": "Linked-session notices, venue-disclosure notes, and proof-boundary text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "programmePageContent.default.json + faqs.default.json",
+          "fields": ["stateNotices", "proofBoundary", "routeSpecificFaqs"],
+          "linkPolicyId": "operator-managed",
+          "description": "Operationally sensitive and trust-critical supporting text."
+        },
+        {
+          "id": "community-friendship-seo",
+          "label": "Programme-detail SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["programmeDetailDefaults.metaDescriptionPattern"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "community-friendship-template-and-state-engine",
+          "label": "Programme template, linked-session state engine, and layout",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "ProgrammeDetailTemplate.astro + programme-route-state.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "No template switching or layout editing through CMS."
+        }
+      ]
+    },
+    {
+      "id": "programme-personal-growth-life-skills",
+      "label": "Programme detail - Personal Growth and Life Skills",
+      "routePattern": "/programmes/personal-growth-life-skills/",
+      "pageIds": ["programme-personal-growth-life-skills"],
+      "sourceCollections": ["programmes", "programmePageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "personal-growth-core-copy",
+          "label": "Intro, body sections, enquiry-led delivery copy, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "personal-growth-life-skills.json + programmePageContent.default.json",
+          "fields": ["intro", "bodySections", "emptyStateHeading", "ctaBand", "faqIntro"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Programme-level story for a currently enquiry-led route."
+        },
+        {
+          "id": "personal-growth-state-and-proof-copy",
+          "label": "Schedule-state notes, trust boundaries, and route-specific FAQs",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "programmePageContent.default.json + faqs.default.json",
+          "fields": ["stateNotices", "proofBoundary", "routeSpecificFaqs"],
+          "linkPolicyId": "operator-managed",
+          "description": "Keeps launch honesty around non-live delivery and trust-critical boundaries."
+        },
+        {
+          "id": "personal-growth-seo",
+          "label": "Programme-detail SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["programmeDetailDefaults.metaDescriptionPattern"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "personal-growth-template-and-empty-state-logic",
+          "label": "Template logic, delivery-state derivation, and layout behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "ProgrammeDetailTemplate.astro + programme-route-state.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "No page-builder or state-engine editing through CMS."
+        }
+      ]
+    },
+    {
+      "id": "programme-career-support-cv-help",
+      "label": "Programme detail - Career Support and CV Help",
+      "routePattern": "/programmes/career-support-cv-help/",
+      "pageIds": ["programme-career-support-cv-help"],
+      "sourceCollections": ["programmes", "programmePageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "career-support-core-copy",
+          "label": "Intro, body sections, programme-level support story, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "career-support-cv-help.json + programmePageContent.default.json",
+          "fields": ["intro", "bodySections", "experienceSection", "ctaBand", "faqIntro"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Career-support route copy within the fixed programme template."
+        },
+        {
+          "id": "career-support-live-link-and-proof-copy",
+          "label": "Linked-session guidance, trust notes, and route-specific FAQs",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "programmePageContent.default.json + faqs.default.json",
+          "fields": ["stateNotices", "proofBoundary", "routeSpecificFaqs"],
+          "linkPolicyId": "operator-managed",
+          "description": "Operationally sensitive route handoff and proof-boundary text."
+        },
+        {
+          "id": "career-support-seo",
+          "label": "Programme-detail SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["programmeDetailDefaults.metaDescriptionPattern"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "career-support-template-and-state-engine",
+          "label": "Template logic, session linkage, and derived route state",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "ProgrammeDetailTemplate.astro + programme-route-state.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot rewrite route state derivation or component structure."
+        }
+      ]
+    },
+    {
+      "id": "programme-community-support-intergenerational-connection",
+      "label": "Programme detail - Community Support and Intergenerational Connection",
+      "routePattern": "/programmes/community-support-intergenerational-connection/",
+      "pageIds": ["programme-community-support-intergenerational-connection"],
+      "sourceCollections": ["programmes", "programmePageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "community-support-core-copy",
+          "label": "Intro, body sections, audience-route copy, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "community-support-intergenerational-connection.json + programmePageContent.default.json",
+          "fields": [
+            "intro",
+            "bodySections",
+            "audienceRoutesSection",
+            "ctaBand",
+            "faqIntro"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Programme-level narrative and audience-routing labels."
+        },
+        {
+          "id": "community-support-trust-and-proof-copy",
+          "label": "Trust notes, no-care-service boundary, and route-specific FAQs",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "community-support-intergenerational-connection.json + faqs.default.json",
+          "fields": ["trustNotes", "proofBoundary", "routeSpecificFaqs"],
+          "linkPolicyId": "operator-managed",
+          "description": "Trust-critical boundary language must stay under publisher review."
+        },
+        {
+          "id": "community-support-seo",
+          "label": "Programme-detail SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["programmeDetailDefaults.metaDescriptionPattern"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "community-support-template-and-audience-routing-logic",
+          "label": "Template composition, audience-route rendering, and state logic",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "ProgrammeDetailTemplate.astro + site-content.ts",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot add new route families or alter template logic."
+        }
+      ]
+    },
+    {
+      "id": "sessions-index",
+      "label": "Sessions index",
+      "routePattern": "/sessions/",
+      "pageIds": ["sessions"],
+      "sourceCollections": ["routePages", "sessions", "sessionPageContent", "seo"],
+      "surfaces": [
+        {
+          "id": "sessions-intro-and-comparison-copy",
+          "label": "Intro, reassurance copy, and comparison-card supporting text",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "long-plain-text",
+          "sourceRef": "routePages.default.json + sessionPageContent.default.json",
+          "fields": [
+            "sessions.intro",
+            "sessions.comparisonSection",
+            "sessions.escalationBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Route-level copy around the fixed sessions hub template."
+        },
+        {
+          "id": "session-card-copy",
+          "label": "Session card names, summaries, and reassurance snippets",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "sessions/*.json",
+          "fields": ["session.name", "session.summary", "session.reassuranceLines"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Session teaser copy shown on the sessions hub."
+        },
+        {
+          "id": "session-schedule-and-calendar-metadata",
+          "label": "Schedule status, logistics metadata, and calendar availability text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "sessions/*.json",
+          "fields": ["scheduleState", "calendarFeedStatus", "publicLogisticsMetadata"],
+          "linkPolicyId": "operator-managed",
+          "description": "Operational session state remains under operator control."
+        },
+        {
+          "id": "sessions-hub-state-engine-and-layout",
+          "label": "Live-rail derivation, calendar logic, and responsive layout",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "session-hub-state.js + SessionsLiveRail.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "No timetable builder or layout editor is exposed."
+        }
+      ]
+    },
+    {
+      "id": "session-cv-support",
+      "label": "Session detail - CV Support",
+      "routePattern": "/sessions/cv-support/",
+      "pageIds": ["session-cv-support"],
+      "sourceCollections": ["sessions", "sessionPageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "cv-support-editorial-copy",
+          "label": "Intro, expectation cards, FAQ answers, and closing CTA text",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "cv-support.json + sessionPageContent.default.json + faqs.default.json",
+          "fields": [
+            "intro",
+            "expectationCards",
+            "supportSection",
+            "faqGroup",
+            "ctaBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Session-detail editorial text within the fixed session template."
+        },
+        {
+          "id": "cv-support-operational-metadata",
+          "label": "Date, time, joining logistics, price state, referral state, and calendar metadata",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "cv-support.json",
+          "fields": [
+            "schedule",
+            "locationSummary",
+            "priceStatus",
+            "referralStatus",
+            "calendarFeedStatus"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Operational session facts remain operator-controlled."
+        },
+        {
+          "id": "cv-support-seo-and-structured-summary",
+          "label": "Session-detail SEO snippet and structured-summary metadata",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json + sessions/cv-support.json",
+          "fields": ["metaDescriptionPattern", "shortSummary"],
+          "linkPolicyId": "none",
+          "description": "Search/share text remains under publisher review."
+        },
+        {
+          "id": "cv-support-temporal-and-schema-logic",
+          "label": "Calendar generation, next-occurrence logic, and structured-data rendering",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "session-schedule.js + session-calendar.js + SessionDetailTemplate.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter recurring schedule logic or schema composition."
+        }
+      ]
+    },
+    {
+      "id": "session-youth-club",
+      "label": "Session detail - Youth Club",
+      "routePattern": "/sessions/youth-club/",
+      "pageIds": ["session-youth-club"],
+      "sourceCollections": ["sessions", "sessionPageContent", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "youth-club-editorial-copy",
+          "label": "Intro, first-visit reassurance, FAQ answers, and closing CTA text",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "youth-club.json + sessionPageContent.default.json + faqs.default.json",
+          "fields": [
+            "intro",
+            "atmosphereSection",
+            "supportSection",
+            "faqGroup",
+            "ctaBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Session-detail editorial text within the fixed session template."
+        },
+        {
+          "id": "youth-club-operational-metadata",
+          "label": "Date, time, joining logistics, price state, referral state, and calendar metadata",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "youth-club.json",
+          "fields": [
+            "schedule",
+            "locationSummary",
+            "priceStatus",
+            "referralStatus",
+            "calendarFeedStatus"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Operational session facts remain operator-controlled."
+        },
+        {
+          "id": "youth-club-seo-and-structured-summary",
+          "label": "Session-detail SEO snippet and structured-summary metadata",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json + sessions/youth-club.json",
+          "fields": ["metaDescriptionPattern", "shortSummary"],
+          "linkPolicyId": "none",
+          "description": "Search/share text remains under publisher review."
+        },
+        {
+          "id": "youth-club-temporal-and-schema-logic",
+          "label": "Calendar generation, next-occurrence logic, and structured-data rendering",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "session-schedule.js + session-calendar.js + SessionDetailTemplate.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter recurring schedule logic or schema composition."
+        }
+      ]
+    },
+    {
+      "id": "events-updates-index",
+      "label": "Events and Updates index",
+      "routePattern": "/events-updates/",
+      "pageIds": ["events-updates"],
+      "sourceCollections": ["routePages", "updatesFeed", "seo"],
+      "surfaces": [
+        {
+          "id": "events-updates-intro-and-empty-state",
+          "label": "Intro, filter helper copy, and empty-state guidance",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "long-plain-text",
+          "sourceRef": "routePages.default.json + updatesFeed.default.json",
+          "fields": [
+            "eventsUpdates.intro",
+            "eventsUpdates.emptyState",
+            "eventsUpdates.supportingCopy"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Route-level editorial framing for the updates hub."
+        },
+        {
+          "id": "feed-item-card-copy",
+          "label": "Feed card titles, summaries, badges, and teaser text",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "updatesFeed.default.json",
+          "fields": [
+            "items[].title",
+            "items[].summary",
+            "items[].badges",
+            "items[].listingCtaLabel"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Visible feed-item summaries within the fixed listing UI."
+        },
+        {
+          "id": "publication-state-and-taxonomy",
+          "label": "Publish dates, publication status, pinning, and category metadata",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "updatesFeed.default.json",
+          "fields": [
+            "items[].publicationStatus",
+            "items[].publishDate",
+            "items[].featured",
+            "items[].category"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Publishing state and taxonomy must remain under publisher control."
+        },
+        {
+          "id": "feed-ordering-and-filter-runtime",
+          "label": "Filter logic, pinning rules, and feed ordering behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "editorial-feed.js + EditorialFilterBar.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot change runtime ordering or filter behavior."
+        }
+      ]
+    },
+    {
+      "id": "events-updates-detail-items",
+      "label": "Event and update detail items",
+      "routePattern": "/events-updates/[slug]/",
+      "pageIds": [],
+      "sourceCollections": ["updatesFeed", "seo", "mediaLibrary"],
+      "surfaces": [
+        {
+          "id": "detail-item-editorial-body",
+          "label": "Detail-item title, summary, body sections, fact rail, and CTA copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "updatesFeed.default.json",
+          "fields": [
+            "items[].title",
+            "items[].summary",
+            "items[].bodySections",
+            "items[].factRail",
+            "items[].ctaLabels"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Per-item editorial text for events, updates, and opportunities."
+        },
+        {
+          "id": "detail-item-slug-and-publication-state",
+          "label": "Slug, publish date, item type, archive state, and canonical visibility",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "updatesFeed.default.json",
+          "fields": [
+            "items[].slug",
+            "items[].publishDate",
+            "items[].publicationStatus",
+            "items[].type"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Publication state, route identity, and type selection are operator-controlled."
+        },
+        {
+          "id": "detail-item-seo-and-media-alt",
+          "label": "Detail SEO text and approved media alt text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "alt-text",
+          "sourceRef": "seo.default.json + updatesFeed.default.json + mediaLibrary.default.json",
+          "fields": ["items[].seo", "items[].mediaAlt"],
+          "linkPolicyId": "none",
+          "description": "Metadata for detail routes remains under publisher review."
+        },
+        {
+          "id": "detail-template-selection-and-schema",
+          "label": "Event/update template selection, related-content logic, and structured data",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "EventDetailTemplate.astro + EditorialUpdateDetailTemplate.astro + structured-data.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot switch templates or alter the schema builder."
+        }
+      ]
+    },
+    {
+      "id": "get-involved",
+      "label": "Get Involved hub",
+      "routePattern": "/get-involved/",
+      "pageIds": ["get-involved"],
+      "sourceCollections": ["routePages", "involvementRoutes", "updatesFeed", "seo"],
+      "surfaces": [
+        {
+          "id": "get-involved-hub-copy",
+          "label": "Intro, pathway summaries, process list, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "routePages.default.json + involvementRoutes.default.json",
+          "fields": ["getInvolved.intro", "routes[].summary", "processList", "ctaLabels"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Hub-level editorial text for involvement pathways."
+        },
+        {
+          "id": "opportunity-spotlight-copy",
+          "label": "Opportunity-surface teaser copy",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "updatesFeed.default.json + routePages.default.json",
+          "fields": ["spotlightHeading", "spotlightSummary", "opportunityTeaserLabel"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Text around the spotlight slot, not the feed-selection logic."
+        },
+        {
+          "id": "pathway-state-and-form-routing",
+          "label": "Pathway state, default enquiry reasons, and live-route routing controls",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "involvementRoutes.default.json + formSurfaces.default.json",
+          "fields": ["routes[].state", "routes[].routeTarget", "defaultReasonMapping"],
+          "linkPolicyId": "operator-managed",
+          "description": "Operational routing and route readiness must remain under publisher or operator control."
+        },
+        {
+          "id": "get-involved-state-engine-and-layout",
+          "label": "Pathway-state derivation, spotlight logic, and layout behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "involvement-hub-state.js + Get Involved page templates",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "No builder control over the hub architecture."
+        }
+      ]
+    },
+    {
+      "id": "volunteer",
+      "label": "Volunteer route",
+      "routePattern": "/volunteer/",
+      "pageIds": ["volunteer"],
+      "sourceCollections": ["routePages", "faqs", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "volunteer-editorial-copy",
+          "label": "Intro, role cards, process notes, FAQ copy, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "routePages.default.json + faqs.default.json",
+          "fields": [
+            "volunteer.intro",
+            "roleCards",
+            "processSection",
+            "faqGroup",
+            "ctaBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Volunteer-route editorial copy within the fixed template."
+        },
+        {
+          "id": "volunteer-form-routing-copy",
+          "label": "Volunteer enquiry helper text, default reason, and screening notes",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "formSurfaces.default.json + routePages.default.json",
+          "fields": ["surface[volunteer-enquiry]", "safeguardingCue", "reasonOptions"],
+          "linkPolicyId": "operator-managed",
+          "description": "Form-routing and safeguarding-adjacent guidance stays operator-controlled."
+        },
+        {
+          "id": "volunteer-seo",
+          "label": "Volunteer-route SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[volunteer].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "volunteer-form-schema-and-layout",
+          "label": "Form schema, validation, submission behavior, and layout",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "SupportForm.astro + enquiry-contract.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter the volunteer form contract or route structure."
+        }
+      ]
+    },
+    {
+      "id": "partner",
+      "label": "Partner route",
+      "routePattern": "/partner/",
+      "pageIds": ["partner"],
+      "sourceCollections": ["routePages", "faqs", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "partner-editorial-copy",
+          "label": "Intro, audience sections, collaboration modes, FAQ copy, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "routePages.default.json + faqs.default.json",
+          "fields": [
+            "partner.intro",
+            "audienceSections",
+            "collaborationModes",
+            "faqGroup",
+            "ctaBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Partner-route editorial copy within the fixed template."
+        },
+        {
+          "id": "partner-proof-and-form-routing-copy",
+          "label": "Proof boundary, enquiry routing copy, and partnership categories",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "routePages.default.json + formSurfaces.default.json",
+          "fields": ["proofBoundary", "surface[partner-enquiry]", "reasonOptions"],
+          "linkPolicyId": "operator-managed",
+          "description": "Trust-critical proof language and routing controls stay operator-controlled."
+        },
+        {
+          "id": "partner-seo",
+          "label": "Partner-route SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[partner].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "partner-form-schema-and-layout",
+          "label": "Partner form schema, validation, and shared family layout",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "SupportForm.astro + partner route templates",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter the partner form contract or route structure."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "label": "Contact route",
+      "routePattern": "/contact/",
+      "pageIds": ["contact"],
+      "sourceCollections": ["routePages", "contactInfo", "formSurfaces", "faqs", "seo"],
+      "surfaces": [
+        {
+          "id": "contact-editorial-copy",
+          "label": "Intro, decision-card copy, method-card summaries, FAQ copy, and CTA labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "routePages.default.json + faqs.default.json",
+          "fields": [
+            "contact.intro",
+            "decisionCards",
+            "methodCardCopy",
+            "faqGroup",
+            "ctaBand"
+          ],
+          "linkPolicyId": "internal-route-only",
+          "description": "Contact-route editorial copy within the fixed template."
+        },
+        {
+          "id": "contact-identifiers-and-location-policy",
+          "label": "Public email, social link, phone state, location policy, and route-specific helper text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "external-link-allowlist",
+          "sourceRef": "contactInfo.default.json + formSurfaces.default.json",
+          "fields": [
+            "publicEmail",
+            "instagramUrl",
+            "publicPhoneStatus",
+            "venueDisclosureSummary",
+            "surface[support-general]"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Public contact identifiers and withheld-detail policy remain operator-controlled."
+        },
+        {
+          "id": "contact-seo",
+          "label": "Contact-route SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[contact].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "contact-routing-and-form-runtime",
+          "label": "Method-card logic, route-state derivation, form validation, and submission runtime",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "contact-route-state.js + SupportForm.astro + enquiry-service.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter routing logic or secure form handling."
+        }
+      ]
+    },
+    {
+      "id": "safeguarding-hub",
+      "label": "Safeguarding hub",
+      "routePattern": "/safeguarding/",
+      "pageIds": ["safeguarding"],
+      "sourceCollections": ["safeguardingInfo", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "safeguarding-hub-copy",
+          "label": "Hub intro, branch-card copy, trust notes, and concern-form helper text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "safeguardingInfo.default.json + formSurfaces.default.json",
+          "fields": [
+            "hub.intro",
+            "branchCards",
+            "proofBoundary",
+            "surface[safeguarding-concern]"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "All safeguarding copy is operator-controlled because it is trust-critical and legally sensitive."
+        },
+        {
+          "id": "safeguarding-contact-and-policy-state",
+          "label": "Named-contact state, inbox identity, policy availability, and escalation notes",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "publication-control",
+          "sourceRef": "safeguardingInfo.default.json",
+          "fields": [
+            "namedLeadStatus",
+            "publicConcernRoute",
+            "policyAvailability",
+            "vettingAndTraining"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Trust-critical operational status must stay under publisher control."
+        },
+        {
+          "id": "safeguarding-seo",
+          "label": "Safeguarding-route SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[safeguarding].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "safeguarding-state-engine-and-secure-intake-runtime",
+          "label": "Branch-state derivation, escalation logic, and secure concern runtime",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "safeguarding-route-state.js + SupportForm.astro + enquiry-service.js",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter safeguarding flow logic or runtime controls."
+        }
+      ]
+    },
+    {
+      "id": "safeguarding-child",
+      "label": "Safeguarding child route",
+      "routePattern": "/safeguarding/child/",
+      "pageIds": ["safeguarding-child"],
+      "sourceCollections": ["safeguardingInfo", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "child-safeguarding-copy",
+          "label": "Child-route guidance, support copy, and branch-specific escalation text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "safeguardingInfo.default.json",
+          "fields": ["childRoute.intro", "childRoute.sections", "childRoute.notices"],
+          "linkPolicyId": "operator-managed",
+          "description": "Child safeguarding wording stays operator-controlled."
+        },
+        {
+          "id": "child-safeguarding-seo",
+          "label": "Child safeguarding SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[safeguarding-child].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "child-safeguarding-runtime",
+          "label": "Branch routing, concern form runtime, and template behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "safeguarding-route-state.js + SafeguardingDetailTemplate.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter runtime flow or route structure."
+        }
+      ]
+    },
+    {
+      "id": "safeguarding-adult",
+      "label": "Safeguarding adult route",
+      "routePattern": "/safeguarding/adult/",
+      "pageIds": ["safeguarding-adult"],
+      "sourceCollections": ["safeguardingInfo", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "adult-safeguarding-copy",
+          "label": "Adult-route guidance, support copy, and branch-specific escalation text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "safeguardingInfo.default.json",
+          "fields": ["adultRoute.intro", "adultRoute.sections", "adultRoute.notices"],
+          "linkPolicyId": "operator-managed",
+          "description": "Adult safeguarding wording stays operator-controlled."
+        },
+        {
+          "id": "adult-safeguarding-seo",
+          "label": "Adult safeguarding SEO text",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "seo-snippet",
+          "sourceRef": "seo.default.json",
+          "fields": ["pageDirectives[safeguarding-adult].metaDescription"],
+          "linkPolicyId": "none",
+          "description": "Search/share metadata remains operator-controlled."
+        },
+        {
+          "id": "adult-safeguarding-runtime",
+          "label": "Branch routing, concern form runtime, and template behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "safeguarding-route-state.js + SafeguardingDetailTemplate.astro",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter runtime flow or route structure."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy notice",
+      "routePattern": "/privacy/",
+      "pageIds": ["privacy"],
+      "sourceCollections": ["privacyNotice", "seo"],
+      "surfaces": [
+        {
+          "id": "privacy-legal-copy",
+          "label": "Legal body copy, collection-point records, rights cards, and review triggers",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "privacyNotice.default.json",
+          "fields": [
+            "sections",
+            "collectionPoints",
+            "systems",
+            "rightsCards",
+            "reviewTriggers"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Privacy notice content remains operator-controlled."
+        },
+        {
+          "id": "privacy-contact-and-complaint-links",
+          "label": "Privacy contact email and ICO complaint route",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "external-link-allowlist",
+          "sourceRef": "privacyNotice.default.json",
+          "fields": ["privacyEmail", "complaintUrl"],
+          "linkPolicyId": "operator-managed",
+          "description": "External and trust-critical destinations remain allowlisted."
+        },
+        {
+          "id": "privacy-template-and-structured-output",
+          "label": "Legal template composition and structured-data rendering",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "privacy page template + structured-data builders",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter the legal template or structured output logic."
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "label": "Cookie notice",
+      "routePattern": "/cookies/",
+      "pageIds": ["cookies"],
+      "sourceCollections": ["storageAccess", "seo"],
+      "surfaces": [
+        {
+          "id": "cookie-notice-copy",
+          "label": "Storage registry copy, summary cards, and future-change guidance",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "storageAccess.default.json",
+          "fields": [
+            "summaryCards",
+            "activeEntries",
+            "absentEntries",
+            "sections",
+            "futureGuardrails"
+          ],
+          "linkPolicyId": "operator-managed",
+          "description": "Cookie/storage notice content remains operator-controlled."
+        },
+        {
+          "id": "analytics-preference-control-copy",
+          "label": "Analytics objection labels and state messages",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "short-plain-text",
+          "sourceRef": "storageAccess.default.json",
+          "fields": ["analyticsControlSection", "stateMessages"],
+          "linkPolicyId": "none",
+          "description": "Preference control copy remains operator-controlled because it reflects the legal model."
+        },
+        {
+          "id": "cookie-runtime-and-preference-behavior",
+          "label": "Preference persistence, analytics mode, and no-banner runtime behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "analytics preferences runtime + cookies route",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot change analytics or storage behavior."
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility statement",
+      "routePattern": "/accessibility/",
+      "pageIds": ["accessibility"],
+      "sourceCollections": ["accessibilityStatement", "formSurfaces", "seo"],
+      "surfaces": [
+        {
+          "id": "accessibility-statement-copy",
+          "label": "Statement sections, known limitations, workarounds, and review triggers",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "accessibilityStatement.default.json",
+          "fields": ["sections", "knownLimitations", "workarounds", "reviewTriggers"],
+          "linkPolicyId": "operator-managed",
+          "description": "Accessibility statement content remains operator-controlled."
+        },
+        {
+          "id": "accessibility-feedback-surface-copy",
+          "label": "Accessibility feedback form helper text and contact expectations",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "repeatable-list",
+          "sourceRef": "formSurfaces.default.json + accessibilityStatement.default.json",
+          "fields": ["surface[accessibility-feedback]", "responseExpectation"],
+          "linkPolicyId": "operator-managed",
+          "description": "Feedback-surface copy remains operator-controlled."
+        },
+        {
+          "id": "accessibility-runtime-and-form-contract",
+          "label": "Feedback form runtime, validation, and route template",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "SupportForm.astro + accessibility route template",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter validation or runtime behavior."
+        }
+      ]
+    },
+    {
+      "id": "terms",
+      "label": "Terms and site policy",
+      "routePattern": "/terms/",
+      "pageIds": ["terms"],
+      "sourceCollections": ["sitePolicy", "seo"],
+      "surfaces": [
+        {
+          "id": "site-policy-copy",
+          "label": "Policy sections, summaries, and review triggers",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "constrained-rich-text",
+          "sourceRef": "sitePolicy.default.json",
+          "fields": ["sections", "summaryCards", "reviewTriggers"],
+          "linkPolicyId": "operator-managed",
+          "description": "Terms and site policy content remains operator-controlled."
+        },
+        {
+          "id": "policy-external-destinations",
+          "label": "Policy-related external or legal-reference destinations",
+          "ownershipClass": "operator-controlled",
+          "mutationPrimitiveId": "external-link-allowlist",
+          "sourceRef": "sitePolicy.default.json",
+          "fields": ["externalReferenceLinks"],
+          "linkPolicyId": "operator-managed",
+          "description": "External policy destinations remain allowlisted and operator-controlled."
+        },
+        {
+          "id": "site-policy-template-and-runtime",
+          "label": "Legal template structure and route rendering behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "terms route template + site-content.ts",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot alter the legal template structure."
+        }
+      ]
+    },
+    {
+      "id": "not-found",
+      "label": "404 route",
+      "routePattern": "/404/",
+      "pageIds": ["not-found"],
+      "sourceCollections": ["routePages", "seo"],
+      "surfaces": [
+        {
+          "id": "not-found-copy",
+          "label": "404 headline, summary, and recovery labels",
+          "ownershipClass": "client-editable",
+          "mutationPrimitiveId": "short-plain-text",
+          "sourceRef": "routePages.default.json",
+          "fields": ["notFound.title", "notFound.summary", "notFound.recoveryLabels"],
+          "linkPolicyId": "internal-route-only",
+          "description": "Recovery copy for the 404 route within the fixed fallback template."
+        },
+        {
+          "id": "not-found-routing-and-template",
+          "label": "404 recovery destinations and fallback rendering behavior",
+          "ownershipClass": "developer-owned",
+          "mutationPrimitiveId": "developer-locked",
+          "sourceRef": "404 route template + resilience state helpers",
+          "fields": [],
+          "linkPolicyId": "none",
+          "description": "The CMS cannot change fallback routing behavior."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+---
+import SessionDetailTemplate from "../../components/sections/SessionDetailTemplate.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getSessionDetailModel,
+  getSessionDetailStaticPaths
+} from "../../lib/content/site-content.ts";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getSessionDetailStaticPaths();
+}
+
+const model = getSessionDetailModel(Astro.params.slug as string);
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath={model.meta.canonicalPath}
+  pageId={`session-${Astro.params.slug}`}
+  structuredData={model.structuredData}
+>
+  <SessionDetailTemplate model={model} />
+</BaseLayout>

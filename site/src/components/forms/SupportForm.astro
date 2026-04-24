@@ -1,0 +1,234 @@
+---
+import {
+  ENQUIRY_ENDPOINT_PATH,
+  readEnquiryStatus
+} from "../../lib/forms/enquiry-contract.js";
+import { getEnquiryFeedbackMessage } from "../../lib/forms/enquiry-feedback.js";
+import Button from "../ui/Button.astro";
+import CardPanel from "../ui/CardPanel.astro";
+import CheckboxField from "../ui/CheckboxField.astro";
+import FormField from "../ui/FormField.astro";
+import PrivacyNoticeCallout from "../ui/PrivacyNoticeCallout.astro";
+
+interface ReasonOption {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  surfaceId: string;
+  defaultReasonId?: string;
+  heading: string;
+  eyebrow?: string;
+  intro: string;
+  privacyNote: string;
+  privacyHighlights?: string[];
+  privacyNoticeTitle: string;
+  privacyNoticeActionLabel: string;
+  messageHelper: string;
+  updatesOptInLabel: string;
+  emailFallbackPrefix: string;
+  noScriptNote: string;
+  invalidStatusMessage: string;
+  submittingStatusMessage: string;
+  id?: string;
+  reasons: ReasonOption[];
+  reasonFieldLabel?: string;
+  reasonSelectPlaceholder?: string | null;
+  email: string;
+  organizationName: string;
+  successMessage: string;
+  submitLabel?: string;
+  contextId?: string | null;
+  reasonFieldMode?: "select" | "hidden";
+  showUpdatesOptIn?: boolean;
+}
+
+const {
+  surfaceId,
+  defaultReasonId,
+  heading,
+  eyebrow = "Get support",
+  intro,
+  privacyNote,
+  privacyHighlights = [],
+  privacyNoticeTitle,
+  privacyNoticeActionLabel,
+  messageHelper,
+  updatesOptInLabel,
+  emailFallbackPrefix,
+  noScriptNote,
+  invalidStatusMessage,
+  submittingStatusMessage,
+  id,
+  reasons,
+  reasonFieldLabel = "What do you need help with?",
+  reasonSelectPlaceholder = "Select one",
+  email,
+  organizationName,
+  successMessage,
+  contextId = null,
+  reasonFieldMode = "select",
+  showUpdatesOptIn = true,
+  submitLabel = "Send message"
+} = Astro.props;
+const panelId = id ?? `${surfaceId}-form`;
+const serializedReasons = JSON.stringify(reasons);
+const renderedAt = new Date().toISOString();
+const useHiddenReasonField = reasonFieldMode === "hidden" && Boolean(defaultReasonId);
+void organizationName;
+const initialStatus = readEnquiryStatus(Astro.url, surfaceId);
+const initialStatusTone = initialStatus?.status === "success" ? "success" : "error";
+const initialResilienceState = initialStatus
+  ? initialStatus.status === "success"
+    ? "success"
+    : "submission-error"
+  : "idle";
+const initialStatusMessage = initialStatus
+  ? getEnquiryFeedbackMessage(
+      initialStatus.code ?? "storage-error",
+      successMessage,
+      initialStatus.referenceId ?? undefined
+    )
+  : "";
+const submissionErrorMessage = getEnquiryFeedbackMessage("storage-error", successMessage);
+---
+
+<CardPanel
+  id={panelId}
+  as="aside"
+  className="support-panel"
+  data-analytics-surface="support-panel"
+  eyebrow={eyebrow}
+  heading={heading}
+  headingLevel={3}
+  summary={intro}
+>
+  <PrivacyNoticeCallout
+    title={privacyNoticeTitle}
+    body={privacyNote}
+    bullets={privacyHighlights}
+    action={{
+      label: privacyNoticeActionLabel,
+      href: "/privacy/",
+      variant: "text"
+    }}
+  />
+
+  <form
+    class="support-form"
+    action={ENQUIRY_ENDPOINT_PATH}
+    method="post"
+    data-support-form
+    data-delivery="secure"
+    data-reason-options={serializedReasons}
+    data-success-message={successMessage}
+    data-invalid-message={invalidStatusMessage}
+    data-submitting-message={submittingStatusMessage}
+    data-submission-error-message={submissionErrorMessage}
+    data-form-state={initialStatus?.status ?? "idle"}
+    data-surface-id={surfaceId}
+    data-motion="structural"
+  >
+    <input type="hidden" name="surfaceId" value={surfaceId} />
+    <input type="hidden" name="originPath" value={Astro.url.pathname} />
+    <input type="hidden" name="formId" value={panelId} />
+    <input type="hidden" name="renderedAt" value={renderedAt} />
+    {contextId ? <input type="hidden" name="contextId" value={contextId} /> : null}
+
+    <div class="u-visually-hidden" aria-hidden="true">
+      <label for={`${panelId}-website`}> Leave this field empty </label>
+      <input
+        id={`${panelId}-website`}
+        name="website"
+        type="text"
+        autocomplete="off"
+        tabindex="-1"
+      />
+    </div>
+
+    <p
+      class="support-form__status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-form-status
+      data-resilience-state={initialResilienceState}
+      data-motion="confirm"
+      data-visible={initialStatusMessage ? "true" : "false"}
+      data-tone={initialStatus ? initialStatusTone : undefined}
+      hidden={!initialStatusMessage}
+    >
+      {initialStatusMessage}
+    </p>
+
+    <FormField
+      id="support-name"
+      name="name"
+      label="Your name"
+      type="text"
+      autocomplete="name"
+      minLength={2}
+      maxLength={120}
+      required={true}
+    />
+
+    <FormField
+      id="support-email"
+      name="email"
+      label="Email address"
+      type="email"
+      autocomplete="email"
+      required={true}
+    />
+
+    {
+      useHiddenReasonField ? (
+        <input type="hidden" name="reason" value={defaultReasonId} />
+      ) : (
+        <FormField
+          id="support-reason"
+          name="reason"
+          label={reasonFieldLabel}
+          control="select"
+          options={reasons.map((reason) => ({
+            value: reason.id,
+            label: reason.label
+          }))}
+          selectPlaceholder={reasonSelectPlaceholder ?? undefined}
+          value={defaultReasonId}
+          required={true}
+        />
+      )
+    }
+
+    <FormField
+      id="support-message"
+      name="message"
+      label="Message"
+      control="textarea"
+      required={true}
+      minLength={16}
+      maxLength={2000}
+      helper={messageHelper}
+    />
+
+    {
+      showUpdatesOptIn ? (
+        <CheckboxField id="support-updates" name="updates" label={updatesOptInLabel} />
+      ) : null
+    }
+
+    <Button type="submit" variant="primary" data-form-submit> {submitLabel} </Button>
+
+    <noscript>
+      <p class="support-form__noscript-note" data-resilience-surface="form-noscript">
+        {noScriptNote}
+      </p>
+    </noscript>
+  </form>
+
+  <p class="support-panel__hint">
+    {emailFallbackPrefix}
+    <a href={`mailto:${email}`}>{email}</a>.
+  </p>
+</CardPanel>

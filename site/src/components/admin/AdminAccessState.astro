@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  message: string;
+  statusCode?: number;
+}
+
+const { title, message, statusCode = 403 } = Astro.props;
+---
+
+<section class="admin-panel">
+  <p class="admin-eyebrow">Access</p>
+  <h2 class="admin-panel-title">{statusCode}: {title}</h2>
+  <p class="admin-muted">{message}</p>
+</section>

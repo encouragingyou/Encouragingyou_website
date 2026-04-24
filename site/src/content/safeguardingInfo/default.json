@@ -1,0 +1,200 @@
+{
+  "immediateDanger": {
+    "title": "Immediate danger needs emergency services first",
+    "message": "If someone is in immediate danger, has been seriously harmed, or needs urgent emergency help, call 999 first.",
+    "summary": "A web form or email should not be treated as an emergency-response service."
+  },
+  "publicConcernRoute": {
+    "email": "admin@encouragingyou.co.uk",
+    "emailSubject": "Safeguarding concern",
+    "sharedInboxLabel": "Public safeguarding inbox",
+    "summary": "For launch, safeguarding concerns can be sent through the secure concern form or directly to the public safeguarding inbox. Use only the detail needed to explain the concern and how to contact you back.",
+    "responseBoundary": "This route is monitored for safeguarding concerns, but the site does not promise an immediate reply, live case updates, or emergency intervention through the form itself.",
+    "handoffNote": "If you are unsure whether the concern belongs under child or adult safeguarding, use the route that feels closest and explain what you know. The team can route it internally.",
+    "namedLead": null,
+    "namedLeadRoleLabel": "Named safeguarding lead",
+    "namedLeadStatus": "placeholder"
+  },
+  "secureConcernForm": {
+    "status": "available",
+    "surfaceId": "safeguarding-concern",
+    "routeId": "safeguarding",
+    "summary": "A dedicated secure concern form is available for non-emergency safeguarding messages and routes into the same public safeguarding intake as the email inbox.",
+    "boundaryNote": "Do not wait for an online reply if the risk is immediate or emergency help is needed."
+  },
+  "policyDocument": {
+    "title": "Full safeguarding policy",
+    "url": null,
+    "status": "placeholder",
+    "summaryWhenAvailable": "When a public safeguarding policy PDF is approved for launch, it can be linked here without changing the route family or contact pattern.",
+    "summaryWhenUnavailable": "A fuller public safeguarding policy is not linked yet. The live site should stay honest about that instead of pretending a download is already available."
+  },
+  "vettingAndTraining": {
+    "summary": "The approved public brief states that safeguarding procedures are in place and followed, and that staff and volunteers are trained and vetted.",
+    "verification": "stated-in-brief",
+    "bullets": [
+      "Safeguarding procedures are in place and followed.",
+      "Staff and volunteers are trained and vetted.",
+      "Public trust should come from clear boundaries, not from overclaiming what has not been published yet."
+    ]
+  },
+  "preparationChecklist": [
+    "Say whether the concern is about a child, young person, or adult.",
+    "Share what you saw, heard, or were told, and when it happened or became known.",
+    "Include only the information needed to understand the concern and contact you back.",
+    "If the risk is urgent, call 999 instead of waiting for a response from the site."
+  ],
+  "generalContactBoundary": {
+    "title": "General contact is not the safeguarding route",
+    "body": "Use the normal Contact route for ordinary questions, volunteering, partnership discussions, or general support requests. Use safeguarding when the issue is about harm, abuse, neglect, exploitation, coercion, or someone not being safe."
+  },
+  "proofBoundary": {
+    "title": "Public safeguarding proof boundary",
+    "summary": "The public site should explain the safeguarding basics clearly while holding back anything that still needs operational confirmation or formal approval.",
+    "publishNow": [
+      "Separate child and adult safeguarding routes are visible in the public navigation.",
+      "Immediate danger is directed to emergency services rather than a website form.",
+      "The approved brief supports the statement that safeguarding procedures are in place and that staff and volunteers are trained and vetted."
+    ],
+    "awaitingConfirmation": [
+      "A publicly named safeguarding lead or role contact.",
+      "A published response-time expectation for safeguarding messages.",
+      "A public downloadable safeguarding policy document."
+    ],
+    "withheldUntilVerified": [
+      "Any personal phone number or named contact that has not been approved for launch.",
+      "Claims about confidentiality, investigation steps, or case outcomes that have not been formally defined.",
+      "Local escalation contacts or statutory referral wording that the supplied launch materials do not verify."
+    ]
+  },
+  "routes": [
+    {
+      "id": "child",
+      "pageId": "safeguarding-child",
+      "audienceLabel": "Child or young person under 18",
+      "title": "Child safeguarding",
+      "summary": "Use this route when the concern is about a child or young person who may be at risk of abuse, neglect, exploitation, grooming, unsafe treatment, or serious welfare harm.",
+      "appliesTo": [
+        "A child or young person saying they are not safe.",
+        "A worrying disclosure, injury, pattern of neglect, or unsafe adult behaviour.",
+        "Concerns about exploitation, grooming, coercion, or online harm."
+      ],
+      "signals": [
+        "Keep the facts clear.",
+        "Do not promise confidentiality.",
+        "Act quickly when the concern is serious."
+      ],
+      "alternatePageId": "safeguarding-adult"
+    },
+    {
+      "id": "adult",
+      "pageId": "safeguarding-adult",
+      "audienceLabel": "Adult with care and support needs",
+      "title": "Adult safeguarding",
+      "summary": "Use this route when the concern is about an adult with care and support needs who may be experiencing abuse, neglect, coercion, exploitation, or another serious risk to their safety or wellbeing.",
+      "appliesTo": [
+        "A serious concern about abuse, neglect, coercion, or unsafe treatment.",
+        "Worry that someone is being exploited, controlled, or is unable to protect themselves.",
+        "A situation where an adult's care and support needs make the risk more serious."
+      ],
+      "signals": [
+        "Take the concern seriously.",
+        "Share only what is needed.",
+        "Use the safeguarding route rather than ordinary contact."
+      ],
+      "alternatePageId": "safeguarding-child"
+    }
+  ],
+  "branches": {
+    "child": {
+      "title": "Child safeguarding",
+      "summary": "This route is for concerns about a child or young person. It keeps the emergency boundary, the reporting route, and the basic safeguarding expectations visible without turning the page into a dense policy document.",
+      "appliesToTitle": "Use the child safeguarding route when",
+      "appliesTo": [
+        "the concern is about a child or young person under 18",
+        "you are worried about abuse, neglect, exploitation, grooming, or unsafe treatment",
+        "a disclosure, incident, or pattern of behaviour makes you think a child may not be safe"
+      ],
+      "escalationTitle": "What to do now",
+      "escalationSummary": "The aim is to make the next step obvious without implying the website replaces emergency or statutory action.",
+      "steps": [
+        {
+          "title": "Call 999 first if the risk is immediate",
+          "body": "If the child or young person is in immediate danger, needs urgent medical help, or cannot be kept safe right now, call 999 before using any site route."
+        },
+        {
+          "title": "Raise the concern as soon as possible",
+          "body": "Use the secure concern form or the public safeguarding inbox instead of waiting for a fuller story or a more polished account."
+        },
+        {
+          "title": "Keep the information factual",
+          "body": "Say what you saw, heard, or were told, when it happened or became known, and who was involved if you know."
+        },
+        {
+          "title": "Do not promise secrecy you cannot keep",
+          "body": "If someone has shared a concern with you, explain that you may need to pass it to the right safeguarding people to help keep them safe."
+        }
+      ],
+      "preparationTitle": "Before you send a child safeguarding concern",
+      "preparationItems": [
+        "Use names, ages, or relationship details only if they matter to understanding the concern.",
+        "Say where the concern happened or who else may already know.",
+        "Be clear about any immediate risk, recent incident, or urgent welfare need.",
+        "Send the concern even if you do not know every detail."
+      ],
+      "limitationsTitle": "What this page does not promise",
+      "limitations": [
+        "It does not promise an instant reply or live emergency support.",
+        "It does not replace emergency services or statutory safeguarding action.",
+        "It does not publish a full policy download or named lead until those details are approved."
+      ],
+      "concernNoteTitle": "Still use the safeguarding route if you are unsure",
+      "concernNoteBody": "If you are not completely certain whether the concern belongs under child or adult safeguarding, use the route that feels closest and explain why. Clear reporting matters more than choosing the perfect label."
+    },
+    "adult": {
+      "title": "Adult safeguarding",
+      "summary": "This route is for concerns about an adult with care and support needs. It keeps the route practical and serious while separating adult safeguarding clearly from child safeguarding and ordinary contact.",
+      "appliesToTitle": "Use the adult safeguarding route when",
+      "appliesTo": [
+        "the concern is about an adult with care and support needs",
+        "you are worried about abuse, neglect, coercion, exploitation, or unsafe circumstances",
+        "the adult's situation means they may be unable to protect themselves or get help safely"
+      ],
+      "escalationTitle": "What to do now",
+      "escalationSummary": "The public route should make the adult safeguarding boundary clear without implying the site is a crisis service.",
+      "steps": [
+        {
+          "title": "Call 999 first if there is immediate danger",
+          "body": "If the adult is in immediate danger, seriously injured, or needs urgent emergency help, call 999 before using the site."
+        },
+        {
+          "title": "Use the safeguarding route, not ordinary contact",
+          "body": "Send the concern through the secure safeguarding form or the public safeguarding inbox so it reaches the right intake route."
+        },
+        {
+          "title": "Share the concern plainly and proportionately",
+          "body": "Explain what is happening, why you are worried, and what immediate risk or support need you know about without adding unnecessary personal detail."
+        },
+        {
+          "title": "Say if you think the adult may struggle to stay safe",
+          "body": "If care and support needs, coercion, isolation, or dependency make the risk more serious, include that context so the concern is understood properly."
+        }
+      ],
+      "preparationTitle": "Before you send an adult safeguarding concern",
+      "preparationItems": [
+        "Describe the risk, the immediate situation, and any urgent welfare concern.",
+        "Explain how you know about the concern and whether anyone else is already involved.",
+        "Include contact details for yourself so the team can respond if needed.",
+        "Use the child safeguarding route instead if the concern is really about someone under 18."
+      ],
+      "limitationsTitle": "What this page does not promise",
+      "limitations": [
+        "It does not replace emergency or statutory adult-safeguarding action.",
+        "It does not promise confidential handling terms or response times that have not been publicly defined.",
+        "It does not ask people to decide complicated case thresholds before raising a serious concern."
+      ],
+      "concernNoteTitle": "Report the concern even if you do not have every answer",
+      "concernNoteBody": "Clear concern reporting matters more than having a complete picture. If the situation is serious, raise it with the facts you have rather than waiting for certainty."
+    }
+  }
+}

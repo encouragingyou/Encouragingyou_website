@@ -1,0 +1,202 @@
+{
+  "page": {
+    "eyebrow": "Terms / Site Policy",
+    "title": "How this site works, what to expect from it, and where the boundaries are.",
+    "summary": "This page explains the practical rules around using the live EncouragingYou website. It is written for the current public build rather than copied from a large corporate platform.",
+    "statusNote": {
+      "title": "Launch policy scope",
+      "body": "This policy is intentionally proportionate to the live launch site. It does not invent account, payment, commenting, or upload rules that do not apply here.",
+      "tone": "important"
+    },
+    "primaryAction": {
+      "label": "Contact the team",
+      "variant": "primary",
+      "routeId": "contact"
+    },
+    "secondaryAction": {
+      "label": "Read the Privacy Notice",
+      "variant": "secondary",
+      "routeId": "privacy"
+    },
+    "summaryCards": [
+      {
+        "title": "What the site is for",
+        "body": "The live site helps people understand support routes, sessions, updates, safeguarding information, and ways to contact or work with EncouragingYou.",
+        "bullets": [
+          "Public information about routes and support",
+          "Low-friction next steps into contact or sessions",
+          "Legal and trust information grounded in the live build"
+        ]
+      },
+      {
+        "title": "What the site is not",
+        "body": "The site is not an emergency service, a social network, or a source of formal legal, medical, or financial advice.",
+        "bullets": [
+          "Urgent danger should go to 999, not a general site message",
+          "Session and venue information can change and should be checked on the live route",
+          "External platforms linked from the site have their own rules and settings"
+        ]
+      },
+      {
+        "title": "Why this page exists",
+        "body": "The point of this page is to keep boundaries clear without intimidating people who need help, reassurance, or a first step.",
+        "bullets": [
+          "Acceptable use expectations stay simple",
+          "Intellectual-property and reuse boundaries are visible",
+          "External-link, download, and accuracy limits are explained near the actual feature set"
+        ]
+      }
+    ],
+    "contents": [
+      {
+        "id": "about-this-site",
+        "label": "What this site covers"
+      },
+      {
+        "id": "using-the-site",
+        "label": "Using the site fairly"
+      },
+      {
+        "id": "information-boundaries",
+        "label": "Information, support, and urgency boundaries"
+      },
+      {
+        "id": "external-links",
+        "label": "External links and third-party destinations"
+      },
+      {
+        "id": "downloads",
+        "label": "Downloads and calendar files"
+      },
+      {
+        "id": "intellectual-property",
+        "label": "Content, brand, and reuse"
+      },
+      {
+        "id": "changes",
+        "label": "Policy changes and questions"
+      }
+    ],
+    "sections": [
+      {
+        "id": "about-this-site",
+        "title": "What this site covers",
+        "summary": "This policy applies to the public EncouragingYou website that is live in the current repo and published under the EncouragingYou name.",
+        "paragraphs": [
+          "The live site is operated for EncouragingYou CIC and is designed to help people understand programmes, sessions, events and updates, volunteering and partnership routes, safeguarding information, and the main ways to contact the team.",
+          "It should stay proportionate to the live feature set. If the site later adds accounts, payments, public commenting, uploads, or other higher-risk features, this page will need to change."
+        ]
+      },
+      {
+        "id": "using-the-site",
+        "title": "Using the site fairly",
+        "summary": "Most people will never need to think about this section, but it keeps the basic boundaries visible.",
+        "paragraphs": [
+          "Use the website in a lawful and respectful way. Do not try to break, overload, scrape, impersonate, or misuse the forms, session routes, downloads, or public contact details.",
+          "Do not send harmful, misleading, abusive, or deliberately false information through the public enquiry routes."
+        ],
+        "bullets": [
+          "Do not use the forms for spam, harassment, or automated bulk submission",
+          "Do not pretend to be someone else when asking for support or reporting a concern",
+          "Do not try to interfere with the site's security or availability"
+        ]
+      },
+      {
+        "id": "information-boundaries",
+        "title": "Information, support, and urgency boundaries",
+        "summary": "The site should help people move toward the right next step, but it cannot guarantee every live detail on every route forever.",
+        "paragraphs": [
+          "Session timing, route detail, and practical information are maintained in good faith from the current structured content model, but public details can change. The live page should be treated as the best current source rather than a guarantee that nothing will move.",
+          "The public routes are for information, reassurance, and first contact. They are not a substitute for urgent emergency help, and they should not be treated as legal, financial, or medical advice.",
+          "If someone is in immediate danger, use 999 rather than waiting for an ordinary site reply. If the issue is really a safeguarding concern, use the safeguarding route rather than a general enquiry."
+        ],
+        "note": {
+          "title": "Venue and attendance details",
+          "body": "Some exact venue information is shared on enquiry rather than published as a blanket address on every route. That is part of the live launch approach and may change later if the operational policy changes.",
+          "tone": "info"
+        }
+      },
+      {
+        "id": "external-links",
+        "title": "External links and third-party destinations",
+        "summary": "Some next steps leave the main site. When that happens, the outside service controls its own accessibility, privacy, and account behaviour.",
+        "paragraphs": [
+          "The site may link to external destinations such as Instagram, email applications, future map or directions services, or regulatory guidance. Those services are not controlled by the main EncouragingYou website.",
+          "A link to an outside service is provided because it is useful, not because EncouragingYou controls or guarantees the service."
+        ],
+        "cards": [
+          {
+            "title": "Social and communication platforms",
+            "body": "Instagram and email applications have their own accessibility, privacy, moderation, and account rules once you leave the main site.",
+            "tone": "soft"
+          },
+          {
+            "title": "Maps and directions",
+            "body": "The launch contact route does not auto-load an interactive map. If a public directions link is added later, it will still open an external map service with its own terms and settings.",
+            "tone": "soft"
+          },
+          {
+            "title": "Cookie choices at launch",
+            "body": "The site does not show a cookie banner at launch because advertising, profiling, and other non-essential tracking are absent. The Cookie Notice is the live source of truth for the narrow first-party analytics model and its objection control.",
+            "tone": "soft"
+          }
+        ],
+        "note": {
+          "title": "Current cookie entry point",
+          "body": "Cookie or storage questions should go through the Cookie Notice route rather than a banner or preferences pop-up, because the current build handles the live analytics objection control on that route.",
+          "tone": "info",
+          "action": {
+            "label": "Read the Cookie Notice",
+            "variant": "text",
+            "routeId": "cookies"
+          }
+        }
+      },
+      {
+        "id": "downloads",
+        "title": "Downloads and calendar files",
+        "summary": "The current live downloads are limited and practical. They are there to help, not to create a separate content platform.",
+        "paragraphs": [
+          "Where a session route provides an .ics calendar file, that file is intended as a convenience summary of the next session pattern. The live session page should still be treated as the source of truth if details change.",
+          "When a calendar file opens in a device calendar application, that application controls the experience afterwards. EncouragingYou does not control the accessibility, reminders, or privacy behaviour of the calendar app itself."
+        ],
+        "bullets": [
+          "Check the session page again if you are unsure whether a date or time has changed",
+          "Use the contact route if you need the next date confirmed in another format"
+        ]
+      },
+      {
+        "id": "intellectual-property",
+        "title": "Content, brand, and reuse",
+        "summary": "The site's copy, branding, and launch media are provided for visiting, sharing links, and understanding the work. They are not published as free stock assets or general-purpose material.",
+        "paragraphs": [
+          "EncouragingYou, the site brand, the site copy, and the design work created for the site should be treated as belonging to the organisation or used with permission where that matters.",
+          "Normal public behaviour such as linking to a page, sharing a route, or quoting a short extract in context is different from reproducing the site's full copy, branded assets, or launch illustration system as if they were your own."
+        ],
+        "bullets": [
+          "Do not reuse the brand, logo, or launch media in a misleading way",
+          "Ask before reusing substantial copy or design assets outside ordinary sharing and referral"
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Policy changes and questions",
+        "summary": "This page should be updated when the live site grows beyond its current launch footprint.",
+        "paragraphs": [
+          "The policy should be reviewed if the site adds analytics, accounts, public uploads, payments, embedded services, or any other feature that changes the practical boundaries described here.",
+          "If you have a question about how the site works or whether a route is the right one to use, contact the team rather than guessing from a partial signal."
+        ],
+        "note": {
+          "title": "Related routes",
+          "body": "Questions about personal information belong in the Privacy Notice. Questions about accessibility barriers belong in the Accessibility Statement or the dedicated feedback form on that route.",
+          "tone": "info",
+          "action": {
+            "label": "Read the Accessibility Statement",
+            "variant": "text",
+            "routeId": "accessibility"
+          }
+        }
+      }
+    ]
+  }
+}

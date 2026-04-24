@@ -1,0 +1,64 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import BadgeRow from "./BadgeRow.astro";
+import CardPanel from "./CardPanel.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+interface Props {
+  actions?: ActionLink[];
+  bullets?: string[];
+  detail?: string;
+  headingLevel?: 2 | 3;
+  icon: MediaAsset;
+  note?: string | null;
+  statusLabel: string;
+  statusTone?: "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+  summary: string;
+  title: string;
+  tone?: "accent" | "callout" | "default" | "muted" | "soft";
+}
+
+const {
+  actions = [],
+  bullets = [],
+  detail,
+  headingLevel = 3,
+  icon,
+  note = null,
+  statusLabel,
+  statusTone = "default",
+  summary,
+  title,
+  tone = "default"
+} = Astro.props;
+---
+
+<CardPanel
+  className="contact-method-card"
+  heading={title}
+  headingLevel={headingLevel}
+  icon={icon}
+  summary={summary}
+  tone={tone}
+>
+  <BadgeRow
+    className="contact-method-card__status"
+    items={[{ label: statusLabel, tone: statusTone }]}
+  />
+
+  {detail ? <p class="contact-method-card__detail">{detail}</p> : null}
+
+  {
+    bullets.length > 0 ? (
+      <ul class="check-list contact-method-card__list">
+        {bullets.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  {note ? <p class="storage-access-card__note">{note}</p> : null}
+
+  {actions.length > 0 ? <ActionCluster actions={actions} /> : null}
+</CardPanel>

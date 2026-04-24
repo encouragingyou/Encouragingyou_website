@@ -1,0 +1,84 @@
+---
+import AdminFieldControl from "./AdminFieldControl.astro";
+
+interface RepeatableItem {
+  index: number;
+  fields: {
+    id: string;
+    path: string;
+    label: string;
+    value: string;
+    initialValue: string;
+    controlType: string;
+    helperText: string;
+    maxLength: number;
+    editable: boolean;
+    lockReason: string | null;
+    required: boolean;
+    options?: { value: string; label: string }[];
+  }[];
+}
+
+interface Props {
+  group: {
+    id: string;
+    label: string;
+    items: RepeatableItem[];
+  };
+}
+
+const { group } = Astro.props;
+const editable = group.items.some((item) => item.fields.some((field) => field.editable));
+---
+
+<div class="admin-repeatable-group" data-repeatable-group data-group-id={group.id}>
+  <div class="admin-repeatable-group__header">
+    <div>
+      <h3 class="admin-repeatable-group__title">{group.label}</h3>
+      <p class="admin-muted">
+        Fixed template list. The pattern is reusable, but the surrounding layout is
+        locked.
+      </p>
+    </div>
+    {
+      editable ? (
+        <button
+          class="admin-link-button admin-link-button--ghost"
+          type="button"
+          data-repeatable-add
+        >
+          Add item
+        </button>
+      ) : null
+    }
+  </div>
+  <div class="admin-repeatable-items">
+    {
+      group.items.map((item) => (
+        <section
+          class="admin-repeatable-item"
+          data-repeatable-item
+          data-item-index={item.index}
+        >
+          <div class="admin-repeatable-item__header">
+            <h4>Item {item.index + 1}</h4>
+            {editable ? (
+              <button
+                class="admin-link-button admin-link-button--ghost"
+                type="button"
+                data-repeatable-remove
+              >
+                Remove
+              </button>
+            ) : null}
+          </div>
+          <div class="admin-field-stack">
+            {item.fields.map((field) => (
+              <AdminFieldControl field={field} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</div>

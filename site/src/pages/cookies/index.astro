@@ -1,0 +1,219 @@
+---
+import AnalyticsPreferencePanel from "../../components/legal/AnalyticsPreferencePanel.astro";
+import PolicyContents from "../../components/legal/PolicyContents.astro";
+import StorageAccessCard from "../../components/legal/StorageAccessCard.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { resolveAnalyticsPreferenceState } from "../../lib/analytics/preferences.js";
+import { getCookiePageModel } from "../../lib/content/site-content.ts";
+
+const model = getCookiePageModel();
+const analyticsState = resolveAnalyticsPreferenceState({
+  cookies: Astro.isPrerendered ? null : (Astro.locals.requestCookies ?? null),
+  headers: Astro.isPrerendered ? null : (Astro.locals.requestHeaders ?? null),
+  pageId: "cookies",
+  pathname: "/cookies/"
+});
+const controlStateId =
+  analyticsState.state === "objected"
+    ? "objected"
+    : analyticsState.state === "browser-privacy-signal"
+      ? "browserSignal"
+      : analyticsState.state === "active"
+        ? "active"
+        : "disabled";
+const controlStateCopy = model.analyticsControlSection.stateMessages[controlStateId];
+const summaryCards = model.summaryCards as Array<{
+  title: string;
+  body: string;
+  bullets?: string[];
+}>;
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/cookies/"
+  pageId="cookies"
+  breadcrumbs={model.breadcrumbs}
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      actions={model.actions}
+    />
+
+    <NoticeBlock
+      title={model.statusNote.title}
+      body={model.statusNote.body}
+      tone={model.statusNote.tone}
+      action={model.statusNote.action}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-grid layout-grid--sidebar policy-summary-layout">
+      <div class="policy-summary-grid">
+        {
+          summaryCards.map((card, index) => (
+            <CardPanel
+              heading={card.title}
+              summary={card.body}
+              headingLevel={index === 0 ? 2 : 3}
+            >
+              {card.bullets?.length ? (
+                <ul class="check-list">
+                  {card.bullets.map((item: string) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </CardPanel>
+          ))
+        }
+      </div>
+
+      <PolicyContents items={model.contents} />
+    </div>
+  </PageSection>
+
+  <PageSection id="active-registry" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <div class="section-heading">
+        <p class="eyebrow">{model.activeSection.eyebrow}</p>
+        <h2>{model.activeSection.title}</h2>
+        <p class="section-heading__summary">{model.activeSection.summary}</p>
+      </div>
+
+      <div class="policy-registry-grid">
+        {
+          model.activeEntries.map((entry, index) => (
+            <StorageAccessCard
+              title={entry.title}
+              summary={entry.summary}
+              statusLabel={entry.statusLabel}
+              statusTone={entry.statusTone}
+              detailRows={entry.detailRows}
+              note={entry.note}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="absent-registry" tone="tint" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <div class="section-heading">
+        <p class="eyebrow">{model.absentSection.eyebrow}</p>
+        <h2>{model.absentSection.title}</h2>
+        <p class="section-heading__summary">{model.absentSection.summary}</p>
+      </div>
+
+      <div class="policy-registry-grid">
+        {
+          model.absentEntries.map((entry, index) => (
+            <StorageAccessCard
+              title={entry.title}
+              summary={entry.summary}
+              statusLabel={entry.statusLabel}
+              statusTone={entry.statusTone}
+              detailRows={entry.detailRows}
+              note={entry.note}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection id="analytics-preferences" width="wide">
+    <AnalyticsPreferencePanel
+      eyebrow={model.analyticsControlSection.eyebrow}
+      title={model.analyticsControlSection.title}
+      summary={model.analyticsControlSection.summary}
+      mode={analyticsState.mode}
+      state={analyticsState.state}
+      stateCopy={controlStateCopy}
+      note={model.analyticsControlSection.note}
+      objectLabel={model.analyticsControlSection.objectLabel}
+      resumeLabel={model.analyticsControlSection.resumeLabel}
+      returnTo="/cookies/#analytics-preferences"
+    />
+  </PageSection>
+
+  <PageSection width="wide">
+    <div class="policy-section-stack">
+      {
+        model.sections.map((section, index) => (
+          <article
+            id={section.id}
+            class="policy-section layout-stack layout-stack--roomy"
+          >
+            <div class="section-heading">
+              <p class="eyebrow">{index === 0 ? "Cookie detail" : model.eyebrow}</p>
+              <h2>{section.title}</h2>
+              {section.summary ? (
+                <p class="section-heading__summary">{section.summary}</p>
+              ) : null}
+            </div>
+
+            <div class="policy-section__body">
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+
+              {section.bullets.length ? (
+                <ul class="check-list">
+                  {section.bullets.map((item: string) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+
+            {section.note ? (
+              <NoticeBlock
+                title={section.note.title}
+                body={section.note.body}
+                tone={section.note.tone}
+                action={section.note.action}
+              />
+            ) : null}
+
+            {section.id === "future-changes" ? (
+              <div class="layout-stack layout-stack--roomy">
+                <div class="policy-section__body">
+                  <p class="eyebrow">{model.changeControlSection.eyebrow}</p>
+                  <h3>{model.changeControlSection.title}</h3>
+                  <p>{model.changeControlSection.summary}</p>
+                </div>
+
+                <CardPanel heading="Change triggers" tone="soft">
+                  <ul class="check-list">
+                    {model.changeTriggers.map((item: string) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </CardPanel>
+
+                <div class="policy-registry-grid">
+                  {model.futureGuardrails.map((item) => (
+                    <CardPanel heading={item.title} summary={item.body} tone="soft" />
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </article>
+        ))
+      }
+    </div>
+  </PageSection>
+</BaseLayout>

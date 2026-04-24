@@ -1,0 +1,230 @@
+---
+import SupportForm from "../../components/forms/SupportForm.astro";
+import ContactMethodCard from "../../components/ui/ContactMethodCard.astro";
+import FaqGroup from "../../components/ui/FaqGroup.astro";
+import InvolvementPathwayCard from "../../components/ui/InvolvementPathwayCard.astro";
+import NoticeBlock from "../../components/ui/NoticeBlock.astro";
+import PageIntro from "../../components/layout/PageIntro.astro";
+import PageSection from "../../components/layout/PageSection.astro";
+import ResiliencePanel from "../../components/ui/ResiliencePanel.astro";
+import SectionHeading from "../../components/ui/SectionHeading.astro";
+import CardPanel from "../../components/ui/CardPanel.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  ENQUIRY_CONTEXT_PARAM,
+  getEnquiryContextById
+} from "../../lib/forms/enquiry-contract.js";
+import { getContactPageModel } from "../../lib/content/site-content.ts";
+
+const model = getContactPageModel();
+const enquiryContextId = Astro.url.searchParams.get(ENQUIRY_CONTEXT_PARAM);
+const enquiryContext = enquiryContextId ? getEnquiryContextById(enquiryContextId) : null;
+const defaultReasonId = enquiryContext?.reasonId ?? model.defaultReasonId;
+---
+
+<BaseLayout
+  meta={model.meta}
+  currentPath="/contact/"
+  pageId="contact"
+  structuredData={model.structuredData}
+>
+  <PageSection className="page-section--intro">
+    <PageIntro
+      eyebrow={model.eyebrow}
+      title={model.title}
+      summary={model.summary}
+      badges={model.badges}
+      actions={model.actions}
+    >
+      {
+        model.supportingText ? (
+          <p class="page-intro__meta">{model.supportingText}</p>
+        ) : null
+      }
+    </PageIntro>
+
+    <NoticeBlock
+      title={model.urgentNotice.title}
+      body={model.urgentNotice.body}
+      tone={model.urgentNotice.tone}
+      action={model.urgentNotice.action}
+    />
+  </PageSection>
+
+  <PageSection tone="band" width="wide">
+    <div class="layout-stack layout-stack--roomy">
+      <SectionHeading
+        eyebrow={model.routesSection.eyebrow}
+        title={model.routesSection.title}
+        summary={model.routesSection.summary}
+      />
+
+      <div class="involvement-pathway-grid">
+        {
+          model.routeCards.map((item, index) => (
+            <InvolvementPathwayCard
+              title={item.title}
+              summary={item.summary}
+              statusLabel={item.statusLabel}
+              supportingText={item.supportingText}
+              trustNote={item.trustNote}
+              supportPoints={item.supportPoints}
+              actions={item.actions}
+              icon={item.icon}
+              tone={item.tone}
+              headingLevel={index === 0 ? 2 : 3}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection width="wide">
+    <div
+      class="layout-grid layout-grid--sidebar contact-route__contact-grid"
+      data-contact-form-transport={model.contactState.formTransport}
+    >
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.contactMethodsSection.eyebrow ?? ""}
+          title={model.contactMethodsSection.title}
+          summary={model.contactMethodsSection.summary}
+        />
+
+        <div class="detail-grid contact-method-grid">
+          {
+            model.contactMethodsSection.cards.map((item, index) => (
+              <ContactMethodCard
+                title={item.title}
+                summary={item.summary}
+                detail={item.detail}
+                note={item.note}
+                statusLabel={item.statusLabel}
+                statusTone={item.statusTone}
+                icon={item.icon}
+                actions={item.actions}
+                bullets={item.bullets}
+                tone={item.tone}
+                headingLevel={index === 0 ? 2 : 3}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="layout-stack layout-stack--roomy">
+        <NoticeBlock
+          surfaceId={model.launchContactSurfaceId}
+          title={model.launchContactNote.title}
+          body={model.launchContactNote.body}
+          tone={model.launchContactNote.tone}
+        />
+
+        {
+          enquiryContext ? (
+            <NoticeBlock
+              title={enquiryContext.title}
+              body={enquiryContext.body}
+              tone="info"
+              action={{
+                label: enquiryContext.returnLabel,
+                href: enquiryContext.routePath
+              }}
+            />
+          ) : null
+        }
+
+        <SupportForm
+          id="contact-form"
+          surfaceId={model.surfaceId}
+          heading={model.formHeading}
+          intro={model.formIntro}
+          organizationName={model.organizationName}
+          privacyNote={model.privacyNote}
+          privacyHighlights={model.privacyHighlights}
+          privacyNoticeTitle={model.privacyNoticeTitle}
+          privacyNoticeActionLabel={model.privacyNoticeActionLabel}
+          messageHelper={model.messageHelper}
+          updatesOptInLabel={model.updatesOptInLabel}
+          emailFallbackPrefix={model.emailFallbackPrefix}
+          noScriptNote={model.noScriptNote}
+          invalidStatusMessage={model.invalidStatusMessage}
+          submittingStatusMessage={model.submittingStatusMessage}
+          reasons={model.reasons}
+          defaultReasonId={defaultReasonId}
+          reasonFieldLabel={model.reasonFieldLabel}
+          reasonSelectPlaceholder={model.reasonSelectPlaceholder}
+          successMessage={model.successMessage}
+          submitLabel={model.submitLabel}
+          email={model.email}
+          contextId={enquiryContext?.id ?? null}
+        />
+      </div>
+    </div>
+  </PageSection>
+
+  <PageSection tone="tint" width="wide">
+    <div class="layout-grid layout-grid--sidebar contact-route__guidance-grid">
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.locationSection.eyebrow ?? ""}
+          title={model.locationSection.title}
+          summary={model.locationSection.summary}
+        />
+
+        <div class="detail-grid">
+          {
+            model.locationSection.cards.map((card, index) => (
+              <CardPanel
+                heading={card.title}
+                summary={card.body}
+                tone={card.tone}
+                headingLevel={index === 0 ? 2 : 3}
+                actions={card.actions}
+              />
+            ))
+          }
+        </div>
+
+        {
+          model.locationSection.note ? (
+            <NoticeBlock
+              title={model.locationSection.note.title}
+              body={model.locationSection.note.body}
+              tone={model.locationSection.note.tone}
+              action={model.locationSection.note.action}
+            />
+          ) : null
+        }
+
+        {
+          model.locationFallbackPanel ? (
+            <ResiliencePanel
+              className="contact-route__location-fallback"
+              stateId={model.locationFallbackPanel.stateId}
+              tone={model.locationFallbackPanel.tone}
+              presentation="panel"
+              eyebrow={model.locationFallbackPanel.eyebrow}
+              headingLevel={2}
+              title={model.locationFallbackPanel.title}
+              summary={model.locationFallbackPanel.summary}
+              body={model.locationFallbackPanel.body}
+              bullets={model.locationFallbackPanel.bullets}
+              actions={model.locationFallbackPanel.actions}
+            />
+          ) : null
+        }
+      </div>
+
+      <div class="layout-stack layout-stack--roomy">
+        <SectionHeading
+          eyebrow={model.faqSection.eyebrow}
+          title={model.faqSection.title}
+          summary={model.faqSection.summary}
+        />
+        <FaqGroup groupId={model.faqGroupId} items={model.faqs} />
+      </div>
+    </div>
+  </PageSection>
+</BaseLayout>

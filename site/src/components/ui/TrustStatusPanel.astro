@@ -1,0 +1,65 @@
+---
+import ActionCluster from "./ActionCluster.astro";
+import Badge from "./Badge.astro";
+import type { ActionLink } from "../../lib/types/site-ui";
+
+type BadgeTone = "default" | "soft" | "accent" | "inverse" | "meta" | "success";
+type Tone = "default" | "muted" | "soft";
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary: string;
+  detail?: string;
+  statusLabel: string;
+  statusTone?: BadgeTone;
+  bullets?: string[];
+  actions?: ActionLink[];
+  headingLevel?: 2 | 3;
+  tone?: Tone;
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  detail,
+  statusLabel,
+  statusTone = "meta",
+  bullets = [],
+  actions = [],
+  headingLevel = 2,
+  tone = "default"
+} = Astro.props;
+---
+
+<article class={`trust-status-panel trust-status-panel--${tone}`}>
+  <div class="trust-status-panel__header">
+    <div class="trust-status-panel__heading-group">
+      {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
+      {
+        headingLevel === 3 ? (
+          <h3 class="trust-status-panel__title">{title}</h3>
+        ) : (
+          <h2 class="trust-status-panel__title">{title}</h2>
+        )
+      }
+    </div>
+    <Badge label={statusLabel} tone={statusTone} />
+  </div>
+
+  <p class="trust-status-panel__summary">{summary}</p>
+  {detail ? <p class="trust-status-panel__detail">{detail}</p> : null}
+
+  {
+    bullets.length > 0 ? (
+      <ul class="trust-status-panel__list">
+        {bullets.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    ) : null
+  }
+
+  {actions.length > 0 ? <ActionCluster actions={actions} /> : null}
+</article>

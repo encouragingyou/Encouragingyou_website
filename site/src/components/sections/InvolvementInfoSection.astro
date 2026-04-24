@@ -1,0 +1,58 @@
+---
+import CardPanel from "../ui/CardPanel.astro";
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
+
+interface Item {
+  body: string;
+  icon?: MediaAsset;
+  title: string;
+  tone?: "accent" | "callout" | "default" | "muted" | "soft";
+}
+
+interface Note {
+  action?: ActionLink;
+  body: string;
+  title?: string;
+  tone: "error" | "important" | "info" | "success";
+}
+
+interface Props {
+  eyebrow?: string;
+  items: Item[];
+  note?: Note;
+  summary?: string;
+  title: string;
+}
+
+const { eyebrow = "", items, note, summary, title } = Astro.props;
+---
+
+<section class="involvement-info-section">
+  <SectionHeading eyebrow={eyebrow} title={title} summary={summary} />
+
+  <div class="layout-grid layout-grid--cards">
+    {
+      items.map((item) => (
+        <CardPanel
+          heading={item.title}
+          summary={item.body}
+          tone={item.tone ?? "default"}
+          icon={item.icon}
+        />
+      ))
+    }
+  </div>
+
+  {
+    note ? (
+      <NoticeBlock
+        title={note.title}
+        body={note.body}
+        tone={note.tone}
+        action={note.action}
+      />
+    ) : null
+  }
+</section>

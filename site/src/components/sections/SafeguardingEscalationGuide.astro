@@ -1,0 +1,77 @@
+---
+import NoticeBlock from "../ui/NoticeBlock.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+interface Step {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary?: string;
+  steps: Step[];
+  preparationTitle: string;
+  preparationItems: string[];
+  limitationsTitle: string;
+  limitations: string[];
+  noteTitle: string;
+  noteBody: string;
+  noteAction?: {
+    label: string;
+    href: string;
+    variant?: "primary" | "secondary" | "surface" | "text";
+  };
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  steps,
+  preparationTitle,
+  preparationItems,
+  limitationsTitle,
+  limitations,
+  noteTitle,
+  noteBody,
+  noteAction
+} = Astro.props;
+---
+
+<section class="safeguarding-guide">
+  <div class="safeguarding-guide__body">
+    <SectionHeading eyebrow={eyebrow ?? ""} title={title} summary={summary} />
+
+    <ol class="safeguarding-guide__steps">
+      {
+        steps.map((step, index) => (
+          <li class="safeguarding-guide__step">
+            <p class="safeguarding-guide__count">Step {index + 1}</p>
+            <h3 class="safeguarding-guide__step-title">{step.title}</h3>
+            <p class="safeguarding-guide__step-body">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <aside class="safeguarding-guide__aside">
+    <div class="safeguarding-guide__panel">
+      <h3>{preparationTitle}</h3>
+      <ul class="safeguarding-guide__list">
+        {preparationItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <div class="safeguarding-guide__panel safeguarding-guide__panel--muted">
+      <h3>{limitationsTitle}</h3>
+      <ul class="safeguarding-guide__list">
+        {limitations.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <NoticeBlock title={noteTitle} body={noteBody} tone="info" action={noteAction} />
+  </aside>
+</section>

@@ -1,0 +1,533 @@
+{
+  "voicePrinciples": [
+    {
+      "id": "practical-first",
+      "label": "Practical first",
+      "rule": "Lead with the next useful action or reassurance before any organisational framing.",
+      "keep": "The first step should feel obvious.",
+      "refine": "Explain what happens next in one plain sentence.",
+      "retire": "Long scene-setting before the visitor can see what to do."
+    },
+    {
+      "id": "warm-with-boundaries",
+      "label": "Warm with boundaries",
+      "rule": "Sound welcoming and human without pretending certainty where details are still unconfirmed.",
+      "keep": "Specific venue details can be shared when you enquire.",
+      "refine": "Name what is known publicly and what will be shared later.",
+      "retire": "Vague reassurance that hides operational gaps."
+    },
+    {
+      "id": "dignity-not-pity",
+      "label": "Dignity, not pity",
+      "rule": "Frame people as capable and deserving of clarity, never as a problem to be rescued.",
+      "keep": "Build confidence, get practical help, and move forward.",
+      "refine": "Talk about support, belonging, and next steps rather than deficiency.",
+      "retire": "Deficit-framed or sentimental appeals."
+    },
+    {
+      "id": "calm-trust",
+      "label": "Calm trust",
+      "rule": "Trust-critical copy should feel serious, readable, and steady rather than dramatic.",
+      "keep": "If someone is in immediate danger, call 999.",
+      "refine": "Use direct instructions and short sentences for privacy and safeguarding.",
+      "retire": "Overwritten legal language or alarmist warnings."
+    },
+    {
+      "id": "no-project-jargon",
+      "label": "No project jargon",
+      "rule": "Public-facing content must describe the service, not the build process behind it.",
+      "keep": "This route stays live so updates can be added as they are ready to share.",
+      "refine": "Explain what a visitor can expect now and what is still being confirmed.",
+      "retire": "References to prompts, migrations, runtimes, or internal architecture."
+    }
+  ],
+  "audienceModes": [
+    {
+      "audience": "young-people",
+      "promise": "You should be able to understand the offer quickly and decide on a low-pressure next step.",
+      "stance": "Friendly, direct, and never patronising.",
+      "reassuranceMove": "Name the atmosphere, what happens first, and how to ask without a long form.",
+      "ctaStyle": "Short, low-friction verbs such as Join, Ask, or Get support.",
+      "avoid": ["Institutional tone", "Lecturing", "Childish phrasing"]
+    },
+    {
+      "audience": "parents-carers",
+      "promise": "You should be able to judge safety, clarity, and appropriateness before making contact.",
+      "stance": "Calm, credible, and specific.",
+      "reassuranceMove": "Keep safeguarding, privacy, and session expectations visible near the action.",
+      "ctaStyle": "Clear next-step labels such as Ask about a session or Contact the team.",
+      "avoid": ["Assuming prior knowledge", "Hidden logistics", "Overpromising"]
+    },
+    {
+      "audience": "referrers",
+      "promise": "You should be able to tell what the route is for, who it suits, and how to make contact on someone else's behalf.",
+      "stance": "Professional without going corporate.",
+      "reassuranceMove": "State the route, the threshold, and the safeguarding/privacy context plainly.",
+      "ctaStyle": "Action labels should reference referral, support, or contact directly.",
+      "avoid": [
+        "Loose eligibility claims",
+        "Ambiguous ownership",
+        "Jargon-heavy shorthand"
+      ]
+    },
+    {
+      "audience": "community-members",
+      "promise": "You should quickly understand whether the route is relevant and what kind of welcome to expect.",
+      "stance": "Warm, grounded, and community-rooted.",
+      "reassuranceMove": "Describe belonging and practical help together.",
+      "ctaStyle": "Use inclusive invitations such as See the route or Contact the team.",
+      "avoid": ["Insider language", "Generic community buzzwords", "Sales tone"]
+    },
+    {
+      "audience": "older-people",
+      "promise": "You should be able to understand wider community support without feeling the site is youth-only or too informal.",
+      "stance": "Respectful, clear, and steady.",
+      "reassuranceMove": "State the practical relevance before describing atmosphere.",
+      "ctaStyle": "Use direct route labels and plain contact wording.",
+      "avoid": ["Youth-only slang", "Rushed copy", "Undefined offers"]
+    },
+    {
+      "audience": "volunteers",
+      "promise": "You should see fair expectations, appropriate checks, and a sensible first conversation rather than a vague appeal.",
+      "stance": "Welcoming, transparent, and boundaried.",
+      "reassuranceMove": "Name role clarity, support, and safeguarding before asking for commitment.",
+      "ctaStyle": "Use clear verbs such as Ask, Volunteer, or Start with a short enquiry.",
+      "avoid": ["Hero language", "Guilt framing", "Improvised role descriptions"]
+    },
+    {
+      "audience": "partners",
+      "promise": "You should see a credible organisation with readable next steps and careful handling of referrals or collaboration.",
+      "stance": "Confident, practical, and non-corporate.",
+      "reassuranceMove": "State what kind of partnership or referral conversation the route is for.",
+      "ctaStyle": "Use contact labels that mention partnership, referral, or collaboration.",
+      "avoid": ["Hype", "Unverified claims", "Overly casual promises"]
+    },
+    {
+      "audience": "funders",
+      "promise": "You should see legitimacy, trust signals, and a clear sense of what the organisation is building.",
+      "stance": "Grounded and credible.",
+      "reassuranceMove": "Lead with purpose, trust, and evidence of care rather than impact slogans.",
+      "ctaStyle": "Use straightforward labels that open a conversation rather than a campaign ask.",
+      "avoid": ["Corporate boilerplate", "Inflated impact claims", "Pity framing"]
+    }
+  ],
+  "contentPatterns": [
+    {
+      "id": "hero-headline",
+      "context": "Hero and page-intro headlines",
+      "intent": "Explain the practical benefit before the organisation talks about itself.",
+      "structure": [
+        "Lead with the outcome or route.",
+        "Keep the headline readable in one pass.",
+        "Use the summary to lower anxiety or clarify the next step."
+      ],
+      "approvedMoves": [
+        "Build confidence, get practical help, and move forward.",
+        "Support the work without a complicated first step."
+      ],
+      "avoid": [
+        "Mission-statement headlines that hide the user task.",
+        "Generic inspiration or charity slogans."
+      ]
+    },
+    {
+      "id": "reassurance-block",
+      "context": "Session detail panels, contact routes, and support cards",
+      "intent": "Lower anxiety without sounding patronising.",
+      "structure": [
+        "Name what happens first.",
+        "Name what is known publicly.",
+        "Give the next step in plain language."
+      ],
+      "approvedMoves": [
+        "Specific venue details can be shared when you enquire.",
+        "The detail page should answer the first anxious questions quickly."
+      ],
+      "avoid": [
+        "Blanket reassurance with no operational detail.",
+        "Telling people not to worry."
+      ]
+    },
+    {
+      "id": "cta-microcopy",
+      "context": "Buttons, links, and action clusters",
+      "intent": "Make the next step clear and low-pressure.",
+      "structure": [
+        "Use a verb plus the object of the action.",
+        "Keep labels short.",
+        "Prefer route-specific actions over generic Learn more."
+      ],
+      "approvedMoves": ["Ask to join", "Contact the team", "See involvement routes"],
+      "avoid": ["Click here", "Submit", "Read more when the route is actually a task"]
+    },
+    {
+      "id": "session-expectation",
+      "context": "Session hubs and session detail pages",
+      "intent": "Explain rhythm, atmosphere, and attendance expectations honestly.",
+      "structure": [
+        "Show cadence and timing from canonical schedule data.",
+        "Name the welcome or format in plain language.",
+        "Do not invent a next date when the schedule is paused or unclear."
+      ],
+      "approvedMoves": [
+        "Recurring offers that are easy to understand and easy to return to.",
+        "CV support that is practical, calm, and one-to-one."
+      ],
+      "avoid": [
+        "Optimistic date promises without confirmed schedule data.",
+        "Dense timetable prose."
+      ]
+    },
+    {
+      "id": "safeguarding-escalation",
+      "context": "Safeguarding pages and urgent notices",
+      "intent": "Give direct, serious instructions without legal fog.",
+      "structure": [
+        "Start with the emergency path if needed.",
+        "Separate child and adult safeguarding clearly.",
+        "Use short instructions and clear verbs."
+      ],
+      "approvedMoves": [
+        "If someone is in immediate danger, call 999.",
+        "Separate child and adult safeguarding routes, explained plainly."
+      ],
+      "avoid": [
+        "Softening urgent instructions.",
+        "Dense policy wording in the first paragraph."
+      ]
+    },
+    {
+      "id": "privacy-helper",
+      "context": "Forms, legal notices, and helper text",
+      "intent": "Explain data use in plain language near the point of action.",
+      "structure": [
+        "State what is collected.",
+        "State why it is used.",
+        "Link to the fuller notice where relevant."
+      ],
+      "approvedMoves": [
+        "We use the details you share only to reply to your enquiry or help route it to the right next step.",
+        "Privacy reminder"
+      ],
+      "avoid": ["Legalese without a plain-language bridge.", "Unbounded data promises."]
+    },
+    {
+      "id": "ai-disclosure",
+      "context": "Illustration-led hero and feature sections",
+      "intent": "Disclose AI-generated visuals without derailing the route.",
+      "structure": [
+        "Keep the notice visible near the image-led section.",
+        "State that real, consented photography is preferred for trust-critical future use.",
+        "Avoid defensive or overlong explanation."
+      ],
+      "approvedMoves": ["AI illustration disclosure"],
+      "avoid": [
+        "Hiding the disclosure in unrelated copy.",
+        "Pretending the media is documentary photography."
+      ]
+    },
+    {
+      "id": "placeholder-governance",
+      "context": "Outline routes, legal placeholders, and under-confirmed facts",
+      "intent": "Show what is safe to publish now and what is still withheld.",
+      "structure": [
+        "Explain the current route status in plain language.",
+        "List what is public now.",
+        "List what is still awaiting confirmation or intentionally hidden."
+      ],
+      "approvedMoves": [
+        "This page is public because the route matters now.",
+        "Held back until verified"
+      ],
+      "avoid": [
+        "Coming soon",
+        "Build-process language",
+        "Silent omissions where trust depends on clarity"
+      ]
+    },
+    {
+      "id": "involvement-invitation",
+      "context": "Volunteer, partner, and referral routes",
+      "intent": "Invite interest while staying clear about checks, fit, and next steps.",
+      "structure": [
+        "Name the route.",
+        "Name the kind of help or collaboration involved.",
+        "Explain the first conversation before any commitment."
+      ],
+      "approvedMoves": [
+        "Support the work without a complicated first step.",
+        "The right conversation should be obvious without a form maze."
+      ],
+      "avoid": [
+        "Grand volunteer appeals with no role clarity.",
+        "Partnership claims that imply confirmed work not yet in place."
+      ]
+    }
+  ],
+  "microcopyPatterns": {
+    "sessionStatus": {
+      "scheduleUpdateTitle": "Schedule update",
+      "calendarUnavailableTitle": "Calendar download unavailable"
+    },
+    "placeholderStatus": {
+      "title": "Current page status",
+      "publishNowLabel": "Safe to publish now",
+      "awaitingLabel": "Still waiting for approval",
+      "hiddenLabel": "Held back until verified"
+    }
+  },
+  "placeholderPolicies": [
+    {
+      "id": "outline-trust-critical",
+      "contentStatus": "outline-only",
+      "trustCritical": true,
+      "summary": "This page is public because the route matters now. The copy stays launch-safe until the remaining trust-critical facts are confirmed.",
+      "publishNow": [
+        "The public route, navigation link, and contact path.",
+        "Plain-language guidance that helps someone decide whether to ask for help.",
+        "Confirmed safeguarding, privacy, and escalation links."
+      ],
+      "awaitingConfirmation": [
+        "Operational details that need named owners, confirmed wording, or approved legal text.",
+        "Fine-grained logistics that should not be guessed in public copy."
+      ],
+      "hideUntilVerified": [
+        "Any claim that depends on an unconfirmed policy, processor, venue detail, or named person.",
+        "Any reassurance that would be misleading without the supporting fact."
+      ]
+    },
+    {
+      "id": "outline-standard",
+      "contentStatus": "outline-only",
+      "trustCritical": false,
+      "summary": "This route can stay live with a shorter launch-safe summary while fuller editorial detail is still being prepared.",
+      "publishNow": [
+        "The route purpose and the clearest next action.",
+        "Short context that helps visitors choose the right page."
+      ],
+      "awaitingConfirmation": [
+        "Richer examples, stories, and route-specific depth once approved."
+      ],
+      "hideUntilVerified": [
+        "Any new claim that would turn a placeholder into a promise without evidence."
+      ]
+    },
+    {
+      "id": "placeholder-trust-critical",
+      "contentStatus": "placeholder",
+      "trustCritical": true,
+      "summary": "This route should stay explicit about what is missing and should not imply that the final trust content already exists.",
+      "publishNow": [
+        "The route purpose, emergency links, and the safest alternative route."
+      ],
+      "awaitingConfirmation": [
+        "Named contacts, policy specifics, or legal wording still under review."
+      ],
+      "hideUntilVerified": [
+        "Any detail that could affect safety, consent, or legal interpretation."
+      ]
+    }
+  ],
+  "templateContracts": [
+    {
+      "template": "home",
+      "editorialGoal": "Make the first step obvious and keep trust cues visible before the scroll gets deep.",
+      "requiredSlots": [
+        "hero",
+        "task-first quick actions",
+        "trust cues",
+        "support microcopy"
+      ],
+      "reassuranceNeeds": [
+        "Low-pressure welcome",
+        "Visible privacy and safeguarding routes"
+      ],
+      "placeholderRule": "Do not use the homepage to hide missing facts behind generic optimism."
+    },
+    {
+      "template": "about",
+      "editorialGoal": "Explain credibility, purpose, and youth-led posture without sounding self-congratulatory.",
+      "requiredSlots": ["purpose statement", "principles", "trust signals"],
+      "reassuranceNeeds": ["Local rootedness", "Practical care before brand language"],
+      "placeholderRule": "Keep unverified leadership or impact claims out of the page."
+    },
+    {
+      "template": "programme-index",
+      "editorialGoal": "Help visitors recognise the support pillar that fits them.",
+      "requiredSlots": ["intro", "route summaries", "clear next-step labels"],
+      "reassuranceNeeds": [
+        "Practical help plus belonging",
+        "No internal project language"
+      ],
+      "placeholderRule": "Use launch-safe summaries until deeper programme copy is approved."
+    },
+    {
+      "template": "programme-detail",
+      "editorialGoal": "Explain what the programme is for and how it connects to live routes.",
+      "requiredSlots": [
+        "hero summary",
+        "sectioned explanation",
+        "related-session bridge"
+      ],
+      "reassuranceNeeds": ["Scope clarity", "No invented delivery details"],
+      "placeholderRule": "Do not fill gaps with generic impact copy."
+    },
+    {
+      "template": "session-index",
+      "editorialGoal": "Make recurring offers readable at a glance and easy to choose between.",
+      "requiredSlots": ["intro", "schedule framing", "session cards", "FAQ support"],
+      "reassuranceNeeds": ["Timing clarity", "Safety and venue disclosure cues"],
+      "placeholderRule": "Never imply a live date or calendar file when the temporal state says otherwise."
+    },
+    {
+      "template": "session-detail",
+      "editorialGoal": "Explain the welcome, rhythm, and practical first visit clearly.",
+      "requiredSlots": [
+        "intro",
+        "next-step actions",
+        "feature panel",
+        "reassurance panel",
+        "FAQ"
+      ],
+      "reassuranceNeeds": [
+        "First-time clarity",
+        "Honest schedule state",
+        "Venue caution where needed"
+      ],
+      "placeholderRule": "If a schedule fact is unavailable, say so plainly and keep the contact route visible."
+    },
+    {
+      "template": "updates-index",
+      "editorialGoal": "Keep occasional events, updates, and opportunities visible without pretending the site runs a busy newsroom.",
+      "requiredSlots": [
+        "purpose statement",
+        "sessions distinction",
+        "pinned or featured item",
+        "scannable feed",
+        "empty-state fallback",
+        "final CTA"
+      ],
+      "reassuranceNeeds": [
+        "Redirect to live support paths",
+        "Keep low-volume publishing credible"
+      ],
+      "placeholderRule": "Do not fake a busy editorial rhythm, but do not let the route become a dead-end either."
+    },
+    {
+      "template": "event-detail",
+      "editorialGoal": "Make occasional public event notices useful without implying confirmed logistics too early.",
+      "requiredSlots": [
+        "intro",
+        "current practical details",
+        "lifecycle notice when needed",
+        "clear next-step action"
+      ],
+      "reassuranceNeeds": ["Operational clarity", "No invented booking or venue detail"],
+      "placeholderRule": "If date or location details are not confirmed, say so plainly and keep the support route visible."
+    },
+    {
+      "template": "update-detail",
+      "editorialGoal": "Keep updates and opportunities readable, time-aware, and tied to a practical route.",
+      "requiredSlots": [
+        "intro",
+        "status context",
+        "sectioned explanation",
+        "clear next-step action"
+      ],
+      "reassuranceNeeds": ["Scope clarity", "No fake newsroom tone"],
+      "placeholderRule": "Do not let an expired or superseded item read like the current source of truth."
+    },
+    {
+      "template": "get-involved-hub",
+      "editorialGoal": "Separate volunteer, partner, and referral routes without a maze.",
+      "requiredSlots": ["intro", "route cards", "process explanation", "contact surface"],
+      "reassuranceNeeds": ["Fair expectations", "Visible safeguarding/privacy context"],
+      "placeholderRule": "Do not collapse distinct motivations into one generic invitation."
+    },
+    {
+      "template": "volunteer-detail",
+      "editorialGoal": "Set expectations clearly before anyone starts a volunteering conversation.",
+      "requiredSlots": [
+        "route purpose",
+        "role-pathway summary",
+        "safeguarding context",
+        "contact route"
+      ],
+      "reassuranceNeeds": ["Fairness", "Checks and support made explicit"],
+      "placeholderRule": "Do not imply role details that have not yet been approved."
+    },
+    {
+      "template": "partner-detail",
+      "editorialGoal": "Show the route is credible for collaboration and referral conversations.",
+      "requiredSlots": ["route purpose", "collaboration examples", "next-step contact"],
+      "reassuranceNeeds": ["Scope clarity", "Privacy and referral confidence"],
+      "placeholderRule": "Avoid overstating current partnerships or referral capacity."
+    },
+    {
+      "template": "contact",
+      "editorialGoal": "Offer a low-friction contact route with plain privacy guidance.",
+      "requiredSlots": ["intro", "support form", "urgent guidance", "FAQ"],
+      "reassuranceNeeds": ["Short-form welcome", "Inline privacy explanation"],
+      "placeholderRule": "Keep unknown phone or venue details explicit rather than inferred."
+    },
+    {
+      "template": "safeguarding",
+      "editorialGoal": "Make the right escalation path clear immediately.",
+      "requiredSlots": [
+        "intro",
+        "emergency message",
+        "child/adult branches",
+        "concern action"
+      ],
+      "reassuranceNeeds": [
+        "Serious but calm wording",
+        "No ambiguity about urgent action"
+      ],
+      "placeholderRule": "Missing safeguarding facts must stay explicit placeholders, not implied certainty."
+    },
+    {
+      "template": "legal",
+      "editorialGoal": "Keep legal and policy routes readable to a non-specialist visitor.",
+      "requiredSlots": [
+        "plain-language summary",
+        "contact route",
+        "launch-safe placeholder note when incomplete"
+      ],
+      "reassuranceNeeds": ["Short paragraphs", "Practical explanation first"],
+      "placeholderRule": "If the policy is incomplete, explain that directly without build-process jargon."
+    },
+    {
+      "template": "not-found",
+      "editorialGoal": "Recover trust quickly and route visitors back into live help.",
+      "requiredSlots": ["recovery summary", "main actions", "urgent support note"],
+      "reassuranceNeeds": ["No blame", "Safeguarding and support routes still visible"],
+      "placeholderRule": "Do not turn the 404 into a joke or a dead end."
+    }
+  ],
+  "futurePromptChecklist": [
+    "Lead with the visitor task before organisational framing.",
+    "Keep headings in sentence case and summaries under control.",
+    "Use explicit placeholder language for unknown facts instead of guessing.",
+    "Keep privacy, safeguarding, and next-step cues close to the relevant action.",
+    "Avoid pity framing, hype, or generic charity slogans.",
+    "Do not mention prompts, migrations, runtimes, or internal tooling in public copy.",
+    "Use route-specific CTA labels instead of generic Learn more or Submit.",
+    "If a claim cannot be verified from the current content model, leave it out or mark it as awaiting confirmation."
+  ],
+  "bannedPublicPhrases": [
+    "later prompts",
+    "prompt 35",
+    "prompt 36",
+    "prompt 37",
+    "astro-owned",
+    "new runtime",
+    "migration-safe",
+    "hardcoded prototype html",
+    "normalized content model",
+    "metadata ownership",
+    "coming soon",
+    "lorem ipsum",
+    "todo",
+    "tbd"
+  ]
+}

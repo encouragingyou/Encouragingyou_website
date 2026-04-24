@@ -1,0 +1,26 @@
+---
+interface ContentsItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  title?: string;
+  items: ContentsItem[];
+}
+
+const { title = "On this page", items } = Astro.props;
+---
+
+<nav class="policy-contents" aria-labelledby="policy-contents-title">
+  <p id="policy-contents-title" class="eyebrow">{title}</p>
+  <ol class="policy-contents__list">
+    {
+      items.map((item) => (
+        <li>
+          <a href={`#${item.id}`}>{item.label}</a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>

@@ -1,0 +1,323 @@
+---
+import PageSection from "../components/layout/PageSection.astro";
+import CtaBand from "../components/sections/CtaBand.astro";
+import FeatureSplit from "../components/sections/FeatureSplit.astro";
+import HomeContactPanel from "../components/sections/HomeContactPanel.astro";
+import HomeHero from "../components/sections/HomeHero.astro";
+import HomeLiveSessionsSurface from "../components/sections/HomeLiveSessionsSurface.astro";
+import HomePageTeaser from "../components/sections/HomePageTeaser.astro";
+import HomeTrustStrip from "../components/sections/HomeTrustStrip.astro";
+import HomeUpdatesSurface from "../components/sections/HomeUpdatesSurface.astro";
+import SiteLayout from "../layouts/BaseLayout.astro";
+import ActionCard from "../components/ui/ActionCard.astro";
+import ActionCluster from "../components/ui/ActionCluster.astro";
+import CardPanel from "../components/ui/CardPanel.astro";
+import FaqGroup from "../components/ui/FaqGroup.astro";
+import ProgrammeCard from "../components/ui/ProgrammeCard.astro";
+import SectionHeading from "../components/ui/SectionHeading.astro";
+import { getHomePageModel, type HomeSectionModel } from "../lib/content/site-content";
+import type { ActionLink } from "../lib/types/site-ui";
+
+const home = getHomePageModel();
+
+function toActionLink(
+  action: Pick<ActionLink, "label" | "href" | "variant">
+): ActionLink {
+  return {
+    label: action.label,
+    href: action.href,
+    variant: action.variant
+  };
+}
+
+function getSectionTone(section: HomeSectionModel) {
+  return section.tone ?? "default";
+}
+
+function getSectionWidth(section: HomeSectionModel) {
+  if (section.width) {
+    return section.width;
+  }
+
+  switch (section.kind) {
+    case "page-teaser":
+    case "feature-split":
+    case "updates-surface":
+    case "contact-panel":
+      return "wide";
+    default:
+      return "default";
+  }
+}
+
+const heroSupportActions = home.conversionStack.supportingActions
+  .filter((action) => action.label !== "Volunteer or partner")
+  .slice(0, 2)
+  .map(toActionLink);
+
+const liveSessionsSection = home.sections.find(
+  (section): section is Extract<HomeSectionModel, { kind: "live-sessions" }> =>
+    section.kind === "live-sessions"
+);
+
+const heroPanelHeading =
+  home.stateSurface.liveSessions.state === "available"
+    ? "Saturday still has a simple rhythm."
+    : "The next step stays simple.";
+const heroPanelSummary =
+  home.stateSurface.liveSessions.state === "available"
+    ? (liveSessionsSection?.summary ??
+      "CV support runs first, then youth club follows straight after.")
+    : home.stateSurface.liveSessions.state === "paused"
+      ? (liveSessionsSection?.pausedState?.summary ??
+        "If timings pause or change, the support route stays available.")
+      : (liveSessionsSection?.emptyState?.summary ??
+        "If public timings are still being confirmed, use the support route and the team can help.");
+---
+
+<SiteLayout
+  meta={home.meta}
+  currentPath="/"
+  pageId="home"
+  structuredData={home.structuredData}
+>
+  <HomeHero {...home.hero}>
+    {
+      heroSupportActions.length > 0 ? (
+        <div slot="support" class="home-hero__support-copy">
+          <p class="home-hero__support-title">Common next steps</p>
+          <p class="home-hero__support-body">
+            The main pair handles the fastest path in. These routes stay visible for
+            visitors who already know they need something more specific.
+          </p>
+          <ActionCluster
+            actions={heroSupportActions}
+            className="home-hero__support-actions"
+          />
+        </div>
+      ) : null
+    }
+
+    <CardPanel
+      slot="aside"
+      as="aside"
+      className="home-hero__panel"
+      tone="callout"
+      eyebrow="Saturday at a glance"
+      heading={heroPanelHeading}
+      headingLevel={2}
+      summary={heroPanelSummary}
+    >
+      {
+        liveSessionsSection && liveSessionsSection.items.length > 0 ? (
+          <ul class="home-hero__panel-list">
+            {liveSessionsSection.items.map((item) => (
+              <li>
+                <span>{item.title}</span>
+                <strong>{item.timeLabel}</strong>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="home-hero__panel-note">
+            Contact stays available if you need help before the public timetable is fully
+            confirmed.
+          </p>
+        )
+      }
+    </CardPanel>
+  </HomeHero>
+
+  {
+    home.sections.map((section) => {
+      const tone = getSectionTone(section);
+      const width = getSectionWidth(section);
+
+      if (section.kind === "quick-actions") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <div class="home-quick-actions" data-home-section={section.id}>
+              <SectionHeading
+                eyebrow={section.eyebrow}
+                title={section.title}
+                summary={section.summary}
+              />
+              <div class="action-grid layout-grid layout-grid--cards">
+                {section.items.map((item) => (
+                  <ActionCard {...item} />
+                ))}
+              </div>
+            </div>
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "trust-strip") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <HomeTrustStrip
+              eyebrow={section.eyebrow}
+              title={section.title}
+              summary={section.summary}
+              items={section.items}
+            />
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "live-sessions") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <HomeLiveSessionsSurface
+              eyebrow={section.eyebrow}
+              title={section.title}
+              summary={section.summary}
+              state={section.state}
+              items={section.items}
+              primaryAction={section.primaryAction}
+              secondaryAction={section.secondaryAction}
+              emptyState={section.emptyState}
+              pausedState={section.pausedState}
+            />
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "programme-teasers") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <div class="home-programmes" data-home-section={section.id}>
+              <div class="home-programmes__header">
+                <SectionHeading
+                  eyebrow={section.eyebrow}
+                  title={section.title}
+                  summary={section.summary}
+                />
+                {section.primaryAction ? (
+                  <ActionCluster
+                    actions={[section.primaryAction]}
+                    className="home-programmes__actions"
+                  />
+                ) : null}
+              </div>
+              <div class="programme-grid layout-grid layout-grid--cards">
+                {section.items.map((item) => (
+                  <ProgrammeCard {...item} />
+                ))}
+              </div>
+            </div>
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "page-teaser") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <HomePageTeaser
+              sectionId={section.id}
+              className="home-page-teaser--about"
+              eyebrow={section.eyebrow}
+              title={section.title}
+              summary={section.summary}
+              badges={section.badges}
+              action={section.action}
+              media={section.media}
+              disclosure={section.disclosure}
+            >
+              <p class="home-page-teaser__note">
+                The about route deepens trust without making the homepage carry the full
+                story on its own.
+              </p>
+            </HomePageTeaser>
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "feature-split") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <div data-home-section={section.id}>
+              <FeatureSplit
+                eyebrow={section.eyebrow}
+                title={section.title}
+                summary={section.summary}
+                bullets={section.bullets}
+                badges={section.badges}
+                media={section.media}
+                disclosure={section.disclosure}
+                primaryAction={section.primaryAction}
+                secondaryAction={section.secondaryAction}
+                reversed={section.reversed}
+              />
+            </div>
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "updates-surface") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <HomeUpdatesSurface
+              eyebrow={section.eyebrow}
+              title={section.title}
+              summary={section.summary}
+              state={section.state}
+              items={section.items}
+              primaryAction={section.primaryAction}
+              emptyState={section.emptyState}
+            />
+          </PageSection>
+        );
+      }
+
+      if (section.kind === "faq-cluster") {
+        return (
+          <PageSection id={section.id} tone={tone} width={width}>
+            <div data-home-section={section.id}>
+              <CtaBand
+                className="home-faq"
+                eyebrow={section.eyebrow}
+                title={section.title}
+                summary={section.summary}
+                actions={section.primaryAction ? [section.primaryAction] : []}
+              >
+                <FaqGroup groupId={section.faqGroupId} items={section.faqs} />
+              </CtaBand>
+            </div>
+          </PageSection>
+        );
+      }
+
+      return (
+        <PageSection id={section.id} tone={tone} width={width}>
+          <HomeContactPanel
+            eyebrow={section.eyebrow}
+            title={section.title}
+            summary={section.summary}
+            secondaryAction={section.secondaryAction}
+            contactState={home.stateSurface.contact.state}
+            pendingFields={home.stateSurface.contact.pendingFields}
+            surfaceId={section.surfaceId}
+            organizationName={section.organizationName}
+            formHeading={section.formHeading}
+            formIntro={section.formIntro}
+            privacyNote={section.privacyNote}
+            privacyHighlights={section.privacyHighlights}
+            privacyNoticeTitle={section.privacyNoticeTitle}
+            privacyNoticeActionLabel={section.privacyNoticeActionLabel}
+            messageHelper={section.messageHelper}
+            updatesOptInLabel={section.updatesOptInLabel}
+            emailFallbackPrefix={section.emailFallbackPrefix}
+            noScriptNote={section.noScriptNote}
+            invalidStatusMessage={section.invalidStatusMessage}
+            submittingStatusMessage={section.submittingStatusMessage}
+            reasons={section.reasons}
+            email={section.email}
+            successMessage={section.successMessage}
+            urgentGuidance={section.urgentGuidance}
+          />
+        </PageSection>
+      );
+    })
+  }
+</SiteLayout>
