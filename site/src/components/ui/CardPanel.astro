@@ -41,12 +41,20 @@ const {
   summaryId,
   tone = "default",
   eyebrow,
+  "aria-describedby": ariaDescribedBy,
+  "aria-labelledby": ariaLabelledBy,
   ...rest
 } = Astro.props as Props & Record<string, unknown>;
 
 const isLink = Boolean(href);
 const isInteractive = interactive || isLink;
 const Tag = (isLink ? "a" : as) as "a" | "article" | "aside" | "div" | "section";
+const resolvedHeadingId = heading
+  ? (headingId ?? (id ? `${id}-heading` : undefined))
+  : undefined;
+const resolvedAriaLabelledBy =
+  ariaLabelledBy ??
+  (Tag === "aside" && resolvedHeadingId ? resolvedHeadingId : undefined);
 const cardClass = [
   "card-panel",
   `card-panel--${tone}`,
@@ -64,6 +72,8 @@ const cardClass = [
   target={isLink && external ? "_blank" : undefined}
   rel={isLink && external ? "noreferrer" : undefined}
   aria-current={selected && isLink ? "page" : undefined}
+  aria-describedby={ariaDescribedBy}
+  aria-labelledby={resolvedAriaLabelledBy}
   data-card-state={selected ? "selected" : "default"}
   data-motion={isInteractive ? "reveal emphasis" : "reveal structural"}
   id={id}
@@ -77,11 +87,11 @@ const cardClass = [
           {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
           {heading ? (
             headingLevel === 3 ? (
-              <h3 id={headingId} class="card-panel__heading">
+              <h3 id={resolvedHeadingId} class="card-panel__heading">
                 {heading}
               </h3>
             ) : (
-              <h2 id={headingId} class="card-panel__heading">
+              <h2 id={resolvedHeadingId} class="card-panel__heading">
                 {heading}
               </h2>
             )

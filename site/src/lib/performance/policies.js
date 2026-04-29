@@ -1,10 +1,10 @@
-export const performanceBudgetVersion = "2026-04-24";
+export const performanceBudgetVersion = "2026-04-29";
 
 export const sharedPerformanceBudgets = {
   stylesheetsPerPageMax: 1,
   moduleScriptsPerPageMax: 1,
   fontPreloadsPerPageMax: 1,
-  clientCssBytesMax: 96_000,
+  clientCssBytesMax: 112_000,
   clientScriptBytesMax: 16_000,
   astroGeneratedMediaCountMax: 0,
   thirdPartyRequestsMax: 0

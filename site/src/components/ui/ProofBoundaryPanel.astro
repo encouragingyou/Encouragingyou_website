@@ -18,9 +18,9 @@ const {
 } = Astro.props;
 ---
 
-<aside class="proof-boundary">
+<aside class="proof-boundary" aria-labelledby="proof-boundary-title">
   {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
-  <h2>{title}</h2>
+  <h2 id="proof-boundary-title">{title}</h2>
   {summary ? <p class="proof-boundary__summary">{summary}</p> : null}
 
   <div class="proof-boundary__groups">

@@ -9,6 +9,10 @@ function assert(condition, message) {
   }
 }
 
+function assertEqual(actual, expected, message) {
+  assert(actual === expected, `${message} Expected ${expected}, received ${actual}.`);
+}
+
 function normalizeBaseUrl(value) {
   try {
     return new URL(value).toString();
@@ -35,6 +39,10 @@ function normalizeSurface(value) {
 
 function toHeadersMap(headers) {
   return Object.fromEntries([...headers.entries()].map(([key, value]) => [key, value]));
+}
+
+function responsePathname(response) {
+  return new URL(response.url).pathname;
 }
 
 async function fetchText(baseUrl, pathname) {
@@ -205,14 +213,14 @@ if (surface === "admin") {
   }
 
   assert(
-    root.response.url.endsWith("/admin/login/"),
+    responsePathname(root.response) === "/admin/login/",
     "Admin root should resolve into the isolated login route."
   );
   assert(
-    adminHome.response.url.endsWith("/admin/login/"),
+    responsePathname(adminHome.response) === "/admin/login/",
     "Unauthenticated admin home should resolve into the login route."
   );
-  assert.equal(
+  assertEqual(
     contact.response.status,
     404,
     "Admin surface must not expose public routes."
@@ -222,7 +230,8 @@ if (surface === "admin") {
     "Admin login route must emit noindex headers."
   );
   assert(
-    login.text.includes("Invitation-only CMS access"),
+    login.text.includes("Access is invitation-only") &&
+      login.text.includes("Continue to MFA"),
     "Admin login route content is incomplete."
   );
   assert(
@@ -233,32 +242,32 @@ if (surface === "admin") {
     !/<loc>/u.test(sitemap.text),
     "Admin sitemap.xml should not advertise public URLs."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.indexing.searchAllowed,
     false,
     "Admin surface must never be search-indexable."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.surface.publicRoutesEnabled,
     false,
     "Admin surface must not expose public routes."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.surface.adminRoutesEnabled,
     true,
     "Admin surface must expose admin routes."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.admin.portalEnabled,
     true,
     "Admin surface must keep the admin portal enabled."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.admin.cryptoReady,
     true,
     "Admin surface must report cryptographic readiness."
   );
-  assert.equal(
+  assertEqual(
     healthCheck.json.storage.adminReady,
     true,
     "Admin surface storage is not writable."
@@ -295,18 +304,14 @@ for (const page of [home, contact, privacy, cookies]) {
 }
 
 if (surface === "public") {
-  assert.equal(
-    admin.response.status,
-    404,
-    "Public surface must not expose admin routes."
-  );
+  assertEqual(admin.response.status, 404, "Public surface must not expose admin routes.");
 } else {
   assert(
     admin.response.ok,
     "Shared surface should still expose the authenticated admin entry route."
   );
   assert(
-    admin.response.url.endsWith("/admin/login/"),
+    responsePathname(admin.response) === "/admin/login/",
     "Shared surface should resolve the unauthenticated admin entry into the login route."
   );
 }

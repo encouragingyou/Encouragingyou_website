@@ -2456,6 +2456,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2xs) var(--space-xs);
+    list-style: none;
   }
 
   .editorial-filter-chip {

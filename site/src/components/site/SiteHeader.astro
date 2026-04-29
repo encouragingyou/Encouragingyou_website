@@ -35,7 +35,7 @@ const currentNavItem =
     <div class="container container--wide site-header__utility-inner">
       <p class="site-header__utility-copy">{brand.tag}</p>
 
-      <nav class="site-utility-nav" aria-label="Utility">
+      <nav class="site-utility-nav" aria-label="Utility links">
         <ul class="site-utility-nav__list">
           {
             utilityItems.map((item) => (
@@ -108,7 +108,10 @@ const currentNavItem =
 
       <div class="site-header__panel-meta">
         <p>{brand.summary}</p>
-        <nav class="site-utility-nav site-utility-nav--panel" aria-label="Utility">
+        <nav
+          class="site-utility-nav site-utility-nav--panel"
+          aria-label="Menu utility links"
+        >
           <ul class="site-utility-nav__list">
             {
               utilityItems.map((item) => (

@@ -57,9 +57,12 @@ const {
     </ol>
   </div>
 
-  <aside class="safeguarding-guide__aside">
+  <aside
+    class="safeguarding-guide__aside"
+    aria-labelledby="safeguarding-guide-preparation"
+  >
     <div class="safeguarding-guide__panel">
-      <h3>{preparationTitle}</h3>
+      <h3 id="safeguarding-guide-preparation">{preparationTitle}</h3>
       <ul class="safeguarding-guide__list">
         {preparationItems.map((item) => <li>{item}</li>)}
       </ul>

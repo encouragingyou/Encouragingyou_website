@@ -1,7 +1,6 @@
-import { access, readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { access, readdir, readFile } from "node:fs/promises";
+import { basename, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execFileSync } from "node:child_process";
 
 import sharp from "sharp";
 
@@ -46,6 +45,34 @@ async function assertFileExists(filePath, label) {
   } catch {
     throw new Error(`${label} does not exist: ${filePath}`);
   }
+}
+
+async function collectDirectPublicPathReferences(target) {
+  const matches = [];
+  const entries = await readdir(target, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const entryPath = resolve(target, entry.name);
+
+    if (entry.isDirectory()) {
+      matches.push(...(await collectDirectPublicPathReferences(entryPath)));
+      continue;
+    }
+
+    if (!entry.isFile() || basename(entry.name) === "catalog.ts") {
+      continue;
+    }
+
+    const source = await readFile(entryPath, "utf8");
+
+    source.split(/\r?\n/u).forEach((line, index) => {
+      if (line.includes("/images/") || line.includes("/icons/")) {
+        matches.push(`${relative(repoRoot, entryPath)}:${index + 1}:${line}`);
+      }
+    });
+  }
+
+  return matches;
 }
 
 for (const asset of mediaLibrary.assets) {
@@ -252,27 +279,11 @@ assert(
 );
 
 for (const target of directPathTargets) {
-  let stdout;
-  try {
-    stdout = execFileSync(
-      "rg",
-      ["-n", "/(images|icons)/", target, "-g", "!**/catalog.ts"],
-      {
-        cwd: repoRoot,
-        encoding: "utf8"
-      }
-    );
-  } catch (error) {
-    if (error?.status === 1) {
-      stdout = "";
-    } else {
-      throw error;
-    }
-  }
+  const references = await collectDirectPublicPathReferences(target);
 
   assert(
-    stdout.trim().length === 0,
-    `Direct /images or /icons references remain inside the production app:\n${stdout}`
+    references.length === 0,
+    `Direct /images or /icons references remain inside the production app:\n${references.join("\n")}`
   );
 }
 

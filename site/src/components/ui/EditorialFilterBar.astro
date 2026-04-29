@@ -16,10 +16,10 @@ const { items, label } = Astro.props;
 
 <div class="editorial-filter-bar" data-editorial-filter-shell>
   <p class="editorial-filter-bar__label">{label}</p>
-  <div class="editorial-filter-bar__items" role="list">
+  <ul class="editorial-filter-bar__items">
     {
       items.map((item, index) => (
-        <div role="listitem">
+        <li>
           <button
             type="button"
             class:list={[
@@ -34,10 +34,10 @@ const { items, label } = Astro.props;
             <span>{item.label}</span>
             <span class="editorial-filter-chip__count">{item.count}</span>
           </button>
-        </div>
+        </li>
       ))
     }
-  </div>
+  </ul>
   <p class="editorial-filter-bar__status" data-editorial-filter-status aria-live="polite">
     Showing all public items.
   </p>

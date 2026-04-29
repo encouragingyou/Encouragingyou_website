@@ -76,7 +76,7 @@ const { emptyState, eyebrow, item, state, summary, supportPanel, title } = Astro
       }
     </div>
 
-    <aside class="involvement-spotlight__aside">
+    <aside class="involvement-spotlight__aside" aria-label={supportPanel.title}>
       <NoticeBlock
         eyebrow={supportPanel.eyebrow}
         title={supportPanel.title}

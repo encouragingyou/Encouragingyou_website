@@ -1,9 +1,16 @@
 import { spawn } from "node:child_process";
-import { createReadStream, existsSync, statSync } from "node:fs";
+import { createReadStream, existsSync, readFileSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { once } from "node:events";
 import { extname, resolve, sep } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
+
+import {
+  getDeploymentHeaders,
+  resolveDeploymentContext
+} from "../../src/lib/deployment/context.js";
+import { resolveHtmlCacheControl } from "../../src/lib/performance/policies.js";
+import { getSecurityHeaders } from "../../src/lib/security/policy.js";
 
 function formatLogs(logs) {
   return logs.join("").trim();
@@ -40,6 +47,57 @@ function getStaticCandidates(staticRoot, pathname) {
   );
 }
 
+function toFetchHeaders(requestHeaders) {
+  const headers = new Headers();
+
+  for (const [key, value] of Object.entries(requestHeaders)) {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        headers.append(key, item);
+      }
+    } else if (value) {
+      headers.set(key, value);
+    }
+  }
+
+  return headers;
+}
+
+function applyStaticPreviewHeaders({ request, response, contentType, html, pathname }) {
+  const requestUrl = new URL(
+    request.url ?? "/",
+    `http://${request.headers.host ?? "127.0.0.1"}`
+  );
+  const requestHeaders = toFetchHeaders(request.headers);
+  const deployment = resolveDeploymentContext();
+
+  for (const [headerName, headerValue] of Object.entries(
+    getSecurityHeaders({
+      contentType,
+      html,
+      requestUrl: requestUrl.toString(),
+      headers: requestHeaders,
+      isDevRuntime: false
+    })
+  )) {
+    response.setHeader(headerName, headerValue);
+  }
+
+  for (const [headerName, headerValue] of Object.entries(
+    getDeploymentHeaders(deployment)
+  )) {
+    response.setHeader(headerName, headerValue);
+  }
+
+  if (contentType.includes("text/html")) {
+    response.setHeader("Cache-Control", resolveHtmlCacheControl(pathname));
+
+    if (!deployment.searchIndexingAllowed) {
+      response.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
+    }
+  }
+}
+
 function tryServeStatic({ request, response, staticRoot }) {
   const url = new URL(request.url ?? "/", "http://127.0.0.1");
 
@@ -54,10 +112,30 @@ function tryServeStatic({ request, response, staticRoot }) {
     }
 
     response.statusCode = 200;
-    response.setHeader(
-      "content-type",
-      MIME_TYPES.get(extname(candidate).toLowerCase()) ?? "application/octet-stream"
-    );
+    const contentType =
+      MIME_TYPES.get(extname(candidate).toLowerCase()) ?? "application/octet-stream";
+
+    response.setHeader("content-type", contentType);
+
+    if (contentType.includes("text/html")) {
+      const html = readFileSync(candidate, "utf8");
+
+      applyStaticPreviewHeaders({
+        request,
+        response,
+        contentType,
+        html,
+        pathname: url.pathname
+      });
+
+      if (request.method === "HEAD") {
+        response.end();
+        return true;
+      }
+
+      response.end(html);
+      return true;
+    }
 
     if (request.method === "HEAD") {
       response.end();

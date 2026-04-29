@@ -2,9 +2,6 @@ import { gzipSync } from "node:zlib";
 import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
 import { dirname, extname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { once } from "node:events";
-import { setTimeout as delay } from "node:timers/promises";
-import { spawn } from "node:child_process";
 
 import {
   cachePolicy,
@@ -14,13 +11,13 @@ import {
   resolvePerformanceTier,
   sharedPerformanceBudgets
 } from "../src/lib/performance/policies.js";
+import { startBuiltPreviewServer } from "./lib/preview-server.mjs";
 
 const siteRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const clientRoot = resolve(siteRoot, "dist/client");
 const astroAssetRoot = resolve(clientRoot, "_astro");
 const reportPath = resolve(siteRoot, "src/data/generated/performance-budget-report.json");
 const performancePort = Number(process.env.PERFORMANCE_PORT ?? "4329");
-const performanceBaseUrl = `http://127.0.0.1:${performancePort}`;
 
 async function walkFiles(rootDirectory) {
   const entries = await readdir(rootDirectory, { withFileTypes: true });
@@ -108,56 +105,15 @@ const sharedJsAssets = await Promise.all(jsFiles.map(createAssetSizeReport));
 const routeReports = [];
 const failures = [];
 
-async function waitForServerReady(serverProcess) {
-  for (let attempt = 0; attempt < 50; attempt += 1) {
-    if (serverProcess.exitCode !== null) {
-      throw new Error(
-        `Performance server exited early with code ${serverProcess.exitCode}.`
-      );
-    }
-
-    try {
-      const response = await fetch(performanceBaseUrl);
-
-      if (response.ok) {
-        return;
-      }
-    } catch {
-      // Server not ready yet.
-    }
-
-    await delay(200);
-  }
-
-  throw new Error("Timed out waiting for the performance validation server.");
-}
-
-const serverProcess = spawn("node", ["./dist/server/entry.mjs"], {
+const server = await startBuiltPreviewServer({
   cwd: siteRoot,
-  env: {
-    ...process.env,
-    HOST: "127.0.0.1",
-    PORT: String(performancePort)
-  },
-  stdio: ["ignore", "pipe", "pipe"]
-});
-
-const serverLogs = [];
-
-serverProcess.stdout.on("data", (chunk) => {
-  serverLogs.push(chunk.toString());
-});
-
-serverProcess.stderr.on("data", (chunk) => {
-  serverLogs.push(chunk.toString());
+  port: performancePort
 });
 
 try {
-  await waitForServerReady(serverProcess);
-
   for (const route of performanceSentinelRoutes) {
     const tier = resolvePerformanceTier(route);
-    const response = await fetch(new URL(route, performanceBaseUrl));
+    const response = await fetch(new URL(route, server.baseUrl));
 
     if (!response.ok) {
       failures.push(`${route}: request returned ${response.status}.`);
@@ -298,8 +254,7 @@ try {
     }
   }
 } finally {
-  serverProcess.kill("SIGTERM");
-  await once(serverProcess, "exit").catch(() => undefined);
+  await server.stop();
 }
 
 const legacyPayloadFailures = [];
@@ -341,7 +296,7 @@ const report = {
       routeReports.find((entry) => entry.route === route) ?? { route, missing: true }
   ),
   cachePolicy,
-  serverLogs,
+  serverLogs: server.logs,
   routes: routeReports
 };
 

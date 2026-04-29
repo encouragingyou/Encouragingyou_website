@@ -25,7 +25,7 @@ import {
 
 export const prerender = false;
 
-const DEFAULT_RETURN_PATH = "/cookies/#analytics-preferences";
+const DEFAULT_RETURN_PATH = "/cookies/#analytics-control";
 
 function buildRedirectResponse(location: string) {
   return new Response(null, {
@@ -67,7 +67,7 @@ function appendStatus(returnPath: string, state: string) {
   href.searchParams.set("analyticsPreference", state);
 
   if (!href.hash) {
-    href.hash = "analytics-preferences";
+    href.hash = "analytics-control";
   }
 
   return `${href.pathname}${href.search}${href.hash}`;

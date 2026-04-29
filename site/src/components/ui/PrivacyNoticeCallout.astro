@@ -13,7 +13,7 @@ interface Props {
 const { title, body, bullets = [], action, tone = "important" } = Astro.props;
 ---
 
-<section class="privacy-notice-callout" data-tone={tone} aria-label={title}>
+<section class="privacy-notice-callout" data-tone={tone}>
   <div class="layout-stack layout-stack--compact">
     <h3 class="privacy-notice-callout__title">{title}</h3>
     <p>{body}</p>
