@@ -1,10 +1,26 @@
 import { expect, test } from "../support/fixtures.mjs";
 
+function expectedReleaseId() {
+  const explicitReleaseId = process.env.RELEASE_ID?.trim();
+
+  if (explicitReleaseId) {
+    return explicitReleaseId;
+  }
+
+  const releaseSha =
+    process.env.RELEASE_SHA?.trim() ??
+    process.env.RENDER_GIT_COMMIT?.trim() ??
+    process.env.GITHUB_SHA?.trim();
+
+  return releaseSha ? releaseSha.slice(0, 12) : "local-dev";
+}
+
 test("runtime surfaces local deployment metadata and a healthy release endpoint", async ({
   page,
   request
 }) => {
   const expectedSurface = process.env.PLAYWRIGHT_DEPLOYMENT_SURFACE ?? "shared";
+  const releaseId = expectedReleaseId();
   const homeResponse = await page.goto("/", { waitUntil: "domcontentloaded" });
 
   expect(
@@ -19,7 +35,7 @@ test("runtime surfaces local deployment metadata and a healthy release endpoint"
     "data-deployment-surface",
     expectedSurface
   );
-  await expect(page.locator("html")).toHaveAttribute("data-release-id", "local-dev");
+  await expect(page.locator("html")).toHaveAttribute("data-release-id", releaseId);
 
   if (expectedSurface === "admin") {
     await expect(page).toHaveURL(/\/admin\/login\//u);
@@ -37,7 +53,7 @@ test("runtime surfaces local deployment metadata and a healthy release endpoint"
   expect(body.status).toBe("ok");
   expect(body.deployment.channel).toBe("local");
   expect(body.deployment.surface).toBe(expectedSurface);
-  expect(body.deployment.releaseId).toBe("local-dev");
+  expect(body.deployment.releaseId).toBe(releaseId);
 
   if (expectedSurface === "admin") {
     expect(body.surface.publicRoutesEnabled).toBe(false);
