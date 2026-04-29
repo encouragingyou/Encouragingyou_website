@@ -1,4 +1,5 @@
 import { assertNoHorizontalOverflow, gotoRoute } from "../support/assertions.mjs";
+import { waitForSupportFormReady } from "../support/forms.mjs";
 import { expect, test } from "../support/fixtures.mjs";
 
 test("component preview route exposes stable button, card, notice, accordion, and CTA states", async ({
@@ -48,6 +49,7 @@ test("contact form exposes validation feedback and clears errors as fields recov
   const submit = form.getByRole("button", { name: "Send message" });
   const status = form.locator("[data-form-status]");
 
+  await waitForSupportFormReady(page, 100);
   await submit.click();
 
   await expect(status).toContainText(

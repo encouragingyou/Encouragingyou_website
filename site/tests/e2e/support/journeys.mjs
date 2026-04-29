@@ -38,6 +38,7 @@ export async function openSessionsHubFromHome(page) {
   await page
     .locator("main")
     .getByRole("link", { exact: true, name: "Join a session" })
+    .first()
     .click();
   await expect(page).toHaveURL(/\/sessions\/$/u);
 }

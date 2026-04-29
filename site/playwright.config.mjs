@@ -21,10 +21,11 @@ if (deploymentSurface !== "public") {
 const previewEnv = Object.entries(previewEnvEntries)
   .map(([key, value]) => `${key}=${value}`)
   .join(" ");
+const previewServerCommand = `${previewEnv} HOST=127.0.0.1 PORT=${port} node ./scripts/serve-built-preview.mjs`;
 const previewCommand =
   process.env.PLAYWRIGHT_SKIP_BUILD === "1"
-    ? `${previewEnv} ./node_modules/.bin/astro preview --host 127.0.0.1 --port 4173`
-    : `npm run build --workspaces=false && ${previewEnv} ./node_modules/.bin/astro preview --host 127.0.0.1 --port 4173`;
+    ? previewServerCommand
+    : `npm run build --workspaces=false && ${previewServerCommand}`;
 
 export default defineConfig({
   testDir: "./tests/e2e",

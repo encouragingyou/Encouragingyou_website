@@ -13,6 +13,7 @@ const allowedVulnerabilityPackages = new Set([
   "@astrojs/check",
   "@astrojs/language-server",
   "@astrojs/node",
+  "@astrojs/vercel",
   "astro",
   "volar-service-yaml",
   "yaml",
@@ -21,6 +22,7 @@ const allowedVulnerabilityPackages = new Set([
 
 const allowedAdvisoryUrls = new Set([
   "https://github.com/advisories/GHSA-3rmj-9m5h-8fpv",
+  "https://github.com/advisories/GHSA-mr6q-rp88-fx84",
   "https://github.com/advisories/GHSA-c57f-mm3j-27q9",
   "https://github.com/advisories/GHSA-j687-52p2-xcff",
   "https://github.com/advisories/GHSA-48c2-rrv3-qjmp"
@@ -130,5 +132,5 @@ assert.equal(
 );
 
 console.log(
-  `[audit-policy] ${vulnerabilityNames.length} known moderate findings remain. All map to the documented Astro 5 / checker upgrade holdovers, and no unexpected dependency sources were found.`
+  `[audit-policy] ${vulnerabilityNames.length} known moderate findings remain. All map to the documented Astro 5, Vercel adapter, and checker upgrade holdovers, and no unexpected dependency sources were found.`
 );

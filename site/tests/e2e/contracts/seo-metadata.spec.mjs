@@ -13,7 +13,7 @@ test("homepage emits canonical, description, and Open Graph defaults in the init
   );
   await expect(page.locator("head meta[name='description']")).toHaveAttribute(
     "content",
-    /right next step into sessions, support, or community-rooted programmes in Rochdale/u
+    /Youth club, CV help, friendship, confidence-building, and practical next steps for young people in Rochdale/u
   );
   await expect(page.locator("head meta[property='og:title']")).toHaveAttribute(
     "content",

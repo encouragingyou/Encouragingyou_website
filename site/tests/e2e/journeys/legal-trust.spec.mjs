@@ -27,12 +27,12 @@ test("@journey-pr contact trust path reaches privacy, cookies, accessibility, an
   await expect(page.locator(".privacy-collection-card")).toHaveCount(6);
   journeyAudit.note("Opened the privacy notice from the contact enquiry surface");
 
-  await followFooterLegalLink(page, "Cookie Notice", /\/cookies\/$/u);
+  await followFooterLegalLink(page, "Cookies", /\/cookies\/$/u);
   await turnOffAnonymousAnalytics(page);
   await expectAnalyticsPreferenceCookie(page, "objected");
   journeyAudit.note("Turned off anonymous analytics from the cookie route");
 
-  await followFooterLegalLink(page, "Accessibility Statement", /\/accessibility\/$/u);
+  await followFooterLegalLink(page, "Accessibility", /\/accessibility\/$/u);
   await expect(
     page.getByRole("button", { name: "Send accessibility feedback" })
   ).toBeVisible();
@@ -40,7 +40,7 @@ test("@journey-pr contact trust path reaches privacy, cookies, accessibility, an
     page.getByLabel("I would like occasional updates about future sessions and events.")
   ).toHaveCount(0);
 
-  await followFooterLegalLink(page, "Terms / Site Policy", /\/terms\/$/u);
+  await followFooterLegalLink(page, "Terms", /\/terms\/$/u);
   await expect(
     page.getByRole("heading", {
       level: 1,

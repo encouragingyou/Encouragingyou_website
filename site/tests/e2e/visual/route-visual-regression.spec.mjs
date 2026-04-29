@@ -14,6 +14,10 @@ test.skip(
   expectedSurface !== "public",
   "Visual baselines are enforced in the isolated public surface pipeline."
 );
+test.skip(
+  Boolean(process.env.CI),
+  "Visual baselines are platform-specific; GitHub runs Ubuntu while this repo currently stores Darwin snapshots."
+);
 
 test.describe("visual regression baselines", () => {
   test("homepage desktop shell stays visually stable", async ({ page, pageIssues }) => {
