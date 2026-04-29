@@ -71,7 +71,7 @@
     {
       "id": "child",
       "pageId": "safeguarding-child",
-      "audienceLabel": "Child or young person under 18",
+      "audienceLabel": "Child or young person",
       "title": "Child safeguarding",
       "summary": "Use this route when the concern is about a child or young person who may be at risk of abuse, neglect, exploitation, grooming, unsafe treatment, or serious welfare harm.",
       "appliesTo": [
@@ -111,7 +111,7 @@
       "summary": "This route is for concerns about a child or young person. It keeps the emergency boundary, the reporting route, and the basic safeguarding expectations visible without turning the page into a dense policy document.",
       "appliesToTitle": "Use the child safeguarding route when",
       "appliesTo": [
-        "the concern is about a child or young person under 18",
+        "the concern is about a child or young person",
         "you are worried about abuse, neglect, exploitation, grooming, or unsafe treatment",
         "a disclosure, incident, or pattern of behaviour makes you think a child may not be safe"
       ],
@@ -185,7 +185,7 @@
         "Describe the risk, the immediate situation, and any urgent welfare concern.",
         "Explain how you know about the concern and whether anyone else is already involved.",
         "Include contact details for yourself so the team can respond if needed.",
-        "Use the child safeguarding route instead if the concern is really about someone under 18."
+        "Use the child safeguarding route instead if the concern is really about a child or young person."
       ],
       "limitationsTitle": "What this page does not promise",
       "limitations": [

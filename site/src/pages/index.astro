@@ -1,78 +1,106 @@
 ---
 import PageSection from "../components/layout/PageSection.astro";
-import CtaBand from "../components/sections/CtaBand.astro";
-import FeatureSplit from "../components/sections/FeatureSplit.astro";
-import HomeContactPanel from "../components/sections/HomeContactPanel.astro";
 import HomeHero from "../components/sections/HomeHero.astro";
-import HomeLiveSessionsSurface from "../components/sections/HomeLiveSessionsSurface.astro";
-import HomePageTeaser from "../components/sections/HomePageTeaser.astro";
-import HomeTrustStrip from "../components/sections/HomeTrustStrip.astro";
-import HomeUpdatesSurface from "../components/sections/HomeUpdatesSurface.astro";
 import SiteLayout from "../layouts/BaseLayout.astro";
 import ActionCard from "../components/ui/ActionCard.astro";
 import ActionCluster from "../components/ui/ActionCluster.astro";
-import CardPanel from "../components/ui/CardPanel.astro";
-import FaqGroup from "../components/ui/FaqGroup.astro";
-import ProgrammeCard from "../components/ui/ProgrammeCard.astro";
 import SectionHeading from "../components/ui/SectionHeading.astro";
-import { getHomePageModel, type HomeSectionModel } from "../lib/content/site-content";
+import { getHomePageModel } from "../lib/content/site-content";
+import { getMediaAsset } from "../lib/media/catalog";
 import type { ActionLink } from "../lib/types/site-ui";
 
 const home = getHomePageModel();
 
-function toActionLink(
-  action: Pick<ActionLink, "label" | "href" | "variant">
-): ActionLink {
-  return {
-    label: action.label,
-    href: action.href,
-    variant: action.variant
-  };
-}
-
-function getSectionTone(section: HomeSectionModel) {
-  return section.tone ?? "default";
-}
-
-function getSectionWidth(section: HomeSectionModel) {
-  if (section.width) {
-    return section.width;
+const routeHubCards = [
+  {
+    title: "Join a session",
+    summary: "See Saturday session times, what happens, and how to ask before you come.",
+    href: "/sessions/",
+    icon: getMediaAsset("icon-youth-activities")
+  },
+  {
+    title: "Get CV help",
+    summary:
+      "Get real help writing your CV, applying for jobs, and preparing for interviews.",
+    href: "/programmes/career-support-cv-help/",
+    icon: getMediaAsset("icon-cv-support")
+  },
+  {
+    title: "Visit youth club",
+    summary:
+      "Games, conversation, and low-pressure friendship in a place people can feel comfortable returning to.",
+    href: "/sessions/youth-club/",
+    icon: getMediaAsset("icon-community-event")
+  },
+  {
+    title: "Programmes",
+    summary:
+      "Explore confidence, life skills, motivation, friendship, and practical next steps.",
+    href: "/programmes/",
+    icon: getMediaAsset("icon-growth")
+  },
+  {
+    title: "About",
+    summary: "See why EncouragingYou exists and how youth-led support shapes the work.",
+    href: "/about/",
+    icon: getMediaAsset("icon-mentoring")
+  },
+  {
+    title: "Get involved",
+    summary: "Volunteer, partner, refer someone, or offer practical local support.",
+    href: "/get-involved/",
+    icon: getMediaAsset("icon-intergenerational-connection")
+  },
+  {
+    title: "Ask a question",
+    summary:
+      "Send a short message if you are unsure what fits or want to check timing, privacy, or safety.",
+    href: "/contact/",
+    icon: getMediaAsset("icon-contact")
+  },
+  {
+    title: "Safeguarding",
+    summary: "Find the safety route and what to do if you are worried about someone.",
+    href: "/safeguarding/",
+    icon: getMediaAsset("icon-safe-space")
   }
+];
 
-  switch (section.kind) {
-    case "page-teaser":
-    case "feature-split":
-    case "updates-surface":
-    case "contact-panel":
-      return "wide";
-    default:
-      return "default";
+const introItems = [
+  {
+    title: "Who it is for",
+    summary:
+      "Young people in Rochdale who want support, friendship, confidence, or a clearer next step."
+  },
+  {
+    title: "What happens",
+    summary:
+      "Youth club, CV and application help, confidence-building, low-pressure friendship, and practical support."
+  },
+  {
+    title: "Why it matters",
+    summary:
+      "We help young people speak up, make friends, and feel more confident in real-life situations."
   }
-}
+];
 
-const heroSupportActions = home.conversionStack.supportingActions
-  .filter((action) => action.label !== "Volunteer or partner")
-  .slice(0, 2)
-  .map(toActionLink);
-
-const liveSessionsSection = home.sections.find(
-  (section): section is Extract<HomeSectionModel, { kind: "live-sessions" }> =>
-    section.kind === "live-sessions"
-);
-
-const heroPanelHeading =
-  home.stateSurface.liveSessions.state === "available"
-    ? "Saturday still has a simple rhythm."
-    : "The next step stays simple.";
-const heroPanelSummary =
-  home.stateSurface.liveSessions.state === "available"
-    ? (liveSessionsSection?.summary ??
-      "CV support runs first, then youth club follows straight after.")
-    : home.stateSurface.liveSessions.state === "paused"
-      ? (liveSessionsSection?.pausedState?.summary ??
-        "If timings pause or change, the support route stays available.")
-      : (liveSessionsSection?.emptyState?.summary ??
-        "If public timings are still being confirmed, use the support route and the team can help.");
+const reassuranceActions: ActionLink[] = [
+  {
+    label: "Ask a question",
+    href: "/contact/",
+    variant: "primary"
+  },
+  {
+    label: "Safeguarding information",
+    href: "/safeguarding/",
+    variant: "surface"
+  },
+  {
+    label: "Privacy notice",
+    href: "/privacy/",
+    variant: "text"
+  }
+];
 ---
 
 <SiteLayout
@@ -81,243 +109,47 @@ const heroPanelSummary =
   pageId="home"
   structuredData={home.structuredData}
 >
-  <HomeHero {...home.hero}>
-    {
-      heroSupportActions.length > 0 ? (
-        <div slot="support" class="home-hero__support-copy">
-          <p class="home-hero__support-title">Common next steps</p>
-          <p class="home-hero__support-body">
-            The main pair handles the fastest path in. These routes stay visible for
-            visitors who already know they need something more specific.
-          </p>
-          <ActionCluster
-            actions={heroSupportActions}
-            className="home-hero__support-actions"
-          />
+  <HomeHero {...home.hero} />
+
+  <PageSection id="route-hub" tone="tint" width="wide">
+    <section class="home-route-hub" data-home-section="route-hub">
+      <div class="home-route-hub__intro">
+        <SectionHeading
+          eyebrow="Start here"
+          title="Choose the route that fits today."
+          summary="Support starts with a simple choice: join a session, get CV help, visit youth club, explore programmes, or ask a question."
+          width="standalone"
+        />
+
+        <div class="home-intro-grid" aria-label="Who, what, and why">
+          {
+            introItems.map((item) => (
+              <article class="home-intro-item">
+                <h3>{item.title}</h3>
+                <p>{item.summary}</p>
+              </article>
+            ))
+          }
         </div>
-      ) : null
-    }
+      </div>
 
-    <CardPanel
-      slot="aside"
-      as="aside"
-      className="home-hero__panel"
-      tone="callout"
-      eyebrow="Saturday at a glance"
-      heading={heroPanelHeading}
-      headingLevel={2}
-      summary={heroPanelSummary}
-    >
-      {
-        liveSessionsSection && liveSessionsSection.items.length > 0 ? (
-          <ul class="home-hero__panel-list">
-            {liveSessionsSection.items.map((item) => (
-              <li>
-                <span>{item.title}</span>
-                <strong>{item.timeLabel}</strong>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p class="home-hero__panel-note">
-            Contact stays available if you need help before the public timetable is fully
-            confirmed.
-          </p>
-        )
-      }
-    </CardPanel>
-  </HomeHero>
+      <div class="home-route-grid layout-grid layout-grid--cards">
+        {routeHubCards.map((card) => <ActionCard {...card} />)}
+      </div>
+    </section>
+  </PageSection>
 
-  {
-    home.sections.map((section) => {
-      const tone = getSectionTone(section);
-      const width = getSectionWidth(section);
-
-      if (section.kind === "quick-actions") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <div class="home-quick-actions" data-home-section={section.id}>
-              <SectionHeading
-                eyebrow={section.eyebrow}
-                title={section.title}
-                summary={section.summary}
-              />
-              <div class="action-grid layout-grid layout-grid--cards">
-                {section.items.map((item) => (
-                  <ActionCard {...item} />
-                ))}
-              </div>
-            </div>
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "trust-strip") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <HomeTrustStrip
-              eyebrow={section.eyebrow}
-              title={section.title}
-              summary={section.summary}
-              items={section.items}
-            />
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "live-sessions") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <HomeLiveSessionsSurface
-              eyebrow={section.eyebrow}
-              title={section.title}
-              summary={section.summary}
-              state={section.state}
-              items={section.items}
-              primaryAction={section.primaryAction}
-              secondaryAction={section.secondaryAction}
-              emptyState={section.emptyState}
-              pausedState={section.pausedState}
-            />
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "programme-teasers") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <div class="home-programmes" data-home-section={section.id}>
-              <div class="home-programmes__header">
-                <SectionHeading
-                  eyebrow={section.eyebrow}
-                  title={section.title}
-                  summary={section.summary}
-                />
-                {section.primaryAction ? (
-                  <ActionCluster
-                    actions={[section.primaryAction]}
-                    className="home-programmes__actions"
-                  />
-                ) : null}
-              </div>
-              <div class="programme-grid layout-grid layout-grid--cards">
-                {section.items.map((item) => (
-                  <ProgrammeCard {...item} />
-                ))}
-              </div>
-            </div>
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "page-teaser") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <HomePageTeaser
-              sectionId={section.id}
-              className="home-page-teaser--about"
-              eyebrow={section.eyebrow}
-              title={section.title}
-              summary={section.summary}
-              badges={section.badges}
-              action={section.action}
-              media={section.media}
-              disclosure={section.disclosure}
-            >
-              <p class="home-page-teaser__note">
-                The about route deepens trust without making the homepage carry the full
-                story on its own.
-              </p>
-            </HomePageTeaser>
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "feature-split") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <div data-home-section={section.id}>
-              <FeatureSplit
-                eyebrow={section.eyebrow}
-                title={section.title}
-                summary={section.summary}
-                bullets={section.bullets}
-                badges={section.badges}
-                media={section.media}
-                disclosure={section.disclosure}
-                primaryAction={section.primaryAction}
-                secondaryAction={section.secondaryAction}
-                reversed={section.reversed}
-              />
-            </div>
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "updates-surface") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <HomeUpdatesSurface
-              eyebrow={section.eyebrow}
-              title={section.title}
-              summary={section.summary}
-              state={section.state}
-              items={section.items}
-              primaryAction={section.primaryAction}
-              emptyState={section.emptyState}
-            />
-          </PageSection>
-        );
-      }
-
-      if (section.kind === "faq-cluster") {
-        return (
-          <PageSection id={section.id} tone={tone} width={width}>
-            <div data-home-section={section.id}>
-              <CtaBand
-                className="home-faq"
-                eyebrow={section.eyebrow}
-                title={section.title}
-                summary={section.summary}
-                actions={section.primaryAction ? [section.primaryAction] : []}
-              >
-                <FaqGroup groupId={section.faqGroupId} items={section.faqs} />
-              </CtaBand>
-            </div>
-          </PageSection>
-        );
-      }
-
-      return (
-        <PageSection id={section.id} tone={tone} width={width}>
-          <HomeContactPanel
-            eyebrow={section.eyebrow}
-            title={section.title}
-            summary={section.summary}
-            secondaryAction={section.secondaryAction}
-            contactState={home.stateSurface.contact.state}
-            pendingFields={home.stateSurface.contact.pendingFields}
-            surfaceId={section.surfaceId}
-            organizationName={section.organizationName}
-            formHeading={section.formHeading}
-            formIntro={section.formIntro}
-            privacyNote={section.privacyNote}
-            privacyHighlights={section.privacyHighlights}
-            privacyNoticeTitle={section.privacyNoticeTitle}
-            privacyNoticeActionLabel={section.privacyNoticeActionLabel}
-            messageHelper={section.messageHelper}
-            updatesOptInLabel={section.updatesOptInLabel}
-            emailFallbackPrefix={section.emailFallbackPrefix}
-            noScriptNote={section.noScriptNote}
-            invalidStatusMessage={section.invalidStatusMessage}
-            submittingStatusMessage={section.submittingStatusMessage}
-            reasons={section.reasons}
-            email={section.email}
-            successMessage={section.successMessage}
-            urgentGuidance={section.urgentGuidance}
-          />
-        </PageSection>
-      );
-    })
-  }
+  <PageSection id="home-reassurance" width="wide">
+    <section class="home-reassurance" data-home-section="home-reassurance">
+      <div class="home-reassurance__copy">
+        <p class="eyebrow">Still unsure?</p>
+        <h2>Ask a question before you choose.</h2>
+        <p class="home-reassurance__summary">
+          If you want to check timing, fit, privacy, or safety, send a short message and
+          the team can point you to the right route.
+        </p>
+      </div>
+      <ActionCluster actions={reassuranceActions} className="home-reassurance__actions" />
+    </section>
+  </PageSection>
 </SiteLayout>

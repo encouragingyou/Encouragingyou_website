@@ -2,7 +2,7 @@ export const coreRouteContracts = [
   {
     path: "/",
     title: /EncouragingYou \| Youth-led support in Rochdale/u,
-    h1: /Build confidence, get practical help, and move forward\./u
+    h1: /Helping young people in Rochdale build confidence, friendships and future opportunities\./u
   },
   {
     path: "/programmes/",
@@ -12,17 +12,17 @@ export const coreRouteContracts = [
   {
     path: "/programmes/community-friendship/",
     title: /Community & Friendship \| EncouragingYou/u,
-    h1: /A welcoming space to connect, relax, and feel part of something\./u
+    h1: /Speak to people, join in at your pace, and feel comfortable coming back\./u
   },
   {
     path: "/programmes/personal-growth-life-skills/",
     title: /Personal Growth & Life Skills \| EncouragingYou/u,
-    h1: /Build confidence, resilience, and skills for everyday life\./u
+    h1: /Practise real-life confidence, motivation, and everyday next steps\./u
   },
   {
     path: "/programmes/career-support-cv-help/",
     title: /Career Support & CV Help \| EncouragingYou/u,
-    h1: /Practical support with CVs, applications, and next steps\./u
+    h1: /Get help with CVs, applications, interviews, and next steps\./u
   },
   {
     path: "/programmes/community-support-intergenerational-connection/",
@@ -42,12 +42,12 @@ export const coreRouteContracts = [
   {
     path: "/sessions/cv-support/",
     title: /CV Support Session \| EncouragingYou/u,
-    h1: /CV support that is practical, calm, and one-to-one\./u
+    h1: /CV support for drafts, applications, interviews, and next steps\./u
   },
   {
     path: "/sessions/youth-club/",
     title: /Youth Club Session \| EncouragingYou/u,
-    h1: /Youth club built around welcome, friendship, and safe space\./u
+    h1: /Youth club with games, conversation, and space to join in at your pace\./u
   },
   {
     path: "/get-involved/",

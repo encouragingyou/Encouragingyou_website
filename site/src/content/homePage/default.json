@@ -1,6 +1,6 @@
 {
   "metaTitle": "EncouragingYou | Youth-led support in Rochdale",
-  "metaDescription": "Build confidence, get practical help, and find the right next step into sessions, support, or community-rooted programmes in Rochdale.",
+  "metaDescription": "Youth club, CV help, friendship, confidence-building, and practical next steps for young people in Rochdale.",
   "routePurpose": "Make the first step obvious for people seeking support, carers and referrers checking trust cues, and visitors exploring the wider organisation.",
   "audiencePriority": [
     "young-people",
@@ -47,17 +47,18 @@
     },
     {
       "id": "ask-a-support-question",
-      "label": "Ask a support question",
-      "summary": "Send a short message if the public answers do not cover what you need.",
+      "label": "Ask a question",
+      "summary": "Send a short message if you are unsure what fits or want to check timing, privacy, or safety.",
       "variant": "secondary",
       "routeId": "contact",
+      "iconAssetId": "icon-contact",
       "audiences": ["young-people", "parents-carers", "referrers", "community-members"],
       "placements": ["faq-cluster"]
     },
     {
       "id": "get-cv-help",
       "label": "Get CV help",
-      "summary": "Find one-to-one support for CVs, applications, and job-readiness next steps.",
+      "summary": "Get real help writing your CV, applying for jobs, and preparing for interviews.",
       "variant": "surface",
       "routeId": "programme-career-support-cv-help",
       "iconAssetId": "icon-cv-support",
@@ -103,7 +104,7 @@
     {
       "id": "volunteer-or-partner",
       "label": "Volunteer or partner",
-      "summary": "Explore volunteering, referrals, and partnership pathways without a complicated start.",
+      "summary": "Explore volunteering, referrals, and partnership routes without a complicated start.",
       "variant": "surface",
       "routeId": "get-involved",
       "iconAssetId": "icon-mentoring",
@@ -149,21 +150,21 @@
   ],
   "conversionStack": {
     "primaryActionId": "join-session",
-    "secondaryActionId": "get-support",
+    "secondaryActionId": "ask-a-support-question",
     "supportingActionIds": ["get-cv-help", "explore-programmes", "volunteer-or-partner"],
     "audienceJourneys": [
       {
         "audience": "young-people",
         "summary": "Make the first session or support route easy to choose without long reading.",
         "primaryActionId": "join-session",
-        "secondaryActionId": "get-support",
+        "secondaryActionId": "ask-a-support-question",
         "supportingActionIds": ["get-cv-help"]
       },
       {
         "audience": "parents-carers",
         "summary": "Keep trust, safeguarding, and a low-friction contact route visible before commitment.",
         "primaryActionId": "join-session",
-        "secondaryActionId": "get-support",
+        "secondaryActionId": "ask-a-support-question",
         "supportingActionIds": [
           "safeguarding-information",
           "privacy-notice",
@@ -174,13 +175,13 @@
         "audience": "referrers",
         "summary": "Show the route into sessions or contact clearly while keeping the wider programme shape visible.",
         "primaryActionId": "join-session",
-        "secondaryActionId": "get-support",
+        "secondaryActionId": "ask-a-support-question",
         "supportingActionIds": ["get-cv-help", "explore-programmes"]
       },
       {
         "audience": "community-members",
         "summary": "Explain that the welcome extends beyond Saturday sessions and into wider community support.",
-        "primaryActionId": "get-support",
+        "primaryActionId": "ask-a-support-question",
         "secondaryActionId": "see-community-support",
         "supportingActionIds": ["explore-programmes", "see-updates"]
       },
@@ -206,15 +207,15 @@
   },
   "hero": {
     "eyebrow": "Youth-led support in Rochdale",
-    "headline": "Build confidence, get practical help, and move forward.",
-    "summary": "Join a session, ask for support, or explore the wider programmes that make belonging and practical help feel easier to reach.",
+    "headline": "Helping young people in Rochdale build confidence, friendships and future opportunities.",
+    "summary": "Youth club, CV and application help, low-pressure friendship, confidence-building, and practical support for young people in Rochdale who want a clearer next step.",
     "badgeItems": [
-      "Every Saturday",
-      "CV help before youth club",
-      "Warm, low-pressure welcome"
+      "Young people in Rochdale",
+      "Saturday sessions",
+      "Ask before you come"
     ],
     "primaryActionId": "join-session",
-    "secondaryActionId": "get-support",
+    "secondaryActionId": "ask-a-support-question",
     "mediaId": "hero-home"
   },
   "sections": [
@@ -223,8 +224,13 @@
       "kind": "quick-actions",
       "eyebrow": "Start here",
       "title": "What can you do here today?",
-      "summary": "Start with the route that fits today, whether that is a session, support, or a way to help.",
-      "actionIds": ["join-session", "get-cv-help", "get-support", "volunteer-or-partner"]
+      "summary": "Start with the route that fits today, whether that is a session, CV help, youth club, or a question for the team.",
+      "actionIds": [
+        "join-session",
+        "get-cv-help",
+        "ask-a-support-question",
+        "volunteer-or-partner"
+      ]
     },
     {
       "id": "trust-strip",
@@ -278,8 +284,8 @@
       "id": "programme-teasers",
       "kind": "programme-teasers",
       "eyebrow": "Programmes",
-      "title": "Support that goes beyond one session or one need.",
-      "summary": "Explore the wider support areas if you want the bigger picture before choosing a route.",
+      "title": "Support for confidence, friendship, and practical next steps.",
+      "summary": "Explore confidence, life skills, motivation, low-pressure friendship, and practical help before choosing a route.",
       "programmeSlugs": [
         "community-friendship",
         "personal-growth-life-skills",
@@ -352,18 +358,18 @@
     {
       "id": "contact-panel",
       "kind": "contact-panel",
-      "eyebrow": "Get support or ask a question",
+      "eyebrow": "Ask a question",
       "title": "Send a short message and we will help you find the right next step.",
-      "summary": "Use this route if you need help choosing between a session, programme, referral, or community route.",
+      "summary": "Use this route if you need help choosing between a session, CV help, youth club, or wider support.",
       "formSurfaceId": "support-general",
-      "primaryActionId": "get-support",
+      "primaryActionId": "ask-a-support-question",
       "secondaryActionId": "safeguarding-information"
     }
   ],
   "stateRules": {
     "liveSessions": {
       "sectionId": "live-sessions",
-      "supportActionId": "get-support"
+      "supportActionId": "ask-a-support-question"
     },
     "updates": {
       "sectionId": "updates-surface",
@@ -396,20 +402,18 @@
   "launchBoundaries": {
     "staysOnHomepageNow": [
       "hero with first-step actions",
-      "quick routes for support, sessions, and involvement",
-      "trust cues close to the main decisions",
-      "live Saturday session visibility",
-      "programme overview",
-      "support contact route"
+      "short who, what, and why introduction",
+      "route hub cards into verified pages",
+      "small trust, privacy, and safeguarding reassurance"
     ],
     "deferredToLaterRoutes": [
       "full about-storytelling depth",
       "individual programme detail depth",
       "full event and update archive",
-      "detailed volunteer and partner pathways"
+      "detailed volunteer and partner route depth"
     ],
     "intentionallyExcludedFromLaunch": [
-      "invented testimonials or impact numbers",
+      "invented proof quotes or impact numbers",
       "unapproved partner logos",
       "participant photography that has not been cleared for use",
       "dense news feed modules with no real content behind them"

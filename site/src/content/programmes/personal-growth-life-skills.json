@@ -4,13 +4,13 @@
   "title": "Personal Growth & Life Skills",
   "shortTitle": "Personal Growth",
   "launchStatus": "launch",
-  "summary": "Confidence-building, practical life-skills, and supportive guidance that help young people move forward.",
-  "promise": "Create space for confidence, resilience, practical skills, and mentoring-style guidance that helps people take their next step.",
+  "summary": "Real-life confidence, motivation, everyday skills, and practical next steps for young people who need encouragement before bigger opportunities feel possible.",
+  "promise": "Help young people practise speaking up, build motivation, handle everyday situations, and choose realistic next steps.",
   "audiences": ["young-people", "parents-carers", "referrers"],
-  "audienceSummary": "Best for young people who need confidence-building, practical guidance, or room to grow into leadership and everyday independence.",
+  "audienceSummary": "Best for young people who want help speaking up, building motivation, handling everyday situations, or choosing a realistic next step.",
   "audienceHighlights": [
-    "Young people who need confidence before bigger opportunities feel possible",
-    "Parents, carers, or referrers looking for practical growth support beyond one-off advice",
+    "Young people who want real-life confidence before bigger opportunities feel possible",
+    "Parents, carers, or referrers looking for practical support with motivation, everyday skills, or next steps",
     "People who may benefit from guidance, mentoring, or workshop-style development as their next step becomes clearer"
   ],
   "existingDeliveryMode": "launch-overview-only",
@@ -20,26 +20,26 @@
   "deliverySummary": "This pillar is live as part of the launch offer, but the public next step currently starts with an enquiry and programme overview rather than a dedicated recurring session page.",
   "trustSignalIds": ["youth-led", "privacy-clarity", "visible-safeguarding"],
   "trustNotes": [
-    "Keep the public promise practical: confidence, life skills, guidance, and motivation are evidenced, but exact workshop formats and dates are not.",
+    "Keep the public promise practical: real-life confidence, everyday skills, guidance, and motivation are evidenced, but exact workshop formats and dates are not.",
     "Contact stays short and supportive so someone can ask what kind of help fits without needing the full plan first.",
     "Safeguarding and privacy need to stay visible because this route may begin with a conversation before a public timetable."
   ],
   "outcomeBullets": [
-    "Confidence and resilience in everyday situations",
-    "Practical life skills and motivation",
-    "Guidance toward participation, opportunity, or the next step"
+    "Speaking up and feeling more confident in real-life situations",
+    "Motivation and everyday skills that make next steps feel possible",
+    "Guidance toward participation, opportunity, or the next realistic step"
   ],
   "bodySections": [
     {
       "id": "what-this-route-can-cover",
       "heading": "What this route can cover",
       "body": [
-        "Public descriptions of this route cover confidence-building, life-skills workshops, mentoring, and practical support that help young people move forward.",
+        "Public descriptions of this route cover confidence-building, life-skills workshops, mentoring, motivation, and practical support that help young people move forward.",
         "This programme gives those strands a clear public home without pretending every delivery format already has its own published timetable."
       ],
       "bullets": [
-        "Confidence-building",
-        "Life skills",
+        "Real-life confidence",
+        "Everyday skills and motivation",
         "Guidance and mentoring-style support"
       ]
     },
@@ -48,7 +48,7 @@
       "heading": "How support here can feel",
       "body": [
         "This route feels encouraging and structured, not like someone is expected to sort everything out alone before asking for help.",
-        "Support may include practical conversations, workshop-style learning, or help building motivation and resilience over time."
+        "Support may include practical conversations, workshop-style learning, or help building motivation, everyday skills, and confidence over time."
       ],
       "bullets": [
         "Practical and encouraging",

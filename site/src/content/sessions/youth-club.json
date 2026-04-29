@@ -5,8 +5,8 @@
   "shortTitle": "Youth club",
   "launchStatus": "launch",
   "programmeIds": ["community-friendship"],
-  "summary": "Games, conversation, and a welcoming place to build friendships without needing to know anyone first.",
-  "eventDescription": "Games, activities, chill time, and friendship-building in a welcoming youth club space.",
+  "summary": "Games, conversation, and a low-pressure place to meet people, join in at your pace, and feel comfortable coming back.",
+  "eventDescription": "Games, activities, conversation, chill time, and low-pressure friendship in a welcoming youth club space.",
   "audiences": ["young-people", "parents-carers"],
   "schedule": {
     "type": "weekly-recurring",
@@ -57,11 +57,11 @@
     "Come as you are. You do not need to know anyone first.",
     "Games, activities, conversation, and chill time give more than one way to take part.",
     "A quieter first visit is okay, and no one has to perform confidence straight away.",
-    "The weekly rhythm helps people recognise familiar faces and build friendships over time."
+    "The weekly rhythm helps people recognise familiar faces, feel comfortable coming back, and build friendships over time."
   ],
   "faqGroupIds": ["session-youth-club"],
   "featuredMediaId": "programme-community-friendship",
   "featuredIconId": "icon-youth-activities",
   "primaryCtaId": "join-session",
-  "seoDescription": "Join EncouragingYou's Saturday youth club in Rochdale for games, conversation, and a welcoming space to build friendships at your own pace."
+  "seoDescription": "Join EncouragingYou's Saturday youth club in Rochdale for games, conversation, low-pressure friendship, and a welcoming space to join in at your own pace."
 }

@@ -7,9 +7,19 @@ const trustRouteMatrix = [
     path: "/",
     selectors: [
       ".home-hero [data-disclosure-variant='prominent']",
-      ".programme-card [data-disclosure-variant='compact']",
       ".site-footer [data-disclosure-variant='sitewide']"
     ]
+  },
+  {
+    path: "/programmes/",
+    selectors: [
+      ".programme-pillar-card [data-disclosure-variant='compact']",
+      ".site-footer [data-disclosure-variant='sitewide']"
+    ]
+  },
+  {
+    path: "/sessions/",
+    selectors: [".trust-link-row", ".site-footer [data-disclosure-variant='sitewide']"]
   },
   {
     path: "/about/",

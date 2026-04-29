@@ -13,7 +13,7 @@ test("community and friendship detail route keeps the promise, handoff, and proo
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "A welcoming space to connect, relax, and feel part of something."
+      name: "Speak to people, join in at your pace, and feel comfortable coming back."
     })
   ).toBeVisible();
   await expect(page.getByRole("link", { name: /Back to Programmes/u })).toBeVisible();
@@ -56,7 +56,7 @@ test("community and friendship detail page keeps venue disclosure honest and dis
   ).toBeVisible();
   await expect(
     main.getByText(
-      "The programme page explains the belonging-first offer. The youth club session page carries timings, calendar access, and first-visit logistics."
+      "The programme page explains the belonging-first offer. The youth club session page carries exact timing, calendar access, what to expect, and first-visit logistics."
     )
   ).toBeVisible();
   await expect(
@@ -85,7 +85,7 @@ test.describe("no-js community and friendship route", () => {
     await expect(
       page.getByRole("heading", {
         level: 1,
-        name: "A welcoming space to connect, relax, and feel part of something."
+        name: "Speak to people, join in at your pace, and feel comfortable coming back."
       })
     ).toBeVisible();
     await expect(main.locator(".faq-item").first()).toBeVisible();

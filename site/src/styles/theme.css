@@ -19,39 +19,35 @@
     --theme-link-hover: var(--theme-text-accent);
     --theme-link-underline: rgb(var(--ref-rgb-coral-600) / 0.35);
 
-    --theme-page-background:
-      radial-gradient(
-        circle at top left,
-        rgb(var(--ref-rgb-coral-500) / 0.12),
-        transparent 26rem
-      ),
-      radial-gradient(
-        circle at top right,
-        rgb(var(--ref-rgb-sage-500) / 0.2),
-        transparent 30rem
-      ),
-      linear-gradient(
-        180deg,
-        var(--ref-color-mist-050) 0%,
-        var(--ref-color-chalk-100) 46%,
-        var(--ref-color-warm-050) 100%
-      );
+    --theme-page-background: linear-gradient(
+      180deg,
+      var(--ref-color-white) 0%,
+      var(--ref-color-chalk-100) 42%,
+      var(--ref-color-cream-200) 100%
+    );
     --theme-page-sheen:
-      linear-gradient(110deg, rgb(var(--ref-rgb-white) / 0.08), transparent 36%),
+      linear-gradient(
+        120deg,
+        rgb(var(--ref-rgb-sage-500) / 0.12) 0 14%,
+        transparent 14% 58%,
+        rgb(var(--ref-rgb-sand-300) / 0.18) 58% 76%,
+        transparent 76%
+      ),
       repeating-linear-gradient(
         90deg,
         transparent 0,
-        transparent 7rem,
-        rgb(var(--ref-rgb-teal-900) / 0.015) 7rem,
-        rgb(var(--ref-rgb-teal-900) / 0.015) 7.25rem
+        transparent 6.5rem,
+        rgb(var(--ref-rgb-teal-900) / 0.018) 6.5rem,
+        rgb(var(--ref-rgb-teal-900) / 0.018) 6.65rem
       );
     --theme-section-band-background:
-      linear-gradient(135deg, rgb(var(--ref-rgb-coral-500) / 0.1), transparent 35%),
-      linear-gradient(180deg, rgb(var(--ref-rgb-sage-500) / 0.16), transparent 100%);
+      linear-gradient(135deg, rgb(var(--ref-rgb-sage-500) / 0.24), transparent 42%),
+      linear-gradient(180deg, rgb(var(--ref-rgb-cream-200) / 0.86), transparent 100%);
     --theme-section-tint-background: linear-gradient(
       180deg,
-      rgb(var(--ref-rgb-cream-200) / 0.88),
-      rgb(var(--ref-rgb-white) / 0.4)
+      rgb(var(--ref-rgb-cream-200) / 0.95),
+      rgb(var(--ref-rgb-chalk-100) / 0.92) 55%,
+      rgb(var(--ref-rgb-white) / 0.68)
     );
 
     --theme-surface-header: rgb(var(--ref-rgb-chalk-100) / 0.88);
@@ -118,8 +114,8 @@
     --theme-motion-reveal-opacity: var(--motion-opacity-soft);
 
     --theme-button-primary-bg: var(--ref-color-teal-900);
-    --theme-button-primary-bg-hover: var(--ref-color-teal-950);
-    --theme-button-primary-bg-active: var(--ref-color-teal-950);
+    --theme-button-primary-bg-hover: var(--ref-color-slate-900);
+    --theme-button-primary-bg-active: var(--ref-color-slate-900);
     --theme-button-primary-fg: var(--ref-color-white);
     --theme-button-secondary-bg: var(--theme-surface-glass);
     --theme-button-secondary-bg-hover: rgb(var(--ref-rgb-white) / 0.22);
@@ -128,7 +124,7 @@
     --theme-button-secondary-border-hover: rgb(var(--ref-rgb-white) / 0.45);
     --theme-button-secondary-fg: var(--ref-color-white);
     --theme-button-surface-bg: var(--ref-color-white);
-    --theme-button-surface-bg-hover: var(--theme-surface-card-strong);
+    --theme-button-surface-bg-hover: rgb(var(--ref-rgb-sand-300) / 0.42);
     --theme-button-surface-bg-active: var(--theme-surface-card);
     --theme-button-surface-border: var(--theme-border-subtle);
     --theme-button-surface-border-hover: var(--theme-border-strong);
@@ -161,8 +157,8 @@
 
     --theme-accent-tile-background: linear-gradient(
       135deg,
-      rgb(var(--ref-rgb-coral-500) / 0.16),
-      rgb(var(--ref-rgb-sage-500) / 0.24)
+      rgb(var(--ref-rgb-coral-500) / 0.18) 0 48%,
+      rgb(var(--ref-rgb-sage-500) / 0.26) 48% 100%
     );
     --theme-hero-overlay-background:
       linear-gradient(
@@ -205,7 +201,7 @@
     --component-card-surface-muted: var(--theme-surface-card-muted);
     --component-card-border: var(--theme-border-subtle);
     --component-card-border-strong: var(--theme-border-strong);
-    --component-card-border-selected: rgb(var(--ref-rgb-coral-600) / 0.42);
+    --component-card-border-selected: rgb(var(--ref-rgb-coral-500) / 0.58);
     --component-card-shadow: var(--theme-shadow-soft);
     --component-card-shadow-raised: var(--theme-shadow-lifted);
     --component-card-surface-selected: linear-gradient(

@@ -12,9 +12,14 @@ test("youth club session page content keeps first-visit belonging and the wider 
 
   assert.ok(page, "Expected page-specific youth club content to exist.");
   assert.equal(
+    page.intro.title,
+    "Youth club with games, conversation, and space to join in at your pace."
+  );
+  assert.equal(
     page.intro.supportingNote,
     "Come as you are. If a first visit feels like a big step, a young person or parent/carer can ask first."
   );
+  assert.match(page.atAGlanceSection.summary, /18:45 for 120 minutes/u);
   assert.equal(
     page.atAGlanceSection.title,
     "Make the first visit feel welcoming before anyone travels."
@@ -33,7 +38,7 @@ test("youth club session page content keeps first-visit belonging and the wider 
   assert.equal(page.relatedProgrammeSection.actionLabel, "See wider route");
   assert.match(
     page.relatedProgrammeSection.summary,
-    /broader belonging-first route across community and friendship/u
+    /speaking to people, joining in at your pace, and feeling comfortable coming back/u
   );
   assert.equal(page.fallbackNotice.action.label, "Contact the team");
   assert.deepEqual(
@@ -61,11 +66,13 @@ test("youth club uses a dedicated FAQ group instead of the generic joining-sessi
 test("youth club canonical session data stays belonging-led without inventing operational specifics", () => {
   assert.match(
     youthClub.summary,
-    /build friendships without needing to know anyone first/u
+    /meet people, join in at your pace, and feel comfortable coming back/u
   );
   assert.equal(youthClub.faqGroupIds[0], "session-youth-club");
   assert.deepEqual(youthClub.programmeIds, ["community-friendship"]);
   assert.match(youthClub.featureBullets.join(" "), /A quieter first visit is okay/u);
+  assert.equal(youthClub.schedule.startTime, "18:45");
+  assert.equal(youthClub.schedule.durationMinutes, 120);
   assert.match(
     youthClub.trustNotes.join(" "),
     /Exact venue detail is shared on enquiry/u

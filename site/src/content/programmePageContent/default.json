@@ -74,29 +74,29 @@
       "pageId": "programme-community-friendship",
       "programmeSlug": "community-friendship",
       "hero": {
-        "title": "A welcoming space to connect, relax, and feel part of something.",
-        "summary": "Community & Friendship is the part of EncouragingYou that puts belonging first: a calm route into conversation, activities, and regular connection without expecting someone to arrive already confident.",
-        "badges": ["Belonging first", "Low-pressure first step"],
+        "title": "Speak to people, join in at your pace, and feel comfortable coming back.",
+        "summary": "Community & Friendship is the route for games, conversation, low-pressure friendship, and regular connection without expecting someone to arrive already confident.",
+        "badges": ["Games and conversation", "Low-pressure first step"],
         "supportingNote": "Based in Rochdale. The linked youth club session is the clearest live route into this programme, and venue details can be shared when someone enquires."
       },
       "experienceSection": {
         "eyebrow": "What participation can feel like",
         "title": "The first experience should feel welcoming, not intimidating.",
-        "summary": "This route is designed to lower the pressure: people can settle in, join activities, talk, or simply get used to the room before they feel fully involved.",
+        "summary": "This route is designed to lower the pressure: young people can settle in, join games, talk, or simply get used to the room before they feel fully involved.",
         "items": [
           {
-            "title": "Welcome without pressure",
-            "summary": "No one needs to prove themselves before they are greeted warmly or allowed time to settle in.",
+            "title": "Start without pressure",
+            "summary": "No one needs to prove themselves before they are welcomed, given time to settle, or invited to join in at their own pace.",
             "iconAssetId": "icon-safe-space"
           },
           {
-            "title": "Activities with room to settle in",
+            "title": "Games and conversation with room to settle",
             "summary": "Games, conversation, and chill time create more than one way to take part, so the route does not depend on instant confidence.",
             "iconAssetId": "icon-youth-activities"
           },
           {
-            "title": "Friendship that builds over time",
-            "summary": "The goal is regular connection and familiarity, not a one-off activity that leaves people on the outside again.",
+            "title": "Friendship that makes returning easier",
+            "summary": "The goal is regular connection and familiarity, so coming back can feel easier as people recognise faces and routines over time.",
             "iconAssetId": "icon-community-event"
           }
         ]
@@ -104,11 +104,11 @@
       "relatedSessionsSection": {
         "eyebrow": "Live route right now",
         "title": "Youth club is the clearest live expression of this programme.",
-        "summary": "The programme page explains the belonging-first offer. The youth club session page carries timings, calendar access, and first-visit logistics.",
+        "summary": "The programme page explains the belonging-first offer. The youth club session page carries exact timing, calendar access, what to expect, and first-visit logistics.",
         "panels": [
           {
             "title": "Why this page still matters",
-            "body": "This route explains the wider promise of safe space, belonging, and repeat connection so visitors do not have to infer it from a timetable alone.",
+            "body": "This route explains the wider promise of games, conversation, low-pressure friendship, and repeat connection so visitors do not have to infer it from a timetable alone.",
             "tone": "soft",
             "iconAssetId": "icon-safe-space"
           },
@@ -121,7 +121,7 @@
         ],
         "activeNotice": {
           "title": "Youth club is currently the live route",
-          "body": "If someone is ready for the practical next step, use the youth club session page for timings and calendar details. This programme page still matters because it explains the wider belonging-first promise behind that session.",
+          "body": "If someone is ready for the practical next step, use the youth club session page for exact timing, calendar details, and what to expect. This programme page still matters because it explains the wider belonging-first promise behind that session.",
           "tone": "info"
         },
         "fallbackNotice": {
@@ -145,28 +145,28 @@
       "pageId": "programme-personal-growth-life-skills",
       "programmeSlug": "personal-growth-life-skills",
       "hero": {
-        "title": "Build confidence, resilience, and skills for everyday life.",
-        "summary": "Personal Growth & Life Skills is the route for confidence-building, practical development, and supportive guidance when someone needs encouragement as much as information.",
-        "badges": ["Confidence-building", "Practical next-step support"],
+        "title": "Practise real-life confidence, motivation, and everyday next steps.",
+        "summary": "Personal Growth & Life Skills is for young people who want help speaking up, building motivation, handling everyday situations, and choosing a realistic next step.",
+        "badges": ["Real-life confidence", "Practical next-step support"],
         "supportingNote": "This offer is live at programme level now. Specific workshop formats, dates, or mentor arrangements are not all published yet, so the clearest next step is a short contact message."
       },
       "experienceSection": {
         "eyebrow": "What support here can feel like",
         "title": "Growth support that feels practical, encouraging, and possible to step into.",
-        "summary": "The page helps someone picture the support without pretending every detail is already a public timetable.",
+        "summary": "The page helps someone picture support with confidence, motivation, everyday skills, and next steps without pretending every detail is already a public timetable.",
         "items": [
           {
-            "title": "Confidence without pressure",
-            "summary": "Someone can ask for help, build confidence, and take part without feeling judged for not having everything sorted out yet.",
+            "title": "Speaking up without pressure",
+            "summary": "Someone can ask for help, practise speaking up, and take part without feeling judged for not having everything sorted out yet.",
             "iconAssetId": "icon-safe-space"
           },
           {
-            "title": "Practical life-skills development",
-            "summary": "The public promise covers practical development, resilience, and skills that help someone handle everyday challenges and future opportunities.",
+            "title": "Everyday skills and motivation",
+            "summary": "The public promise covers practical development, motivation, and skills that help someone handle everyday situations and future opportunities.",
             "iconAssetId": "icon-growth"
           },
           {
-            "title": "Guidance toward the next step",
+            "title": "Guidance toward a realistic next step",
             "summary": "This route can include mentoring-style encouragement, workshop learning, or practical guidance, while the exact current format is confirmed honestly on enquiry.",
             "iconAssetId": "icon-mentoring"
           }
@@ -179,7 +179,7 @@
         "panels": [
           {
             "title": "What this support can include",
-            "body": "Support can include confidence-building, life-skills development, mentoring, motivation, and practical guidance. The public promise stays broad enough to stay truthful while still helping someone recognise the fit.",
+            "body": "Support can include real-life confidence, life-skills development, mentoring, motivation, and practical guidance. The public promise stays broad enough to stay truthful while still helping someone recognise the fit.",
             "tone": "soft",
             "iconAssetId": "icon-growth"
           },
@@ -201,7 +201,7 @@
           "body": "This page explains what the support is for. Use contact if you want to ask whether confidence-building support, workshop-style learning, or another current route is the best fit right now.",
           "tone": "info",
           "action": {
-            "label": "Contact the team",
+            "label": "Ask a question",
             "routeId": "contact",
             "variant": "secondary"
           }
@@ -211,7 +211,7 @@
           "title": "Use a short enquiry to work out the right next step.",
           "summary": "The offer is real, but the launch site does not yet publish a separate recurring timetable for this programme. Contact the team and they can guide you toward the right conversation, activity, or live session.",
           "primaryAction": {
-            "label": "Get support",
+            "label": "Ask a question",
             "routeId": "contact",
             "variant": "primary"
           },
@@ -237,10 +237,10 @@
       "pageId": "programme-career-support-cv-help",
       "programmeSlug": "career-support-cv-help",
       "hero": {
-        "title": "Practical support with CVs, applications, and next steps.",
-        "summary": "Career Support & CV Help is the wider practical-support route for people who need help getting started, strengthening applications, or feeling more ready for work, college, and the next opportunity.",
+        "title": "Get help with CVs, applications, interviews, and next steps.",
+        "summary": "Career Support & CV Help is the wider practical-support route for people who need help with a CV draft, an unfinished application, interview questions, work or college next steps, or getting started.",
         "badges": ["Practical first step", "Live Saturday route"],
-        "supportingNote": "The Saturday CV support session is the clearest live route into this programme. Use that page for exact timing, calendar access, and what to bring; use this page to understand the wider support promise.",
+        "supportingNote": "The Saturday CV support session is the clearest live route into this programme. Use that page for exact timing, calendar access, what to bring, and how to ask before attending; use this page to understand the wider support promise.",
         "primaryAction": {
           "label": "See CV support",
           "routeId": "session-cv-support",
@@ -259,17 +259,17 @@
         "items": [
           {
             "title": "Bring what you already have",
-            "summary": "A draft CV, an unfinished application, or just a question is enough to start. The programme leaves room for unfinished work and first questions.",
+            "summary": "A draft CV, an unfinished application, an interview question, or no document yet is enough to start. The programme leaves room for unfinished work and first questions.",
             "iconAssetId": "icon-cv-support"
           },
           {
             "title": "Practical help that turns into action",
-            "summary": "The public promise is about usable progress: wording, structure, next steps, and guidance someone can apply after the session rather than vague motivation alone.",
+            "summary": "The public promise is about usable progress: wording, structure, interview preparation, next steps, and guidance someone can apply after the session rather than vague motivation alone.",
             "iconAssetId": "icon-growth"
           },
           {
             "title": "Confidence grows through clarity",
-            "summary": "Career support here is not just about documents. It helps people feel more ready to ask questions, apply, and take the next step with support around them.",
+            "summary": "Career support here is not just about documents. It helps people feel more ready to ask questions, apply, prepare for interviews, and take the next step with support around them.",
             "iconAssetId": "icon-mentoring"
           }
         ]
@@ -277,17 +277,17 @@
       "relatedSessionsSection": {
         "eyebrow": "Live route right now",
         "title": "CV support is the clearest live expression of this programme.",
-        "summary": "This page explains the wider practical-support route. The CV support session page carries the exact Saturday timing, calendar access, and first-visit detail.",
+        "summary": "This page explains the wider practical-support route. The CV support session page carries the every-Saturday 16:45 timing, 120-minute duration, calendar access, and first-visit detail.",
         "panels": [
           {
             "title": "Why this page still matters",
-            "body": "This route helps someone recognise that CV help, applications support, and practical next-step guidance fit them before they have to decode a timetable or assume the session is only about one document.",
+            "body": "This route helps someone recognise that CV help, application support, interview preparation, and practical next-step guidance fit them before they have to decode a timetable or assume the session is only about one document.",
             "tone": "soft",
             "iconAssetId": "icon-growth"
           },
           {
             "title": "What the session page owns",
-            "body": "The linked CV support session carries the exact recurrence, add-to-calendar access, and attendance expectations like what to bring. That keeps the programme page from duplicating live logistics.",
+            "body": "The linked CV support session carries the exact recurrence, add-to-calendar access, and attendance expectations like what to bring or how to ask first. That keeps the programme page from duplicating live logistics.",
             "tone": "muted",
             "iconAssetId": "icon-cv-support"
           },
@@ -300,7 +300,7 @@
         ],
         "activeNotice": {
           "title": "CV support is the live route right now",
-          "body": "If someone wants direct practical help, use the CV support session page for the exact Saturday timing, calendar file, and first-visit detail. This programme page still matters because it frames the wider career-support offer around that session.",
+          "body": "If someone wants direct practical help, use the CV support session page for the every-Saturday 16:45 timing, 120-minute duration, calendar file, and first-visit detail. This programme page still matters because it frames the wider career-support offer around that session.",
           "tone": "info",
           "action": {
             "label": "See CV support",
@@ -327,8 +327,8 @@
       "ctaBand": {
         "eyebrow": "Choose the next practical step",
         "title": "Use the route that matches what someone needs right now.",
-        "summary": "Go straight to the live CV support session if you want practical help on Saturday. Use contact if you want to ask first or need help deciding whether the live session is the right fit.",
-        "badges": ["CV help", "Applications", "Next steps"],
+        "summary": "Go straight to the live CV support session if you want practical help on Saturday. Use contact if you want to ask first, bring an unfinished draft, or need help deciding whether the live session is the right fit.",
+        "badges": ["CV help", "Applications", "Interviews"],
         "actions": [
           {
             "label": "See CV support",
@@ -349,7 +349,7 @@
       },
       "evidenceNotice": {
         "title": "Public-proof boundary",
-        "body": "This page stays focused on the public essentials: CV help, applications support, job readiness, and next-step guidance. Employment placements, guaranteed outcomes, named advisers, or wider coaching models stay out until they are approved for publication.",
+        "body": "This page stays focused on the public essentials: CV help, applications support, interview preparation, work or college next steps, and next-step guidance. Employment placements, guaranteed outcomes, named advisers, or wider coaching models stay out until they are approved for publication.",
         "tone": "info"
       }
     },

@@ -37,12 +37,14 @@ test("primary shell destinations resolve without 404s", async ({
   const footerLinks = page.getByRole("contentinfo").getByRole("link");
   const skipLinks = page.locator(".skip-links .skip-link");
 
-  await expect(headerLinks).toHaveCount(6);
+  await expect(headerLinks).toHaveCount(8);
   await expect(skipLinks).toHaveCount(3);
   await expect(footerLinks).toHaveCount(18);
-  await expect(page.getByRole("link", { name: "Programmes" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Sessions" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "CV help" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Youth club" }).first()).toBeVisible();
   await expect(
-    page.getByRole("contentinfo").getByRole("link", { name: "Privacy Notice" })
+    page.getByRole("contentinfo").getByRole("link", { name: "Privacy" })
   ).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Utility" }).first()).toBeVisible();
   await expect(page.locator(".site-header__brand .brand-mark__icon")).toHaveAttribute(

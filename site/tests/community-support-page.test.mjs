@@ -70,7 +70,7 @@ test("community support programme content keeps the wider welcome honest without
     communitySupport.bodySections.map((section) => section.id),
     ["what-this-route-covers", "who-this-route-is-for", "how-access-works-now"]
   );
-  assert.match(communitySupport.summary, /Community-rooted support/u);
+  assert.match(communitySupport.summary, /Contact-led community support/u);
   assert.match(
     communitySupport.deliverySummary,
     /short enquiry rather than a standing community-events timetable/u
@@ -84,6 +84,7 @@ test("community support programme content keeps the wider welcome honest without
     communitySupport.trustNotes.join(" "),
     /must not imply regulated care, home support, or specialist services/u
   );
+  assert.match(communitySupport.bodySections[2].body.join(" "), /public venue/u);
 });
 
 test("programme family template supports the shared audience-routing section for broader multi-audience offers", async () => {

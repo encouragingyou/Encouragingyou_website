@@ -4,43 +4,43 @@
   "title": "Career Support & CV Help",
   "shortTitle": "Career Support",
   "launchStatus": "launch",
-  "summary": "Practical career support, CV help, and next-step guidance that turn uncertainty into something clearer and more usable.",
-  "promise": "Help people make progress with CVs, applications, confidence, and practical next steps they can use straight away.",
+  "summary": "Hands-on help with CVs, applications, interviews, and work or college next steps, including unfinished drafts and first questions.",
+  "promise": "Help young people turn CV drafts, applications, interview worries, and work or college questions into clearer next steps.",
   "audiences": ["young-people", "parents-carers", "referrers"],
-  "audienceSummary": "Best for young people who want practical help with CVs, applications, work or college next steps, and confidence around getting started.",
+  "audienceSummary": "Best for young people who want practical help with CVs, applications, interviews, work or college next steps, or confidence around getting started.",
   "audienceHighlights": [
     "Young people who need help turning a blank or unfinished CV into something usable",
-    "People preparing for work, college, applications, or the next practical step",
+    "People preparing for work, college, applications, interviews, or the next practical step",
     "Parents, carers, or referrers who need a clear live route rather than vague employability language"
   ],
   "existingDeliveryMode": "active-session-linked",
   "relatedSessionIds": ["cv-support"],
   "featuredMediaId": "programme-career-support",
   "featuredIconId": "icon-cv-support",
-  "deliverySummary": "The current live route is the recurring Saturday CV support session. This programme page explains the broader practical-support promise, while the session page owns exact timing, calendar access, and attendance detail.",
+  "deliverySummary": "The current live route is the recurring Saturday CV support session. This programme page explains the broader practical-support promise, while the session page owns exact timing, calendar access, what to bring, and ask-before-attending detail.",
   "trustSignalIds": ["youth-led", "privacy-clarity", "visible-safeguarding"],
   "trustNotes": [
-    "The route feels useful from the first question, even if someone arrives unsure or underprepared.",
-    "Privacy matters because CVs, applications, and confidence worries can feel personal.",
+    "The route feels useful from the first question, even if someone arrives with an unfinished draft or no document yet.",
+    "Privacy matters because CVs, applications, interview worries, and confidence questions can feel personal.",
     "The live route is local and practical: Rochdale can stay public while exact venue detail is shared on enquiry."
   ],
   "outcomeBullets": [
     "Practical CV writing support",
-    "Help with applications and next steps",
-    "Confidence in work-readiness and opportunity conversations"
+    "Help with applications, interviews, and next steps",
+    "Confidence around work, college, and opportunity conversations"
   ],
   "bodySections": [
     {
       "id": "what-this-route-covers",
       "heading": "What this route covers",
       "body": [
-        "The confirmed public offer covers CV writing, job applications, practical next steps, and support that helps someone feel more ready for work or college opportunities.",
+        "The confirmed public offer covers CV writing, applications, interview preparation, practical next steps, and support that helps someone feel more ready for work or college opportunities.",
         "The PDF brief also places CV writing and employment support inside the organisation's wider promise to build confidence, practical skills, and positive life outcomes."
       ],
       "bullets": [
         "CV writing",
-        "Applications support",
-        "Job-readiness and next-step guidance"
+        "Applications and interviews",
+        "Work or college next-step guidance"
       ]
     },
     {
@@ -48,7 +48,7 @@
       "heading": "How support here feels",
       "body": [
         "Career support feels practical, calm, and confidence-building rather than like someone has to perform expertise before they can ask for help.",
-        "The route makes room for questions, unfinished drafts, and uncertainty while still helping someone leave with a clearer idea of what to do next."
+        "The route makes room for questions, unfinished drafts, interview worries, and uncertainty while still helping someone leave with a clearer idea of what to do next."
       ],
       "bullets": [
         "Bring what you already have",
@@ -61,7 +61,7 @@
       "heading": "How the live route works right now",
       "body": [
         "The clearest current live expression of this programme is the recurring Saturday CV support session.",
-        "That session page owns the exact recurrence, calendar entry, and what to bring. This programme page explains the wider practical-support promise so the route stays useful even before someone clicks into the timetable."
+        "That session page owns the exact recurrence, calendar entry, what to bring, and how to ask before attending. This programme page explains the wider practical-support promise so the route stays useful even before someone clicks into the timetable."
       ],
       "bullets": [
         "Linked to the Saturday CV support session",

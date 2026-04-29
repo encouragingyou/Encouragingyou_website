@@ -93,7 +93,7 @@ test("skip to primary navigation keeps the desktop nav target visible", async ({
 });
 
 test("FAQ disclosures can be opened from the keyboard", async ({ page, pageIssues }) => {
-  await gotoRoute(page, "/");
+  await gotoRoute(page, "/contact/");
   const firstDisclosure = page.locator(".faq-item").first();
   const firstSummary = firstDisclosure.locator("summary");
 
@@ -112,7 +112,10 @@ test("reduced motion mode still exposes the core homepage content", async ({
   await gotoRoute(page, "/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(
-    page.locator("main").getByRole("link", { name: "Get support", exact: true })
+    page
+      .locator("main")
+      .getByRole("link", { name: "Ask a question", exact: true })
+      .first()
   ).toBeVisible();
 
   const scrollBehavior = await page.evaluate(

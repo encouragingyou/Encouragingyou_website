@@ -26,11 +26,15 @@ test("personal growth page content defines an enquiry-led delivery path without 
   assert.ok(page, "Expected page-specific Personal Growth content to exist.");
   assert.equal(
     page.hero.title,
-    "Build confidence, resilience, and skills for everyday life."
+    "Practise real-life confidence, motivation, and everyday next steps."
   );
+  assert.match(page.hero.summary, /speaking up, building motivation/u);
   assert.equal(page.experienceSection.items.length, 3);
   assert.equal(page.relatedSessionsSection.panels.length, 3);
-  assert.equal(page.relatedSessionsSection.emptyState.primaryAction.label, "Get support");
+  assert.equal(
+    page.relatedSessionsSection.emptyState.primaryAction.label,
+    "Ask a question"
+  );
   assert.equal(
     page.relatedSessionsSection.emptyState.secondaryAction.label,
     "See current sessions"
@@ -56,13 +60,14 @@ test("personal growth programme content keeps the route grounded in confidence-b
     personalGrowth.bodySections.map((section) => section.id),
     ["what-this-route-can-cover", "how-support-can-feel", "how-the-next-step-works"]
   );
-  assert.match(personalGrowth.summary, /practical life-skills/u);
+  assert.match(personalGrowth.summary, /Real-life confidence, motivation/u);
   assert.match(personalGrowth.deliverySummary, /starts with an enquiry/u);
   assert.deepEqual(personalGrowth.trustSignalIds, [
     "youth-led",
     "privacy-clarity",
     "visible-safeguarding"
   ]);
+  assert.match(personalGrowth.outcomeBullets.join(" "), /real-life situations/u);
 });
 
 test("programme family template supports the shared low-schedule empty state contract", async () => {

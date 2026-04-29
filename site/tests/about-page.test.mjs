@@ -21,7 +21,7 @@ test("about page content defines the ordered story, values, and proof-boundary c
   assert.equal(aboutPage.audienceSection.items.length, 3);
   assert.match(
     aboutPage.proofBoundary.withheldUntilVerified.join(" "),
-    /Impact statistics, testimonials, or outcome claims/u
+    /Impact statistics, public praise quotes, or outcome claims/u
   );
 });
 

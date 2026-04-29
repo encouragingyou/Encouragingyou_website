@@ -12,11 +12,11 @@ import { viewportMatrix } from "../support/viewports.mjs";
 const sessionRoutes = [
   {
     path: "/sessions/cv-support/",
-    heading: "CV support that is practical, calm, and one-to-one."
+    heading: "CV support for drafts, applications, interviews, and next steps."
   },
   {
     path: "/sessions/youth-club/",
-    heading: "Youth club built around welcome, friendship, and safe space."
+    heading: "Youth club with games, conversation, and space to join in at your pace."
   }
 ];
 
@@ -34,8 +34,11 @@ for (const viewport of viewportMatrix) {
       const navigation = page.getByRole("navigation", { name: "Primary" });
       const navigationLinks = navigation.locator(".site-nav__link");
 
-      await expect(navigationLinks).toHaveCount(6);
+      await expect(navigationLinks).toHaveCount(8);
       await expect(navigationLinks.first()).toBeVisible();
+      await expect(navigation.getByRole("link", { name: "Sessions" })).toBeVisible();
+      await expect(navigation.getByRole("link", { name: "CV help" })).toBeVisible();
+      await expect(navigation.getByRole("link", { name: "Youth club" })).toBeVisible();
       await expect(
         page.getByRole("link", { name: "Join a session" }).first()
       ).toBeVisible();
@@ -52,10 +55,10 @@ for (const viewport of viewportMatrix) {
 
       const h1 = page.getByRole("heading", {
         level: 1,
-        name: "Build confidence, get practical help, and move forward."
+        name: "Helping young people in Rochdale build confidence, friendships and future opportunities."
       });
       const primaryCta = page
-        .locator("main")
+        .locator(".home-hero__actions")
         .getByRole("link", { name: "Join a session", exact: true });
 
       await assertClearOfStickyHeader(page, h1);
@@ -94,7 +97,7 @@ for (const viewport of viewportMatrix) {
 
       const h1 = page.getByRole("heading", {
         level: 1,
-        name: "A welcoming space to connect, relax, and feel part of something."
+        name: "Speak to people, join in at your pace, and feel comfortable coming back."
       });
       const primaryCta = page
         .locator("main")
@@ -120,7 +123,7 @@ for (const viewport of viewportMatrix) {
 
       const h1 = page.getByRole("heading", {
         level: 1,
-        name: "Practical support with CVs, applications, and next steps."
+        name: "Get help with CVs, applications, interviews, and next steps."
       });
       const primaryCta = page
         .locator("main")
@@ -187,11 +190,11 @@ for (const viewport of viewportMatrix) {
 
       const h1 = page.getByRole("heading", {
         level: 1,
-        name: "Build confidence, resilience, and skills for everyday life."
+        name: "Practise real-life confidence, motivation, and everyday next steps."
       });
       const primaryCta = page
         .locator("main")
-        .getByRole("link", { name: "Get support" })
+        .getByRole("link", { name: "Ask a question" })
         .first();
 
       await assertClearOfStickyHeader(page, h1);

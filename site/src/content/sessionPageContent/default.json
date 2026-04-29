@@ -5,10 +5,10 @@
       "sessionSlug": "cv-support",
       "intro": {
         "eyebrow": "Saturday session",
-        "title": "CV support that is practical, calm, and one-to-one.",
+        "title": "CV support for drafts, applications, interviews, and next steps.",
         "locationNotePrefix": "Based in",
         "locationNoteSuffix": "Exact venue details are shared on enquiry.",
-        "supportingNote": "You can ask about the session before attending, including on someone else's behalf."
+        "supportingNote": "You can ask about the session before attending, including what to bring or whether it is the right fit."
       },
       "actions": {
         "joinLabel": "Ask to join",
@@ -17,13 +17,13 @@
       "atAGlanceSection": {
         "eyebrow": "At a glance",
         "title": "Know the shape of the session before you travel.",
-        "summary": "Timing, venue handling, who it suits, and what to bring are visible without making the route feel formal.",
+        "summary": "CV support runs every Saturday at 16:45 for 120 minutes. Timing, venue handling, who it suits, and what to bring are visible without making the route feel formal.",
         "timingLabel": "When it runs",
         "locationLabel": "Where it happens",
         "audienceLabel": "Who can use it",
         "audienceSummary": "Young people can come for direct help, and parents, carers, or referrers can ask first if they need to check the fit.",
         "bringLabel": "What to bring",
-        "bringSummary": "A draft CV, a blank document, screenshots, notes, or just the question you need help with."
+        "bringSummary": "A draft CV, unfinished application, interview question, blank document, screenshots, notes, or just the question you need help with."
       },
       "expectationSection": {
         "eyebrow": "What to expect",
@@ -33,19 +33,19 @@
         "items": [
           {
             "title": "Start from where you are",
-            "body": "Bring a CV draft, an application, or nothing at all. The session begins with what you already have and what feels stuck.",
+            "body": "Bring a CV draft, an unfinished application, an interview question, or nothing at all. The session begins with what you already have and what feels stuck.",
             "tone": "soft",
             "iconAssetId": "icon-cv-support"
           },
           {
-            "title": "Work on real wording and next steps",
-            "body": "Support can cover structure, wording, applications, confidence for asking questions, and practical planning after the session.",
+            "title": "Work on real wording, applications, and interviews",
+            "body": "Support can cover structure, wording, applications, interview preparation, confidence for asking questions, and practical planning after the session.",
             "tone": "default",
             "iconAssetId": "icon-mentoring"
           },
           {
             "title": "Leave with something clearer",
-            "body": "The aim is progress you can use straight away, such as a stronger CV, a clearer application, or a better sense of the next action.",
+            "body": "The aim is progress you can use straight away, such as a stronger CV, a clearer application, interview notes, or a better sense of the next action.",
             "tone": "soft",
             "iconAssetId": "icon-growth"
           }
@@ -59,7 +59,7 @@
         "items": [
           {
             "title": "Ask before attending",
-            "body": "If you want to check the session is right, contact is okay before travelling. This also works for parents, carers, and referrers.",
+            "body": "If you want to check the session is right, what to bring, or whether an unfinished draft is enough, contact is okay before travelling. This also works for parents, carers, and referrers.",
             "tone": "soft",
             "iconAssetId": "icon-contact"
           },
@@ -78,7 +78,7 @@
         ],
         "note": {
           "title": "Not sure if this is the right route?",
-          "body": "Use the contact path if you want to check the session, ask on someone else's behalf, or explain a need briefly before anyone travels.",
+          "body": "Use the contact path if you want to check the session, ask what to bring, ask on someone else's behalf, or explain a need briefly before anyone travels.",
           "tone": "info",
           "action": {
             "label": "Contact the team",
@@ -90,7 +90,7 @@
       "relatedProgrammeSection": {
         "eyebrow": "Wider route",
         "title": "This session sits inside the wider Career Support & CV Help route.",
-        "summary": "The programme page explains the broader support offer. This session page owns the exact Saturday timing, calendar file, and first-visit detail.",
+        "summary": "The programme page explains the broader support offer. This session page owns the every-Saturday 16:45 timing, 120-minute duration, calendar file, and first-visit detail.",
         "actionLabel": "See wider route"
       },
       "faqSection": {
@@ -113,11 +113,7 @@
         "eyebrow": "Next step",
         "title": "Ask about the session or keep the wider career route in view.",
         "summary": "The fastest next step is to ask about CV support. If you are still deciding, the wider programme and contact routes stay available.",
-        "badges": [
-          "Low-pressure first step",
-          "Rochdale-based",
-          "Calendar download available"
-        ],
+        "badges": ["Low-pressure first step", "Rochdale-based", "16:45 every Saturday"],
         "actions": [
           {
             "label": "Contact the team",
@@ -152,7 +148,7 @@
       "sessionSlug": "youth-club",
       "intro": {
         "eyebrow": "Saturday session",
-        "title": "Youth club built around welcome, friendship, and safe space.",
+        "title": "Youth club with games, conversation, and space to join in at your pace.",
         "locationNotePrefix": "Based in",
         "locationNoteSuffix": "Exact venue details are shared on enquiry.",
         "supportingNote": "Come as you are. If a first visit feels like a big step, a young person or parent/carer can ask first."
@@ -164,7 +160,7 @@
       "atAGlanceSection": {
         "eyebrow": "At a glance",
         "title": "Make the first visit feel welcoming before anyone travels.",
-        "summary": "The route shows the weekly rhythm, how participation can look, and how venue detail is handled without turning the session into a formal intake process.",
+        "summary": "Youth club runs every Saturday at 18:45 for 120 minutes. The route shows how participation can look and how venue detail is handled without turning the session into a formal intake process.",
         "timingLabel": "When it runs",
         "locationLabel": "Where it happens",
         "audienceLabel": "Who it is for",
@@ -175,12 +171,12 @@
       "expectationSection": {
         "eyebrow": "What to expect",
         "title": "A first visit should feel welcoming, social, and easy to grow into.",
-        "summary": "The value here is atmosphere, repeated attendance, and connection over time rather than a one-off task.",
+        "summary": "The value here is games, conversation, repeated attendance, and connection over time rather than a one-off task.",
         "checklistTitle": "The core session promise",
         "items": [
           {
             "title": "Arrive without needing a perfect reason",
-            "body": "Someone can come for company, activities, conversation, or simply to try the space.",
+            "body": "Someone can come for company, games, activities, conversation, or simply to try the space.",
             "tone": "soft",
             "iconAssetId": "icon-safe-space"
           },
@@ -212,7 +208,7 @@
           },
           {
             "title": "Take the pressure off arrival",
-            "body": "The public page makes room for someone who joins in straight away and someone who needs a little time to look around and settle.",
+            "body": "The public page makes room for someone who joins in straight away and someone who needs a little time to look around, listen, and settle.",
             "tone": "default",
             "iconAssetId": "icon-safe-space"
           },
@@ -237,7 +233,7 @@
       "relatedProgrammeSection": {
         "eyebrow": "Wider route",
         "title": "This session sits inside the wider Community & Friendship route.",
-        "summary": "The programme page explains the broader belonging-first route across community and friendship. This session page owns the live Saturday timing, calendar file, and first-visit detail.",
+        "summary": "The programme page explains the broader route for speaking to people, joining in at your pace, and feeling comfortable coming back. This session page owns the every-Saturday 18:45 timing, 120-minute duration, calendar file, and first-visit detail.",
         "actionLabel": "See wider route"
       },
       "faqSection": {
@@ -260,11 +256,7 @@
         "eyebrow": "Next step",
         "title": "Ask about youth club or keep the wider belonging route in view.",
         "summary": "The clearest next step is to ask about the session. The wider programme and sessions hub stay visible if someone needs more context first.",
-        "badges": [
-          "Low-pressure first step",
-          "Rochdale-based",
-          "Calendar download available"
-        ],
+        "badges": ["Low-pressure first step", "Rochdale-based", "18:45 every Saturday"],
         "actions": [
           {
             "label": "Contact the team",

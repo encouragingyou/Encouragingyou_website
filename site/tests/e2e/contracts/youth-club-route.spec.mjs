@@ -18,7 +18,7 @@ test("youth club detail route exposes first-visit reassurance, atmosphere, and t
   await assertLandmarkOrder(page);
   await assertSingleH1(
     page,
-    "Youth club built around welcome, friendship, and safe space."
+    "Youth club with games, conversation, and space to join in at your pace."
   );
 
   const main = page.locator("main");
@@ -60,7 +60,7 @@ test("youth club detail route exposes first-visit reassurance, atmosphere, and t
   await expect(main.locator(".faq-item")).toHaveCount(4);
   await expect(
     main.getByText(
-      "The programme page explains the broader belonging-first route across community and friendship. This session page owns the live Saturday timing, calendar file, and first-visit detail."
+      "The programme page explains the broader route for speaking to people, joining in at your pace, and feeling comfortable coming back. This session page owns the every-Saturday 18:45 timing, 120-minute duration, calendar file, and first-visit detail."
     )
   ).toBeVisible();
   await expect(main.getByRole("link", { name: "Ask to join" })).toHaveAttribute(
@@ -95,7 +95,7 @@ test("youth club detail returns cleanly to the sessions hub and wider community 
   await page.locator("main").getByRole("link", { name: "See wider route" }).click();
   await expect(page).toHaveURL(/\/programmes\/community-friendship\/$/u);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "A welcoming space to connect, relax, and feel part of something."
+    "Speak to people, join in at your pace, and feel comfortable coming back."
   );
 
   void pageIssues;
@@ -151,7 +151,7 @@ test.describe("no-js youth club route", () => {
     await expect(
       page.getByRole("heading", {
         level: 1,
-        name: "Youth club built around welcome, friendship, and safe space."
+        name: "Youth club with games, conversation, and space to join in at your pace."
       })
     ).toBeVisible();
     await expect(main.getByRole("heading", { name: "When it runs" })).toBeVisible();

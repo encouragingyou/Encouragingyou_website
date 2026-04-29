@@ -13,7 +13,7 @@ test("personal growth detail route keeps the enquiry-led path, trust cues, and n
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "Build confidence, resilience, and skills for everyday life."
+      name: "Practise real-life confidence, motivation, and everyday next steps."
     })
   ).toBeVisible();
   await expect(page.getByRole("link", { name: /Back to Programmes/u })).toBeVisible();
@@ -38,7 +38,7 @@ test("personal growth detail route keeps the enquiry-led path, trust cues, and n
   await expect(main.getByText("Need something scheduled today?")).toBeVisible();
   await expect(main.locator(".faq-item").first()).toBeVisible();
   await expect(main.getByText("Public-proof boundary", { exact: true })).toBeVisible();
-  await expect(main.getByRole("link", { name: "Get support" }).first()).toBeVisible();
+  await expect(main.getByRole("link", { name: "Ask a question" }).first()).toBeVisible();
   await expect(
     main.getByRole("link", { name: "See current sessions" }).first()
   ).toBeVisible();
@@ -58,7 +58,7 @@ test("personal growth detail route hands off cleanly to contact without pretendi
     main.getByText(/does not yet publish a separate recurring timetable/u)
   ).toBeVisible();
 
-  await main.getByRole("link", { name: "Get support" }).first().click();
+  await main.getByRole("link", { name: "Ask a question" }).first().click();
   await expect(page).toHaveURL(/\/contact\/$/u);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "We're here to help you find the right next step."
@@ -81,11 +81,13 @@ test.describe("no-js personal growth route", () => {
     await expect(
       page.getByRole("heading", {
         level: 1,
-        name: "Build confidence, resilience, and skills for everyday life."
+        name: "Practise real-life confidence, motivation, and everyday next steps."
       })
     ).toBeVisible();
     await expect(main.locator(".faq-item").first()).toBeVisible();
-    await expect(main.getByRole("link", { name: "Get support" }).first()).toBeVisible();
+    await expect(
+      main.getByRole("link", { name: "Ask a question" }).first()
+    ).toBeVisible();
     await expect(
       main.getByRole("link", { name: "See current sessions" }).first()
     ).toBeVisible();

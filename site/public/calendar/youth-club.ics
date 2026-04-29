@@ -7,12 +7,12 @@ X-WR-CALNAME:Youth Club Session
 X-WR-TIMEZONE:Europe/London
 BEGIN:VEVENT
 UID:encouragingyou-youth-club@encouragingyou.co.uk
-DTSTAMP:20260424T144837Z
+DTSTAMP:20260429T131525Z
 DTSTART;TZID=Europe/London:20260425T184500
 DTEND;TZID=Europe/London:20260425T204500
 RRULE:FREQ=WEEKLY;BYDAY=SA
 SUMMARY:Youth Club Session
-DESCRIPTION:Games\, activities\, chill time\, and friendship-building in a welcoming youth club space.
+DESCRIPTION:Games\, activities\, conversation\, chill time\, and low-pressure friendship in a welcoming youth club space.
 LOCATION:Rochdale
 STATUS:CONFIRMED
 TRANSP:OPAQUE

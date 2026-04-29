@@ -16,7 +16,10 @@ test("cv support detail route exposes trustworthy session detail and truthful ne
   await assertNoHorizontalOverflow(page);
   await assertShellLandmarks(page);
   await assertLandmarkOrder(page);
-  await assertSingleH1(page, "CV support that is practical, calm, and one-to-one.");
+  await assertSingleH1(
+    page,
+    "CV support for drafts, applications, interviews, and next steps."
+  );
 
   const main = page.locator("main");
 
@@ -29,6 +32,9 @@ test("cv support detail route exposes trustworthy session detail and truthful ne
     })
   ).toBeVisible();
   await expect(main.getByRole("heading", { name: "When it runs" })).toBeVisible();
+  await expect(
+    main.getByText(/CV support runs every Saturday at 16:45 for 120 minutes/u)
+  ).toBeVisible();
   await expect(main.getByRole("heading", { name: "Where it happens" })).toBeVisible();
   await expect(main.getByRole("heading", { name: "What to bring" })).toBeVisible();
   await expect(
@@ -88,7 +94,7 @@ test("cv support detail returns cleanly to the sessions hub and wider career rou
   await page.locator("main").getByRole("link", { name: "See wider route" }).click();
   await expect(page).toHaveURL(/\/programmes\/career-support-cv-help\/$/u);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Practical support with CVs, applications, and next steps."
+    "Get help with CVs, applications, interviews, and next steps."
   );
 
   void pageIssues;
@@ -144,7 +150,7 @@ test.describe("no-js cv support route", () => {
     await expect(
       page.getByRole("heading", {
         level: 1,
-        name: "CV support that is practical, calm, and one-to-one."
+        name: "CV support for drafts, applications, interviews, and next steps."
       })
     ).toBeVisible();
     await expect(main.getByRole("heading", { name: "When it runs" })).toBeVisible();

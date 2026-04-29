@@ -22,8 +22,9 @@ test("community and friendship page content defines the route-specific promise, 
   assert.ok(page, "Expected page-specific Community & Friendship content to exist.");
   assert.equal(
     page.hero.title,
-    "A welcoming space to connect, relax, and feel part of something."
+    "Speak to people, join in at your pace, and feel comfortable coming back."
   );
+  assert.match(page.hero.summary, /games, conversation, low-pressure friendship/u);
   assert.equal(page.experienceSection.items.length, 3);
   assert.equal(page.relatedSessionsSection.panels.length, 2);
   assert.ok(page.relatedSessionsSection.activeNotice);
@@ -49,11 +50,16 @@ test("community and friendship programme content keeps the programme story disti
       "how-the-live-route-works"
     ]
   );
-  assert.match(communityFriendship.summary, /belonging-first/u);
-  assert.match(communityFriendship.deliverySummary, /session page handles timings/u);
+  assert.match(communityFriendship.summary, /speaking to people/u);
+  assert.match(communityFriendship.summary, /feeling comfortable coming back/u);
+  assert.match(communityFriendship.deliverySummary, /session page handles exact timing/u);
   assert.match(
     communityFriendship.trustNotes.join(" "),
     /venue details are shared on enquiry/u
+  );
+  assert.match(
+    communityFriendship.outcomeBullets.join(" "),
+    /joining in at your own pace/u
   );
 });
 

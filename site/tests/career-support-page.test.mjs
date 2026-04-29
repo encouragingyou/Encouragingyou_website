@@ -17,8 +17,9 @@ test("career support page content keeps the programme story broader than the liv
   assert.ok(page, "Expected page-specific Career Support content to exist.");
   assert.equal(
     page.hero.title,
-    "Practical support with CVs, applications, and next steps."
+    "Get help with CVs, applications, interviews, and next steps."
   );
+  assert.match(page.hero.summary, /unfinished application, interview questions/u);
   assert.equal(page.hero.primaryAction.label, "See CV support");
   assert.equal(page.hero.secondaryAction.label, "Contact the team");
   assert.equal(page.experienceSection.items.length, 3);
@@ -33,7 +34,7 @@ test("career support page content keeps the programme story broader than the liv
   assert.ok(page.evidenceNotice);
   assert.match(
     page.evidenceNotice.body,
-    /placements, guaranteed outcomes, named advisers, or wider coaching models/u
+    /interview preparation, work or college next steps/u
   );
 
   assert.ok(faqGroup, "Expected a dedicated Career Support FAQ group.");
@@ -49,10 +50,10 @@ test("career support programme content keeps programme-level guidance separate f
     careerSupport.bodySections.map((section) => section.id),
     ["what-this-route-covers", "how-support-should-feel", "how-the-live-route-works"]
   );
-  assert.match(careerSupport.summary, /Practical career support/u);
+  assert.match(careerSupport.summary, /CVs, applications, interviews/u);
   assert.match(
     careerSupport.deliverySummary,
-    /session page owns exact timing, calendar access, and attendance detail/u
+    /session page owns exact timing, calendar access, what to bring, and ask-before-attending detail/u
   );
   assert.deepEqual(careerSupport.relatedSessionIds, [cvSupport.slug]);
   assert.deepEqual(careerSupport.trustSignalIds, [
@@ -64,4 +65,5 @@ test("career support programme content keeps programme-level guidance separate f
     careerSupport.trustNotes.join(" "),
     /Rochdale can stay public while exact venue detail is shared on enquiry/u
   );
+  assert.match(careerSupport.outcomeBullets.join(" "), /applications, interviews/u);
 });

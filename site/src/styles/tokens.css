@@ -79,8 +79,8 @@
     --line-height-body: 1.65;
     --line-height-dense: 1.45;
 
-    --letter-spacing-display: -0.045em;
-    --letter-spacing-heading: -0.035em;
+    --letter-spacing-display: 0;
+    --letter-spacing-heading: 0;
     --letter-spacing-label: 0.08em;
 
     --space-3xs: 0.375rem;

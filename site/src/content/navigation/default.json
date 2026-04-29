@@ -2,28 +2,36 @@
   "homeLinkBehavior": "logo-only",
   "primaryItems": [
     {
-      "label": "About",
-      "routeId": "about"
+      "label": "Sessions",
+      "routeId": "sessions"
+    },
+    {
+      "label": "CV help",
+      "routeId": "programme-career-support-cv-help"
+    },
+    {
+      "label": "Youth club",
+      "routeId": "session-youth-club"
     },
     {
       "label": "Programmes",
       "routeId": "programmes"
     },
     {
-      "label": "Events & Updates",
-      "routeId": "events-updates"
+      "label": "About",
+      "routeId": "about"
     },
     {
-      "label": "Get Involved",
+      "label": "Get involved",
       "routeId": "get-involved"
-    },
-    {
-      "label": "Safeguarding",
-      "routeId": "safeguarding"
     },
     {
       "label": "Contact",
       "routeId": "contact"
+    },
+    {
+      "label": "Safeguarding",
+      "routeId": "safeguarding"
     }
   ],
   "headerCta": {
@@ -47,7 +55,7 @@
           "routeId": "sessions"
         },
         {
-          "label": "Events & Updates",
+          "label": "Events & updates",
           "routeId": "events-updates"
         }
       ]
@@ -56,15 +64,15 @@
       "title": "Get Support",
       "items": [
         {
-          "label": "Get Involved",
+          "label": "Get involved",
           "routeId": "get-involved"
         },
         {
-          "label": "Volunteer With Us",
+          "label": "Volunteer",
           "routeId": "volunteer"
         },
         {
-          "label": "Partner With Us",
+          "label": "Partner",
           "routeId": "partner"
         },
         {
@@ -81,19 +89,19 @@
       "title": "Legal",
       "items": [
         {
-          "label": "Privacy Notice",
+          "label": "Privacy",
           "routeId": "privacy"
         },
         {
-          "label": "Cookie Notice",
+          "label": "Cookies",
           "routeId": "cookies"
         },
         {
-          "label": "Accessibility Statement",
+          "label": "Accessibility",
           "routeId": "accessibility"
         },
         {
-          "label": "Terms / Site Policy",
+          "label": "Terms",
           "routeId": "terms"
         }
       ]

@@ -72,7 +72,12 @@ export async function optimizeBrandAssets({ siteRoot }) {
 
     for (const width of widths) {
       for (const format of ["png", "webp"]) {
-        const targetPath = getVariantTargetPath(siteRoot, asset.sourcePath, width, format);
+        const targetPath = getVariantTargetPath(
+          siteRoot,
+          asset.sourcePath,
+          width,
+          format
+        );
 
         await renderVariant(sourcePath, targetPath, width, format);
 

@@ -1,6 +1,106 @@
 import { assertVisibleFocusRing, gotoRoute } from "../support/assertions.mjs";
 import { expect, test } from "../support/fixtures.mjs";
 
+const expectedPrimaryNav = [
+  ["Sessions", "/sessions/"],
+  ["CV help", "/programmes/career-support-cv-help/"],
+  ["Youth club", "/sessions/youth-club/"],
+  ["Programmes", "/programmes/"],
+  ["About", "/about/"],
+  ["Get involved", "/get-involved/"],
+  ["Contact", "/contact/"],
+  ["Safeguarding", "/safeguarding/"]
+];
+
+const internalHrefPattern = /^(?!mailto:|tel:|https?:\/\/|#).+/u;
+
+async function collectInternalShellAndHomeHrefs(page) {
+  return page.evaluate((patternSource) => {
+    const internalPattern = new RegExp(patternSource, "u");
+    const selectors = [
+      "header a[href]",
+      "footer a[href]",
+      '[data-home-section="route-hub"] a[href]'
+    ];
+    const hrefs = selectors.flatMap((selector) =>
+      Array.from(
+        document.querySelectorAll(selector),
+        (link) => link.getAttribute("href") ?? ""
+      )
+    );
+
+    return Array.from(
+      new Set(
+        hrefs
+          .filter((href) => internalPattern.test(href))
+          .map((href) => {
+            const [path] = href.split("#");
+
+            return path.endsWith("/") || path === "/" ? path : `${path}/`;
+          })
+      )
+    ).sort();
+  }, internalHrefPattern.source);
+}
+
+test("primary navigation uses concise multi-page labels and checked routes", async ({
+  page,
+  pageIssues
+}) => {
+  await gotoRoute(page, "/");
+
+  const primaryLinks = page
+    .getByRole("navigation", { name: "Primary" })
+    .locator(".site-nav__link");
+
+  await expect(primaryLinks).toHaveCount(expectedPrimaryNav.length);
+
+  for (const [index, [label, href]] of expectedPrimaryNav.entries()) {
+    await expect(primaryLinks.nth(index)).toHaveText(label);
+    await expect(primaryLinks.nth(index)).toHaveAttribute("href", href);
+  }
+
+  void pageIssues;
+});
+
+test("header, footer, and homepage route-card links resolve locally", async ({
+  page,
+  request,
+  pageIssues
+}) => {
+  await gotoRoute(page, "/");
+
+  const internalHrefs = await collectInternalShellAndHomeHrefs(page);
+
+  expect(internalHrefs).toEqual([
+    "/",
+    "/about/",
+    "/accessibility/",
+    "/contact/",
+    "/cookies/",
+    "/events-updates/",
+    "/get-involved/",
+    "/partner/",
+    "/privacy/",
+    "/programmes/",
+    "/programmes/career-support-cv-help/",
+    "/safeguarding/",
+    "/sessions/",
+    "/sessions/youth-club/",
+    "/terms/",
+    "/volunteer/"
+  ]);
+  expect(internalHrefs.some((href) => href.includes("#"))).toBeFalsy();
+
+  for (const href of internalHrefs) {
+    const response = await request.get(href);
+
+    expect(response.ok(), `Expected ${href} to resolve`).toBeTruthy();
+  }
+
+  void pageIssues;
+});
+
 test("session detail pages expose back-link, breadcrumb trail, and route context", async ({
   page,
   pageIssues
@@ -122,7 +222,33 @@ test("nested routes keep the correct primary-nav current state", async ({
   await expect(
     page
       .getByRole("navigation", { name: "Primary" })
+      .getByRole("link", { name: "CV help" })
+  ).toHaveAttribute("aria-current", "page");
+  await expect(
+    page
+      .getByRole("navigation", { name: "Primary" })
       .getByRole("link", { name: "Programmes" })
+  ).not.toHaveAttribute("aria-current", "page");
+
+  await gotoRoute(page, "/sessions/youth-club/");
+
+  await expect(
+    page
+      .getByRole("navigation", { name: "Primary" })
+      .getByRole("link", { name: "Youth club" })
+  ).toHaveAttribute("aria-current", "page");
+  await expect(
+    page
+      .getByRole("navigation", { name: "Primary" })
+      .getByRole("link", { name: "Sessions" })
+  ).not.toHaveAttribute("aria-current", "page");
+
+  await gotoRoute(page, "/sessions/cv-support/");
+
+  await expect(
+    page
+      .getByRole("navigation", { name: "Primary" })
+      .getByRole("link", { name: "Sessions" })
   ).toHaveAttribute("aria-current", "page");
 
   await gotoRoute(page, "/volunteer/");
@@ -130,7 +256,7 @@ test("nested routes keep the correct primary-nav current state", async ({
   await expect(
     page
       .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "Get Involved" })
+      .getByRole("link", { name: "Get involved" })
   ).toHaveAttribute("aria-current", "page");
 
   await gotoRoute(page, "/partner/");
@@ -138,15 +264,7 @@ test("nested routes keep the correct primary-nav current state", async ({
   await expect(
     page
       .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "Get Involved" })
-  ).toHaveAttribute("aria-current", "page");
-
-  await gotoRoute(page, "/events-updates/live-support-stays-on-sessions/");
-
-  await expect(
-    page
-      .getByRole("navigation", { name: "Primary" })
-      .getByRole("link", { name: "Events & Updates" })
+      .getByRole("link", { name: "Get involved" })
   ).toHaveAttribute("aria-current", "page");
 
   void pageIssues;
@@ -178,6 +296,7 @@ test.describe("mobile shell focus", () => {
       .first();
 
     await assertVisibleFocusRing(firstNavLink);
+    await expect(firstNavLink).toHaveText("Sessions");
     await page.keyboard.press("Escape");
     await expect(toggle).toBeFocused();
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
@@ -197,6 +316,7 @@ test.describe("no-js shell", () => {
 
     await expect(page.getByRole("navigation", { name: "Primary" })).toBeVisible();
     await expect(page.getByRole("link", { name: "About" }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Sessions" }).first()).toBeVisible();
     await expect(page.locator("[data-nav-panel]")).toBeVisible();
 
     void pageIssues;

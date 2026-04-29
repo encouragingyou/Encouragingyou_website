@@ -13,7 +13,7 @@ test("career support detail route keeps the broader programme promise distinct f
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "Practical support with CVs, applications, and next steps."
+      name: "Get help with CVs, applications, interviews, and next steps."
     })
   ).toBeVisible();
   await expect(page.getByRole("link", { name: /Back to Programmes/u })).toBeVisible();
@@ -53,14 +53,14 @@ test("career support route hands off cleanly into the live CV support session an
 
   await expect(
     main.getByText(
-      "The CV support session page carries the exact Saturday timing, calendar access, and first-visit detail."
+      "This page explains the wider practical-support route. The CV support session page carries the every-Saturday 16:45 timing, 120-minute duration, calendar access, and first-visit detail."
     )
   ).toBeVisible();
 
   await main.getByRole("link", { name: "See CV support" }).first().click();
   await expect(page).toHaveURL(/\/sessions\/cv-support\/$/u);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "CV support that is practical, calm, and one-to-one."
+    "CV support for drafts, applications, interviews, and next steps."
   );
   await expect(page.getByText("Every Saturday", { exact: true }).first()).toBeVisible();
 
@@ -85,7 +85,7 @@ test.describe("no-js career support route", () => {
     await expect(
       page.getByRole("heading", {
         level: 1,
-        name: "Practical support with CVs, applications, and next steps."
+        name: "Get help with CVs, applications, interviews, and next steps."
       })
     ).toBeVisible();
     await expect(main.locator(".faq-item").first()).toBeVisible();

@@ -11,22 +11,22 @@ import { expect, test } from "../support/fixtures.mjs";
 
 const legalFooterRoutes = [
   {
-    label: "Privacy Notice",
+    label: "Privacy",
     href: "/privacy/",
     heading: "How this site handles the personal information people share with us."
   },
   {
-    label: "Cookie Notice",
+    label: "Cookies",
     href: "/cookies/",
     heading: "How this site uses cookies and other storage or access technologies."
   },
   {
-    label: "Accessibility Statement",
+    label: "Accessibility",
     href: "/accessibility/",
     heading: "How accessibility is handled on the live EncouragingYou website."
   },
   {
-    label: "Terms / Site Policy",
+    label: "Terms",
     href: "/terms/",
     heading: "How this site works, what to expect from it, and where the boundaries are."
   }
@@ -48,7 +48,7 @@ test.describe("@trust legal and disclosure governance", () => {
       );
     }
 
-    await footer.getByRole("link", { name: "Cookie Notice" }).click();
+    await footer.getByRole("link", { name: "Cookies" }).click();
     await expect(page).toHaveURL(/\/cookies\/$/u);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
       legalFooterRoutes[1].heading
@@ -91,11 +91,13 @@ test.describe("@trust legal and disclosure governance", () => {
       page.locator(".home-hero [data-disclosure-variant='prominent']").first()
     ).toBeVisible();
     await expect(
-      page.locator(".programme-card [data-disclosure-variant='compact']")
-    ).toHaveCount(4);
-    await expect(
       page.locator(".site-footer [data-disclosure-variant='sitewide']").first()
     ).toBeVisible();
+
+    await gotoRoute(page, "/programmes/");
+    await expect(
+      page.locator(".programme-pillar-card [data-disclosure-variant='compact']")
+    ).toHaveCount(4);
 
     await gotoRoute(page, "/about/");
     await expect(

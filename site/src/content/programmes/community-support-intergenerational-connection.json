@@ -4,7 +4,7 @@
   "title": "Community Support / Intergenerational Connection",
   "shortTitle": "Community Support",
   "launchStatus": "launch",
-  "summary": "Community-rooted support and intergenerational connection for people who need company, practical help, or a clearer first route into local support.",
+  "summary": "Contact-led community support for people who need company, practical help, social connection, or a clearer first route into local support.",
   "promise": "Extend the youth-led welcome across generations through connection, community activity, and practical support that help people feel less alone.",
   "audiences": [
     "community-members",
@@ -27,7 +27,7 @@
   "trustSignalIds": ["youth-led", "privacy-clarity", "visible-safeguarding"],
   "trustNotes": [
     "EncouragingYou remains youth-led, and this route makes clear that the welcome can still extend beyond a youth-only audience.",
-    "The route starts with conversation and fit, not a speculative public timetable or open-ended promise.",
+    "The route starts with conversation and fit, not a speculative public timetable, public venue, or open-ended promise.",
     "Rochdale can stay public while venue detail, accessibility needs, and the right next step are shared on enquiry.",
     "The page must not imply regulated care, home support, or specialist services beyond the public scope described on the site."
   ],
@@ -67,7 +67,7 @@
       "id": "how-access-works-now",
       "heading": "How access works at launch",
       "body": [
-        "This is a contact-led route. The launch site does not present it as a standing events calendar or a formal care service.",
+        "This is a contact-led route. The launch site does not present it as a standing events calendar, public venue, or formal care service.",
         "Community events or intergenerational activities can be shared as they are ready, while the team uses contact to explain fit, timing, venue detail, and whether another live route on the site is the better first step."
       ],
       "bullets": [

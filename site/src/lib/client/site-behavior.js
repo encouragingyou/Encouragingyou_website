@@ -104,11 +104,21 @@ function setupPrimaryNavigation(documentRef) {
   }
 
   const mediaQuery = windowRef.matchMedia(MOBILE_NAV_MEDIA);
+  const toggleLabel = toggle.querySelector("[data-nav-toggle-label]");
   let closeTimer = 0;
 
   const setToggleState = (isExpanded) => {
     toggle.setAttribute("aria-expanded", String(isExpanded));
-    toggle.textContent = isExpanded && mediaQuery.matches ? "Close" : "Menu";
+    toggle.dataset.toggleState = isExpanded && mediaQuery.matches ? "open" : "closed";
+
+    const label = isExpanded && mediaQuery.matches ? "Close" : "Menu";
+
+    if (toggleLabel instanceof HTMLElement) {
+      toggleLabel.textContent = label;
+      return;
+    }
+
+    toggle.textContent = label;
   };
 
   const setSharedState = (nextState) => {

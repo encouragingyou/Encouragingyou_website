@@ -207,7 +207,7 @@
           "Named leadership biographies, team portraits, and approved partner references."
         ],
         "withheldUntilVerified": [
-          "Impact statistics, testimonials, or outcome claims that have not been approved.",
+          "Impact statistics, public praise quotes, or outcome claims that have not been approved.",
           "Detailed claims about live partnerships, referral volume, or specific venue disclosure."
         ]
       },
@@ -253,11 +253,11 @@
     {
       "pageId": "programmes",
       "template": "programme-index",
-      "metaDescription": "Explore EncouragingYou's four core support pillars, understand how programmes differ from live sessions, and choose the route that fits best.",
+      "metaDescription": "Compare EncouragingYou's support pillars for friendship, real-life confidence, CV help, and wider community connection before choosing a route.",
       "intro": {
         "eyebrow": "Programme overview",
         "title": "Support that meets people where they are.",
-        "summary": "From community and friendship to personal growth, career support, and wider community connection, these pillars explain what each route is for before you decide how to step in.",
+        "summary": "Compare low-pressure friendship, real-life confidence, CV and application help, and wider community connection before choosing a session or asking a question.",
         "badges": [
           "4 support pillars",
           "Programme-led guidance",
@@ -270,7 +270,7 @@
             "routeId": "sessions"
           },
           {
-            "label": "Get support",
+            "label": "Ask a question",
             "variant": "secondary",
             "routeId": "contact"
           }
@@ -279,21 +279,21 @@
       "overviewPanels": [
         {
           "title": "Programmes explain the support theme",
-          "body": "Use this route when you want to understand what kind of support fits before you look at dates, timings, or one specific activity."
+          "body": "Use these pages to understand what support feels like: speaking to people, building confidence, getting CV help, or asking about wider community connection."
         },
         {
           "title": "Sessions show live recurring opportunities",
-          "body": "Use the Sessions route when you are ready for practical timing, first-visit detail, and the clearest current join path."
+          "body": "Use the Sessions route when you want confirmed Saturday timing, what happens in the room, what to expect, and how to ask before attending."
         },
         {
           "title": "Contact stays available when you are unsure",
-          "body": "If none of the published routes fits neatly, the contact route should still help you or someone else work out the next step."
+          "body": "If none of the published routes fits neatly, ask a question so the team can help you or someone else work out the next step."
         }
       ],
       "scheduleSection": {
         "eyebrow": "Live support right now",
         "title": "Some pillars already connect to recurring Saturday sessions.",
-        "summary": "Career support and community friendship currently have the clearest published live routes. The other pillars still matter, but they are not pretending to be timetable-heavy when they are not."
+        "summary": "Career support and community friendship currently have the clearest published live routes. The other pillars still matter, but they stay contact-led until more public detail is confirmed."
       },
       "audienceSection": {
         "eyebrow": "Choose by what you need",
@@ -301,8 +301,8 @@
         "summary": "These routes are designed around intent, not insider language.",
         "items": [
           {
-            "title": "Belonging, friendship, and a welcoming first step",
-            "summary": "Start with Community & Friendship if someone needs safe space, low-pressure connection, or a route back into community.",
+            "title": "Speaking to people, joining in, and feeling able to return",
+            "summary": "Start with Community & Friendship if someone wants games, conversation, low-pressure friendship, or a first visit that does not require instant confidence.",
             "action": {
               "label": "Explore Community & Friendship",
               "variant": "text",
@@ -310,8 +310,8 @@
             }
           },
           {
-            "title": "Confidence, life skills, and personal growth",
-            "summary": "Start with Personal Growth & Life Skills if the need is confidence-building, leadership, motivation, or longer-term development.",
+            "title": "Real-life confidence, motivation, and everyday next steps",
+            "summary": "Start with Personal Growth & Life Skills if someone wants help speaking up, building motivation, handling everyday situations, or choosing a realistic next step.",
             "action": {
               "label": "Explore Personal Growth",
               "variant": "text",
@@ -319,8 +319,8 @@
             }
           },
           {
-            "title": "CV help, applications, and work-readiness",
-            "summary": "Start with Career Support & CV Help if someone needs practical employment guidance and a route that can quickly turn into action.",
+            "title": "CVs, applications, interviews, and work or college next steps",
+            "summary": "Start with Career Support & CV Help if someone has a CV draft, an unfinished application, interview questions, or no clear plan yet.",
             "action": {
               "label": "Explore Career Support",
               "variant": "text",
@@ -346,7 +346,7 @@
       "ctaBand": {
         "eyebrow": "Need a clearer next step?",
         "title": "Use the route that matches your confidence level and what you already know.",
-        "summary": "If you know you want timings, go to Sessions. If you know the kind of support you need, start with a programme. If you are still unsure, contact the team.",
+        "summary": "If you want confirmed timings, go to Sessions. If you know the kind of support you need, start with a programme. If you are still unsure, ask a question.",
         "badges": ["Programmes", "Sessions", "Contact"],
         "actions": [
           {
@@ -355,7 +355,7 @@
             "routeId": "sessions"
           },
           {
-            "label": "Get support",
+            "label": "Ask a question",
             "variant": "secondary",
             "routeId": "contact"
           },
@@ -375,40 +375,40 @@
     {
       "pageId": "sessions",
       "template": "session-index",
-      "metaDescription": "Browse recurring Saturday sessions, understand what to expect, and find the clearest next step into support.",
+      "metaDescription": "Browse Saturday CV support and youth club sessions in Rochdale, including timings, what happens, what to expect, and how to ask before attending.",
       "intro": {
         "eyebrow": "Saturday sessions",
         "title": "Recurring offers that are easy to understand and easy to return to.",
-        "summary": "Join a session, ask for support, and understand the practical next step without decoding a timetable first.",
+        "summary": "Compare CV support at 16:45 and youth club at 18:45, understand what happens, and ask before attending if you need a clearer first step.",
         "badges": ["Low-pressure first step", "Live Saturday routes"],
-        "supportingText": "If you need a different kind of help before choosing a session, use the support route instead."
+        "supportingText": "Both live sessions run every Saturday for 120 minutes. Rochdale is public; exact venue details are shared on enquiry."
       },
       "actions": {
-        "primaryLabel": "Get support",
+        "primaryLabel": "Ask a question",
         "secondaryLabel": "See programmes"
       },
       "scheduleSection": {
         "eyebrow": "Compare the live options",
         "title": "Choose the Saturday route that fits best right now.",
-        "summary": "Each card keeps the next date, timing, linked programme, and clearest next step visible without turning the page into a dense timetable."
+        "summary": "Each card keeps the next date, timing, linked programme, what happens, and the clearest ask-first route visible without turning the page into a dense timetable."
       },
       "guidanceSection": {
         "eyebrow": "Before you come",
         "title": "Practical detail and reassurance should stay public.",
-        "summary": "The session hub helps someone feel clear enough to take the next step before they need to send a long message."
+        "summary": "The session hub explains what happens, when it happens, what to expect, and how to ask before attending."
       },
       "guidancePanels": [
         {
           "title": "First visits can stay simple",
-          "body": "You do not need a polished explanation, a perfect reason, or a full plan before you ask about coming."
+          "body": "You do not need a polished explanation, a perfect reason, or a full plan before you ask about coming to CV support or youth club."
         },
         {
           "title": "Location details stay careful",
-          "body": "The public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy."
+          "body": "The public location anchor is Rochdale. Exact venue details are shared on enquiry."
         },
         {
           "title": "Support routes stay visible",
-          "body": "If you are not sure which session fits, want to ask on someone else's behalf, or need another route entirely, contact and safeguarding links should still be easy to find."
+          "body": "If you are not sure which session fits, want to ask on someone else's behalf, or need another route entirely, contact and safeguarding links stay easy to find."
         }
       ],
       "faqSection": {
@@ -418,7 +418,7 @@
       },
       "sidebarNotice": {
         "title": "Need another route?",
-        "body": "If the Saturday sessions are not the right fit, use the contact route and the team can help you figure out the next step.",
+        "body": "If the Saturday sessions are not the right fit, ask a question and the team can help you figure out the next step.",
         "tone": "info"
       },
       "ctaBand": {
@@ -777,7 +777,7 @@
         "title": "Raise child safeguarding concerns clearly and without delay.",
         "summary": "Use this route when the concern is about a child or young person. If there is immediate danger or urgent medical risk, call 999 first.",
         "badges": [
-          "Child or young person under 18",
+          "Child or young person",
           "Secure concern form",
           "Emergency services first if urgent"
         ],
@@ -1341,7 +1341,7 @@
       "proofBoundary": {
         "eyebrow": "Proof and publication boundaries",
         "title": "The page stays credible by showing what is true now and what is still awaiting approval.",
-        "summary": "That leaves space for future partner logos, case studies, or testimonials without forcing placeholder proof into the launch route.",
+        "summary": "That leaves space for future partner logos, case studies, or permission-cleared proof quotes without forcing placeholder proof into the launch route.",
         "publishNow": [
           "Youth-led, community-rooted support and current public programme and session routes.",
           "A live partnership enquiry path for referrals, collaboration, sponsorship, venue support, and practical local help.",
@@ -1352,7 +1352,7 @@
           "Any public wording about geographic coverage beyond the current Rochdale-centred description."
         ],
         "withheldUntilVerified": [
-          "Partner logos, testimonials, or success stories that are not yet approved for publication.",
+          "Partner logos, public praise quotes, or success stories that are not yet approved for publication.",
           "Claims about formal referral pipelines, guaranteed response times, or contractual arrangements that the repo does not evidence."
         ]
       },

@@ -5,10 +5,13 @@ import type { ActionLink, MediaAsset } from "../../lib/types/site-ui";
 
 interface Props {
   actions?: ActionLink[];
+  "aria-describedby"?: string;
+  "aria-labelledby"?: string;
   as?: "article" | "aside" | "div" | "section";
   className?: string;
   external?: boolean;
   heading?: string;
+  headingId?: string;
   headingLevel?: 2 | 3;
   href?: string;
   id?: string;
@@ -16,6 +19,7 @@ interface Props {
   interactive?: boolean;
   selected?: boolean;
   summary?: string;
+  summaryId?: string;
   tone?: "accent" | "callout" | "default" | "muted" | "soft";
   eyebrow?: string;
 }
@@ -26,6 +30,7 @@ const {
   className = "",
   external = false,
   heading,
+  headingId,
   headingLevel = 2,
   href,
   id,
@@ -33,6 +38,7 @@ const {
   interactive = false,
   selected = false,
   summary,
+  summaryId,
   tone = "default",
   eyebrow,
   ...rest
@@ -71,9 +77,13 @@ const cardClass = [
           {eyebrow ? <p class="eyebrow">{eyebrow}</p> : null}
           {heading ? (
             headingLevel === 3 ? (
-              <h3 class="card-panel__heading">{heading}</h3>
+              <h3 id={headingId} class="card-panel__heading">
+                {heading}
+              </h3>
             ) : (
-              <h2 class="card-panel__heading">{heading}</h2>
+              <h2 id={headingId} class="card-panel__heading">
+                {heading}
+              </h2>
             )
           ) : null}
         </div>
@@ -81,7 +91,13 @@ const cardClass = [
     ) : null
   }
 
-  {summary ? <p class="card-panel__summary">{summary}</p> : null}
+  {
+    summary ? (
+      <p id={summaryId} class="card-panel__summary">
+        {summary}
+      </p>
+    ) : null
+  }
   <slot />
   {
     actions.length > 0 ? (

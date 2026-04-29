@@ -37,7 +37,9 @@ test("first visit stays banner-free and analytics preference changes apply on ne
 
   await cookiesPage.getByRole("button", { name: "Turn off anonymous analytics" }).click();
   await expect(
-    cookiesPage.getByText("Anonymous service-improvement analytics are off on this device.")
+    cookiesPage.getByText(
+      "Anonymous service-improvement analytics are off on this device."
+    )
   ).toBeVisible();
   await expect(cookiesPage).toHaveURL(/analyticsPreference=objected/u);
 

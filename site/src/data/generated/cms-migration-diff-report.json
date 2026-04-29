@@ -23,38 +23,38 @@
     },
     {
       "collectionName": "homePage",
-      "sourceFingerprint": "5823bda0884da273f4c392abd7d130571644b0aff54ddbf090bf02dbff93b455",
-      "publishedFingerprint": "5823bda0884da273f4c392abd7d130571644b0aff54ddbf090bf02dbff93b455",
+      "sourceFingerprint": "f5ce30ec064844dfe3dba87ac5d122d94f32fcc3b720dd1ea9175491f171ba85",
+      "publishedFingerprint": "f5ce30ec064844dfe3dba87ac5d122d94f32fcc3b720dd1ea9175491f171ba85",
       "matchesSource": true
     },
     {
       "collectionName": "routePages",
-      "sourceFingerprint": "67df7badedb06b638e7613e168d049dc696d37401ed09496b4e612c32d67ab5b",
-      "publishedFingerprint": "67df7badedb06b638e7613e168d049dc696d37401ed09496b4e612c32d67ab5b",
+      "sourceFingerprint": "dac42a3c5947b053af82473fdfa0e11eb584a013f534bbc267b576edae56037d",
+      "publishedFingerprint": "dac42a3c5947b053af82473fdfa0e11eb584a013f534bbc267b576edae56037d",
       "matchesSource": true
     },
     {
       "collectionName": "programmes",
-      "sourceFingerprint": "4efa803b10d84ffe1cb5101f09d7315e133c9178820711aa10540f1390a2d0ee",
-      "publishedFingerprint": "4efa803b10d84ffe1cb5101f09d7315e133c9178820711aa10540f1390a2d0ee",
+      "sourceFingerprint": "19831ede597bc48767612482b2f4d18c2d38c7b31ab428a41b28f0045a4afef5",
+      "publishedFingerprint": "19831ede597bc48767612482b2f4d18c2d38c7b31ab428a41b28f0045a4afef5",
       "matchesSource": true
     },
     {
       "collectionName": "programmePageContent",
-      "sourceFingerprint": "11840b7e05ba2b5218025a89c17fe7bc69a630f4c8957ea169e30a1ac29335de",
-      "publishedFingerprint": "11840b7e05ba2b5218025a89c17fe7bc69a630f4c8957ea169e30a1ac29335de",
+      "sourceFingerprint": "82f60f9ddcaf5d5a52bb1a794bec696a188b27e450df50f510ae682ead5d8bba",
+      "publishedFingerprint": "82f60f9ddcaf5d5a52bb1a794bec696a188b27e450df50f510ae682ead5d8bba",
       "matchesSource": true
     },
     {
       "collectionName": "sessions",
-      "sourceFingerprint": "ba467225f04dd4c4255eaaf94816d83b4545b1b22927be5a01d67b5619d572d1",
-      "publishedFingerprint": "ba467225f04dd4c4255eaaf94816d83b4545b1b22927be5a01d67b5619d572d1",
+      "sourceFingerprint": "7a0951936d9c68d7147ae4561c364a14782f6a04fff7164f1757cb54028d85bc",
+      "publishedFingerprint": "7a0951936d9c68d7147ae4561c364a14782f6a04fff7164f1757cb54028d85bc",
       "matchesSource": true
     },
     {
       "collectionName": "sessionPageContent",
-      "sourceFingerprint": "38eae2d40c428cdfdd9d03f08d00af7849d6e562e077c6e57a9b16091be2600d",
-      "publishedFingerprint": "38eae2d40c428cdfdd9d03f08d00af7849d6e562e077c6e57a9b16091be2600d",
+      "sourceFingerprint": "552a269f33445db48f0562039ee63b184111be61d169160ab3bc15cf306d70bb",
+      "publishedFingerprint": "552a269f33445db48f0562039ee63b184111be61d169160ab3bc15cf306d70bb",
       "matchesSource": true
     },
     {
@@ -65,8 +65,8 @@
     },
     {
       "collectionName": "faqs",
-      "sourceFingerprint": "38e5e71514e5b6339e9f2711c17c4e5ed9ae60b0f976d43368e162cbd211d46a",
-      "publishedFingerprint": "38e5e71514e5b6339e9f2711c17c4e5ed9ae60b0f976d43368e162cbd211d46a",
+      "sourceFingerprint": "db448fda5828520cd0f2a38d863550a1ba6ee595cf5ac47ea39305526080154e",
+      "publishedFingerprint": "db448fda5828520cd0f2a38d863550a1ba6ee595cf5ac47ea39305526080154e",
       "matchesSource": true
     },
     {
@@ -113,8 +113,8 @@
     },
     {
       "collectionName": "safeguardingInfo",
-      "sourceFingerprint": "0deda2629236cf4d6c26132f12be9f6516bcd76816475ed4ca9d43dc3cd8949c",
-      "publishedFingerprint": "0deda2629236cf4d6c26132f12be9f6516bcd76816475ed4ca9d43dc3cd8949c",
+      "sourceFingerprint": "d39ce3387144e3a6d9947a6a05383bba143f6293ec1eb4e9779c8e20512abe1a",
+      "publishedFingerprint": "d39ce3387144e3a6d9947a6a05383bba143f6293ec1eb4e9779c8e20512abe1a",
       "matchesSource": true
     },
     {

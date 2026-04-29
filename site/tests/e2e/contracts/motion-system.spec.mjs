@@ -1,23 +1,70 @@
 import { gotoRoute } from "../support/assertions.mjs";
 import { expect, test } from "../support/fixtures.mjs";
 
-test("default motion gives interactive cards a subtle hover lift", async ({
+test("default motion gives route cards useful hover and keyboard focus states without changing links", async ({
   page,
   pageIssues
 }) => {
-  await gotoRoute(page, "/system/components/");
+  await gotoRoute(page, "/");
 
-  const actionCard = page
-    .locator('[data-component-preview-section="cards"] .action-card')
-    .first();
+  const routeGrid = page.locator(".home-route-grid");
+  const actionCard = routeGrid.locator("[data-route-card]").first();
+
+  await routeGrid.scrollIntoViewIfNeeded();
+  await expect
+    .poll(async () =>
+      routeGrid.evaluate((element) =>
+        [...element.querySelectorAll("[data-route-card]")].every(
+          (card) => card instanceof HTMLElement && card.dataset.inView === "true"
+        )
+      )
+    )
+    .toBe(true);
+
+  const hrefBefore = await actionCard.getAttribute("href");
+  const gridBoxBefore = await routeGrid.evaluate((element) => ({
+    height: element.getBoundingClientRect().height,
+    width: element.getBoundingClientRect().width
+  }));
 
   await actionCard.hover();
 
-  const transform = await actionCard.evaluate(
-    (element) => getComputedStyle(element).transform
-  );
+  const hoverState = await actionCard.evaluate((element) => {
+    const styles = getComputedStyle(element);
 
-  expect(transform).not.toBe("none");
+    return {
+      borderColor: styles.borderColor,
+      boxShadow: styles.boxShadow,
+      transform: styles.transform
+    };
+  });
+  const gridBoxAfterHover = await routeGrid.evaluate((element) => ({
+    height: element.getBoundingClientRect().height,
+    width: element.getBoundingClientRect().width
+  }));
+
+  await actionCard.focus();
+
+  const focusState = await actionCard.evaluate((element) => {
+    const styles = getComputedStyle(element);
+
+    return {
+      outlineStyle: styles.outlineStyle,
+      outlineWidth: styles.outlineWidth
+    };
+  });
+
+  expect(hrefBefore).toBe("/sessions/");
+  await expect(actionCard).toHaveAttribute("href", hrefBefore ?? "");
+  expect(hoverState.transform).not.toBe("none");
+  expect(hoverState.borderColor).not.toBe("rgba(0, 0, 0, 0)");
+  expect(hoverState.boxShadow).not.toBe("none");
+  expect(focusState.outlineStyle).not.toBe("none");
+  expect(focusState.outlineWidth).not.toBe("0px");
+  expect(Math.abs(gridBoxAfterHover.height - gridBoxBefore.height)).toBeLessThanOrEqual(
+    1
+  );
+  expect(Math.abs(gridBoxAfterHover.width - gridBoxBefore.width)).toBeLessThanOrEqual(1);
 
   void pageIssues;
 });
@@ -37,12 +84,17 @@ test("mobile navigation and sticky header expose structural state changes", asyn
   await expect(header).toHaveAttribute("data-header-scrolled", "true");
 
   await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveText("Menu");
   await toggle.click();
   await expect(header).toHaveAttribute("data-nav-state", "open");
+  await expect(toggle).toHaveAttribute("data-toggle-state", "open");
+  await expect(toggle).toHaveText("Close");
   await expect(page.locator("[data-nav-panel]")).toBeVisible();
 
   await toggle.click();
   await expect.poll(async () => header.getAttribute("data-nav-state")).toBe("closed");
+  await expect(toggle).toHaveAttribute("data-toggle-state", "closed");
+  await expect(toggle).toHaveText("Menu");
 
   void pageIssues;
 });
@@ -87,9 +139,13 @@ test("reduced motion keeps reveal content visible and removes hover translation"
   expect(firstRevealState.transform).toBe("none");
   expect(firstRevealState.inView).toBe("true");
 
-  const actionCard = page
-    .locator('[data-component-preview-section="cards"] .action-card')
-    .first();
+  const accordionItem = page.locator("[data-disclosure-item]").nth(1);
+  await page.locator("[data-disclosure-item] summary").nth(1).click();
+  await expect(accordionItem).toHaveAttribute("data-disclosure-state", "expanded");
+
+  await gotoRoute(page, "/");
+
+  const actionCard = page.locator("[data-route-card]").first();
 
   await actionCard.hover();
   const reducedTransform = await actionCard.evaluate(
@@ -97,10 +153,6 @@ test("reduced motion keeps reveal content visible and removes hover translation"
   );
 
   expect(["none", "matrix(1, 0, 0, 1, 0, 0)"]).toContain(reducedTransform);
-
-  const accordionItem = page.locator("[data-disclosure-item]").nth(1);
-  await page.locator("[data-disclosure-item] summary").nth(1).click();
-  await expect(accordionItem).toHaveAttribute("data-disclosure-state", "expanded");
 
   void pageIssues;
 });

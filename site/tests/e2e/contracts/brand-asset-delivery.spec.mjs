@@ -1,7 +1,10 @@
 import { gotoRoute } from "../support/assertions.mjs";
 import { expect, test } from "../support/fixtures.mjs";
 
-test("shell brand mark serves responsive raster sources", async ({ page, pageIssues }) => {
+test("shell brand mark serves responsive raster sources", async ({
+  page,
+  pageIssues
+}) => {
   await gotoRoute(page, "/");
 
   const headerIcon = page.locator(".site-header__brand .brand-mark__icon");
@@ -22,7 +25,9 @@ test("shell brand mark serves responsive raster sources", async ({ page, pageIss
     page.locator(".site-header__brand .brand-mark__icon-frame source[type='image/webp']")
   ).toHaveAttribute("srcset", /encouragingyou-mark-64\.webp 64w/u);
   await expect(
-    page.locator(".site-header__brand .brand-mark__wordmark-frame source[type='image/webp']")
+    page.locator(
+      ".site-header__brand .brand-mark__wordmark-frame source[type='image/webp']"
+    )
   ).toHaveAttribute("srcset", /encouragingyou-wordmark-180\.webp 180w/u);
 
   await expect

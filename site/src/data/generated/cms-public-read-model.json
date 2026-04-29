@@ -617,7 +617,7 @@
     },
     "homePage": {
       "metaTitle": "EncouragingYou | Youth-led support in Rochdale",
-      "metaDescription": "Build confidence, get practical help, and find the right next step into sessions, support, or community-rooted programmes in Rochdale.",
+      "metaDescription": "Youth club, CV help, friendship, confidence-building, and practical next steps for young people in Rochdale.",
       "routePurpose": "Make the first step obvious for people seeking support, carers and referrers checking trust cues, and visitors exploring the wider organisation.",
       "audiencePriority": [
         "young-people",
@@ -695,10 +695,11 @@
         },
         {
           "id": "ask-a-support-question",
-          "label": "Ask a support question",
-          "summary": "Send a short message if the public answers do not cover what you need.",
+          "label": "Ask a question",
+          "summary": "Send a short message if you are unsure what fits or want to check timing, privacy, or safety.",
           "variant": "secondary",
           "routeId": "contact",
+          "iconAssetId": "icon-contact",
           "audiences": [
             "young-people",
             "parents-carers",
@@ -712,7 +713,7 @@
         {
           "id": "get-cv-help",
           "label": "Get CV help",
-          "summary": "Find one-to-one support for CVs, applications, and job-readiness next steps.",
+          "summary": "Get real help writing your CV, applying for jobs, and preparing for interviews.",
           "variant": "surface",
           "routeId": "programme-career-support-cv-help",
           "iconAssetId": "icon-cv-support",
@@ -793,7 +794,7 @@
         {
           "id": "volunteer-or-partner",
           "label": "Volunteer or partner",
-          "summary": "Explore volunteering, referrals, and partnership pathways without a complicated start.",
+          "summary": "Explore volunteering, referrals, and partnership routes without a complicated start.",
           "variant": "surface",
           "routeId": "get-involved",
           "iconAssetId": "icon-mentoring",
@@ -877,7 +878,7 @@
       ],
       "conversionStack": {
         "primaryActionId": "join-session",
-        "secondaryActionId": "get-support",
+        "secondaryActionId": "ask-a-support-question",
         "supportingActionIds": [
           "get-cv-help",
           "explore-programmes",
@@ -888,7 +889,7 @@
             "audience": "young-people",
             "summary": "Make the first session or support route easy to choose without long reading.",
             "primaryActionId": "join-session",
-            "secondaryActionId": "get-support",
+            "secondaryActionId": "ask-a-support-question",
             "supportingActionIds": [
               "get-cv-help"
             ]
@@ -897,7 +898,7 @@
             "audience": "parents-carers",
             "summary": "Keep trust, safeguarding, and a low-friction contact route visible before commitment.",
             "primaryActionId": "join-session",
-            "secondaryActionId": "get-support",
+            "secondaryActionId": "ask-a-support-question",
             "supportingActionIds": [
               "safeguarding-information",
               "privacy-notice",
@@ -908,7 +909,7 @@
             "audience": "referrers",
             "summary": "Show the route into sessions or contact clearly while keeping the wider programme shape visible.",
             "primaryActionId": "join-session",
-            "secondaryActionId": "get-support",
+            "secondaryActionId": "ask-a-support-question",
             "supportingActionIds": [
               "get-cv-help",
               "explore-programmes"
@@ -917,7 +918,7 @@
           {
             "audience": "community-members",
             "summary": "Explain that the welcome extends beyond Saturday sessions and into wider community support.",
-            "primaryActionId": "get-support",
+            "primaryActionId": "ask-a-support-question",
             "secondaryActionId": "see-community-support",
             "supportingActionIds": [
               "explore-programmes",
@@ -949,15 +950,15 @@
       },
       "hero": {
         "eyebrow": "Youth-led support in Rochdale",
-        "headline": "Build confidence, get practical help, and move forward.",
-        "summary": "Join a session, ask for support, or explore the wider programmes that make belonging and practical help feel easier to reach.",
+        "headline": "Helping young people in Rochdale build confidence, friendships and future opportunities.",
+        "summary": "Youth club, CV and application help, low-pressure friendship, confidence-building, and practical support for young people in Rochdale who want a clearer next step.",
         "badgeItems": [
-          "Every Saturday",
-          "CV help before youth club",
-          "Warm, low-pressure welcome"
+          "Young people in Rochdale",
+          "Saturday sessions",
+          "Ask before you come"
         ],
         "primaryActionId": "join-session",
-        "secondaryActionId": "get-support",
+        "secondaryActionId": "ask-a-support-question",
         "mediaId": "hero-home"
       },
       "sections": [
@@ -966,11 +967,11 @@
           "kind": "quick-actions",
           "eyebrow": "Start here",
           "title": "What can you do here today?",
-          "summary": "Start with the route that fits today, whether that is a session, support, or a way to help.",
+          "summary": "Start with the route that fits today, whether that is a session, CV help, youth club, or a question for the team.",
           "actionIds": [
             "join-session",
             "get-cv-help",
-            "get-support",
+            "ask-a-support-question",
             "volunteer-or-partner"
           ]
         },
@@ -1026,8 +1027,8 @@
           "id": "programme-teasers",
           "kind": "programme-teasers",
           "eyebrow": "Programmes",
-          "title": "Support that goes beyond one session or one need.",
-          "summary": "Explore the wider support areas if you want the bigger picture before choosing a route.",
+          "title": "Support for confidence, friendship, and practical next steps.",
+          "summary": "Explore confidence, life skills, motivation, low-pressure friendship, and practical help before choosing a route.",
           "programmeSlugs": [
             "community-friendship",
             "personal-growth-life-skills",
@@ -1107,18 +1108,18 @@
         {
           "id": "contact-panel",
           "kind": "contact-panel",
-          "eyebrow": "Get support or ask a question",
+          "eyebrow": "Ask a question",
           "title": "Send a short message and we will help you find the right next step.",
-          "summary": "Use this route if you need help choosing between a session, programme, referral, or community route.",
+          "summary": "Use this route if you need help choosing between a session, CV help, youth club, or wider support.",
           "formSurfaceId": "support-general",
-          "primaryActionId": "get-support",
+          "primaryActionId": "ask-a-support-question",
           "secondaryActionId": "safeguarding-information"
         }
       ],
       "stateRules": {
         "liveSessions": {
           "sectionId": "live-sessions",
-          "supportActionId": "get-support"
+          "supportActionId": "ask-a-support-question"
         },
         "updates": {
           "sectionId": "updates-surface",
@@ -1155,20 +1156,18 @@
       "launchBoundaries": {
         "staysOnHomepageNow": [
           "hero with first-step actions",
-          "quick routes for support, sessions, and involvement",
-          "trust cues close to the main decisions",
-          "live Saturday session visibility",
-          "programme overview",
-          "support contact route"
+          "short who, what, and why introduction",
+          "route hub cards into verified pages",
+          "small trust, privacy, and safeguarding reassurance"
         ],
         "deferredToLaterRoutes": [
           "full about-storytelling depth",
           "individual programme detail depth",
           "full event and update archive",
-          "detailed volunteer and partner pathways"
+          "detailed volunteer and partner route depth"
         ],
         "intentionallyExcludedFromLaunch": [
-          "invented testimonials or impact numbers",
+          "invented proof quotes or impact numbers",
           "unapproved partner logos",
           "participant photography that has not been cleared for use",
           "dense news feed modules with no real content behind them"
@@ -1395,7 +1394,7 @@
               "Named leadership biographies, team portraits, and approved partner references."
             ],
             "withheldUntilVerified": [
-              "Impact statistics, testimonials, or outcome claims that have not been approved.",
+              "Impact statistics, public praise quotes, or outcome claims that have not been approved.",
               "Detailed claims about live partnerships, referral volume, or specific venue disclosure."
             ]
           },
@@ -1445,11 +1444,11 @@
         {
           "pageId": "programmes",
           "template": "programme-index",
-          "metaDescription": "Explore EncouragingYou's four core support pillars, understand how programmes differ from live sessions, and choose the route that fits best.",
+          "metaDescription": "Compare EncouragingYou's support pillars for friendship, real-life confidence, CV help, and wider community connection before choosing a route.",
           "intro": {
             "eyebrow": "Programme overview",
             "title": "Support that meets people where they are.",
-            "summary": "From community and friendship to personal growth, career support, and wider community connection, these pillars explain what each route is for before you decide how to step in.",
+            "summary": "Compare low-pressure friendship, real-life confidence, CV and application help, and wider community connection before choosing a session or asking a question.",
             "badges": [
               "4 support pillars",
               "Programme-led guidance",
@@ -1462,7 +1461,7 @@
                 "routeId": "sessions"
               },
               {
-                "label": "Get support",
+                "label": "Ask a question",
                 "variant": "secondary",
                 "routeId": "contact"
               }
@@ -1471,21 +1470,21 @@
           "overviewPanels": [
             {
               "title": "Programmes explain the support theme",
-              "body": "Use this route when you want to understand what kind of support fits before you look at dates, timings, or one specific activity."
+              "body": "Use these pages to understand what support feels like: speaking to people, building confidence, getting CV help, or asking about wider community connection."
             },
             {
               "title": "Sessions show live recurring opportunities",
-              "body": "Use the Sessions route when you are ready for practical timing, first-visit detail, and the clearest current join path."
+              "body": "Use the Sessions route when you want confirmed Saturday timing, what happens in the room, what to expect, and how to ask before attending."
             },
             {
               "title": "Contact stays available when you are unsure",
-              "body": "If none of the published routes fits neatly, the contact route should still help you or someone else work out the next step."
+              "body": "If none of the published routes fits neatly, ask a question so the team can help you or someone else work out the next step."
             }
           ],
           "scheduleSection": {
             "eyebrow": "Live support right now",
             "title": "Some pillars already connect to recurring Saturday sessions.",
-            "summary": "Career support and community friendship currently have the clearest published live routes. The other pillars still matter, but they are not pretending to be timetable-heavy when they are not."
+            "summary": "Career support and community friendship currently have the clearest published live routes. The other pillars still matter, but they stay contact-led until more public detail is confirmed."
           },
           "audienceSection": {
             "eyebrow": "Choose by what you need",
@@ -1493,8 +1492,8 @@
             "summary": "These routes are designed around intent, not insider language.",
             "items": [
               {
-                "title": "Belonging, friendship, and a welcoming first step",
-                "summary": "Start with Community & Friendship if someone needs safe space, low-pressure connection, or a route back into community.",
+                "title": "Speaking to people, joining in, and feeling able to return",
+                "summary": "Start with Community & Friendship if someone wants games, conversation, low-pressure friendship, or a first visit that does not require instant confidence.",
                 "action": {
                   "label": "Explore Community & Friendship",
                   "variant": "text",
@@ -1502,8 +1501,8 @@
                 }
               },
               {
-                "title": "Confidence, life skills, and personal growth",
-                "summary": "Start with Personal Growth & Life Skills if the need is confidence-building, leadership, motivation, or longer-term development.",
+                "title": "Real-life confidence, motivation, and everyday next steps",
+                "summary": "Start with Personal Growth & Life Skills if someone wants help speaking up, building motivation, handling everyday situations, or choosing a realistic next step.",
                 "action": {
                   "label": "Explore Personal Growth",
                   "variant": "text",
@@ -1511,8 +1510,8 @@
                 }
               },
               {
-                "title": "CV help, applications, and work-readiness",
-                "summary": "Start with Career Support & CV Help if someone needs practical employment guidance and a route that can quickly turn into action.",
+                "title": "CVs, applications, interviews, and work or college next steps",
+                "summary": "Start with Career Support & CV Help if someone has a CV draft, an unfinished application, interview questions, or no clear plan yet.",
                 "action": {
                   "label": "Explore Career Support",
                   "variant": "text",
@@ -1538,7 +1537,7 @@
           "ctaBand": {
             "eyebrow": "Need a clearer next step?",
             "title": "Use the route that matches your confidence level and what you already know.",
-            "summary": "If you know you want timings, go to Sessions. If you know the kind of support you need, start with a programme. If you are still unsure, contact the team.",
+            "summary": "If you want confirmed timings, go to Sessions. If you know the kind of support you need, start with a programme. If you are still unsure, ask a question.",
             "badges": [
               "Programmes",
               "Sessions",
@@ -1551,7 +1550,7 @@
                 "routeId": "sessions"
               },
               {
-                "label": "Get support",
+                "label": "Ask a question",
                 "variant": "secondary",
                 "routeId": "contact"
               },
@@ -1571,43 +1570,43 @@
         {
           "pageId": "sessions",
           "template": "session-index",
-          "metaDescription": "Browse recurring Saturday sessions, understand what to expect, and find the clearest next step into support.",
+          "metaDescription": "Browse Saturday CV support and youth club sessions in Rochdale, including timings, what happens, what to expect, and how to ask before attending.",
           "intro": {
             "eyebrow": "Saturday sessions",
             "title": "Recurring offers that are easy to understand and easy to return to.",
-            "summary": "Join a session, ask for support, and understand the practical next step without decoding a timetable first.",
+            "summary": "Compare CV support at 16:45 and youth club at 18:45, understand what happens, and ask before attending if you need a clearer first step.",
             "badges": [
               "Low-pressure first step",
               "Live Saturday routes"
             ],
-            "supportingText": "If you need a different kind of help before choosing a session, use the support route instead."
+            "supportingText": "Both live sessions run every Saturday for 120 minutes. Rochdale is public; exact venue details are shared on enquiry."
           },
           "actions": {
-            "primaryLabel": "Get support",
+            "primaryLabel": "Ask a question",
             "secondaryLabel": "See programmes"
           },
           "scheduleSection": {
             "eyebrow": "Compare the live options",
             "title": "Choose the Saturday route that fits best right now.",
-            "summary": "Each card keeps the next date, timing, linked programme, and clearest next step visible without turning the page into a dense timetable."
+            "summary": "Each card keeps the next date, timing, linked programme, what happens, and the clearest ask-first route visible without turning the page into a dense timetable."
           },
           "guidanceSection": {
             "eyebrow": "Before you come",
             "title": "Practical detail and reassurance should stay public.",
-            "summary": "The session hub helps someone feel clear enough to take the next step before they need to send a long message."
+            "summary": "The session hub explains what happens, when it happens, what to expect, and how to ask before attending."
           },
           "guidancePanels": [
             {
               "title": "First visits can stay simple",
-              "body": "You do not need a polished explanation, a perfect reason, or a full plan before you ask about coming."
+              "body": "You do not need a polished explanation, a perfect reason, or a full plan before you ask about coming to CV support or youth club."
             },
             {
               "title": "Location details stay careful",
-              "body": "The public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy."
+              "body": "The public location anchor is Rochdale. Exact venue details are shared on enquiry."
             },
             {
               "title": "Support routes stay visible",
-              "body": "If you are not sure which session fits, want to ask on someone else's behalf, or need another route entirely, contact and safeguarding links should still be easy to find."
+              "body": "If you are not sure which session fits, want to ask on someone else's behalf, or need another route entirely, contact and safeguarding links stay easy to find."
             }
           ],
           "faqSection": {
@@ -1617,7 +1616,7 @@
           },
           "sidebarNotice": {
             "title": "Need another route?",
-            "body": "If the Saturday sessions are not the right fit, use the contact route and the team can help you figure out the next step.",
+            "body": "If the Saturday sessions are not the right fit, ask a question and the team can help you figure out the next step.",
             "tone": "info"
           },
           "ctaBand": {
@@ -1984,7 +1983,7 @@
             "title": "Raise child safeguarding concerns clearly and without delay.",
             "summary": "Use this route when the concern is about a child or young person. If there is immediate danger or urgent medical risk, call 999 first.",
             "badges": [
-              "Child or young person under 18",
+              "Child or young person",
               "Secure concern form",
               "Emergency services first if urgent"
             ],
@@ -2552,7 +2551,7 @@
           "proofBoundary": {
             "eyebrow": "Proof and publication boundaries",
             "title": "The page stays credible by showing what is true now and what is still awaiting approval.",
-            "summary": "That leaves space for future partner logos, case studies, or testimonials without forcing placeholder proof into the launch route.",
+            "summary": "That leaves space for future partner logos, case studies, or permission-cleared proof quotes without forcing placeholder proof into the launch route.",
             "publishNow": [
               "Youth-led, community-rooted support and current public programme and session routes.",
               "A live partnership enquiry path for referrals, collaboration, sponsorship, venue support, and practical local help.",
@@ -2563,7 +2562,7 @@
               "Any public wording about geographic coverage beyond the current Rochdale-centred description."
             ],
             "withheldUntilVerified": [
-              "Partner logos, testimonials, or success stories that are not yet approved for publication.",
+              "Partner logos, public praise quotes, or success stories that are not yet approved for publication.",
               "Claims about formal referral pipelines, guaranteed response times, or contractual arrangements that the repo does not evidence."
             ]
           },
@@ -2687,16 +2686,16 @@
           "title": "Community & Friendship",
           "shortTitle": "Community & Friendship",
           "launchStatus": "launch",
-          "summary": "A belonging-first support route built around safe space, low-pressure connection, and regular community familiarity.",
-          "promise": "Help people feel welcomed, settle into community at their own pace, and build friendships they want to return to.",
+          "summary": "A low-pressure route for speaking to people, joining games and conversation at your own pace, and feeling comfortable coming back.",
+          "promise": "Help young people speak to people, join in at their own pace, and build friendships through games, conversation, and repeat visits.",
           "audiences": [
             "young-people",
             "parents-carers"
           ],
-          "audienceSummary": "Best for young people who need belonging, friendship, and a low-pressure place to settle in.",
+          "audienceSummary": "Best for young people who want a place to meet people, join games or conversation slowly, and feel comfortable returning.",
           "audienceHighlights": [
-            "Young people who want a welcoming first step into support or community",
-            "Parents or carers looking for a safe, positive atmosphere before someone attends"
+            "Young people who want to speak to people without pressure to arrive already confident",
+            "Parents or carers looking for a welcoming Saturday route where a first visit can be quiet, social, or somewhere in between"
           ],
           "existingDeliveryMode": "active-session-linked",
           "relatedSessionIds": [
@@ -2704,7 +2703,7 @@
           ],
           "featuredMediaId": "programme-community-friendship",
           "featuredIconId": "icon-safe-space",
-          "deliverySummary": "This pillar is already visible through the recurring Saturday youth club. The session page handles timings and joining detail, while the programme page explains the wider belonging-first approach behind it.",
+          "deliverySummary": "This pillar shows up through Saturday youth club. The session page handles exact timing and joining detail; this page explains how games, conversation, and low-pressure friendship help someone come back.",
           "trustSignalIds": [
             "safe-space",
             "visible-safeguarding",
@@ -2712,27 +2711,27 @@
           ],
           "trustNotes": [
             "A calm, welcoming first experience matters as much as the activity itself.",
-            "People do not need to know anyone before they come.",
-            "Safeguarding and first-time reassurance are part of the programme, not separate from it.",
+            "People do not need to know anyone before they come or join in straight away.",
+            "Safeguarding and first-time reassurance are part of the route, not separate from it.",
             "Rochdale can stay public while precise venue details are shared on enquiry."
           ],
           "outcomeBullets": [
-            "Belonging and social connection",
-            "A low-pressure welcome for first-time attendees",
-            "Confidence to return and build friendships over time"
+            "Speaking to people and joining in at your own pace",
+            "Games, conversation, and low-pressure friendship",
+            "Feeling comfortable coming back and seeing familiar faces"
           ],
           "bodySections": [
             {
               "id": "what-this-programme-is",
               "heading": "What this programme is for",
               "body": [
-                "This programme covers the relationship-building side of EncouragingYou's offer: friendship, safe-space design, and a reliable atmosphere that does not expect someone to arrive already confident.",
-                "It is the clearest route for people who want community, conversation, and a place to settle in before taking bigger steps."
+                "This programme covers the relationship-building side of EncouragingYou's offer: speaking to people, joining games or conversation, and having a reliable atmosphere that does not expect someone to arrive already confident.",
+                "It is the clearest route for young people who want community, a low-pressure first step, and a place they can feel comfortable returning to."
               ],
               "bullets": [
-                "Safe space",
-                "Belonging",
-                "Low-pressure welcome"
+                "Speak to people",
+                "Join in at your pace",
+                "Feel able to return"
               ]
             },
             {
@@ -2740,7 +2739,7 @@
               "heading": "What participation can feel like",
               "body": [
                 "The route creates room for games, conversation, chill time, and informal connection without making anyone feel exposed for being quiet or new.",
-                "That matters because the value of Community & Friendship is not only what happens on the timetable. It is the feeling that someone can come back, feel more at ease, and recognise familiar people over time."
+                "That matters because the value is not only what happens on the timetable. It is the feeling that someone can come back, feel more at ease, and recognise familiar people over time."
               ],
               "bullets": [
                 "You do not need to know anyone first",
@@ -2753,7 +2752,7 @@
               "heading": "How the live route works right now",
               "body": [
                 "The strongest live expression of this programme is the Saturday youth club session.",
-                "That page carries timings, calendar detail, and the first practical joining step, while this programme page explains the purpose behind the session and keeps the belonging-first route visible even if the schedule changes."
+                "That page carries exact timing, calendar detail, what to expect, and the first practical joining step, while this programme page explains the purpose behind the session."
               ],
               "bullets": [
                 "Linked to youth club",
@@ -2771,17 +2770,17 @@
           "title": "Personal Growth & Life Skills",
           "shortTitle": "Personal Growth",
           "launchStatus": "launch",
-          "summary": "Confidence-building, practical life-skills, and supportive guidance that help young people move forward.",
-          "promise": "Create space for confidence, resilience, practical skills, and mentoring-style guidance that helps people take their next step.",
+          "summary": "Real-life confidence, motivation, everyday skills, and practical next steps for young people who need encouragement before bigger opportunities feel possible.",
+          "promise": "Help young people practise speaking up, build motivation, handle everyday situations, and choose realistic next steps.",
           "audiences": [
             "young-people",
             "parents-carers",
             "referrers"
           ],
-          "audienceSummary": "Best for young people who need confidence-building, practical guidance, or room to grow into leadership and everyday independence.",
+          "audienceSummary": "Best for young people who want help speaking up, building motivation, handling everyday situations, or choosing a realistic next step.",
           "audienceHighlights": [
-            "Young people who need confidence before bigger opportunities feel possible",
-            "Parents, carers, or referrers looking for practical growth support beyond one-off advice",
+            "Young people who want real-life confidence before bigger opportunities feel possible",
+            "Parents, carers, or referrers looking for practical support with motivation, everyday skills, or next steps",
             "People who may benefit from guidance, mentoring, or workshop-style development as their next step becomes clearer"
           ],
           "existingDeliveryMode": "launch-overview-only",
@@ -2795,26 +2794,26 @@
             "visible-safeguarding"
           ],
           "trustNotes": [
-            "Keep the public promise practical: confidence, life skills, guidance, and motivation are evidenced, but exact workshop formats and dates are not.",
+            "Keep the public promise practical: real-life confidence, everyday skills, guidance, and motivation are evidenced, but exact workshop formats and dates are not.",
             "Contact stays short and supportive so someone can ask what kind of help fits without needing the full plan first.",
             "Safeguarding and privacy need to stay visible because this route may begin with a conversation before a public timetable."
           ],
           "outcomeBullets": [
-            "Confidence and resilience in everyday situations",
-            "Practical life skills and motivation",
-            "Guidance toward participation, opportunity, or the next step"
+            "Speaking up and feeling more confident in real-life situations",
+            "Motivation and everyday skills that make next steps feel possible",
+            "Guidance toward participation, opportunity, or the next realistic step"
           ],
           "bodySections": [
             {
               "id": "what-this-route-can-cover",
               "heading": "What this route can cover",
               "body": [
-                "Public descriptions of this route cover confidence-building, life-skills workshops, mentoring, and practical support that help young people move forward.",
+                "Public descriptions of this route cover confidence-building, life-skills workshops, mentoring, motivation, and practical support that help young people move forward.",
                 "This programme gives those strands a clear public home without pretending every delivery format already has its own published timetable."
               ],
               "bullets": [
-                "Confidence-building",
-                "Life skills",
+                "Real-life confidence",
+                "Everyday skills and motivation",
                 "Guidance and mentoring-style support"
               ]
             },
@@ -2823,7 +2822,7 @@
               "heading": "How support here can feel",
               "body": [
                 "This route feels encouraging and structured, not like someone is expected to sort everything out alone before asking for help.",
-                "Support may include practical conversations, workshop-style learning, or help building motivation and resilience over time."
+                "Support may include practical conversations, workshop-style learning, or help building motivation, everyday skills, and confidence over time."
               ],
               "bullets": [
                 "Practical and encouraging",
@@ -2854,17 +2853,17 @@
           "title": "Career Support & CV Help",
           "shortTitle": "Career Support",
           "launchStatus": "launch",
-          "summary": "Practical career support, CV help, and next-step guidance that turn uncertainty into something clearer and more usable.",
-          "promise": "Help people make progress with CVs, applications, confidence, and practical next steps they can use straight away.",
+          "summary": "Hands-on help with CVs, applications, interviews, and work or college next steps, including unfinished drafts and first questions.",
+          "promise": "Help young people turn CV drafts, applications, interview worries, and work or college questions into clearer next steps.",
           "audiences": [
             "young-people",
             "parents-carers",
             "referrers"
           ],
-          "audienceSummary": "Best for young people who want practical help with CVs, applications, work or college next steps, and confidence around getting started.",
+          "audienceSummary": "Best for young people who want practical help with CVs, applications, interviews, work or college next steps, or confidence around getting started.",
           "audienceHighlights": [
             "Young people who need help turning a blank or unfinished CV into something usable",
-            "People preparing for work, college, applications, or the next practical step",
+            "People preparing for work, college, applications, interviews, or the next practical step",
             "Parents, carers, or referrers who need a clear live route rather than vague employability language"
           ],
           "existingDeliveryMode": "active-session-linked",
@@ -2873,34 +2872,34 @@
           ],
           "featuredMediaId": "programme-career-support",
           "featuredIconId": "icon-cv-support",
-          "deliverySummary": "The current live route is the recurring Saturday CV support session. This programme page explains the broader practical-support promise, while the session page owns exact timing, calendar access, and attendance detail.",
+          "deliverySummary": "The current live route is the recurring Saturday CV support session. This programme page explains the broader practical-support promise, while the session page owns exact timing, calendar access, what to bring, and ask-before-attending detail.",
           "trustSignalIds": [
             "youth-led",
             "privacy-clarity",
             "visible-safeguarding"
           ],
           "trustNotes": [
-            "The route feels useful from the first question, even if someone arrives unsure or underprepared.",
-            "Privacy matters because CVs, applications, and confidence worries can feel personal.",
+            "The route feels useful from the first question, even if someone arrives with an unfinished draft or no document yet.",
+            "Privacy matters because CVs, applications, interview worries, and confidence questions can feel personal.",
             "The live route is local and practical: Rochdale can stay public while exact venue detail is shared on enquiry."
           ],
           "outcomeBullets": [
             "Practical CV writing support",
-            "Help with applications and next steps",
-            "Confidence in work-readiness and opportunity conversations"
+            "Help with applications, interviews, and next steps",
+            "Confidence around work, college, and opportunity conversations"
           ],
           "bodySections": [
             {
               "id": "what-this-route-covers",
               "heading": "What this route covers",
               "body": [
-                "The confirmed public offer covers CV writing, job applications, practical next steps, and support that helps someone feel more ready for work or college opportunities.",
+                "The confirmed public offer covers CV writing, applications, interview preparation, practical next steps, and support that helps someone feel more ready for work or college opportunities.",
                 "The PDF brief also places CV writing and employment support inside the organisation's wider promise to build confidence, practical skills, and positive life outcomes."
               ],
               "bullets": [
                 "CV writing",
-                "Applications support",
-                "Job-readiness and next-step guidance"
+                "Applications and interviews",
+                "Work or college next-step guidance"
               ]
             },
             {
@@ -2908,7 +2907,7 @@
               "heading": "How support here feels",
               "body": [
                 "Career support feels practical, calm, and confidence-building rather than like someone has to perform expertise before they can ask for help.",
-                "The route makes room for questions, unfinished drafts, and uncertainty while still helping someone leave with a clearer idea of what to do next."
+                "The route makes room for questions, unfinished drafts, interview worries, and uncertainty while still helping someone leave with a clearer idea of what to do next."
               ],
               "bullets": [
                 "Bring what you already have",
@@ -2921,7 +2920,7 @@
               "heading": "How the live route works right now",
               "body": [
                 "The clearest current live expression of this programme is the recurring Saturday CV support session.",
-                "That session page owns the exact recurrence, calendar entry, and what to bring. This programme page explains the wider practical-support promise so the route stays useful even before someone clicks into the timetable."
+                "That session page owns the exact recurrence, calendar entry, what to bring, and how to ask before attending. This programme page explains the wider practical-support promise so the route stays useful even before someone clicks into the timetable."
               ],
               "bullets": [
                 "Linked to the Saturday CV support session",
@@ -2939,7 +2938,7 @@
           "title": "Community Support / Intergenerational Connection",
           "shortTitle": "Community Support",
           "launchStatus": "launch",
-          "summary": "Community-rooted support and intergenerational connection for people who need company, practical help, or a clearer first route into local support.",
+          "summary": "Contact-led community support for people who need company, practical help, social connection, or a clearer first route into local support.",
           "promise": "Extend the youth-led welcome across generations through connection, community activity, and practical support that help people feel less alone.",
           "audiences": [
             "community-members",
@@ -2966,7 +2965,7 @@
           ],
           "trustNotes": [
             "EncouragingYou remains youth-led, and this route makes clear that the welcome can still extend beyond a youth-only audience.",
-            "The route starts with conversation and fit, not a speculative public timetable or open-ended promise.",
+            "The route starts with conversation and fit, not a speculative public timetable, public venue, or open-ended promise.",
             "Rochdale can stay public while venue detail, accessibility needs, and the right next step are shared on enquiry.",
             "The page must not imply regulated care, home support, or specialist services beyond the public scope described on the site."
           ],
@@ -3006,7 +3005,7 @@
               "id": "how-access-works-now",
               "heading": "How access works at launch",
               "body": [
-                "This is a contact-led route. The launch site does not present it as a standing events calendar or a formal care service.",
+                "This is a contact-led route. The launch site does not present it as a standing events calendar, public venue, or formal care service.",
                 "Community events or intergenerational activities can be shared as they are ready, while the team uses contact to explain fit, timing, venue detail, and whether another live route on the site is the better first step."
               ],
               "bullets": [
@@ -3101,10 +3100,10 @@
           "pageId": "programme-community-friendship",
           "programmeSlug": "community-friendship",
           "hero": {
-            "title": "A welcoming space to connect, relax, and feel part of something.",
-            "summary": "Community & Friendship is the part of EncouragingYou that puts belonging first: a calm route into conversation, activities, and regular connection without expecting someone to arrive already confident.",
+            "title": "Speak to people, join in at your pace, and feel comfortable coming back.",
+            "summary": "Community & Friendship is the route for games, conversation, low-pressure friendship, and regular connection without expecting someone to arrive already confident.",
             "badges": [
-              "Belonging first",
+              "Games and conversation",
               "Low-pressure first step"
             ],
             "supportingNote": "Based in Rochdale. The linked youth club session is the clearest live route into this programme, and venue details can be shared when someone enquires."
@@ -3112,21 +3111,21 @@
           "experienceSection": {
             "eyebrow": "What participation can feel like",
             "title": "The first experience should feel welcoming, not intimidating.",
-            "summary": "This route is designed to lower the pressure: people can settle in, join activities, talk, or simply get used to the room before they feel fully involved.",
+            "summary": "This route is designed to lower the pressure: young people can settle in, join games, talk, or simply get used to the room before they feel fully involved.",
             "items": [
               {
-                "title": "Welcome without pressure",
-                "summary": "No one needs to prove themselves before they are greeted warmly or allowed time to settle in.",
+                "title": "Start without pressure",
+                "summary": "No one needs to prove themselves before they are welcomed, given time to settle, or invited to join in at their own pace.",
                 "iconAssetId": "icon-safe-space"
               },
               {
-                "title": "Activities with room to settle in",
+                "title": "Games and conversation with room to settle",
                 "summary": "Games, conversation, and chill time create more than one way to take part, so the route does not depend on instant confidence.",
                 "iconAssetId": "icon-youth-activities"
               },
               {
-                "title": "Friendship that builds over time",
-                "summary": "The goal is regular connection and familiarity, not a one-off activity that leaves people on the outside again.",
+                "title": "Friendship that makes returning easier",
+                "summary": "The goal is regular connection and familiarity, so coming back can feel easier as people recognise faces and routines over time.",
                 "iconAssetId": "icon-community-event"
               }
             ]
@@ -3134,11 +3133,11 @@
           "relatedSessionsSection": {
             "eyebrow": "Live route right now",
             "title": "Youth club is the clearest live expression of this programme.",
-            "summary": "The programme page explains the belonging-first offer. The youth club session page carries timings, calendar access, and first-visit logistics.",
+            "summary": "The programme page explains the belonging-first offer. The youth club session page carries exact timing, calendar access, what to expect, and first-visit logistics.",
             "panels": [
               {
                 "title": "Why this page still matters",
-                "body": "This route explains the wider promise of safe space, belonging, and repeat connection so visitors do not have to infer it from a timetable alone.",
+                "body": "This route explains the wider promise of games, conversation, low-pressure friendship, and repeat connection so visitors do not have to infer it from a timetable alone.",
                 "tone": "soft",
                 "iconAssetId": "icon-safe-space"
               },
@@ -3151,7 +3150,7 @@
             ],
             "activeNotice": {
               "title": "Youth club is currently the live route",
-              "body": "If someone is ready for the practical next step, use the youth club session page for timings and calendar details. This programme page still matters because it explains the wider belonging-first promise behind that session.",
+              "body": "If someone is ready for the practical next step, use the youth club session page for exact timing, calendar details, and what to expect. This programme page still matters because it explains the wider belonging-first promise behind that session.",
               "tone": "info"
             },
             "fallbackNotice": {
@@ -3175,10 +3174,10 @@
           "pageId": "programme-personal-growth-life-skills",
           "programmeSlug": "personal-growth-life-skills",
           "hero": {
-            "title": "Build confidence, resilience, and skills for everyday life.",
-            "summary": "Personal Growth & Life Skills is the route for confidence-building, practical development, and supportive guidance when someone needs encouragement as much as information.",
+            "title": "Practise real-life confidence, motivation, and everyday next steps.",
+            "summary": "Personal Growth & Life Skills is for young people who want help speaking up, building motivation, handling everyday situations, and choosing a realistic next step.",
             "badges": [
-              "Confidence-building",
+              "Real-life confidence",
               "Practical next-step support"
             ],
             "supportingNote": "This offer is live at programme level now. Specific workshop formats, dates, or mentor arrangements are not all published yet, so the clearest next step is a short contact message."
@@ -3186,20 +3185,20 @@
           "experienceSection": {
             "eyebrow": "What support here can feel like",
             "title": "Growth support that feels practical, encouraging, and possible to step into.",
-            "summary": "The page helps someone picture the support without pretending every detail is already a public timetable.",
+            "summary": "The page helps someone picture support with confidence, motivation, everyday skills, and next steps without pretending every detail is already a public timetable.",
             "items": [
               {
-                "title": "Confidence without pressure",
-                "summary": "Someone can ask for help, build confidence, and take part without feeling judged for not having everything sorted out yet.",
+                "title": "Speaking up without pressure",
+                "summary": "Someone can ask for help, practise speaking up, and take part without feeling judged for not having everything sorted out yet.",
                 "iconAssetId": "icon-safe-space"
               },
               {
-                "title": "Practical life-skills development",
-                "summary": "The public promise covers practical development, resilience, and skills that help someone handle everyday challenges and future opportunities.",
+                "title": "Everyday skills and motivation",
+                "summary": "The public promise covers practical development, motivation, and skills that help someone handle everyday situations and future opportunities.",
                 "iconAssetId": "icon-growth"
               },
               {
-                "title": "Guidance toward the next step",
+                "title": "Guidance toward a realistic next step",
                 "summary": "This route can include mentoring-style encouragement, workshop learning, or practical guidance, while the exact current format is confirmed honestly on enquiry.",
                 "iconAssetId": "icon-mentoring"
               }
@@ -3212,7 +3211,7 @@
             "panels": [
               {
                 "title": "What this support can include",
-                "body": "Support can include confidence-building, life-skills development, mentoring, motivation, and practical guidance. The public promise stays broad enough to stay truthful while still helping someone recognise the fit.",
+                "body": "Support can include real-life confidence, life-skills development, mentoring, motivation, and practical guidance. The public promise stays broad enough to stay truthful while still helping someone recognise the fit.",
                 "tone": "soft",
                 "iconAssetId": "icon-growth"
               },
@@ -3234,7 +3233,7 @@
               "body": "This page explains what the support is for. Use contact if you want to ask whether confidence-building support, workshop-style learning, or another current route is the best fit right now.",
               "tone": "info",
               "action": {
-                "label": "Contact the team",
+                "label": "Ask a question",
                 "routeId": "contact",
                 "variant": "secondary"
               }
@@ -3244,7 +3243,7 @@
               "title": "Use a short enquiry to work out the right next step.",
               "summary": "The offer is real, but the launch site does not yet publish a separate recurring timetable for this programme. Contact the team and they can guide you toward the right conversation, activity, or live session.",
               "primaryAction": {
-                "label": "Get support",
+                "label": "Ask a question",
                 "routeId": "contact",
                 "variant": "primary"
               },
@@ -3270,13 +3269,13 @@
           "pageId": "programme-career-support-cv-help",
           "programmeSlug": "career-support-cv-help",
           "hero": {
-            "title": "Practical support with CVs, applications, and next steps.",
-            "summary": "Career Support & CV Help is the wider practical-support route for people who need help getting started, strengthening applications, or feeling more ready for work, college, and the next opportunity.",
+            "title": "Get help with CVs, applications, interviews, and next steps.",
+            "summary": "Career Support & CV Help is the wider practical-support route for people who need help with a CV draft, an unfinished application, interview questions, work or college next steps, or getting started.",
             "badges": [
               "Practical first step",
               "Live Saturday route"
             ],
-            "supportingNote": "The Saturday CV support session is the clearest live route into this programme. Use that page for exact timing, calendar access, and what to bring; use this page to understand the wider support promise.",
+            "supportingNote": "The Saturday CV support session is the clearest live route into this programme. Use that page for exact timing, calendar access, what to bring, and how to ask before attending; use this page to understand the wider support promise.",
             "primaryAction": {
               "label": "See CV support",
               "routeId": "session-cv-support",
@@ -3295,17 +3294,17 @@
             "items": [
               {
                 "title": "Bring what you already have",
-                "summary": "A draft CV, an unfinished application, or just a question is enough to start. The programme leaves room for unfinished work and first questions.",
+                "summary": "A draft CV, an unfinished application, an interview question, or no document yet is enough to start. The programme leaves room for unfinished work and first questions.",
                 "iconAssetId": "icon-cv-support"
               },
               {
                 "title": "Practical help that turns into action",
-                "summary": "The public promise is about usable progress: wording, structure, next steps, and guidance someone can apply after the session rather than vague motivation alone.",
+                "summary": "The public promise is about usable progress: wording, structure, interview preparation, next steps, and guidance someone can apply after the session rather than vague motivation alone.",
                 "iconAssetId": "icon-growth"
               },
               {
                 "title": "Confidence grows through clarity",
-                "summary": "Career support here is not just about documents. It helps people feel more ready to ask questions, apply, and take the next step with support around them.",
+                "summary": "Career support here is not just about documents. It helps people feel more ready to ask questions, apply, prepare for interviews, and take the next step with support around them.",
                 "iconAssetId": "icon-mentoring"
               }
             ]
@@ -3313,17 +3312,17 @@
           "relatedSessionsSection": {
             "eyebrow": "Live route right now",
             "title": "CV support is the clearest live expression of this programme.",
-            "summary": "This page explains the wider practical-support route. The CV support session page carries the exact Saturday timing, calendar access, and first-visit detail.",
+            "summary": "This page explains the wider practical-support route. The CV support session page carries the every-Saturday 16:45 timing, 120-minute duration, calendar access, and first-visit detail.",
             "panels": [
               {
                 "title": "Why this page still matters",
-                "body": "This route helps someone recognise that CV help, applications support, and practical next-step guidance fit them before they have to decode a timetable or assume the session is only about one document.",
+                "body": "This route helps someone recognise that CV help, application support, interview preparation, and practical next-step guidance fit them before they have to decode a timetable or assume the session is only about one document.",
                 "tone": "soft",
                 "iconAssetId": "icon-growth"
               },
               {
                 "title": "What the session page owns",
-                "body": "The linked CV support session carries the exact recurrence, add-to-calendar access, and attendance expectations like what to bring. That keeps the programme page from duplicating live logistics.",
+                "body": "The linked CV support session carries the exact recurrence, add-to-calendar access, and attendance expectations like what to bring or how to ask first. That keeps the programme page from duplicating live logistics.",
                 "tone": "muted",
                 "iconAssetId": "icon-cv-support"
               },
@@ -3336,7 +3335,7 @@
             ],
             "activeNotice": {
               "title": "CV support is the live route right now",
-              "body": "If someone wants direct practical help, use the CV support session page for the exact Saturday timing, calendar file, and first-visit detail. This programme page still matters because it frames the wider career-support offer around that session.",
+              "body": "If someone wants direct practical help, use the CV support session page for the every-Saturday 16:45 timing, 120-minute duration, calendar file, and first-visit detail. This programme page still matters because it frames the wider career-support offer around that session.",
               "tone": "info",
               "action": {
                 "label": "See CV support",
@@ -3363,11 +3362,11 @@
           "ctaBand": {
             "eyebrow": "Choose the next practical step",
             "title": "Use the route that matches what someone needs right now.",
-            "summary": "Go straight to the live CV support session if you want practical help on Saturday. Use contact if you want to ask first or need help deciding whether the live session is the right fit.",
+            "summary": "Go straight to the live CV support session if you want practical help on Saturday. Use contact if you want to ask first, bring an unfinished draft, or need help deciding whether the live session is the right fit.",
             "badges": [
               "CV help",
               "Applications",
-              "Next steps"
+              "Interviews"
             ],
             "actions": [
               {
@@ -3389,7 +3388,7 @@
           },
           "evidenceNotice": {
             "title": "Public-proof boundary",
-            "body": "This page stays focused on the public essentials: CV help, applications support, job readiness, and next-step guidance. Employment placements, guaranteed outcomes, named advisers, or wider coaching models stay out until they are approved for publication.",
+            "body": "This page stays focused on the public essentials: CV help, applications support, interview preparation, work or college next steps, and next-step guidance. Employment placements, guaranteed outcomes, named advisers, or wider coaching models stay out until they are approved for publication.",
             "tone": "info"
           }
         },
@@ -3595,8 +3594,8 @@
           "programmeIds": [
             "career-support-cv-help"
           ],
-          "summary": "One-to-one help with CVs, applications, and practical next steps before youth club starts.",
-          "eventDescription": "One-to-one help with CVs, job applications, and practical next steps in Rochdale.",
+          "summary": "One-to-one help with CVs, applications, interviews, and practical work or college next steps before youth club starts.",
+          "eventDescription": "One-to-one help with CVs, applications, interviews, and practical next steps in Rochdale.",
           "audiences": [
             "young-people",
             "parents-carers",
@@ -3646,11 +3645,12 @@
           "trustNotes": [
             "Specific venue details can be shared on enquiry.",
             "The session is designed to feel practical and calm rather than intimidating.",
-            "Safeguarding and privacy routes stay visible throughout the session journey."
+            "Safeguarding and privacy routes stay visible throughout the session journey.",
+            "You can ask before attending if you are unsure what to bring or whether the session fits."
           ],
           "featureBullets": [
-            "Bring what you already have, even if that is only a question or a blank document.",
-            "Work through applications, wording, structure, and the next practical step.",
+            "Bring what you already have, even if that is a draft CV, unfinished application, interview question, blank document, or first question.",
+            "Work through applications, wording, structure, interview preparation, and the next practical step.",
             "Leave with something clearer and more usable than when you arrived."
           ],
           "faqGroupIds": [
@@ -3659,7 +3659,7 @@
           "featuredMediaId": "programme-career-support",
           "featuredIconId": "icon-cv-support",
           "primaryCtaId": "join-session",
-          "seoDescription": "Join EncouragingYou's Saturday CV support session in Rochdale for one-to-one help with CVs, applications, and practical next steps."
+          "seoDescription": "Join EncouragingYou's Saturday CV support session in Rochdale for one-to-one help with CVs, applications, interviews, and practical next steps."
         },
         {
           "slug": "youth-club",
@@ -3670,8 +3670,8 @@
           "programmeIds": [
             "community-friendship"
           ],
-          "summary": "Games, conversation, and a welcoming place to build friendships without needing to know anyone first.",
-          "eventDescription": "Games, activities, chill time, and friendship-building in a welcoming youth club space.",
+          "summary": "Games, conversation, and a low-pressure place to meet people, join in at your pace, and feel comfortable coming back.",
+          "eventDescription": "Games, activities, conversation, chill time, and low-pressure friendship in a welcoming youth club space.",
           "audiences": [
             "young-people",
             "parents-carers"
@@ -3727,7 +3727,7 @@
             "Come as you are. You do not need to know anyone first.",
             "Games, activities, conversation, and chill time give more than one way to take part.",
             "A quieter first visit is okay, and no one has to perform confidence straight away.",
-            "The weekly rhythm helps people recognise familiar faces and build friendships over time."
+            "The weekly rhythm helps people recognise familiar faces, feel comfortable coming back, and build friendships over time."
           ],
           "faqGroupIds": [
             "session-youth-club"
@@ -3735,7 +3735,7 @@
           "featuredMediaId": "programme-community-friendship",
           "featuredIconId": "icon-youth-activities",
           "primaryCtaId": "join-session",
-          "seoDescription": "Join EncouragingYou's Saturday youth club in Rochdale for games, conversation, and a welcoming space to build friendships at your own pace."
+          "seoDescription": "Join EncouragingYou's Saturday youth club in Rochdale for games, conversation, low-pressure friendship, and a welcoming space to join in at your own pace."
         }
       ]
     },
@@ -3746,10 +3746,10 @@
           "sessionSlug": "cv-support",
           "intro": {
             "eyebrow": "Saturday session",
-            "title": "CV support that is practical, calm, and one-to-one.",
+            "title": "CV support for drafts, applications, interviews, and next steps.",
             "locationNotePrefix": "Based in",
             "locationNoteSuffix": "Exact venue details are shared on enquiry.",
-            "supportingNote": "You can ask about the session before attending, including on someone else's behalf."
+            "supportingNote": "You can ask about the session before attending, including what to bring or whether it is the right fit."
           },
           "actions": {
             "joinLabel": "Ask to join",
@@ -3758,13 +3758,13 @@
           "atAGlanceSection": {
             "eyebrow": "At a glance",
             "title": "Know the shape of the session before you travel.",
-            "summary": "Timing, venue handling, who it suits, and what to bring are visible without making the route feel formal.",
+            "summary": "CV support runs every Saturday at 16:45 for 120 minutes. Timing, venue handling, who it suits, and what to bring are visible without making the route feel formal.",
             "timingLabel": "When it runs",
             "locationLabel": "Where it happens",
             "audienceLabel": "Who can use it",
             "audienceSummary": "Young people can come for direct help, and parents, carers, or referrers can ask first if they need to check the fit.",
             "bringLabel": "What to bring",
-            "bringSummary": "A draft CV, a blank document, screenshots, notes, or just the question you need help with."
+            "bringSummary": "A draft CV, unfinished application, interview question, blank document, screenshots, notes, or just the question you need help with."
           },
           "expectationSection": {
             "eyebrow": "What to expect",
@@ -3774,19 +3774,19 @@
             "items": [
               {
                 "title": "Start from where you are",
-                "body": "Bring a CV draft, an application, or nothing at all. The session begins with what you already have and what feels stuck.",
+                "body": "Bring a CV draft, an unfinished application, an interview question, or nothing at all. The session begins with what you already have and what feels stuck.",
                 "tone": "soft",
                 "iconAssetId": "icon-cv-support"
               },
               {
-                "title": "Work on real wording and next steps",
-                "body": "Support can cover structure, wording, applications, confidence for asking questions, and practical planning after the session.",
+                "title": "Work on real wording, applications, and interviews",
+                "body": "Support can cover structure, wording, applications, interview preparation, confidence for asking questions, and practical planning after the session.",
                 "tone": "default",
                 "iconAssetId": "icon-mentoring"
               },
               {
                 "title": "Leave with something clearer",
-                "body": "The aim is progress you can use straight away, such as a stronger CV, a clearer application, or a better sense of the next action.",
+                "body": "The aim is progress you can use straight away, such as a stronger CV, a clearer application, interview notes, or a better sense of the next action.",
                 "tone": "soft",
                 "iconAssetId": "icon-growth"
               }
@@ -3800,7 +3800,7 @@
             "items": [
               {
                 "title": "Ask before attending",
-                "body": "If you want to check the session is right, contact is okay before travelling. This also works for parents, carers, and referrers.",
+                "body": "If you want to check the session is right, what to bring, or whether an unfinished draft is enough, contact is okay before travelling. This also works for parents, carers, and referrers.",
                 "tone": "soft",
                 "iconAssetId": "icon-contact"
               },
@@ -3819,7 +3819,7 @@
             ],
             "note": {
               "title": "Not sure if this is the right route?",
-              "body": "Use the contact path if you want to check the session, ask on someone else's behalf, or explain a need briefly before anyone travels.",
+              "body": "Use the contact path if you want to check the session, ask what to bring, ask on someone else's behalf, or explain a need briefly before anyone travels.",
               "tone": "info",
               "action": {
                 "label": "Contact the team",
@@ -3831,7 +3831,7 @@
           "relatedProgrammeSection": {
             "eyebrow": "Wider route",
             "title": "This session sits inside the wider Career Support & CV Help route.",
-            "summary": "The programme page explains the broader support offer. This session page owns the exact Saturday timing, calendar file, and first-visit detail.",
+            "summary": "The programme page explains the broader support offer. This session page owns the every-Saturday 16:45 timing, 120-minute duration, calendar file, and first-visit detail.",
             "actionLabel": "See wider route"
           },
           "faqSection": {
@@ -3857,7 +3857,7 @@
             "badges": [
               "Low-pressure first step",
               "Rochdale-based",
-              "Calendar download available"
+              "16:45 every Saturday"
             ],
             "actions": [
               {
@@ -3893,7 +3893,7 @@
           "sessionSlug": "youth-club",
           "intro": {
             "eyebrow": "Saturday session",
-            "title": "Youth club built around welcome, friendship, and safe space.",
+            "title": "Youth club with games, conversation, and space to join in at your pace.",
             "locationNotePrefix": "Based in",
             "locationNoteSuffix": "Exact venue details are shared on enquiry.",
             "supportingNote": "Come as you are. If a first visit feels like a big step, a young person or parent/carer can ask first."
@@ -3905,7 +3905,7 @@
           "atAGlanceSection": {
             "eyebrow": "At a glance",
             "title": "Make the first visit feel welcoming before anyone travels.",
-            "summary": "The route shows the weekly rhythm, how participation can look, and how venue detail is handled without turning the session into a formal intake process.",
+            "summary": "Youth club runs every Saturday at 18:45 for 120 minutes. The route shows how participation can look and how venue detail is handled without turning the session into a formal intake process.",
             "timingLabel": "When it runs",
             "locationLabel": "Where it happens",
             "audienceLabel": "Who it is for",
@@ -3916,12 +3916,12 @@
           "expectationSection": {
             "eyebrow": "What to expect",
             "title": "A first visit should feel welcoming, social, and easy to grow into.",
-            "summary": "The value here is atmosphere, repeated attendance, and connection over time rather than a one-off task.",
+            "summary": "The value here is games, conversation, repeated attendance, and connection over time rather than a one-off task.",
             "checklistTitle": "The core session promise",
             "items": [
               {
                 "title": "Arrive without needing a perfect reason",
-                "body": "Someone can come for company, activities, conversation, or simply to try the space.",
+                "body": "Someone can come for company, games, activities, conversation, or simply to try the space.",
                 "tone": "soft",
                 "iconAssetId": "icon-safe-space"
               },
@@ -3953,7 +3953,7 @@
               },
               {
                 "title": "Take the pressure off arrival",
-                "body": "The public page makes room for someone who joins in straight away and someone who needs a little time to look around and settle.",
+                "body": "The public page makes room for someone who joins in straight away and someone who needs a little time to look around, listen, and settle.",
                 "tone": "default",
                 "iconAssetId": "icon-safe-space"
               },
@@ -3978,7 +3978,7 @@
           "relatedProgrammeSection": {
             "eyebrow": "Wider route",
             "title": "This session sits inside the wider Community & Friendship route.",
-            "summary": "The programme page explains the broader belonging-first route across community and friendship. This session page owns the live Saturday timing, calendar file, and first-visit detail.",
+            "summary": "The programme page explains the broader route for speaking to people, joining in at your pace, and feeling comfortable coming back. This session page owns the every-Saturday 18:45 timing, 120-minute duration, calendar file, and first-visit detail.",
             "actionLabel": "See wider route"
           },
           "faqSection": {
@@ -4004,7 +4004,7 @@
             "badges": [
               "Low-pressure first step",
               "Rochdale-based",
-              "Calendar download available"
+              "18:45 every Saturday"
             ],
             "actions": [
               {
@@ -4445,7 +4445,7 @@
           "items": [
             {
               "question": "What happens at the CV sessions?",
-              "answer": "Visitors can get one-to-one help with their CV, job applications, and planning their next step before youth club starts.",
+              "answer": "Visitors can get one-to-one help with CVs, applications, interviews, and planning their next step before youth club starts.",
               "audienceTags": [
                 "young-people",
                 "parents-carers",
@@ -4481,7 +4481,7 @@
           "items": [
             {
               "question": "Do I need to bring anything to CV support?",
-              "answer": "A draft CV, a blank document, or just some questions is enough. The current source copy does not require people to arrive prepared.",
+              "answer": "A draft CV, unfinished application, interview question, blank document, or just some questions is enough. The current source copy does not require people to arrive prepared.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4489,7 +4489,7 @@
             },
             {
               "question": "Do I need to know anyone before I come to youth club?",
-              "answer": "No. The youth club offer is described as a low-pressure space where people can settle in at their own pace.",
+              "answer": "No. The youth club offer is described as a low-pressure space with games, activities, conversation, and room to settle in at your own pace.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4497,7 +4497,7 @@
             },
             {
               "question": "Where does the session take place?",
-              "answer": "The confirmed public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+              "answer": "The confirmed public location anchor is Rochdale. Exact venue details are shared on enquiry.",
               "audienceTags": [
                 "young-people",
                 "parents-carers",
@@ -4604,7 +4604,7 @@
           "items": [
             {
               "question": "Do I need to know anyone before I come?",
-              "answer": "No. The Community & Friendship route is built around welcome, low pressure, and giving people room to settle in at their own pace.",
+              "answer": "No. The Community & Friendship route is built around welcome, low pressure, games, conversation, and giving people room to settle in at their own pace.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4612,7 +4612,7 @@
             },
             {
               "question": "Is this only for people who already feel confident?",
-              "answer": "No. The public source material supports the opposite: this route exists so people can connect, relax, and feel part of something before they are fully confident.",
+              "answer": "No. The public source material supports the opposite: this route exists so people can speak to people, join in at their pace, and feel comfortable coming back before they are fully confident.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4620,7 +4620,7 @@
             },
             {
               "question": "Will the exact venue be listed publicly?",
-              "answer": "Rochdale is the confirmed public location anchor. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+              "answer": "Rochdale is the confirmed public location anchor. Exact venue details are shared on enquiry.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4628,7 +4628,7 @@
             },
             {
               "question": "What if I am not ready to join the youth club session yet?",
-              "answer": "Use the contact route. The programme page explains the belonging-first offer, and you can ask questions before deciding whether youth club is the right next step.",
+              "answer": "Use the contact route. The programme page explains the games, conversation, and belonging-first offer, and you can ask questions before deciding whether youth club is the right next step.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4645,7 +4645,7 @@
           "items": [
             {
               "question": "Is this only for people who already feel confident?",
-              "answer": "No. This route exists precisely because some people need encouragement, guidance, and room to build confidence before bigger opportunities feel realistic.",
+              "answer": "No. This route exists precisely because some people need encouragement, guidance, motivation, and room to practise real-life confidence before bigger opportunities feel realistic.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4662,7 +4662,7 @@
             },
             {
               "question": "Is this mentoring, workshops, or one-to-one support?",
-              "answer": "Support can include confidence-building, life-skills workshops, mentoring, and practical guidance. The exact format depends on what is currently running, so the best next step is to ask through the contact route and have the current format confirmed on enquiry.",
+              "answer": "Support can include real-life confidence, life-skills workshops, mentoring, motivation, and practical guidance. The exact format depends on what is currently running, so the best next step is to ask through the contact route and have the current format confirmed on enquiry.",
               "audienceTags": [
                 "young-people",
                 "parents-carers",
@@ -4688,7 +4688,7 @@
           "items": [
             {
               "question": "Do you actually help with CVs?",
-              "answer": "Yes. Public information confirms practical help with CV writing, applications, and next steps, and the live Saturday CV support session is the clearest route into that help.",
+              "answer": "Yes. Public information confirms practical help with CV writing, applications, interviews, and next steps, and the live Saturday CV support session is the clearest route into that help.",
               "audienceTags": [
                 "young-people",
                 "parents-carers",
@@ -4697,7 +4697,7 @@
             },
             {
               "question": "Is this only for people who are already job-ready?",
-              "answer": "No. This route is for people who need practical support, clearer next steps, or more confidence before work, college, or application decisions feel manageable.",
+              "answer": "No. This route is for people who need practical support, clearer next steps, or more confidence before work, college, interviews, or application decisions feel manageable.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4714,7 +4714,7 @@
             },
             {
               "question": "What should I bring if I use the live session?",
-              "answer": "Bring what you already have, even if that is just a draft CV, a blank document, or some questions. The session page keeps the most practical attendance detail, while this programme page explains the wider fit of the support.",
+              "answer": "Bring what you already have, even if that is just a draft CV, an unfinished application, an interview question, a blank document, or some questions. The session page keeps the most practical attendance detail, while this programme page explains the wider fit of the support.",
               "audienceTags": [
                 "young-people",
                 "parents-carers"
@@ -4886,7 +4886,7 @@
             },
             {
               "question": "Do you already publish partner logos, packages, or case studies?",
-              "answer": "Not yet. The route stays clear without publishing unapproved logos, case studies, or testimonials.",
+              "answer": "Not yet. The route stays clear without publishing unapproved logos, case studies, or proof quotes.",
               "audienceTags": [
                 "partners",
                 "funders",
@@ -7702,7 +7702,7 @@
         {
           "id": "child",
           "pageId": "safeguarding-child",
-          "audienceLabel": "Child or young person under 18",
+          "audienceLabel": "Child or young person",
           "title": "Child safeguarding",
           "summary": "Use this route when the concern is about a child or young person who may be at risk of abuse, neglect, exploitation, grooming, unsafe treatment, or serious welfare harm.",
           "appliesTo": [
@@ -7742,7 +7742,7 @@
           "summary": "This route is for concerns about a child or young person. It keeps the emergency boundary, the reporting route, and the basic safeguarding expectations visible without turning the page into a dense policy document.",
           "appliesToTitle": "Use the child safeguarding route when",
           "appliesTo": [
-            "the concern is about a child or young person under 18",
+            "the concern is about a child or young person",
             "you are worried about abuse, neglect, exploitation, grooming, or unsafe treatment",
             "a disclosure, incident, or pattern of behaviour makes you think a child may not be safe"
           ],
@@ -7816,7 +7816,7 @@
             "Describe the risk, the immediate situation, and any urgent welfare concern.",
             "Explain how you know about the concern and whether anyone else is already involved.",
             "Include contact details for yourself so the team can respond if needed.",
-            "Use the child safeguarding route instead if the concern is really about someone under 18."
+            "Use the child safeguarding route instead if the concern is really about a child or young person."
           ],
           "limitationsTitle": "What this page does not promise",
           "limitations": [

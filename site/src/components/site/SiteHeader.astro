@@ -17,6 +17,11 @@ interface Props {
 }
 
 const { brand, utilityItems, items, cta, currentPath } = Astro.props;
+
+const currentNavItem =
+  items
+    .filter((item) => isActivePath(currentPath, item.href))
+    .sort((a, b) => b.href.length - a.href.length)[0] ?? null;
 ---
 
 <header
@@ -64,7 +69,10 @@ const { brand, utilityItems, items, cta, currentPath } = Astro.props;
       data-nav-toggle
       data-motion="emphasis"
     >
-      Menu
+      <span class="site-header__menu-label" data-nav-toggle-label>Menu</span>
+      <span class="site-header__menu-icon" aria-hidden="true">
+        <span></span>
+      </span>
     </button>
 
     <div
@@ -79,9 +87,9 @@ const { brand, utilityItems, items, cta, currentPath } = Astro.props;
             items.map((item) => (
               <li>
                 <a
-                  class={`site-nav__link${isActivePath(currentPath, item.href) ? " is-current" : ""}`}
+                  class={`site-nav__link${currentNavItem?.href === item.href ? " is-current" : ""}`}
                   href={item.href}
-                  aria-current={isActivePath(currentPath, item.href) ? "page" : undefined}
+                  aria-current={currentNavItem?.href === item.href ? "page" : undefined}
                   data-motion="feedback"
                 >
                   {item.label}

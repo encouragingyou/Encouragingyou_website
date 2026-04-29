@@ -7,7 +7,7 @@
       "items": [
         {
           "question": "What happens at the CV sessions?",
-          "answer": "Visitors can get one-to-one help with their CV, job applications, and planning their next step before youth club starts.",
+          "answer": "Visitors can get one-to-one help with CVs, applications, interviews, and planning their next step before youth club starts.",
           "audienceTags": ["young-people", "parents-carers", "referrers"]
         },
         {
@@ -29,17 +29,17 @@
       "items": [
         {
           "question": "Do I need to bring anything to CV support?",
-          "answer": "A draft CV, a blank document, or just some questions is enough. The current source copy does not require people to arrive prepared.",
+          "answer": "A draft CV, unfinished application, interview question, blank document, or just some questions is enough. The current source copy does not require people to arrive prepared.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
           "question": "Do I need to know anyone before I come to youth club?",
-          "answer": "No. The youth club offer is described as a low-pressure space where people can settle in at their own pace.",
+          "answer": "No. The youth club offer is described as a low-pressure space with games, activities, conversation, and room to settle in at your own pace.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
           "question": "Where does the session take place?",
-          "answer": "The confirmed public location anchor is Rochdale. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+          "answer": "The confirmed public location anchor is Rochdale. Exact venue details are shared on enquiry.",
           "audienceTags": ["young-people", "parents-carers", "referrers"]
         }
       ]
@@ -110,22 +110,22 @@
       "items": [
         {
           "question": "Do I need to know anyone before I come?",
-          "answer": "No. The Community & Friendship route is built around welcome, low pressure, and giving people room to settle in at their own pace.",
+          "answer": "No. The Community & Friendship route is built around welcome, low pressure, games, conversation, and giving people room to settle in at their own pace.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
           "question": "Is this only for people who already feel confident?",
-          "answer": "No. The public source material supports the opposite: this route exists so people can connect, relax, and feel part of something before they are fully confident.",
+          "answer": "No. The public source material supports the opposite: this route exists so people can speak to people, join in at their pace, and feel comfortable coming back before they are fully confident.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
           "question": "Will the exact venue be listed publicly?",
-          "answer": "Rochdale is the confirmed public location anchor. Specific venue details can be shared on enquiry until the organisation confirms a public-address policy.",
+          "answer": "Rochdale is the confirmed public location anchor. Exact venue details are shared on enquiry.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
           "question": "What if I am not ready to join the youth club session yet?",
-          "answer": "Use the contact route. The programme page explains the belonging-first offer, and you can ask questions before deciding whether youth club is the right next step.",
+          "answer": "Use the contact route. The programme page explains the games, conversation, and belonging-first offer, and you can ask questions before deciding whether youth club is the right next step.",
           "audienceTags": ["young-people", "parents-carers"]
         }
       ]
@@ -137,7 +137,7 @@
       "items": [
         {
           "question": "Is this only for people who already feel confident?",
-          "answer": "No. This route exists precisely because some people need encouragement, guidance, and room to build confidence before bigger opportunities feel realistic.",
+          "answer": "No. This route exists precisely because some people need encouragement, guidance, motivation, and room to practise real-life confidence before bigger opportunities feel realistic.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
@@ -147,7 +147,7 @@
         },
         {
           "question": "Is this mentoring, workshops, or one-to-one support?",
-          "answer": "Support can include confidence-building, life-skills workshops, mentoring, and practical guidance. The exact format depends on what is currently running, so the best next step is to ask through the contact route and have the current format confirmed on enquiry.",
+          "answer": "Support can include real-life confidence, life-skills workshops, mentoring, motivation, and practical guidance. The exact format depends on what is currently running, so the best next step is to ask through the contact route and have the current format confirmed on enquiry.",
           "audienceTags": ["young-people", "parents-carers", "referrers"]
         },
         {
@@ -164,12 +164,12 @@
       "items": [
         {
           "question": "Do you actually help with CVs?",
-          "answer": "Yes. Public information confirms practical help with CV writing, applications, and next steps, and the live Saturday CV support session is the clearest route into that help.",
+          "answer": "Yes. Public information confirms practical help with CV writing, applications, interviews, and next steps, and the live Saturday CV support session is the clearest route into that help.",
           "audienceTags": ["young-people", "parents-carers", "referrers"]
         },
         {
           "question": "Is this only for people who are already job-ready?",
-          "answer": "No. This route is for people who need practical support, clearer next steps, or more confidence before work, college, or application decisions feel manageable.",
+          "answer": "No. This route is for people who need practical support, clearer next steps, or more confidence before work, college, interviews, or application decisions feel manageable.",
           "audienceTags": ["young-people", "parents-carers"]
         },
         {
@@ -179,7 +179,7 @@
         },
         {
           "question": "What should I bring if I use the live session?",
-          "answer": "Bring what you already have, even if that is just a draft CV, a blank document, or some questions. The session page keeps the most practical attendance detail, while this programme page explains the wider fit of the support.",
+          "answer": "Bring what you already have, even if that is just a draft CV, an unfinished application, an interview question, a blank document, or some questions. The session page keeps the most practical attendance detail, while this programme page explains the wider fit of the support.",
           "audienceTags": ["young-people", "parents-carers"]
         }
       ]
@@ -292,7 +292,7 @@
         },
         {
           "question": "Do you already publish partner logos, packages, or case studies?",
-          "answer": "Not yet. The route stays clear without publishing unapproved logos, case studies, or testimonials.",
+          "answer": "Not yet. The route stays clear without publishing unapproved logos, case studies, or proof quotes.",
           "audienceTags": ["partners", "funders", "community-members"]
         },
         {

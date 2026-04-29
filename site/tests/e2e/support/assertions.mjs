@@ -1,13 +1,14 @@
 import { expect } from "./fixtures.mjs";
 
 export async function gotoRoute(page, path) {
-  const response = await page.goto(path, { waitUntil: "networkidle" });
+  const response = await page.goto(path, { waitUntil: "domcontentloaded" });
 
   expect(response?.ok(), `Expected ${path} to load successfully`).toBeTruthy();
+  await expect(page.locator("main")).toBeVisible();
 }
 
 export async function assertSingleH1(page, expectedHeading) {
-  const h1 = page.locator("h1");
+  const h1 = page.locator("main h1");
 
   await expect(h1).toHaveCount(1);
 

@@ -3,20 +3,34 @@ import CardPanel from "./CardPanel.astro";
 import type { MediaAsset } from "../../lib/types/site-ui";
 
 interface Props {
+  className?: string;
   title: string;
   summary: string;
   href: string;
   icon: MediaAsset;
 }
 
-const { title, summary, href, icon } = Astro.props;
+const { className = "", title, summary, href, icon } = Astro.props;
+const idBase = title
+  .toLowerCase()
+  .replace(/&/g, "and")
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
+const headingId = `route-card-${idBase}-title`;
+const summaryId = `route-card-${idBase}-summary`;
 ---
 
 <CardPanel
-  className="action-card"
+  className={`action-card${className ? ` ${className}` : ""}`}
   heading={title}
+  headingId={headingId}
   headingLevel={3}
   href={href}
   icon={icon}
   summary={summary}
+  summaryId={summaryId}
+  aria-labelledby={headingId}
+  aria-describedby={summaryId}
+  data-route-card
+  data-motion="reveal emphasis route-card"
 />

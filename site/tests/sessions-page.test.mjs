@@ -20,7 +20,9 @@ test("sessions route content defines live comparison, reassurance, and escalatio
     page.intro.title,
     "Recurring offers that are easy to understand and easy to return to."
   );
-  assert.equal(page.actions.primaryLabel, "Get support");
+  assert.match(page.intro.summary, /CV support at 16:45 and youth club at 18:45/u);
+  assert.match(page.intro.supportingText, /every Saturday for 120 minutes/u);
+  assert.equal(page.actions.primaryLabel, "Ask a question");
   assert.equal(page.actions.secondaryLabel, "See programmes");
   assert.equal(
     page.scheduleSection.title,
@@ -43,6 +45,10 @@ test("session domain keeps each live route attached to a wider programme instead
   assert.equal(youthClub.calendar.status, "available");
   assert.equal(cvSupport.location.disclosurePolicy, "shared-on-enquiry");
   assert.equal(youthClub.location.disclosurePolicy, "shared-on-enquiry");
+  assert.equal(cvSupport.schedule.startTime, "16:45");
+  assert.equal(youthClub.schedule.startTime, "18:45");
+  assert.equal(cvSupport.schedule.durationMinutes, 120);
+  assert.equal(youthClub.schedule.durationMinutes, 120);
 });
 
 test("sessions route uses the live-rail and dedicated hub-card components rather than the old summary-card listing", async () => {
